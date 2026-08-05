@@ -1,0 +1,22 @@
+# Node / Next.js
+node_modules/
+.next/
+out/
+apps/web/.env.local
+*.tsbuildinfo
+next-env.d.ts
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+services/predictor/.env
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
