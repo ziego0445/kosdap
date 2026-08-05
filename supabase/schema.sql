@@ -26,6 +26,8 @@ create table if not exists predictions (
   range_high numeric not null,
   factors jsonb not null default '[]',
   is_weekend boolean not null default false,
+  is_low_sample boolean not null default true,  -- 백테스트 표본이 작아 검증 중인 단계인지 (docs/PRD.md 4.2)
+  sample_size_days integer not null default 0,
   created_at timestamptz not null default now()
 );
 create index if not exists idx_predictions_symbol_time

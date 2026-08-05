@@ -4,48 +4,59 @@ import { PredictionHistoryRow, StockPrediction } from "./types";
  * Placeholder data shown until the Python predictor service is wired up to
  * Supabase. Replace calls to these with real Supabase queries once
  * `predictions` / `prediction_accuracy` tables have live rows.
+ *
+ * 아래 값은 2026-08-06 실제 predictor 파이프라인(services/predictor/main.py)을
+ * 라이브로 돌려서 나온 실제 출력을 그대로 옮긴 것 (mock이지만 허구의 숫자는
+ * 아님). 정확도(recentAccuracy)는 같은 날 백테스트의 방향 적중률(direction
+ * accuracy, 극단치 제외) 값을 사용 — docs/PRD.md 4.2 참고.
  */
 export const mockPredictions: StockPrediction[] = [
   {
     symbol: "SAMSUNG",
     name: "삼성전자",
     ticker: "005930",
-    currentPrice: 82000,
-    predictedPrice: 83763,
-    changePercent: 2.15,
-    confidence: 87,
-    probabilityUp: 78,
-    rangeLow: 82900,
-    rangeHigh: 84500,
-    recentAccuracy: 83,
+    currentPrice: 246000,
+    predictedPrice: 242423,
+    changePercent: -1.45,
+    confidence: 79,
+    probabilityUp: 39.5,
+    rangeLow: 229148,
+    rangeHigh: 255698,
+    recentAccuracy: 63,
     isWeekend: false,
+    isLowSample: true,
+    sampleSizeDays: 40,
     asOf: new Date().toISOString(),
     factors: [
-      { label: "SMSN 토큰(Hyperliquid)", contribution: 1.6 },
-      { label: "Nvidia", contribution: 4.2 },
-      { label: "SOXX", contribution: 1.8 },
-      { label: "DXY", contribution: -0.6 },
+      { label: "VIX", contribution: 0.234 },
+      { label: "토큰화 주식/선물(Bybit)", contribution: -0.141 },
+      { label: "SOXX", contribution: -0.12 },
+      { label: "Nvidia", contribution: 0.048 },
+      { label: "SMH", contribution: -0.047 },
     ],
   },
   {
     symbol: "SKHYNIX",
     name: "SK하이닉스",
     ticker: "000660",
-    currentPrice: 215000,
-    predictedPrice: 219200,
-    changePercent: 1.95,
-    confidence: 90,
-    probabilityUp: 81,
-    rangeLow: 217500,
-    rangeHigh: 221000,
-    recentAccuracy: 85,
+    currentPrice: 1668000,
+    predictedPrice: 1637251,
+    changePercent: -1.84,
+    confidence: 76.6,
+    probabilityUp: 39.2,
+    rangeLow: 1527407,
+    rangeHigh: 1747094,
+    recentAccuracy: 71,
     isWeekend: false,
+    isLowSample: true,
+    sampleSizeDays: 40,
     asOf: new Date().toISOString(),
     factors: [
-      { label: "SKHYB 토큰(Binance)", contribution: 2.3 },
-      { label: "Nvidia", contribution: 4.2 },
-      { label: "Micron", contribution: 1.1 },
-      { label: "USD/KRW", contribution: -0.3 },
+      { label: "토큰화 주식/선물(Bybit)", contribution: -0.407 },
+      { label: "VIX", contribution: 0.174 },
+      { label: "SOXX", contribution: -0.155 },
+      { label: "SMH", contribution: -0.06 },
+      { label: "Nvidia", contribution: 0.057 },
     ],
   },
 ];

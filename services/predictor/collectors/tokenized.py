@@ -47,33 +47,52 @@ def fetch_bybit_price(symbol: str) -> float | None:
         return None
 
 
+KRX_CLOSE_HOUR_UTC = 6  # KST 15:30 장마감 ≈ UTC 06:30 (근사치, 조기폐장/휴장일 미반영)
+KRX_CLOSE_MINUTE_UTC = 30
+
+
 def fetch_bybit_daily_close(symbol: str, trade_date: str) -> float | None:
-    """`trade_date`("YYYY-MM-DD", UTC 기준)에 해당하는 Bybit 일봉 종가.
+    """호환용 래퍼. fetch_bybit_close_at_krx_close를 쓸 것 — 아래 설명 참고."""
+    return fetch_bybit_close_at_krx_close(symbol, trade_date)
+
+
+def fetch_bybit_close_at_krx_close(symbol: str, trade_date: str) -> float | None:
+    """`trade_date`("YYYY-MM-DD")의 KRX 장마감 시각(KST 15:30 ≈ UTC 06:30)에
+    가장 가까운 Bybit 시간봉 종가.
 
     token_change_percent 계산의 기준가(basis)로 쓴다: 토큰가(USDT)와 KRX
-    종가(KRW)는 통화가 달라 직접 비교할 수 없으므로, "KRX 마감일의 토큰
-    종가" 대비 "현재 토큰가"의 변동률(같은 통화, USDT/USDT)을 구해서 그
+    종가(KRW)는 통화가 달라 직접 비교할 수 없으므로, "KRX 마감 시점의 토큰
+    가격" 대비 "현재 토큰가"의 변동률(같은 통화, USDT/USDT)을 구해서 그
     비율을 KRW 종가에 곱하는 방식으로 우회한다.
 
-    주의: Bybit 일봉은 UTC 00:00 기준이라 KST(UTC+9) 장마감 시각과 정확히
-    일치하진 않음 — 1차 근사치. 정밀도가 필요해지면 시간 단위 kline으로
-    교체할 것.
+    실측으로 발견한 버그: 처음엔 일봉(UTC 00:00~24:00 단위)을 썼는데, KRX
+    마감(UTC 06:30)이 그 UTC 일봉 구간의 초반부라 "그날 일봉 종가"는 실제로
+    다음날 KST 08:59까지의 가격을 반영해버림 — 조회 시점이 마침 그 근처면
+    기준가와 현재가가 사실상 같아져서 token_change가 0에 수렴하는 문제가
+    있었다. 시간봉으로 마감 시각에 정확히 맞춰서 해결.
     """
     try:
+        target = datetime.strptime(trade_date, "%Y-%m-%d").replace(
+            hour=KRX_CLOSE_HOUR_UTC, minute=KRX_CLOSE_MINUTE_UTC, tzinfo=UTC
+        )
         resp = requests.get(
             BYBIT_KLINE_URL,
-            params={"category": "linear", "symbol": symbol, "interval": "D", "limit": 10},
+            params={
+                "category": "linear",
+                "symbol": symbol,
+                "interval": "60",
+                "end": int(target.timestamp() * 1000),
+                "limit": 3,
+            },
             timeout=10,
         )
         resp.raise_for_status()
         rows = resp.json().get("result", {}).get("list", [])
-        for row in rows:
-            candle_date = datetime.fromtimestamp(int(row[0]) / 1000, tz=UTC).strftime("%Y-%m-%d")
-            if candle_date == trade_date:
-                return float(row[4])  # close
-        return None
+        if not rows:
+            return None
+        return float(rows[0][4])  # 가장 최근(=target 이하 중 최신) 캔들의 종가
     except Exception:
-        logger.exception("Bybit daily close fetch failed for %s @ %s", symbol, trade_date)
+        logger.exception("Bybit hourly close fetch failed for %s @ %s", symbol, trade_date)
         return None
 
 

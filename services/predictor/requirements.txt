@@ -5,3 +5,4 @@ yfinance>=0.2.40
 python-dotenv>=1.0
 supabase>=2.4
 apscheduler>=3.10
+beautifulsoup4>=4.12

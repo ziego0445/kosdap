@@ -23,9 +23,19 @@ export function StockCard({ data }: { data: StockPrediction }) {
           <CardTitle className="text-xl">{data.name}</CardTitle>
           <p className="text-sm text-muted-foreground">{data.ticker}</p>
         </div>
-        {data.isWeekend && (
-          <Badge variant="secondary">주말 · 신규 데이터 제한</Badge>
-        )}
+        <div className="flex flex-col items-end gap-1">
+          {data.isWeekend && (
+            <Badge variant="secondary">주말 · 신규 데이터 제한</Badge>
+          )}
+          {data.isLowSample && (
+            <Badge
+              variant="outline"
+              className="border-amber-500 text-amber-600"
+            >
+              검증 중 · 표본 {data.sampleSizeDays}일
+            </Badge>
+          )}
+        </div>
       </CardHeader>
 
       <CardContent className="space-y-4">

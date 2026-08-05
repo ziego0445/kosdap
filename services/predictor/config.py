@@ -23,17 +23,17 @@ INTERVAL_FLOWS_SECONDS = int(os.getenv("INTERVAL_FLOWS_SECONDS", "86400"))  # on
 SYMBOLS = {
     "SAMSUNG": {
         "name": "삼성전자",
-        "krx_ticker": "005930.KS",
-        "token_source": "hyperliquid",
-        "token_symbol": "SMSN",
+        "krx_ticker": "005930.KS",  # yfinance용
+        "krx_code": "005930",  # 네이버 금융 등 국내 소스용 (접미사 없음)
     },
     "SKHYNIX": {
         "name": "SK하이닉스",
         "krx_ticker": "000660.KS",
-        "token_source": "binance",
-        "token_symbol": "SKHYBUSDT",
+        "krx_code": "000660",
     },
 }
+# 토큰화 주식/선물 심볼은 collectors/tokenized.BYBIT_SYMBOLS 참고 (Bybit로 통일,
+# 2026-08-06 실측 검증 — Hyperliquid는 폐기, Binance SKHYB는 보조 소스)
 
 # Secondary/explanatory proxies (yfinance tickers)
 EQUITY_PROXIES = ["MU", "NVDA", "TSM", "SOXX", "SMH"]

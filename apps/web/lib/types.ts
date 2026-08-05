@@ -21,6 +21,9 @@ export interface StockPrediction {
   recentAccuracy: number; // 0-100, trailing accuracy
   asOf: string; // ISO timestamp
   isWeekend: boolean;
+  /** 백테스트 표본이 작아 정확도가 아직 검증 중인 단계인지 (docs/PRD.md 4.2) */
+  isLowSample: boolean;
+  sampleSizeDays: number;
 }
 
 export interface PredictionHistoryRow {
