@@ -40,3 +40,9 @@ def log_admin_event(source: str, status: str, detail: str = "") -> None:
         "admin_logs",
         {"source": source, "status": status, "detail": detail},
     )
+    if status == "error":
+        # 지연 import: notify.py가 requests 외 무거운 의존성이 없긴 하지만,
+        # db.py를 가볍게 유지하고 순환 import를 피하기 위해 여기서만 import.
+        import notify
+
+        notify.notify_pipeline_error(source, detail)
