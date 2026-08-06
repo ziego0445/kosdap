@@ -36,13 +36,30 @@ _WEB_SNAPSHOT_PATH = Path(__file__).resolve().parents[2] / "apps" / "web" / "pub
 _BACKTEST_DIRECTION_ACCURACY = {"SAMSUNG": 63, "SKHYNIX": 71}
 
 
+def _load_existing_snapshot() -> dict[str, dict]:
+    """symbol별 마지막으로 성공한 row. 이번 실행에서 한 종목만 실패해도
+    (예: KRX 조회 일시 오류) 다른 종목까지 화면에서 같이 사라지지 않도록,
+    새로 못 구한 symbol은 이전 값을 그대로 유지하기 위해 씀."""
+    try:
+        if not _WEB_SNAPSHOT_PATH.exists():
+            return {}
+        rows = json.loads(_WEB_SNAPSHOT_PATH.read_text(encoding="utf-8"))
+        return {r["symbol"]: r for r in rows}
+    except Exception:
+        logger.exception("기존 웹 스냅샷 읽기 실패 — 빈 상태로 시작")
+        return {}
+
+
 def _write_web_snapshot(rows: list[dict]) -> None:
     try:
+        existing = _load_existing_snapshot()
+        existing.update({r["symbol"]: r for r in rows})  # 이번 실행 성공분만 갱신
+        merged = list(existing.values())
         _WEB_SNAPSHOT_PATH.parent.mkdir(parents=True, exist_ok=True)
         _WEB_SNAPSHOT_PATH.write_text(
-            json.dumps(rows, ensure_ascii=False, indent=2), encoding="utf-8"
+            json.dumps(merged, ensure_ascii=False, indent=2), encoding="utf-8"
         )
-        logger.info("웹 스냅샷 저장: %s", _WEB_SNAPSHOT_PATH)
+        logger.info("웹 스냅샷 저장: %s (%d개 종목)", _WEB_SNAPSHOT_PATH, len(merged))
     except Exception:
         logger.exception("웹 스냅샷 저장 실패 (%s)", _WEB_SNAPSHOT_PATH)
 
@@ -116,7 +133,7 @@ def run_once() -> None:
                     "rangeHigh": round(live_price),
                     "factors": [],
                     "recentAccuracy": _BACKTEST_DIRECTION_ACCURACY.get(symbol, 0),
-                    "asOf": dt.datetime.now().isoformat(),
+                    "asOf": dt.datetime.now(KST).isoformat(),
                     "isWeekend": False,
                     "isLowSample": False,
                     "sampleSizeDays": 0,
@@ -157,6 +174,7 @@ def run_once() -> None:
             equity_changes=equity_changes,
             macro_changes=macro_changes,
         )
+        prediction.is_weekend = is_weekend  # compute_prediction은 시간 정보를 모르므로 여기서 채움
 
         db.insert("predictions", prediction.to_row())
         logger.info(
@@ -185,7 +203,7 @@ def run_once() -> None:
                     for f in prediction.factors
                 ],
                 "recentAccuracy": _BACKTEST_DIRECTION_ACCURACY.get(symbol, 0),
-                "asOf": dt.datetime.now().isoformat(),
+                "asOf": dt.datetime.now(KST).isoformat(),
                 "isWeekend": is_weekend,
                 "isLowSample": prediction.is_low_sample,
                 "sampleSizeDays": prediction.sample_size_days,

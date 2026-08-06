@@ -24,6 +24,10 @@ class Prediction:
     # 임의 기준: 200일(약 1년치 거래일) 미만이면 "낮은 표본"으로 취급.
     sample_size_days: int = 0
     is_low_sample: bool = True
+    # main.py가 계산해서 채워줌 (compute_prediction은 시간 정보를 모름).
+    # supabase/schema.sql predictions.is_weekend 컬럼과 대응 — 예전엔 이 필드가
+    # 없어서 to_row()에서 항상 빠지고 DB 기본값(false)으로만 저장될 뻔했음.
+    is_weekend: bool = False
 
     def to_row(self) -> dict:
         return {
@@ -38,4 +42,5 @@ class Prediction:
             "factors": [f.__dict__ for f in self.factors],
             "sample_size_days": self.sample_size_days,
             "is_low_sample": self.is_low_sample,
+            "is_weekend": self.is_weekend,
         }

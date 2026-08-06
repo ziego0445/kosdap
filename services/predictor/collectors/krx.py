@@ -16,6 +16,8 @@ import logging
 
 import yfinance as yf
 
+from .market_hours import KST
+
 logger = logging.getLogger(__name__)
 
 
@@ -86,7 +88,7 @@ def fetch_previous_close(krx_ticker: str) -> tuple[float | None, str | None]:
         closes = hist["Close"].dropna()
         if closes.empty:
             return None, None
-        today_kst = dt.datetime.now(dt.timezone(dt.timedelta(hours=9))).date()
+        today_kst = dt.datetime.now(KST).date()
         prior = closes[closes.index.date != today_kst]
         if prior.empty:
             return None, None

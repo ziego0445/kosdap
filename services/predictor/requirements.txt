@@ -1,4 +1,6 @@
 requests>=2.31
+# pandas/numpy: 런타임 파이프라인(main.py)에는 안 쓰지만, 가중치 재적합
+# 스크립트(scripts/fit_weights.py)에 필요해서 같이 둠.
 pandas>=2.2
 numpy>=1.26
 yfinance>=0.2.40
