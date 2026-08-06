@@ -44,7 +44,7 @@ export function FactorChart({ factors }: { factors: InfluenceFactor[] }) {
   };
 
   return (
-    <div style={{ height: Math.max(140, sorted.length * 28) }}>
+    <div style={{ height: Math.max(110, sorted.length * 22) }}>
       <Bar
         data={data}
         options={{
@@ -62,12 +62,12 @@ export function FactorChart({ factors }: { factors: InfluenceFactor[] }) {
             x: {
               grid: { color: colors.neutralGrid },
               border: { display: false },
-              ticks: { color: colors.axisText, callback: (v) => `${v}%` },
+              ticks: { color: colors.axisText, font: { size: 10 }, callback: (v) => `${v}%` },
             },
             y: {
               grid: { display: false },
               border: { display: false },
-              ticks: { color: colors.axisText },
+              ticks: { color: colors.axisText, font: { size: 10 } },
             },
           },
         }}

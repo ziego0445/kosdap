@@ -3,17 +3,17 @@ import { LineChart } from "lucide-react";
 
 const NAV_ITEMS = [
   { href: "/", label: "추정가" },
-  { href: "/history", label: "예측 기록" },
+  { href: "/history", label: "기록" },
   { href: "/admin", label: "관리자" },
 ];
 
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-10 border-b bg-background/80 backdrop-blur">
-      <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-4">
-        <Link href="/" className="flex items-center gap-2 text-lg font-bold">
-          <span className="flex h-7 w-7 items-center justify-center rounded-md bg-gradient-to-br from-[#2a78d6] to-[#e34948] text-white dark:from-[#3987e5] dark:to-[#e66767]">
-            <LineChart className="h-4 w-4" />
+      <div className="mx-auto flex max-w-4xl items-center justify-between px-4 py-3">
+        <Link href="/" className="flex items-center gap-2 text-base font-bold">
+          <span className="flex h-6 w-6 items-center justify-center rounded-full bg-gradient-to-br from-[#3987e5] to-[#e66767] text-white">
+            <LineChart className="h-3.5 w-3.5" />
           </span>
           kosdap
         </Link>
@@ -22,7 +22,7 @@ export function SiteHeader() {
             <Link
               key={item.href}
               href={item.href}
-              className="rounded-md px-3 py-1.5 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+              className="rounded-full px-2.5 py-1 text-xs text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
             >
               {item.label}
             </Link>

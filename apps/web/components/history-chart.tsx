@@ -52,7 +52,7 @@ export function HistoryChart({ rows }: { rows: PredictionHistoryRow[] }) {
   };
 
   return (
-    <div style={{ height: 260 }}>
+    <div style={{ height: 220 }}>
       <Line
         data={data}
         options={{

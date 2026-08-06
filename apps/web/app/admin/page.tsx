@@ -17,46 +17,46 @@ const sources = [
 export default function AdminPage() {
   // TODO: 버튼 액션을 Python predictor 서비스 트리거(API route -> HTTP/Job insert)로 연결
   return (
-    <div className="space-y-6">
-      <div>
-        <h1 className="text-2xl font-bold tracking-tight">관리자</h1>
-        <p className="text-sm text-muted-foreground">
+    <div className="space-y-5">
+      <div className="space-y-1">
+        <h1 className="text-2xl font-bold tracking-tight">관리자 🛠️</h1>
+        <p className="text-xs text-muted-foreground">
           데이터 수집 상태 확인 및 수동 재계산. (초기 스캐폴딩 — 실제 트리거
           미연결)
         </p>
       </div>
 
       <div className="flex gap-2">
-        <Button variant="outline" className="gap-2">
-          <RefreshCw className="h-4 w-4" />
+        <Button variant="outline" size="sm" className="gap-1.5 rounded-full">
+          <RefreshCw className="h-3.5 w-3.5" />
           데이터 새로고침
         </Button>
-        <Button variant="outline" className="gap-2">
-          <Calculator className="h-4 w-4" />
+        <Button variant="outline" size="sm" className="gap-1.5 rounded-full">
+          <Calculator className="h-3.5 w-3.5" />
           예측 다시계산
         </Button>
       </div>
 
-      <Card>
+      <Card size="sm">
         <CardHeader>
-          <CardTitle className="text-base">데이터 소스 상태</CardTitle>
+          <CardTitle className="text-sm">데이터 소스 상태</CardTitle>
         </CardHeader>
         <CardContent>
-          <ul className="divide-y">
+          <ul className="divide-y divide-border/60">
             {sources.map((s) => (
               <li
                 key={s.name}
-                className="flex items-center justify-between py-2.5 text-sm"
+                className="flex items-center justify-between py-2 text-xs"
               >
                 <span>{s.name}</span>
-                <div className="flex items-center gap-3">
-                  <span className="flex items-center gap-1 text-xs text-muted-foreground">
+                <div className="flex items-center gap-2">
+                  <span className="flex items-center gap-1 text-[11px] text-muted-foreground">
                     <Clock className="h-3 w-3" />
                     {s.note}
                   </span>
                   <Badge
                     variant={s.status === "ok" ? "default" : "secondary"}
-                    className="gap-1"
+                    className="gap-1 rounded-full text-[10px]"
                   >
                     {s.status === "ok" && <CheckCircle2 className="h-3 w-3" />}
                     {s.status === "ok" ? "정상" : "대기"}
@@ -68,12 +68,12 @@ export default function AdminPage() {
         </CardContent>
       </Card>
 
-      <Card>
+      <Card size="sm">
         <CardHeader>
-          <CardTitle className="text-base">로그</CardTitle>
+          <CardTitle className="text-sm">로그</CardTitle>
         </CardHeader>
         <CardContent>
-          <p className="text-sm text-muted-foreground">
+          <p className="text-xs text-muted-foreground">
             아직 로그가 없습니다. predictor 서비스가 admin_logs 테이블에
             기록을 남기면 여기 표시됩니다. 파이프라인 에러는 텔레그램으로도
             바로 알림이 갑니다.

@@ -1,39 +1,9 @@
-"use client";
-
-import { useEffect, useState } from "react";
-
 /**
- * Chart.js는 CSS를 안 읽으므로, 다크모드 여부를 JS에서 직접 판정해서
- * lib/chart-colors.ts의 light/dark 세트 중 하나를 골라 써야 한다.
- * globals.css의 다크모드 판정(prefers-color-scheme, .dark 클래스)과
- * 동일한 우선순위로 맞춘다.
+ * kosdap은 라이트/다크 자동전환 대신 약간 어두운 톤 하나로 고정했다
+ * (app/globals.css 참고). Chart.js는 CSS를 못 읽으므로 lib/chart-colors.ts의
+ * dark 세트를 그대로 쓰면 된다 — 이 함수는 나중에 테마 토글이 생기면 다시
+ * 동적으로 바꿀 수 있도록 인터페이스만 유지.
  */
 export function useColorMode(): "light" | "dark" {
-  const [mode, setMode] = useState<"light" | "dark">("light");
-
-  useEffect(() => {
-    const query = window.matchMedia("(prefers-color-scheme: dark)");
-
-    function resolve() {
-      const explicitLight = document.documentElement.classList.contains("light");
-      const explicitDark = document.documentElement.classList.contains("dark");
-      if (explicitDark) return "dark";
-      if (explicitLight) return "light";
-      return query.matches ? "dark" : "light";
-    }
-
-    setMode(resolve());
-    const listener = () => setMode(resolve());
-    query.addEventListener("change", listener);
-
-    const observer = new MutationObserver(listener);
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
-
-    return () => {
-      query.removeEventListener("change", listener);
-      observer.disconnect();
-    };
-  }, []);
-
-  return mode;
+  return "dark";
 }

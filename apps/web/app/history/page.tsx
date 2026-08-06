@@ -31,40 +31,40 @@ export default function HistoryPage() {
       (Math.min(30, withError.length) || 1);
 
   return (
-    <div className="space-y-6">
-      <div>
-        <h1 className="text-2xl font-bold">예측 기록</h1>
-        <p className="text-sm text-muted-foreground">
+    <div className="space-y-5">
+      <div className="space-y-1">
+        <h1 className="text-2xl font-bold tracking-tight">예측 기록 📒</h1>
+        <p className="text-xs text-muted-foreground">
           예측가 대비 실제가, 오차를 투명하게 공개합니다.
         </p>
       </div>
 
-      <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+      <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
         <StatBox
-          icon={<Percent className="h-4 w-4" />}
+          icon={<Percent className="h-3.5 w-3.5" />}
           label="최근 30일 정확도"
           value={`${accuracy30.toFixed(1)}%`}
         />
         <StatBox
-          icon={<Activity className="h-4 w-4" />}
+          icon={<Activity className="h-3.5 w-3.5" />}
           label="평균 오차(MAPE)"
           value={`${mape.toFixed(2)}%`}
         />
         <StatBox
-          icon={<Database className="h-4 w-4" />}
+          icon={<Database className="h-3.5 w-3.5" />}
           label="표본 수"
           value={`${rows.length}일`}
         />
         <StatBox
-          icon={<FlaskConical className="h-4 w-4" />}
+          icon={<FlaskConical className="h-3.5 w-3.5" />}
           label="상태"
           value="예시 데이터"
         />
       </div>
 
-      <Card>
+      <Card size="sm">
         <CardHeader>
-          <CardTitle className="text-base">예측가 vs 실제가</CardTitle>
+          <CardTitle className="text-sm">예측가 vs 실제가</CardTitle>
         </CardHeader>
         <CardContent>
           <HistoryChart rows={rows} />
@@ -113,12 +113,12 @@ function StatBox({
   value: string;
 }) {
   return (
-    <div className="rounded-lg border p-4">
-      <p className="flex items-center gap-1.5 text-xs text-muted-foreground">
+    <div className="rounded-xl border p-3">
+      <p className="flex items-center gap-1.5 text-[11px] text-muted-foreground">
         {icon}
         {label}
       </p>
-      <p className="mt-1 text-lg font-semibold tabular-nums">{value}</p>
+      <p className="mt-0.5 text-base font-semibold tabular-nums">{value}</p>
     </div>
   );
 }

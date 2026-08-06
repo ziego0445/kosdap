@@ -56,7 +56,7 @@ export function LiveDashboard({
           보여줍니다.
         </p>
       )}
-      <div className="grid gap-6 md:grid-cols-2">
+      <div className="grid gap-4 md:grid-cols-2">
         {predictions.map((p) => (
           <StockCard key={p.symbol} data={p} />
         ))}
