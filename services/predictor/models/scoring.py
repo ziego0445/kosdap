@@ -22,6 +22,29 @@ def _normal_cdf(x: float) -> float:
     return 0.5 * (1 + math.erf(x / math.sqrt(2)))
 
 
+# 2026-08-06 실측 검증(scripts/verify_live.py)으로 확인한 사실: 정규장 중
+# 급락/급등처럼 국내 수급성 이벤트가 터지면, 토큰가(Bybit)는 실제 KRX 가격
+# 변동과 거의 1:1로 움직이는데(그날 삼성 토큰 -6.24% vs 실제가 -6.40%,
+# SK하이닉스 토큰 -9.64% vs 실제가 -9.65%) 해외 프록시(NVDA/SOXX 등)는
+# 평범한 범위(그날 평균 |변동률| 1.4%)라 이런 이벤트를 아예 못 잡는다.
+# ridge 계수(token coef 0.08~0.11)는 "평범한 날" 기준으로 다소 작게 축소돼
+# 있어서, 이런 날엔 점추정치가 낙폭/급등폭을 과소평가하게 된다.
+#
+# 그날 하루만 보고 계수(intercept)를 다시 맞추면 2026-07-31 극단치 때와
+# 같은 실수(표본 40일에 극단치 하나 넣었다가 계수가 왜곡된 것)를 반복하게
+# 되므로, 점추정치는 건드리지 않고 대신 "토큰가가 평소보다 많이 튀면
+# 예측구간을 그만큼 넓히고 신뢰도를 낮추는" 방식으로 보정한다 — 방향은
+# 맞히되(5회 검증에서 5/5), 크기에 대한 불확실성을 솔직하게 넓혀서 보여줌.
+_NORMAL_TOKEN_MOVE_PERCENT = 2.0  # "평범한 날" 기준 토큰가 변동폭(%) 근사치
+_MAX_VOLATILITY_MULTIPLIER = 4.0
+
+
+def _volatility_multiplier(token_change_percent: float | None) -> float:
+    if token_change_percent is None:
+        return 1.0
+    return min(_MAX_VOLATILITY_MULTIPLIER, max(1.0, abs(token_change_percent) / _NORMAL_TOKEN_MOVE_PERCENT))
+
+
 def compute_prediction(
     symbol: str,
     current_price: float,
@@ -60,13 +83,20 @@ def compute_prediction(
         for k, c in sorted(contributions.items(), key=lambda kv: abs(kv[1]), reverse=True)
     ]
 
+    # 토큰가가 평소보다 많이 튀면(=국내 수급성 이벤트로 실제 변동폭이 클
+    # 가능성이 큼) 예측구간을 넓히고 확률/신뢰도의 불확실성을 키운다.
+    vol_mult = _volatility_multiplier(token_change_percent)
+    effective_std = resid_std * vol_mult
+
     # 확률/구간은 잔차가 정규분포를 따른다는 가정 하에 산출한다 (1차 근사치).
-    probability_up = _normal_cdf(score_percent / resid_std) * 100
+    probability_up = _normal_cdf(score_percent / effective_std) * 100
     # 표본(n=41 내외)이 작을수록 신뢰도를 낮게 표시 — resid_std가 클수록,
-    # 표본이 적을수록 confidence가 낮아지는 단순 휴리스틱.
+    # 표본이 적을수록 confidence가 낮아지는 단순 휴리스틱. 변동성 배율이
+    # 1보다 크면(토큰가 급변) 추가로 깎는다.
     confidence = max(30.0, min(90.0, 100 - resid_std * 2 - max(0, 60 - model["n"]) * 0.5))
-    range_low = predicted_price * (1 - resid_std / 100)
-    range_high = predicted_price * (1 + resid_std / 100)
+    confidence = max(20.0, confidence - (vol_mult - 1) * 15)
+    range_low = predicted_price * (1 - effective_std / 100)
+    range_high = predicted_price * (1 + effective_std / 100)
 
     return Prediction(
         symbol=symbol,
