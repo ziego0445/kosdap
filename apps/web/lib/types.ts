@@ -24,6 +24,12 @@ export interface StockPrediction {
   /** 백테스트 표본이 작아 정확도가 아직 검증 중인 단계인지 (docs/PRD.md 4.2) */
   isLowSample: boolean;
   sampleSizeDays: number;
+  /**
+   * false면 currentPrice가 실제 체결가(정규장 운영 중)라 예측이 필요 없는
+   * 상태 — predictedPrice/range/factors는 참고용이 아니라 currentPrice와
+   * 동일하게 채워져 있음. true면 장외/휴장이라 진짜 추정치.
+   */
+  isEstimate: boolean;
 }
 
 export interface PredictionHistoryRow {

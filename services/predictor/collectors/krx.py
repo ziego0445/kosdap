@@ -11,6 +11,7 @@ fetch_after_hours_price()는 '추정'이 필요 없는 실제 시간외 체결 �
 
 from __future__ import annotations
 
+import datetime as dt
 import logging
 
 import yfinance as yf
@@ -51,3 +52,45 @@ def fetch_after_hours_price(krx_ticker: str) -> float | None:
         krx_ticker,
     )
     return None
+
+
+def fetch_intraday_price(krx_ticker: str) -> float | None:
+    """정규장(09:00~15:30 KST) 운영 중 실시간(근사) 체결가.
+
+    yfinance의 1분봉 중 가장 최근 값을 쓴다 — 몇 분 지연될 수 있으나 실제
+    체결가 기반이라 "추정"이 아니다. 장이 열려있을 때만 의미있는 값을 준다.
+    실측 확인: 장중에는 일봉(1d)의 Close도 이미 실시간에 가깝게 갱신되고
+    있었음 — 다만 "오늘 대비 등락률" 계산엔 전일 완결 종가가 따로 필요해서
+    fetch_previous_close()를 별도로 둔다.
+    """
+    try:
+        hist = yf.Ticker(krx_ticker).history(period="1d", interval="1m")
+        closes = hist["Close"].dropna()
+        if closes.empty:
+            return None
+        return float(closes.iloc[-1])
+    except Exception:
+        logger.exception("KRX intraday price fetch failed for %s", krx_ticker)
+        return None
+
+
+def fetch_previous_close(krx_ticker: str) -> tuple[float | None, str | None]:
+    """오늘(KST)을 제외한, 가장 최근 완결 거래일의 종가.
+
+    장중엔 fetch_last_close_with_date가 "오늘의 실시간 값"을 돌려주므로
+    (일봉 Close가 장중에도 계속 갱신됨을 실측 확인), 오늘 대비 등락률을
+    구하려면 어제(혹은 그 이전) 완결 종가가 따로 필요하다.
+    """
+    try:
+        hist = yf.Ticker(krx_ticker).history(period="10d", interval="1d")
+        closes = hist["Close"].dropna()
+        if closes.empty:
+            return None, None
+        today_kst = dt.datetime.now(dt.timezone(dt.timedelta(hours=9))).date()
+        prior = closes[closes.index.date != today_kst]
+        if prior.empty:
+            return None, None
+        return float(prior.iloc[-1]), prior.index[-1].strftime("%Y-%m-%d")
+    except Exception:
+        logger.exception("KRX previous close fetch failed for %s", krx_ticker)
+        return None, None

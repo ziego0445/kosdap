@@ -26,6 +26,7 @@ export const mockPredictions: StockPrediction[] = [
     isWeekend: false,
     isLowSample: true,
     sampleSizeDays: 40,
+    isEstimate: true,
     asOf: new Date().toISOString(),
     factors: [
       { label: "VIX", contribution: 0.234 },
@@ -50,6 +51,7 @@ export const mockPredictions: StockPrediction[] = [
     isWeekend: false,
     isLowSample: true,
     sampleSizeDays: 40,
+    isEstimate: true,
     asOf: new Date().toISOString(),
     factors: [
       { label: "토큰화 주식/선물(Bybit)", contribution: -0.407 },
