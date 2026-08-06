@@ -1,0 +1,66 @@
+name: Predict & Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [master]
+  schedule:
+    # 10분마다 예측 파이프라인을 다시 돌리고 사이트를 재배포한다.
+    # (GitHub은 스케줄이 부하 상황에 따라 몇 분 늦게 실행될 수 있다고 명시함 — 정확한 시각 보장은 아님)
+    - cron: "*/10 * * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install predictor dependencies
+        working-directory: services/predictor
+        run: pip install -r requirements.txt
+
+      - name: Run prediction pipeline (writes apps/web/public/predictions.json)
+        working-directory: services/predictor
+        env:
+          # Supabase 연동 전까지는 비워둬도 dry-run으로 정상 동작함
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python main.py
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+          cache-dependency-path: apps/web/package-lock.json
+
+      - name: Install web dependencies
+        working-directory: apps/web
+        run: npm ci
+
+      - name: Build static export
+        working-directory: apps/web
+        run: npm run build
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: apps/web/out
+
+      - id: deployment
+        uses: actions/deploy-pages@v4
