@@ -28,3 +28,19 @@ export const chartColors = {
 } as const;
 
 export type ChartColorMode = keyof typeof chartColors;
+
+/**
+ * Chart.js 기본 툴팁은 거의 검정 배경이라 우리 카드 서페이스(#242029)와
+ * 붕 뜬다 — 카드 톤에 맞춰 명시적으로 스타일링한다.
+ */
+export const tooltipStyle = {
+  backgroundColor: "#242029",
+  titleColor: "#f5f3f7",
+  bodyColor: "#f5f3f7",
+  borderColor: "rgba(255, 255, 255, 0.1)",
+  borderWidth: 1,
+  padding: 8,
+  cornerRadius: 8,
+  titleFont: { size: 11, weight: "bold" as const },
+  bodyFont: { size: 11 },
+} as const;

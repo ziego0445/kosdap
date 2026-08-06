@@ -10,7 +10,7 @@ import {
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
 import { InfluenceFactor } from "@/lib/types";
-import { chartColors } from "@/lib/chart-colors";
+import { chartColors, tooltipStyle } from "@/lib/chart-colors";
 import { useColorMode } from "@/lib/use-color-mode";
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, Legend);
@@ -53,6 +53,8 @@ export function FactorChart({ factors }: { factors: InfluenceFactor[] }) {
           plugins: {
             legend: { display: false },
             tooltip: {
+              ...tooltipStyle,
+              displayColors: false,
               callbacks: {
                 label: (ctx) => `${(ctx.raw as number) >= 0 ? "+" : ""}${ctx.raw}%`,
               },

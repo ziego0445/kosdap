@@ -22,7 +22,12 @@ export function LiveDashboard({
 }) {
   const [predictions, setPredictions] = useState(initial);
   const [lastFetchFailed, setLastFetchFailed] = useState(false);
-  const [lastUpdated, setLastUpdated] = useState<Date | null>(null);
+  // 초기값도 initial 데이터의 asOf로 채워서 첫 렌더에 "대기 중"이 잠깐
+  // 보였다가 바뀌는 깜빡임 없이 바로 의미있는 시각이 뜨게 한다.
+  const [lastUpdated, setLastUpdated] = useState<Date | null>(() => {
+    const timestamps = initial.map((p) => new Date(p.asOf).getTime()).filter((t) => !Number.isNaN(t));
+    return timestamps.length > 0 ? new Date(Math.max(...timestamps)) : null;
+  });
 
   useEffect(() => {
     let cancelled = false;

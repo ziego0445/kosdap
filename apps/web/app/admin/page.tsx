@@ -19,7 +19,12 @@ export default function AdminPage() {
   return (
     <div className="space-y-5">
       <div className="space-y-1">
-        <h1 className="text-2xl font-bold tracking-tight">관리자 🛠️</h1>
+        <h1 className="text-2xl font-bold tracking-tight">
+          <span className="bg-gradient-to-r from-[#3987e5] to-[#d55181] bg-clip-text text-transparent">
+            관리자
+          </span>{" "}
+          🛠️
+        </h1>
         <p className="text-xs text-muted-foreground">
           데이터 수집 상태 확인 및 수동 재계산. (초기 스캐폴딩 — 실제 트리거
           미연결)
@@ -42,7 +47,7 @@ export default function AdminPage() {
           <CardTitle className="text-sm">데이터 소스 상태</CardTitle>
         </CardHeader>
         <CardContent>
-          <ul className="divide-y divide-border/60">
+          <ul className="divide-y divide-white/5">
             {sources.map((s) => (
               <li
                 key={s.name}
@@ -56,7 +61,11 @@ export default function AdminPage() {
                   </span>
                   <Badge
                     variant={s.status === "ok" ? "default" : "secondary"}
-                    className="gap-1 rounded-full text-[10px]"
+                    className={
+                      s.status === "ok"
+                        ? "gap-1 rounded-full bg-emerald-600/15 text-[10px] text-emerald-400 hover:bg-emerald-600/15"
+                        : "gap-1 rounded-full text-[10px]"
+                    }
                   >
                     {s.status === "ok" && <CheckCircle2 className="h-3 w-3" />}
                     {s.status === "ok" ? "정상" : "대기"}

@@ -11,7 +11,7 @@ import {
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 import { PredictionHistoryRow } from "@/lib/types";
-import { chartColors } from "@/lib/chart-colors";
+import { chartColors, tooltipStyle } from "@/lib/chart-colors";
 import { useColorMode } from "@/lib/use-color-mode";
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip, Legend);
@@ -65,6 +65,7 @@ export function HistoryChart({ rows }: { rows: PredictionHistoryRow[] }) {
               labels: { color: colors.axisText, boxWidth: 12, boxHeight: 12 },
             },
             tooltip: {
+              ...tooltipStyle,
               callbacks: {
                 label: (ctx) =>
                   `${ctx.dataset.label}: ${Number(ctx.raw).toLocaleString("ko-KR")}원`,
