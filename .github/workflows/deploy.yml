@@ -1,12 +1,15 @@
 name: Predict & Deploy to GitHub Pages
 
 on:
-  push:
-    branches: [master]
-  schedule:
-    # 10분마다 예측 파이프라인을 다시 돌리고 사이트를 재배포한다.
-    # (GitHub은 스케줄이 부하 상황에 따라 몇 분 늦게 실행될 수 있다고 명시함 — 정확한 시각 보장은 아님)
-    - cron: "*/10 * * * *"
+  # 배포는 보류 중 (사용자 요청, 2026-08-06) — push/schedule 트리거를 꺼뒀다.
+  # 켜져 있으면 GitHub Pages가 아직 설정 안 된 상태에서도 매 push/10분마다
+  # 실행되다가 deploy-pages 단계에서 계속 실패해 Actions 분량을 낭비하고
+  # 실패 알림 메일이 쌓인다. 실제 배포 준비되면 아래 두 블록 주석을 풀 것:
+  #
+  # push:
+  #   branches: [master]
+  # schedule:
+  #   - cron: "*/10 * * * *"
   workflow_dispatch: {}
 
 permissions:

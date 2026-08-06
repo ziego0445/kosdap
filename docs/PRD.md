@@ -91,13 +91,13 @@ score = intercept
 ## 5. 화면 구성
 
 ### 5.1 메인 (`/`)
-삼성전자 카드 + SK하이닉스 카드, 각각:
-- 현재 종가 (KRX 정규장 또는 최근 시간외 체결가)
-- 추정가격, 등락률
+삼성전자 카드 + SK하이닉스 카드. **정규장 운영 중(09:00~15:30 KST)엔 실제
+체결가만 보여주고 예측 자체를 계산하지 않는다** (`market_hours.get_session()`
+분기, 사용자 요청으로 확정). 장외/주말엔:
+- 현재가(직전 KRX 종가), 추정가격, 등락률
 - 상승확률, 신뢰도
-- 예상 변동폭 (예측 구간: 82,900 ~ 83,500)
-- 영향요인 목록 (🟢/🔴 + 기여도)
-- 차트 (Chart.js)
+- 예상 변동폭 (예측 구간)
+- 영향요인 — Chart.js 다이버징 바 차트로 표시 (텍스트 리스트에서 교체됨)
 
 ### 5.2 예측 기록 (`/history`)
 최근 100일: 예측가격 / 실제가격 / 오차(%) / 누적 정확도(최근 30일·100일) / 평균오차 / RMSE / MAPE
@@ -113,22 +113,23 @@ score = intercept
 
 | 소스 | 주기 | 비고 |
 |---|---|---|
-| SKHYB/SMSN 토큰가 | 5~10분, 24/7 | 주말에도 계속 수집 |
-| 미국 주식(MU/NVDA/SOXX/TSM) | 5~10분, 미국 정규장+애프터마켓 시간대만 | 미국장 휴장 시간엔 정지 |
-| KOSPI200 야간선물 | 5~10분, Eurex 운영시간 | |
-| 환율/DXY/VIX | 10~15분 | |
-| 공매도비율/수급 | 1일 1회 (장마감 후) | |
-| KRX 시간외 단일가 | 실시간 (해당 세션 중) | |
+| SAMSUNGUSDT/SKHYNIXUSDT(Bybit) | 5분, 24/7 | 주말에도 계속 수집. 실제 구현은 scheduler.py가 이 주기로 전체 파이프라인을 재실행 |
+| 미국 주식(MU/NVDA/SOXX/TSM/SMH) | 매 실행마다 재조회 | 실측상 미국장 휴장 시간엔 값이 그대로(전일 종가 반복)라 낭비지만, 현재는 소스별 캐싱 없이 매번 재조회함 (TODO) |
+| 환율/DXY/VIX/BTC/ETH | 매 실행마다 재조회 | 위와 동일 |
+| 외국인/기관 순매수(네이버) | 1일 1회 (하루 첫 실행 시) | `main._maybe_collect_flows`가 KST 날짜 기준으로 하루 1회만 스크래핑 |
+| KRX 시간외 단일가 | 미구현 | `collectors/krx.fetch_after_hours_price` 스텁 |
 
-**주말 처리**: 금요일 KRX 마감 후 ~ 다음 CME/Eurex 재개 전까지는 SKHYB/SMSN 토큰가가 유일한 실시간 신호. 이 구간은 "주말 모델"(요일별 분리 모델)로 별도 취급하고, 2차/3차 신호는 금요일자 값으로 고정(carry-forward).
+**주말 처리**: 금요일 KRX 마감 후 ~ 월요일 재개 전까지는 Bybit 토큰가가 유일한 실시간 신호. 실제 구현은 `market_hours.get_session()`이 토·일을 "closed"로 판정해 추정 모드로 전환하고, 2차 신호(해외 프록시)는 매 실행마다 그대로 재조회한다 (요일별 분리 모델은 아직 미구현, 4.3 참고).
 
 ## 7. 법적 고지
 모든 페이지 하단에 "본 정보는 투자 참고용이며 투자자문·권유가 아닙니다" 디스클레이머 표기.
 
 ## 8. 기술 스택
-- **웹**: Next.js 15 (App Router) + React + TypeScript + TailwindCSS + shadcn/ui + Chart.js
-- **데이터/ML**: Python (수집기 + 회귀/LightGBM/XGBoost)
-- **DB**: Supabase (Postgres)
-- 역할 분리: Python이 수집·계산·저장까지 담당, Next.js는 Supabase를 읽어서 보여주는 역할 + 관리자 트리거용 API
+- **웹**: Next.js 15 (App Router, 정적 export) + React + TypeScript + TailwindCSS + shadcn/ui + Chart.js
+- **데이터/ML**: Python (수집기 + ridge 회귀, 추후 LightGBM/XGBoost)
+- **DB**: Supabase (Postgres) — 아직 실제 프로젝트 미생성, 현재는 predictions.json 파일 브리지로 대체
+- **배포**: GitHub Pages (GitHub Actions로 predictor 실행 → 정적 빌드 → 배포). 현재 보류 중, `workflow_dispatch`로만 수동 실행 가능
+- **알림**: 텔레그램 봇으로 관리자 파이프라인 장애 알림
+- 역할 분리: Python이 수집·계산·저장까지 담당, Next.js는 predictions.json(추후 Supabase)을 읽어서 보여주는 역할 + 관리자 트리거용 API
 
 자세한 구조는 [ARCHITECTURE.md](./ARCHITECTURE.md) 참고.

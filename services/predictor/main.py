@@ -16,7 +16,7 @@ from collectors.equities import collect_equity_changes
 from collectors.flows import collect_daily_flows
 from collectors.krx import fetch_intraday_price, fetch_last_close_with_date, fetch_previous_close
 from collectors.macro import collect_macro_changes
-from collectors.market_hours import get_session, has_real_price_feed
+from collectors.market_hours import KST, get_session, has_real_price_feed
 from collectors.tokenized import BYBIT_SYMBOLS, collect_token_prices, fetch_bybit_close_at_krx_close
 from config import SYMBOLS
 from models.scoring import compute_prediction
@@ -52,7 +52,7 @@ def _maybe_collect_flows() -> None:
     호출돼도 실제 스크래핑은 날짜가 바뀔 때만 수행한다 (Naver 과다호출 방지).
     """
     global _last_flows_date
-    today = dt.date.today().isoformat()
+    today = dt.datetime.now(KST).date().isoformat()  # KRX 거래일은 KST 기준
     if today == _last_flows_date:
         return
     for symbol, meta in SYMBOLS.items():
@@ -70,7 +70,9 @@ def run_once() -> None:
     token_prices = collect_token_prices()
     _maybe_collect_flows()  # 아직 scoring에는 미반영 — raw_snapshots에만 적재 (docs/PRD.md 4.3)
 
-    is_weekend = dt.date.today().weekday() >= 5  # 근사치 — 로컬 시간대 기준, KST 정밀 보정은 TODO
+    # market_hours.get_session()과 동일하게 KST 기준으로 판정 (실행 서버가
+    # 다른 시간대여도 일관되게 나오도록 — 예전엔 로컬 시간대 기준이라 어긋날 수 있었음)
+    is_weekend = dt.datetime.now(KST).weekday() >= 5
     session = get_session()
     show_real_price = has_real_price_feed(session)  # 지금은 정규장(open)만 True
     web_rows: list[dict] = []
@@ -95,7 +97,7 @@ def run_once() -> None:
                     "symbol": symbol,
                     "price": live_price,
                     "session": "regular",
-                    "trade_date": dt.date.today().isoformat(),
+                    "trade_date": dt.datetime.now(KST).date().isoformat(),
                 },
             )
             logger.info("%s: 실제가 %.0f (전일比 %.2f%%) — 예측 생략", symbol, live_price, change_percent_today)

@@ -51,7 +51,7 @@ export function LiveDashboard({
   return (
     <div className="space-y-3">
       {lastFetchFailed && (
-        <p className="text-xs text-amber-600">
+        <p className="text-xs text-amber-400">
           최신 데이터를 가져오지 못했습니다 — 마지막으로 받은 값을 계속
           보여줍니다.
         </p>
