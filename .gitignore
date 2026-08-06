@@ -22,3 +22,6 @@ Thumbs.db
 # Editors
 .vscode/
 .idea/
+
+# Claude Code 세션/스케줄러 내부 상태 (로컬 런타임 전용, 프로젝트 코드 아님)
+.claude/
