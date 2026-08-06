@@ -1,3 +1,4 @@
+import { Activity, Percent, Database, FlaskConical } from "lucide-react";
 import {
   Table,
   TableBody,
@@ -6,7 +7,9 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { mockHistory } from "@/lib/mock-data";
+import { HistoryChart } from "@/components/history-chart";
 
 function symbolLabel(symbol: string) {
   return symbol === "SAMSUNG" ? "삼성전자" : "SK하이닉스";
@@ -37,11 +40,36 @@ export default function HistoryPage() {
       </div>
 
       <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
-        <StatBox label="최근 30일 정확도" value={`${accuracy30.toFixed(1)}%`} />
-        <StatBox label="평균 오차(MAPE)" value={`${mape.toFixed(2)}%`} />
-        <StatBox label="표본 수" value={`${rows.length}일`} />
-        <StatBox label="상태" value="예시 데이터" />
+        <StatBox
+          icon={<Percent className="h-4 w-4" />}
+          label="최근 30일 정확도"
+          value={`${accuracy30.toFixed(1)}%`}
+        />
+        <StatBox
+          icon={<Activity className="h-4 w-4" />}
+          label="평균 오차(MAPE)"
+          value={`${mape.toFixed(2)}%`}
+        />
+        <StatBox
+          icon={<Database className="h-4 w-4" />}
+          label="표본 수"
+          value={`${rows.length}일`}
+        />
+        <StatBox
+          icon={<FlaskConical className="h-4 w-4" />}
+          label="상태"
+          value="예시 데이터"
+        />
       </div>
+
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-base">예측가 vs 실제가</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <HistoryChart rows={rows} />
+        </CardContent>
+      </Card>
 
       <Table>
         <TableHeader>
@@ -56,15 +84,15 @@ export default function HistoryPage() {
         <TableBody>
           {rows.map((r) => (
             <TableRow key={`${r.date}-${r.symbol}`}>
-              <TableCell>{r.date}</TableCell>
+              <TableCell className="tabular-nums">{r.date}</TableCell>
               <TableCell>{symbolLabel(r.symbol)}</TableCell>
-              <TableCell className="text-right">
+              <TableCell className="text-right tabular-nums">
                 {r.predicted.toLocaleString("ko-KR")}
               </TableCell>
-              <TableCell className="text-right">
+              <TableCell className="text-right tabular-nums">
                 {r.actual?.toLocaleString("ko-KR") ?? "-"}
               </TableCell>
-              <TableCell className="text-right">
+              <TableCell className="text-right tabular-nums">
                 {r.errorPercent !== null ? `${r.errorPercent}%` : "-"}
               </TableCell>
             </TableRow>
@@ -75,11 +103,22 @@ export default function HistoryPage() {
   );
 }
 
-function StatBox({ label, value }: { label: string; value: string }) {
+function StatBox({
+  icon,
+  label,
+  value,
+}: {
+  icon: React.ReactNode;
+  label: string;
+  value: string;
+}) {
   return (
     <div className="rounded-lg border p-4">
-      <p className="text-xs text-muted-foreground">{label}</p>
-      <p className="text-lg font-semibold">{value}</p>
+      <p className="flex items-center gap-1.5 text-xs text-muted-foreground">
+        {icon}
+        {label}
+      </p>
+      <p className="mt-1 text-lg font-semibold tabular-nums">{value}</p>
     </div>
   );
 }
