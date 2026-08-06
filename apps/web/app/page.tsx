@@ -1,4 +1,5 @@
 import { LiveDashboard } from "@/components/live-dashboard";
+import { FeatureBand } from "@/components/feature-band";
 import { isSupabaseConfigured } from "@/lib/supabase";
 import { mockPredictions } from "@/lib/mock-data";
 import { readLivePredictions } from "@/lib/live-predictions";
@@ -11,28 +12,36 @@ export default function Home() {
   const initial = live ?? mockPredictions;
 
   return (
-    <div className="space-y-5">
+    <div className="space-y-8">
       <div className="space-y-1.5">
-        <div className="inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-[11px] text-muted-foreground">
+        <div className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.03] px-2.5 py-0.5 text-[11px] text-muted-foreground">
           <span className="relative flex h-1.5 w-1.5">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-75" />
             <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-500" />
           </span>
           30초마다 자동 갱신
         </div>
-        <h1 className="text-2xl font-bold tracking-tight">오늘의 추정가 ✨</h1>
+        <h1 className="text-3xl font-bold tracking-tight">
+          오늘의{" "}
+          <span className="bg-gradient-to-r from-[#3987e5] to-[#d55181] bg-clip-text text-transparent">
+            추정가
+          </span>
+        </h1>
         <p className="text-xs text-muted-foreground">
-          시장 데이터를 계산해 산출한 추정치이며, 실시간 시세와 다를 수
-          있습니다.
+          실시간 데이터를 분석해 산출한 주식 예측가입니다.
         </p>
         {!isSupabaseConfigured && (
           <p className="text-[11px] text-amber-400">
-            Supabase 미연동 — {live ? "predictor가 계산한 실제 값(JSON 스냅샷)을" : "예시(mock) 데이터를"} 초기값으로 보여주고, 이후엔 주기적으로 predictions.json을 다시 받아옵니다.
+            Supabase 미연동 → predictor가 계산한 실제 값(JSON 스냅샷)을
+            초기값으로 보여주고, 이후엔 주기적으로 predictions.json을 다시
+            받아옵니다.
           </p>
         )}
       </div>
 
       <LiveDashboard initial={initial} intervalMs={30_000} />
+
+      <FeatureBand />
     </div>
   );
 }

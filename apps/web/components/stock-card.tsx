@@ -8,34 +8,43 @@ import {
 } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { StockPrediction } from "@/lib/types";
-import { cn } from "@/lib/utils";
 import { FactorChart } from "@/components/factor-chart";
+import { SYMBOL_ACCENT } from "@/lib/brand";
 
 function formatKrw(value: number) {
   return `${value.toLocaleString("ko-KR")}원`;
 }
 
-// dataviz 스킬로 검증된 diverging 색(#e34948 상승 / #2a78d6 하락, 다크모드
-// #e66767 / #3987e5). kosdap은 다크 톤 고정이라 다크 값만 쓴다.
-const UP = "text-[#e66767]";
-const DOWN = "text-[#3987e5]";
-
 export function StockCard({ data }: { data: StockPrediction }) {
   const isUp = data.changePercent >= 0;
-  const directionClass = isUp ? UP : DOWN;
+  const accent = SYMBOL_ACCENT[data.symbol];
 
   return (
     <Card
       size="sm"
-      className={cn(
-        "w-full overflow-hidden border-t-2",
-        isUp ? "border-t-[#e66767]" : "border-t-[#3987e5]"
-      )}
+      className="relative w-full overflow-hidden"
+      style={{ boxShadow: `0 0 0 1px rgba(${accent.rgb}, 0.18)` }}
     >
-      <CardHeader className="flex flex-row items-start justify-between">
-        <div>
-          <CardTitle className="text-lg">{data.name}</CardTitle>
-          <p className="text-xs text-muted-foreground">{data.ticker}</p>
+      {/* 브랜드 글로우 — 카드 우상단에 은은하게 깔리는 액센트 색 (종목 정체성,
+          상승/하락 방향과는 무관 — 방향은 화살표 아이콘/부호로 전달) */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full blur-3xl"
+        style={{ backgroundColor: `rgba(${accent.rgb}, 0.22)` }}
+      />
+
+      <CardHeader className="relative flex flex-row items-start justify-between">
+        <div className="flex items-center gap-2.5">
+          <div
+            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-xs font-bold text-white"
+            style={{ backgroundColor: accent.color }}
+          >
+            {accent.label}
+          </div>
+          <div>
+            <CardTitle className="text-lg">{data.name}</CardTitle>
+            <p className="text-xs text-muted-foreground">{data.ticker}</p>
+          </div>
         </div>
         <div className="flex flex-col items-end gap-1">
           {!data.isEstimate && (
@@ -61,39 +70,37 @@ export function StockCard({ data }: { data: StockPrediction }) {
         </div>
       </CardHeader>
 
-      <CardContent className="space-y-3">
+      <CardContent className="relative space-y-3">
         <div className="flex items-end justify-between">
           <div>
             <p className="text-xs text-muted-foreground">
               {data.isEstimate ? "현재가" : "실시간가"}
             </p>
-            <p className="text-xl font-semibold tabular-nums">
+            <p className="text-2xl font-bold tabular-nums">
               {formatKrw(data.currentPrice)}
             </p>
           </div>
           <div className="text-right">
-            <p className="text-xs text-muted-foreground">
-              {data.isEstimate ? "추정가" : "전일 대비"}
-            </p>
             {data.isEstimate && (
-              <p className={cn("text-xl font-bold tabular-nums", directionClass)}>
-                {formatKrw(data.predictedPrice)}
-              </p>
+              <>
+                <p className="text-xs text-muted-foreground">추정가</p>
+                <p className="text-lg font-semibold tabular-nums" style={{ color: accent.color }}>
+                  {formatKrw(data.predictedPrice)}
+                </p>
+              </>
             )}
-            <p
-              className={cn(
-                "flex items-center justify-end gap-1 text-xs font-medium tabular-nums",
-                directionClass,
-                !data.isEstimate && "text-xl font-bold"
-              )}
+            <span
+              className="mt-0.5 inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-semibold tabular-nums"
+              style={{ backgroundColor: `rgba(${accent.rgb}, 0.16)`, color: accent.color }}
             >
               {isUp ? (
-                <TrendingUp className="h-3.5 w-3.5" />
+                <TrendingUp className="h-3 w-3" />
               ) : (
-                <TrendingDown className="h-3.5 w-3.5" />
+                <TrendingDown className="h-3 w-3" />
               )}
+              {data.isEstimate ? "" : "전일比 "}
               {Math.abs(data.changePercent)}%
-            </p>
+            </span>
           </div>
         </div>
 
@@ -137,9 +144,20 @@ export function StockCard({ data }: { data: StockPrediction }) {
 
         <Separator />
 
-        <div className="flex items-center justify-between text-xs">
-          <span className="text-muted-foreground">최근 예측 정확도</span>
-          <span className="font-semibold tabular-nums">{data.recentAccuracy}%</span>
+        <div className="space-y-1.5">
+          <div className="flex items-center justify-between text-xs">
+            <span className="text-muted-foreground">최근 예측 정확도</span>
+            <span className="font-semibold tabular-nums">{data.recentAccuracy}%</span>
+          </div>
+          <div className="h-1.5 w-full overflow-hidden rounded-full bg-muted">
+            <div
+              className="h-full rounded-full transition-all"
+              style={{
+                width: `${Math.min(100, Math.max(0, data.recentAccuracy))}%`,
+                backgroundColor: accent.color,
+              }}
+            />
+          </div>
         </div>
       </CardContent>
     </Card>
