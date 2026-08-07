@@ -4,7 +4,7 @@ import { LineChart } from "lucide-react";
 const NAV_ITEMS = [
   { href: "/", label: "추정가" },
   { href: "/history", label: "예측 기록" },
-  { href: "/admin", label: "관리자" },
+  { href: "/admin", label: "데이터 소스" },
 ];
 
 export function SiteHeader() {

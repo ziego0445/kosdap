@@ -14,6 +14,7 @@ from __future__ import annotations
 
 import math
 
+from collectors.tokenized import BYBIT_SYMBOLS
 from models.fitted_weights import FACTOR_LABELS, FITTED_MODELS
 from models.schema import InfluenceFactor, Prediction
 
@@ -78,8 +79,15 @@ def compute_prediction(
     score_percent = intercept + sum(contributions.values())
     predicted_price = current_price * (1 + score_percent / 100)
 
+    # "token" 라벨은 종목마다 실제로 다른 값(SAMSUNGUSDT vs SKHYNIXUSDT)을
+    # 가리키는데 두 카드에 똑같은 문구가 뜨면 같은 값처럼 보여 헷갈리므로,
+    # 실제 참조하는 Bybit 심볼을 라벨에 명시한다.
+    labels = dict(FACTOR_LABELS)
+    if symbol in BYBIT_SYMBOLS:
+        labels["token"] = f"토큰화 주식/선물({BYBIT_SYMBOLS[symbol]})"
+
     factors = [
-        InfluenceFactor(label=FACTOR_LABELS.get(k, k), contribution=round(c, 3))
+        InfluenceFactor(label=labels.get(k, k), contribution=round(c, 3))
         for k, c in sorted(contributions.items(), key=lambda kv: abs(kv[1]), reverse=True)
     ]
 

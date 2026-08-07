@@ -11,6 +11,7 @@ import json
 import logging
 from pathlib import Path
 
+import accuracy_log
 import db
 from collectors.equities import collect_equity_changes
 from collectors.flows import collect_daily_flows
@@ -30,10 +31,21 @@ _last_flows_date: str | None = None  # 하루 1회만 스크래핑하기 위한 
 # apps/web이 바로 읽는 JSON 파일로도 내보낸다. Supabase 연동 후에는
 # 이 파일 대신 predictions 테이블을 읽도록 apps/web 쪽만 바꾸면 됨.
 _WEB_SNAPSHOT_PATH = Path(__file__).resolve().parents[2] / "apps" / "web" / "public" / "predictions.json"
+_WEB_ACCURACY_PATH = Path(__file__).resolve().parents[2] / "apps" / "web" / "public" / "accuracy-history.json"
 
-# 백테스트 방향적중률(docs/PRD.md 4.2) — recentAccuracy 표시에 사용.
-# TODO: prediction_accuracy 테이블이 쌓이면 그 실측치로 교체할 것.
+# 실제 기록(accuracy_log)이 아직 부족할 때 쓰는 초기 폴백 — 2026-08-06
+# 40일 표본 백테스트 방향적중률 (docs/PRD.md 4.2). 실제 예측->확정 사이클이
+# 쌓이면 accuracy_log.compute_recent_accuracy_percent()가 우선한다.
 _BACKTEST_DIRECTION_ACCURACY = {"SAMSUNG": 63, "SKHYNIX": 71}
+
+
+def _recent_accuracy(symbol: str) -> tuple[float, bool]:
+    """(정확도%, 실제기록기반여부). 실제 기록이 있으면 그걸 쓰고,
+    없으면(서비스 초기) 백테스트 추정치로 대체한다."""
+    real = accuracy_log.compute_recent_accuracy_percent(symbol)
+    if real is not None:
+        return real, True
+    return float(_BACKTEST_DIRECTION_ACCURACY.get(symbol, 0)), False
 
 
 def _load_existing_snapshot() -> dict[str, dict]:
@@ -119,6 +131,7 @@ def run_once() -> None:
             )
             logger.info("%s: 실제가 %.0f (전일比 %.2f%%) — 예측 생략", symbol, live_price, change_percent_today)
 
+            accuracy_pct, accuracy_is_real = _recent_accuracy(symbol)
             web_rows.append(
                 {
                     "symbol": symbol,
@@ -132,7 +145,8 @@ def run_once() -> None:
                     "rangeLow": round(live_price),
                     "rangeHigh": round(live_price),
                     "factors": [],
-                    "recentAccuracy": _BACKTEST_DIRECTION_ACCURACY.get(symbol, 0),
+                    "recentAccuracy": accuracy_pct,
+                    "isRealAccuracy": accuracy_is_real,
                     "asOf": dt.datetime.now(KST).isoformat(),
                     "isWeekend": False,
                     "isLowSample": False,
@@ -176,6 +190,17 @@ def run_once() -> None:
         )
         prediction.is_weekend = is_weekend  # compute_prediction은 시간 정보를 모르므로 여기서 채움
 
+        # 지난번 예측(pending)이 있었고 그게 예측했던 종가가 이번에 새로
+        # 확정됐으면(trade_date가 바뀌었으면) 정확도 기록에 남기고, 이번
+        # 예측을 새 pending으로 교체한다 (accuracy_log.py 참고).
+        accuracy_log.reconcile_and_store(
+            symbol=symbol,
+            trade_date=trade_date,
+            last_close=last_close,
+            predicted_price=prediction.predicted_price,
+            change_percent=prediction.change_percent,
+        )
+
         db.insert("predictions", prediction.to_row())
         logger.info(
             "%s: %.0f -> %.0f (%.2f%%) [token_change=%s]",
@@ -186,6 +211,7 @@ def run_once() -> None:
             f"{token_change_percent:.2f}%" if token_change_percent is not None else "N/A",
         )
 
+        accuracy_pct, accuracy_is_real = _recent_accuracy(symbol)
         web_rows.append(
             {
                 "symbol": symbol,
@@ -202,7 +228,8 @@ def run_once() -> None:
                     {"label": f.label, "contribution": f.contribution}
                     for f in prediction.factors
                 ],
-                "recentAccuracy": _BACKTEST_DIRECTION_ACCURACY.get(symbol, 0),
+                "recentAccuracy": accuracy_pct,
+                "isRealAccuracy": accuracy_is_real,
                 "asOf": dt.datetime.now(KST).isoformat(),
                 "isWeekend": is_weekend,
                 "isLowSample": prediction.is_low_sample,
@@ -213,6 +240,8 @@ def run_once() -> None:
 
     if web_rows:
         _write_web_snapshot(web_rows)
+
+    accuracy_log.export_history_for_web(_WEB_ACCURACY_PATH)
 
     db.log_admin_event("pipeline", "ok", "run_once completed")
 

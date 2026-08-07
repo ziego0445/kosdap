@@ -74,18 +74,21 @@ export function StockCard({ data }: { data: StockPrediction }) {
         <div className="flex items-end justify-between">
           <div>
             <p className="text-xs text-muted-foreground">
-              {data.isEstimate ? "현재가" : "실시간가"}
+              {data.isEstimate ? "추정가" : "실시간가"}
             </p>
-            <p className="text-2xl font-bold tabular-nums">
-              {formatKrw(data.currentPrice)}
+            <p
+              className="text-3xl font-bold tabular-nums"
+              style={data.isEstimate ? { color: accent.color } : undefined}
+            >
+              {formatKrw(data.isEstimate ? data.predictedPrice : data.currentPrice)}
             </p>
           </div>
           <div className="text-right">
             {data.isEstimate && (
               <>
-                <p className="text-xs text-muted-foreground">추정가</p>
-                <p className="text-lg font-semibold tabular-nums" style={{ color: accent.color }}>
-                  {formatKrw(data.predictedPrice)}
+                <p className="text-xs text-muted-foreground">현재가</p>
+                <p className="text-base font-medium tabular-nums text-muted-foreground">
+                  {formatKrw(data.currentPrice)}
                 </p>
               </>
             )}
@@ -146,7 +149,9 @@ export function StockCard({ data }: { data: StockPrediction }) {
 
         <div className="space-y-1.5">
           <div className="flex items-center justify-between text-xs">
-            <span className="text-muted-foreground">최근 예측 정확도</span>
+            <span className="text-muted-foreground">
+              {data.isRealAccuracy ? "최근 예측 정확도" : "예측 정확도 (백테스트 추정)"}
+            </span>
             <span className="font-semibold tabular-nums">{data.recentAccuracy}%</span>
           </div>
           <div className="h-1.5 w-full overflow-hidden rounded-full bg-muted">

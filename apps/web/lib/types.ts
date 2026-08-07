@@ -19,6 +19,9 @@ export interface StockPrediction {
   rangeHigh: number;
   factors: InfluenceFactor[];
   recentAccuracy: number; // 0-100, trailing accuracy
+  /** true면 실제 기록(accuracy-history.json)으로 계산된 값, false면 아직
+   * 실기록이 부족해서 초기 백테스트 추정치를 대신 보여주는 것. */
+  isRealAccuracy: boolean;
   asOf: string; // ISO timestamp
   isWeekend: boolean;
   /** 백테스트 표본이 작아 정확도가 아직 검증 중인 단계인지 (docs/PRD.md 4.2) */

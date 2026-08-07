@@ -1,51 +1,31 @@
-import { RefreshCw, Calculator, CheckCircle2, Clock } from "lucide-react";
+import { CheckCircle2, Clock, Bell } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
-// docs/PRD.md 3절 데이터 소스 (2026-08-06 실측 기준)
 const sources = [
-  { name: "SAMSUNGUSDT / SKHYNIXUSDT (Bybit 무기한선물)", status: "ok", note: "24/7" },
-  { name: "SKHYB/USDT (Binance, 교차검증용)", status: "ok", note: "24/7" },
-  { name: "Micron / Nvidia / TSMC / SOXX / SMH (Yahoo Finance)", status: "ok", note: "미국장 시간" },
-  { name: "USD/KRW, DXY, VIX, 미국10년물, BTC/ETH", status: "ok", note: "10~15분" },
-  { name: "외국인/기관 순매수 (네이버페이 증권)", status: "ok", note: "일 1회" },
-  { name: "공매도비율", status: "idle", note: "미연동" },
-  { name: "KRX 시간외 단일가", status: "idle", note: "미연동" },
+  { name: "삼성전자 · SK하이닉스 토큰화 선물 (Bybit)", status: "ok", note: "24/7" },
+  { name: "Micron · Nvidia · TSMC · SOXX · SMH", status: "ok", note: "미국장 시간" },
+  { name: "USD/KRW, DXY, VIX, 미국 10년물, BTC/ETH", status: "ok", note: "10~15분" },
+  { name: "외국인 · 기관 순매수", status: "ok", note: "일 1회" },
+  { name: "공매도비율", status: "idle", note: "준비 중" },
+  { name: "KRX 시간외 단일가", status: "idle", note: "준비 중" },
 ] as const;
 
 export default function AdminPage() {
-  // TODO: 버튼 액션을 Python predictor 서비스 트리거(API route -> HTTP/Job insert)로 연결
   return (
     <div className="space-y-5">
       <div className="space-y-1">
         <h1 className="text-2xl font-bold tracking-tight">
           <span className="bg-gradient-to-r from-[#3987e5] to-[#d55181] bg-clip-text text-transparent">
-            관리자
-          </span>{" "}
-          🛠️
+            데이터 소스
+          </span>
         </h1>
         <p className="text-xs text-muted-foreground">
-          데이터 수집 상태 확인 및 수동 재계산. (초기 스캐폴딩 — 실제 트리거
-          미연결)
+          kosdap이 추정가 계산에 실제로 사용하는 데이터 출처와 갱신 주기입니다.
         </p>
       </div>
 
-      <div className="flex gap-2">
-        <Button variant="outline" size="sm" className="gap-1.5 rounded-full">
-          <RefreshCw className="h-3.5 w-3.5" />
-          데이터 새로고침
-        </Button>
-        <Button variant="outline" size="sm" className="gap-1.5 rounded-full">
-          <Calculator className="h-3.5 w-3.5" />
-          예측 다시계산
-        </Button>
-      </div>
-
       <Card size="sm">
-        <CardHeader>
-          <CardTitle className="text-sm">데이터 소스 상태</CardTitle>
-        </CardHeader>
         <CardContent>
           <ul className="divide-y divide-white/5">
             {sources.map((s) => (
@@ -68,7 +48,7 @@ export default function AdminPage() {
                     }
                   >
                     {s.status === "ok" && <CheckCircle2 className="h-3 w-3" />}
-                    {s.status === "ok" ? "정상" : "대기"}
+                    {s.status === "ok" ? "연동됨" : "준비 중"}
                   </Badge>
                 </div>
               </li>
@@ -77,15 +57,16 @@ export default function AdminPage() {
         </CardContent>
       </Card>
 
-      <Card size="sm">
+      <Card size="sm" className="border-white/5 bg-white/[0.02]">
         <CardHeader>
-          <CardTitle className="text-sm">로그</CardTitle>
+          <CardTitle className="flex items-center gap-1.5 text-sm">
+            <Bell className="h-3.5 w-3.5" />
+            장애 알림
+          </CardTitle>
         </CardHeader>
         <CardContent>
           <p className="text-xs text-muted-foreground">
-            아직 로그가 없습니다. predictor 서비스가 admin_logs 테이블에
-            기록을 남기면 여기 표시됩니다. 파이프라인 에러는 텔레그램으로도
-            바로 알림이 갑니다.
+            데이터 수집이나 계산에 문제가 생기면 운영자에게 즉시 알림이 갑니다.
           </p>
         </CardContent>
       </Card>

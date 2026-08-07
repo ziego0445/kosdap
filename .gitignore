@@ -5,8 +5,11 @@ out/
 apps/web/.env.local
 *.tsbuildinfo
 next-env.d.ts
-# predictor가 매 실행마다 써주는 런타임 스냅샷 (Supabase 연동 전 임시 브리지)
+# predictor가 매 실행마다 써주는 런타임 스냅샷 (Supabase 연동 전 임시 브리지).
+# 정확도 기록의 원본(canonical)은 services/predictor/data/accuracy_history.json
+# 쪽이고, 이건 그걸 빌드마다 복사해 만드는 파생 파일이라 커밋 안 함.
 apps/web/public/predictions.json
+apps/web/public/accuracy-history.json
 
 # Python
 __pycache__/
