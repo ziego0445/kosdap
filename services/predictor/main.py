@@ -15,7 +15,12 @@ import accuracy_log
 import db
 from collectors.equities import collect_equity_changes
 from collectors.flows import collect_daily_flows
-from collectors.krx import fetch_intraday_price, fetch_last_close_with_date, fetch_previous_close
+from collectors.krx import (
+    fetch_after_hours_price,
+    fetch_intraday_price,
+    fetch_last_close_with_date,
+    fetch_previous_close,
+)
 from collectors.macro import collect_macro_changes
 from collectors.market_hours import KST, get_session, has_real_price_feed
 from collectors.tokenized import BYBIT_SYMBOLS, collect_token_prices, fetch_bybit_close_at_krx_close
@@ -109,14 +114,17 @@ def run_once() -> None:
     logger.info("KRX 세션 상태: %s (실제가 표시=%s)", session, show_real_price)
 
     for symbol, meta in SYMBOLS.items():
-        # ── 1) 실제가를 보여줄 수 있는 구간(정규장 운영 중): 예측하지 않고
-        #    실시간 체결가를 그대로 보여준다 (docs/PRD.md 3.4 — 사용자 요청으로 확정).
+        # ── 1) 실제가를 보여줄 수 있는 구간(정규장/장전·장후 시간외): 예측하지
+        #    않고 실제 체결가를 그대로 보여준다 (docs/PRD.md 3.4).
         if show_real_price:
-            live_price = fetch_intraday_price(meta["krx_ticker"])
+            if session == "open":
+                live_price = fetch_intraday_price(meta["krx_ticker"])
+            else:  # pre_market / post_market — 시간외 단일가
+                live_price = fetch_after_hours_price(meta["krx_ticker"])
             prev_close, _ = fetch_previous_close(meta["krx_ticker"])
             if live_price is None or prev_close is None:
-                logger.error("%s: 실시간가/전일종가 조회 실패", symbol)
-                db.log_admin_event(symbol, "error", "intraday/previous close fetch failed")
+                logger.error("%s: 실제가/전일종가 조회 실패 (세션=%s)", symbol, session)
+                db.log_admin_event(symbol, "error", f"real price fetch failed (session={session})")
                 continue
 
             change_percent_today = (live_price - prev_close) / prev_close * 100
@@ -125,11 +133,14 @@ def run_once() -> None:
                 {
                     "symbol": symbol,
                     "price": live_price,
-                    "session": "regular",
+                    "session": session,
                     "trade_date": dt.datetime.now(KST).date().isoformat(),
                 },
             )
-            logger.info("%s: 실제가 %.0f (전일比 %.2f%%) — 예측 생략", symbol, live_price, change_percent_today)
+            logger.info(
+                "%s: 실제가 %.0f (전일比 %.2f%%, 세션=%s) — 예측 생략",
+                symbol, live_price, change_percent_today, session,
+            )
 
             accuracy_pct, accuracy_is_real = _recent_accuracy(symbol)
             web_rows.append(

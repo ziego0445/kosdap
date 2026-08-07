@@ -4,11 +4,11 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const sources = [
   { name: "삼성전자 · SK하이닉스 토큰화 선물 (Bybit)", status: "ok", note: "24/7" },
+  { name: "장전 · 장후 시간외 단일가", status: "ok", note: "해당 시간대" },
   { name: "Micron · Nvidia · TSMC · SOXX · SMH", status: "ok", note: "미국장 시간" },
   { name: "USD/KRW, DXY, VIX, 미국 10년물, BTC/ETH", status: "ok", note: "10~15분" },
   { name: "외국인 · 기관 순매수", status: "ok", note: "일 1회" },
-  { name: "공매도비율", status: "idle", note: "준비 중" },
-  { name: "KRX 시간외 단일가", status: "idle", note: "준비 중" },
+  { name: "공매도비율", status: "idle", note: "KRX 공식 연동 필요" },
 ] as const;
 
 export default function AdminPage() {

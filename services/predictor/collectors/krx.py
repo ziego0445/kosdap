@@ -5,8 +5,8 @@ fetch_last_close()는 yfinance(005930.KS 등)로 실제 종가를 가져온다 �
 검토할 것.
 
 fetch_after_hours_price()는 '추정'이 필요 없는 실제 시간외 체결 구간
-(16:00~18:00, 07:30~08:30) 데이터로, 아직 소스가 정해지지 않은 스텁이다
-(docs/PRD.md 3.4 참고).
+(16:00~18:00, 07:30~08:30) 데이터. 2026-08-07 실측으로 네이버 금융
+모바일이 쓰는 polling API에서 정확한 값을 찾아 연결함 (docs/PRD.md 3.4).
 """
 
 from __future__ import annotations
@@ -14,11 +14,15 @@ from __future__ import annotations
 import datetime as dt
 import logging
 
+import requests
 import yfinance as yf
 
 from .market_hours import KST
 
 logger = logging.getLogger(__name__)
+
+_NAVER_POLLING_URL = "https://polling.finance.naver.com/api/realtime/domestic/stock/{code}"
+_MOBILE_UA = "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X)"
 
 
 def fetch_last_close(krx_ticker: str) -> float | None:
@@ -49,11 +53,30 @@ def fetch_last_close_with_date(krx_ticker: str) -> tuple[float | None, str | Non
 
 
 def fetch_after_hours_price(krx_ticker: str) -> float | None:
-    logger.warning(
-        "fetch_after_hours_price(%s) is a stub — wire up KRX 시간외 데이터 소스",
-        krx_ticker,
-    )
-    return None
+    """장전/장후 시간외 단일가(07:30~08:30, 16:00~18:00 KST) 실제 체결가.
+
+    실측 확인(2026-08-07): 네이버 금융 모바일이 쓰는 실시간 polling API의
+    `overMarketPriceInfo.overPrice` 필드가 정확히 이 값을 준다 (삼성전자·
+    SK하이닉스 둘 다 확인함). 비공식 API라 응답 구조가 바뀌면 깨질 수 있음.
+    """
+    code = krx_ticker.split(".")[0]
+    try:
+        resp = requests.get(
+            _NAVER_POLLING_URL.format(code=code),
+            headers={"User-Agent": _MOBILE_UA},
+            timeout=10,
+        )
+        resp.raise_for_status()
+        rows = resp.json().get("datas", [])
+        if not rows:
+            return None
+        over = rows[0].get("overMarketPriceInfo")
+        if not over or not over.get("overPrice"):
+            return None
+        return float(str(over["overPrice"]).replace(",", ""))
+    except Exception:
+        logger.exception("KRX after-hours price fetch failed for %s", krx_ticker)
+        return None
 
 
 def fetch_intraday_price(krx_ticker: str) -> float | None:
