@@ -82,18 +82,8 @@ export function StockCard({ data }: { data: StockPrediction }) {
             >
               {formatKrw(data.isEstimate ? data.predictedPrice : data.currentPrice)}
             </p>
-          </div>
-          <div className="text-right">
-            {data.isEstimate && (
-              <>
-                <p className="text-xs text-muted-foreground">현재가</p>
-                <p className="text-base font-medium tabular-nums text-muted-foreground">
-                  {formatKrw(data.currentPrice)}
-                </p>
-              </>
-            )}
             <span
-              className="mt-0.5 inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-semibold tabular-nums"
+              className="mt-1 inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-semibold tabular-nums"
               style={{ backgroundColor: `rgba(${accent.rgb}, 0.16)`, color: accent.color }}
             >
               {isUp ? (
@@ -105,6 +95,14 @@ export function StockCard({ data }: { data: StockPrediction }) {
               {Math.abs(data.changePercent)}%
             </span>
           </div>
+          {data.isEstimate && (
+            <div className="text-right">
+              <p className="text-xs text-muted-foreground">현재가</p>
+              <p className="text-base font-medium tabular-nums text-muted-foreground">
+                {formatKrw(data.currentPrice)}
+              </p>
+            </div>
+          )}
         </div>
 
         {!data.isEstimate && (
