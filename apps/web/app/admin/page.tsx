@@ -8,7 +8,7 @@ const sources = [
   { name: "Micron · Nvidia · TSMC · SOXX · SMH", status: "ok", note: "미국장 시간" },
   { name: "USD/KRW, DXY, VIX, 미국 10년물, BTC/ETH", status: "ok", note: "10~15분" },
   { name: "외국인 · 기관 순매수", status: "ok", note: "일 1회" },
-  { name: "공매도비율", status: "idle", note: "KRX Open API 미제공 상품" },
+  { name: "공매도비율", status: "ok", note: "일 1회" },
 ] as const;
 
 export default function AdminPage() {

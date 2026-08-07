@@ -1,6 +1,6 @@
 requests>=2.31
-# pandas/numpy: 런타임 파이프라인(main.py)에는 안 쓰지만, 가중치 재적합
-# 스크립트(scripts/fit_weights.py)에 필요해서 같이 둠.
+# pandas/numpy: 가중치 재적합 스크립트(scripts/fit_weights.py)뿐 아니라
+# pykrx(공매도비율 수집, collectors/flows.py)도 내부적으로 씀 — 이제 런타임에도 사용됨.
 pandas>=2.2
 numpy>=1.26
 yfinance>=0.2.40
@@ -8,3 +8,6 @@ python-dotenv>=1.0
 supabase>=2.4
 apscheduler>=3.10
 beautifulsoup4>=4.12
+# 공매도비율: data.krx.co.kr 로그인 세션이 필요해 KRX_ID/KRX_PW 환경변수로
+# 로그인하는 pykrx를 씀 (2026-08-07 실측 검증, collectors/flows.py 참고).
+pykrx>=1.2.8

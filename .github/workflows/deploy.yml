@@ -40,6 +40,10 @@ jobs:
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          # 공매도비율(collectors/flows.py, pykrx) — data.krx.co.kr 로그인 계정.
+          # 없으면 short_selling_ratio가 None으로 빠질 뿐 파이프라인은 계속 동작함.
+          KRX_ID: ${{ secrets.KRX_ID }}
+          KRX_PW: ${{ secrets.KRX_PW }}
         run: python main.py
 
       - name: Commit accuracy records (git-tracked, accumulates across runs)
