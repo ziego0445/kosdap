@@ -1,5 +1,6 @@
 import { LiveDashboard } from "@/components/live-dashboard";
 import { FeatureBand } from "@/components/feature-band";
+import { KakaoAdFit } from "@/components/kakao-adfit";
 import { mockPredictions } from "@/lib/mock-data";
 import { readLivePredictions } from "@/lib/live-predictions";
 
@@ -32,6 +33,11 @@ export default function Home() {
       </div>
 
       <LiveDashboard initial={initial} intervalMs={30_000} />
+
+      <div className="space-y-1.5">
+        <p className="text-center text-[10px] text-muted-foreground/60">광고</p>
+        <KakaoAdFit adUnit="DAN-tVZV5lnlMQBExDP1" width={300} height={250} />
+      </div>
 
       <FeatureBand />
     </div>
