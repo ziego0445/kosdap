@@ -30,7 +30,36 @@ from models.scoring import compute_prediction
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-_last_flows_date: str | None = None  # 하루 1회만 스크래핑하기 위한 가드 (config.INTERVAL_FLOWS_SECONDS)
+# 하루 1회만 스크래핑하기 위한 가드(_maybe_collect_flows 참고)의 마지막 수집
+# 날짜 — 실측으로 발견한 버그: 예전엔 모듈 전역 변수(메모리)였는데, 로컬
+# scheduler.py(오래 켜져있는 프로세스)에선 맞게 동작해도 GitHub Actions는
+# 매 실행마다 python main.py를 완전히 새 프로세스로 띄우기 때문에 메모리
+# 변수는 매번 초기화돼 가드가 사실상 무력화됨 — 하루 144번(10분 간격)
+# KRX 로그인 + 네이버 스크래핑이 벌어지고 있었음(2026-08-08 확인). git에
+# 커밋되는 파일로 영속화해서 accuracy_log.py와 같은 방식으로 고침.
+_FLOWS_STATE_PATH = Path(__file__).resolve().parent / "data" / "flows_state.json"
+
+
+def _load_last_flows_date() -> str | None:
+    try:
+        if not _FLOWS_STATE_PATH.exists():
+            return None
+        return json.loads(_FLOWS_STATE_PATH.read_text(encoding="utf-8")).get("last_flows_date")
+    except Exception:
+        logger.exception("%s 읽기 실패 — 오늘 다시 수집함", _FLOWS_STATE_PATH)
+        return None
+
+
+def _save_last_flows_date(date_str: str) -> None:
+    try:
+        _FLOWS_STATE_PATH.parent.mkdir(parents=True, exist_ok=True)
+        _FLOWS_STATE_PATH.write_text(
+            json.dumps({"last_flows_date": date_str}, ensure_ascii=False, indent=2),
+            encoding="utf-8",
+        )
+    except Exception:
+        logger.exception("%s 저장 실패", _FLOWS_STATE_PATH)
+
 
 # Supabase를 아직 안 붙였을 때도 웹에서 실제 값을 볼 수 있도록, 계산 결과를
 # apps/web이 바로 읽는 JSON 파일로도 내보낸다. Supabase 연동 후에는
@@ -83,11 +112,14 @@ def _write_web_snapshot(rows: list[dict]) -> None:
 
 def _maybe_collect_flows() -> None:
     """공매도/수급은 장마감 후 하루 1회만 갱신되므로, run_once가 몇 분마다
-    호출돼도 실제 스크래핑은 날짜가 바뀔 때만 수행한다 (Naver 과다호출 방지).
+    호출돼도 실제 스크래핑(+ KRX 로그인)은 날짜가 바뀔 때만 수행한다 (Naver/
+    KRX 과다호출·계정 이상탐지 방지). 마지막 수집 날짜는 git에 커밋되는
+    파일(_FLOWS_STATE_PATH)로 영속화한다 — 프로세스 메모리에만 두면 매
+    실행마다 새 프로세스인 GitHub Actions에서 가드가 무력화되기 때문
+    (2026-08-08 실측으로 발견: 하루 144번 로그인되고 있었음).
     """
-    global _last_flows_date
     today = dt.datetime.now(KST).date().isoformat()  # KRX 거래일은 KST 기준
-    if today == _last_flows_date:
+    if today == _load_last_flows_date():
         return
     for symbol, meta in SYMBOLS.items():
         flows = collect_daily_flows(meta["krx_code"])
@@ -95,7 +127,7 @@ def _maybe_collect_flows() -> None:
             if value is not None:
                 db.insert("raw_snapshots", {"source": f"flows:{symbol}:{metric}", "value": value})
         logger.info("%s: 수급 데이터 수집 — %s", symbol, flows)
-    _last_flows_date = today
+    _save_last_flows_date(today)
 
 
 def run_once() -> None:
