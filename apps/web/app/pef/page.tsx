@@ -38,7 +38,10 @@ export default function PefActivityPage() {
           추정한 것이라 완벽하지 않을 수 있습니다. DART API에 취득단가
           정보가 없어 &quot;평단가 대비 현재가&quot; 같은 가격 비교는
           제공하지 않습니다 — 정확히 계산할 수 없는 값은 추정해서 보여주지
-          않는다는 원칙을 여기서도 지킵니다.
+          않는다는 원칙을 여기서도 지킵니다. 랭킹은 매수 주식수가 아니라
+          보유비율 변동(%p)으로 정렬합니다 — 주식수만 보면 주가가 싼
+          회사일수록 커 보이는 착시가 있어서, 주가와 무관하게 비교 가능한
+          지표를 기준으로 삼았습니다.
         </p>
       </CardContent>
     </Card>
@@ -82,9 +85,9 @@ export default function PefActivityPage() {
             <TableHeader>
               <TableRow>
                 <TableHead>회사</TableHead>
-                <TableHead>보고자(사모펀드 추정)</TableHead>
-                <TableHead className="text-right">최근 순매수(주)</TableHead>
+                <TableHead className="text-right">보유비율 변동</TableHead>
                 <TableHead>최근 보고일</TableHead>
+                <TableHead>보고자(사모펀드 추정)</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -98,16 +101,19 @@ export default function PefActivityPage() {
                       </div>
                     )}
                   </TableCell>
-                  <TableCell className="max-w-[220px] text-xs text-muted-foreground">
-                    {r.pefReporters.join(", ")}
-                  </TableCell>
                   <TableCell
                     className={`text-right tabular-nums ${
-                      r.pefNetBuyShares >= 0 ? "text-[#e66767]" : "text-[#3987e5]"
+                      r.pefNetBuyRatioPercent >= 0 ? "text-[#e66767]" : "text-[#3987e5]"
                     }`}
                   >
-                    {r.pefNetBuyShares >= 0 ? "+" : ""}
-                    {r.pefNetBuyShares.toLocaleString("ko-KR")}
+                    <div className="font-semibold">
+                      {r.pefNetBuyRatioPercent >= 0 ? "+" : ""}
+                      {r.pefNetBuyRatioPercent}%p
+                    </div>
+                    <div className="text-[10px] text-muted-foreground">
+                      {r.pefNetBuyShares >= 0 ? "+" : ""}
+                      {r.pefNetBuyShares.toLocaleString("ko-KR")}주
+                    </div>
                   </TableCell>
                   <TableCell className="tabular-nums">
                     {r.latestReportDate ?? "-"}
@@ -116,6 +122,9 @@ export default function PefActivityPage() {
                         ({r.latestReportReason})
                       </span>
                     )}
+                  </TableCell>
+                  <TableCell className="max-w-[220px] text-xs text-muted-foreground">
+                    {r.pefReporters.join(", ")}
                   </TableCell>
                 </TableRow>
               ))}

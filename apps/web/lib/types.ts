@@ -53,6 +53,10 @@ export interface PefActivityRow {
   corpName: string;
   stockCode: string | null;
   pefNetBuyShares: number;
+  /** 보유비율 증감(%). 주식수는 주가가 싼 회사일수록 커 보이는 착시가
+   * 있어 회사 간 비교엔 이 값(주가 무관, DART가 직접 주는 필드)이 더
+   * 정직한 기준 — 랭킹 정렬도 이 값 기준. */
+  pefNetBuyRatioPercent: number;
   pefReporters: string[];
   latestReportDate: string | null;
   latestReportReason: string | null;

@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "삼전 닉스 오늘 얼마니? — 삼성전자·SK하이닉스 추정가",
+  title: "오늘 얼마니? — 삼성전자·SK하이닉스 추정가",
   description:
     "시장 데이터 기반으로 계산한 삼성전자·SK하이닉스 다음 거래일 추정가격",
 };

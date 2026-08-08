@@ -75,6 +75,7 @@ def collect_pef_activity() -> list[dict]:
     for corp_code, meta in companies.items():
         history = fetch_major_holder_detail(corp_code)
         pef_net_buy = 0.0
+        pef_net_buy_ratio = 0.0
         pef_reporters: set[str] = set()
         latest_report_reason = None
         latest_date = None
@@ -89,8 +90,12 @@ def collect_pef_activity() -> list[dict]:
             if not looks_like_pef(reporter):
                 continue
 
-            delta = _parse_number(entry.get("stkqy_irds"))
-            pef_net_buy += delta
+            pef_net_buy += _parse_number(entry.get("stkqy_irds"))
+            # 주식수는 주가가 싼 회사일수록 커 보이는 착시가 있어서(같은
+            # 금액이어도 저가주는 훨씬 많은 주식수가 됨), 주가와 무관하게
+            # 비교 가능한 보유비율 증감(%)도 같이 집계한다 — 취득단가처럼
+            # 없는 값을 추정할 필요 없이 DART가 이미 주는 필드라 정확하다.
+            pef_net_buy_ratio += _parse_number(entry.get("stkrt_irds"))
             pef_reporters.add(reporter)
             if latest_date_norm is None or rcept_dt_norm > latest_date_norm:
                 latest_date_norm = rcept_dt_norm
@@ -104,13 +109,16 @@ def collect_pef_activity() -> list[dict]:
                     "corpName": meta.get("corp_name"),
                     "stockCode": meta.get("stock_code"),
                     "pefNetBuyShares": round(pef_net_buy),
+                    "pefNetBuyRatioPercent": round(pef_net_buy_ratio, 2),
                     "pefReporters": sorted(pef_reporters),
                     "latestReportDate": latest_date,
                     "latestReportReason": latest_report_reason,
                 }
             )
 
-    rows.sort(key=lambda r: r["pefNetBuyShares"], reverse=True)
+    # 주식수보다 지분율 변동(%)이 회사 규모/주가와 무관한 더 정직한 비교
+    # 지표라 이걸 기준으로 정렬한다 (2026-08-08, 사용자 피드백 반영).
+    rows.sort(key=lambda r: r["pefNetBuyRatioPercent"], reverse=True)
     return rows
 
 
