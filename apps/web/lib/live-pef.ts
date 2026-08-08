@@ -13,6 +13,8 @@ interface RawPefActivity {
     // 필드 추가 전(2026-08-08 이전)에 커밋된 데이터엔 없을 수 있어 optional로 —
     // 다음 수집 사이클에 자동으로 채워짐.
     pefNetBuyRatioPercent?: number;
+    pefNetBuyValueKrw?: number;
+    pefNetBuyValueIsPartial?: boolean;
     pefReporters: string[];
     latestReportDate: string | null;
     latestReportReason: string | null;
@@ -43,6 +45,8 @@ export function readLivePefActivity(): LivePefActivity | null {
       rows: parsed.rows.map((r) => ({
         ...r,
         pefNetBuyRatioPercent: r.pefNetBuyRatioPercent ?? 0,
+        pefNetBuyValueKrw: r.pefNetBuyValueKrw ?? 0,
+        pefNetBuyValueIsPartial: r.pefNetBuyValueIsPartial ?? true,
       })),
     };
   } catch {

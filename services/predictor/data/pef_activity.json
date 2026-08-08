@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-08T03:59:24.444337+00:00",
+  "generatedAt": "2026-08-08T04:15:06.523791+00:00",
   "lookbackDays": 30,
   "rows": [
     {
@@ -8,6 +8,8 @@
       "stockCode": "003100",
       "pefNetBuyShares": 3859648,
       "pefNetBuyRatioPercent": 58.48,
+      "pefNetBuyValueKrw": 74491206400,
+      "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "화인파트너스"
       ],
@@ -20,6 +22,8 @@
       "stockCode": "079940",
       "pefNetBuyShares": 3270248,
       "pefNetBuyRatioPercent": 24.37,
+      "pefNetBuyValueKrw": 144054424400,
+      "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "디씨케이인베스트먼트"
       ],
@@ -32,6 +36,8 @@
       "stockCode": "368970",
       "pefNetBuyShares": 2289813,
       "pefNetBuyRatioPercent": 22.46,
+      "pefNetBuyValueKrw": 5071935795,
+      "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "와이투케이파트너스"
       ],
@@ -44,6 +50,8 @@
       "stockCode": "200230",
       "pefNetBuyShares": 2329916,
       "pefNetBuyRatioPercent": 19.21,
+      "pefNetBuyValueKrw": 5242311000,
+      "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "에버코어인베스트먼트홀딩스"
       ],
@@ -56,6 +64,8 @@
       "stockCode": "238540",
       "pefNetBuyShares": 165510,
       "pefNetBuyRatioPercent": 11.61,
+      "pefNetBuyValueKrw": 0,
+      "pefNetBuyValueIsPartial": true,
       "pefReporters": [
         "캡스톤파트너스"
       ],
@@ -68,6 +78,8 @@
       "stockCode": "001750",
       "pefNetBuyShares": 2393052,
       "pefNetBuyRatioPercent": 9.57,
+      "pefNetBuyValueKrw": 47980692600,
+      "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "케이씨지아이제2호사모투자"
       ],
@@ -80,6 +92,8 @@
       "stockCode": "260660",
       "pefNetBuyShares": 1226992,
       "pefNetBuyRatioPercent": 7.41,
+      "pefNetBuyValueKrw": 3067480000,
+      "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "시너지아이비투자"
       ],
@@ -92,6 +106,8 @@
       "stockCode": "009460",
       "pefNetBuyShares": 773694,
       "pefNetBuyRatioPercent": 6.09,
+      "pefNetBuyValueKrw": 2441004570,
+      "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "시너지아이비투자"
       ],
@@ -104,6 +120,8 @@
       "stockCode": "322780",
       "pefNetBuyShares": 556792,
       "pefNetBuyRatioPercent": 5.84,
+      "pefNetBuyValueKrw": 1135855680,
+      "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "빅터그로스파트너스조합"
       ],
@@ -116,6 +134,8 @@
       "stockCode": "060900",
       "pefNetBuyShares": 204675,
       "pefNetBuyRatioPercent": 5.13,
+      "pefNetBuyValueKrw": 895453125,
+      "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "엘앤엘파트너스"
       ],
@@ -128,6 +148,8 @@
       "stockCode": "179900",
       "pefNetBuyShares": 1429833,
       "pefNetBuyRatioPercent": 5.01,
+      "pefNetBuyValueKrw": 4461078960,
+      "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "세븐브릿지제6호유니크글래스사모투자"
       ],
@@ -140,6 +162,8 @@
       "stockCode": "188260",
       "pefNetBuyShares": 645382,
       "pefNetBuyRatioPercent": 1.96,
+      "pefNetBuyValueKrw": 1374663660,
+      "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "지씨파트너스"
       ],
@@ -152,6 +176,8 @@
       "stockCode": "006800",
       "pefNetBuyShares": 2586314,
       "pefNetBuyRatioPercent": 1.94,
+      "pefNetBuyValueKrw": 87676044600,
+      "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "미래에셋캐피탈"
       ],
@@ -164,6 +190,8 @@
       "stockCode": "270520",
       "pefNetBuyShares": 1200292,
       "pefNetBuyRatioPercent": 1.58,
+      "pefNetBuyValueKrw": 3780919800,
+      "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "유토피아 파트너스"
       ],
@@ -176,6 +204,8 @@
       "stockCode": "084650",
       "pefNetBuyShares": 1240100,
       "pefNetBuyRatioPercent": 1.52,
+      "pefNetBuyValueKrw": 807305100,
+      "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "루하프라이빗에쿼티"
       ],
@@ -188,6 +218,8 @@
       "stockCode": "068100",
       "pefNetBuyShares": 76873,
       "pefNetBuyRatioPercent": 0.64,
+      "pefNetBuyValueKrw": 185263930,
+      "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "웰비안파트너스"
       ],
@@ -200,6 +232,8 @@
       "stockCode": "950210",
       "pefNetBuyShares": 34733,
       "pefNetBuyRatioPercent": 0.28,
+      "pefNetBuyValueKrw": 221451200,
+      "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "메이슨파트너스"
       ],
@@ -212,6 +246,8 @@
       "stockCode": "060560",
       "pefNetBuyShares": 0,
       "pefNetBuyRatioPercent": 0.0,
+      "pefNetBuyValueKrw": 0,
+      "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "에이치씨파트너스"
       ],
@@ -224,6 +260,8 @@
       "stockCode": "034830",
       "pefNetBuyShares": 0,
       "pefNetBuyRatioPercent": 0.0,
+      "pefNetBuyValueKrw": 0,
+      "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "엠케이인베스트먼트"
       ],
@@ -236,6 +274,8 @@
       "stockCode": "009190",
       "pefNetBuyShares": 0,
       "pefNetBuyRatioPercent": 0.0,
+      "pefNetBuyValueKrw": 0,
+      "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "디와이엠파트너스"
       ],
@@ -248,6 +288,8 @@
       "stockCode": "088290",
       "pefNetBuyShares": 0,
       "pefNetBuyRatioPercent": 0.0,
+      "pefNetBuyValueKrw": 0,
+      "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "래인파트너스"
       ],
@@ -260,6 +302,8 @@
       "stockCode": "115180",
       "pefNetBuyShares": 0,
       "pefNetBuyRatioPercent": -0.01,
+      "pefNetBuyValueKrw": 0,
+      "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "유암코키스톤구조혁신기업재무안정사모투자"
       ],
@@ -272,6 +316,8 @@
       "stockCode": "459550",
       "pefNetBuyShares": -405508,
       "pefNetBuyRatioPercent": -1.64,
+      "pefNetBuyValueKrw": -758299960,
+      "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "크로스로드6호사모투자"
       ],
@@ -284,6 +330,8 @@
       "stockCode": "462350",
       "pefNetBuyShares": 418146,
       "pefNetBuyRatioPercent": -2.13,
+      "pefNetBuyValueKrw": 2809941120,
+      "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "코오롱인베스트먼트"
       ],
@@ -296,6 +344,8 @@
       "stockCode": "487580",
       "pefNetBuyShares": -648322,
       "pefNetBuyRatioPercent": -2.58,
+      "pefNetBuyValueKrw": -2304784710,
+      "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "코오롱인베스트먼트"
       ],
@@ -308,6 +358,8 @@
       "stockCode": "086960",
       "pefNetBuyShares": -7952727,
       "pefNetBuyRatioPercent": -3.45,
+      "pefNetBuyValueKrw": -15905454000,
+      "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "시너지아이비투자"
       ],
@@ -320,6 +372,8 @@
       "stockCode": "086220",
       "pefNetBuyShares": -727272,
       "pefNetBuyRatioPercent": -7.17,
+      "pefNetBuyValueKrw": 0,
+      "pefNetBuyValueIsPartial": true,
       "pefReporters": [
         "마그나인베스트먼트"
       ],
@@ -332,6 +386,8 @@
       "stockCode": "016740",
       "pefNetBuyShares": -4200000,
       "pefNetBuyRatioPercent": -14.65,
+      "pefNetBuyValueKrw": -13314000000,
+      "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "프리미어성장전략엠앤에이사모투자"
       ],
@@ -344,6 +400,8 @@
       "stockCode": "051780",
       "pefNetBuyShares": -467434,
       "pefNetBuyRatioPercent": -16.97,
+      "pefNetBuyValueKrw": -1432392540,
+      "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "시너지아이비투자",
         "케이파트너스"

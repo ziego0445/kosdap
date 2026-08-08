@@ -119,3 +119,30 @@ def fetch_previous_close(krx_ticker: str) -> tuple[float | None, str | None]:
     except Exception:
         logger.exception("KRX previous close fetch failed for %s", krx_ticker)
         return None, None
+
+
+def fetch_close_price_on_or_before(krx_ticker: str, date_str: str) -> float | None:
+    """`date_str`("YYYY-MM-DD") 당일 또는 그 직전 가장 가까운 거래일 종가.
+
+    PEF 지분공시(pef_tracker.py)에서 "매수 규모가 대략 얼마였는지" 근사할
+    때 쓴다 — DART엔 실제 매수단가가 없으니(실측 확인) 대신 공시일 종가로
+    추정한다. 주말/공휴일이면 그 이전 거래일 종가를 쓰므로 실제 체결가와
+    다를 수 있음 — 반드시 "추정치"로 표시할 것.
+    """
+    try:
+        target = dt.datetime.strptime(date_str, "%Y-%m-%d").date()
+        start = target - dt.timedelta(days=10)  # 연휴 대비 넉넉히
+        end = target + dt.timedelta(days=1)
+        hist = yf.Ticker(krx_ticker).history(
+            start=start.isoformat(), end=end.isoformat(), interval="1d"
+        )
+        closes = hist["Close"].dropna()
+        if closes.empty:
+            return None
+        on_or_before = closes[closes.index.date <= target]
+        if on_or_before.empty:
+            return None
+        return float(on_or_before.iloc[-1])
+    except Exception:
+        logger.exception("KRX %s 종가 조회 실패 (%s)", date_str, krx_ticker)
+        return None

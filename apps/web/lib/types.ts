@@ -57,7 +57,31 @@ export interface PefActivityRow {
    * 있어 회사 간 비교엔 이 값(주가 무관, DART가 직접 주는 필드)이 더
    * 정직한 기준 — 랭킹 정렬도 이 값 기준. */
   pefNetBuyRatioPercent: number;
+  /** 공시일 종가 × 주식수 증감의 근사치(원) — 실제 매수단가가 아니라
+   * 추정치. DART API에 실제 취득단가가 없어서 이렇게 근사한다. */
+  pefNetBuyValueKrw: number;
+  /** true면 일부 날짜의 종가를 못 구해 위 금액이 과소산정됐을 수 있음. */
+  pefNetBuyValueIsPartial: boolean;
   pefReporters: string[];
   latestReportDate: string | null;
   latestReportReason: string | null;
+}
+
+/**
+ * KRX 투자자별(사모) 종목별 매매동향 기반 — DART 공시와 달리 개별 펀드명은
+ * 안 나오지만(KRX 공식 "사모" 카테고리 집계치, 경영참여형 PEF+헤지펀드성
+ * 사모펀드 합산) 전종목을 커버한다. services/predictor/pef_flow_tracker.py
+ * 참고. "오늘 사모 순매수가 이 종목 자체 최근 1년 역사 중 몇 번째로
+ * 강했는지" 순위 — 종목 간 비교가 아니라 그 종목 스스로의 평소 대비
+ * 이례적인 정도.
+ */
+export interface PefFlowActivityRow {
+  ticker: string;
+  corpName: string;
+  netBuyValueKrw: number;
+  /** 1이 최근 1년(대략 250거래일) 중 가장 강했던 날. */
+  rank: number;
+  sampleDays: number;
+  marketCapKrw: number | null;
+  netBuyPercentOfCap: number | null;
 }

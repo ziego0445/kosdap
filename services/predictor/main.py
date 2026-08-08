@@ -13,6 +13,7 @@ from pathlib import Path
 
 import accuracy_log
 import db
+import pef_flow_tracker
 import pef_tracker
 import token_change_cache
 from collectors.equities import collect_equity_changes
@@ -76,6 +77,7 @@ def _save_last_run_date(key: str, date_str: str) -> None:
 _WEB_SNAPSHOT_PATH = Path(__file__).resolve().parents[2] / "apps" / "web" / "public" / "predictions.json"
 _WEB_ACCURACY_PATH = Path(__file__).resolve().parents[2] / "apps" / "web" / "public" / "accuracy-history.json"
 _WEB_PEF_PATH = Path(__file__).resolve().parents[2] / "apps" / "web" / "public" / "pef-activity.json"
+_WEB_PEF_FLOW_PATH = Path(__file__).resolve().parents[2] / "apps" / "web" / "public" / "pef-flow-activity.json"
 
 # 실제 기록(accuracy_log)이 아직 부족할 때 쓰는 초기 폴백 — 2026-08-06
 # 40일 표본 백테스트 방향적중률 (docs/PRD.md 4.2). 실제 예측->확정 사이클이
@@ -153,12 +155,25 @@ def _maybe_collect_pef_activity() -> None:
     _save_last_run_date("last_pef_date", today)
 
 
+def _maybe_collect_pef_flow_activity() -> None:
+    """KRX 투자자별(사모) 수급 이례치도 장마감 후 하루 1회면 충분하다."""
+    today = dt.datetime.now(KST).date().isoformat()
+    if today == _load_last_run_date("last_pef_flow_date"):
+        return
+    try:
+        pef_flow_tracker.export_pef_flow_activity()
+    except Exception:
+        logger.exception("PEF 수급 이례치 수집 실패")
+    _save_last_run_date("last_pef_flow_date", today)
+
+
 def run_once() -> None:
     equity_changes = collect_equity_changes()
     macro_changes = collect_macro_changes()
     token_prices = collect_token_prices()
     _maybe_collect_flows()  # 아직 scoring에는 미반영 — raw_snapshots에만 적재 (docs/PRD.md 4.3)
     _maybe_collect_pef_activity()
+    _maybe_collect_pef_flow_activity()
 
     # market_hours.get_session()과 동일하게 KST 기준으로 판정 (실행 서버가
     # 다른 시간대여도 일관되게 나오도록 — 예전엔 로컬 시간대 기준이라 어긋날 수 있었음)
@@ -321,6 +336,7 @@ def run_once() -> None:
 
     accuracy_log.export_history_for_web(_WEB_ACCURACY_PATH)
     pef_tracker.export_for_web(_WEB_PEF_PATH)
+    pef_flow_tracker.export_for_web(_WEB_PEF_FLOW_PATH)
 
     db.log_admin_event("pipeline", "ok", "run_once completed")
 
