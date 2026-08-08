@@ -8,6 +8,14 @@
 Binance(SKHYB/USDT)도 SK하이닉스는 잡히지만 삼성전자는 상장이 안 되어 있고,
 Hyperliquid 기본 perp universe에는 둘 다 없었다(2026-08-06 확인). 그래서
 Bybit을 1순위로 쓰고, Binance SKHYB는 SK하이닉스 교차검증용 보조 소스로 남긴다.
+
+실측 확인(2026-08-07, GitHub Actions 로그): api.bybit.com이 GitHub Actions
+러너(Azure 미국 데이터센터 IP)에서 403 Forbidden — 로컬(한국 IP)에서는
+문제없이 동작해서 이 세션 내내 못 보고 넘어갔던 문제. 거래소들이 클라우드
+데이터센터 IP 대역을 지역과 무관하게 차단하는 경우가 흔함. 브라우저
+User-Agent를 붙이고, api.bytick.com(Bybit 미러 도메인)으로 폴백하도록
+방어적으로 고침 — 다만 IP 차단이 원인이면 미러도 똑같이 막힐 수 있어
+다음 Actions 실행 로그로 실제 해결 여부를 확인해야 한다.
 """
 
 from __future__ import annotations
@@ -19,9 +27,14 @@ import requests
 
 logger = logging.getLogger(__name__)
 
-BYBIT_TICKERS_URL = "https://api.bybit.com/v5/market/tickers"
-BYBIT_KLINE_URL = "https://api.bybit.com/v5/market/kline"
+# api.bybit.com이 클라우드 데이터센터 IP에서 막히는 경우를 대비한 폴백 순서.
+BYBIT_HOSTS = ["api.bybit.com", "api.bytick.com"]
 BINANCE_TICKER_URL = "https://api.binance.com/api/v3/ticker/price"
+
+_BROWSER_UA = (
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+    "(KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
+)
 
 BYBIT_SYMBOLS = {
     "SAMSUNG": "SAMSUNGUSDT",
@@ -29,22 +42,33 @@ BYBIT_SYMBOLS = {
 }
 
 
+def _bybit_get(path: str, params: dict) -> dict | None:
+    """호스트 목록을 순서대로 시도 — 하나가 막혀도(403 등) 다음 걸로 넘어간다."""
+    last_error: Exception | None = None
+    for host in BYBIT_HOSTS:
+        url = f"https://{host}{path}"
+        try:
+            resp = requests.get(
+                url, params=params, headers={"User-Agent": _BROWSER_UA}, timeout=10
+            )
+            resp.raise_for_status()
+            return resp.json()
+        except Exception as e:
+            last_error = e
+            logger.warning("Bybit 호스트 실패 (%s): %s", host, e)
+    if last_error is not None:
+        logger.exception("모든 Bybit 호스트 실패: %s", params, exc_info=last_error)
+    return None
+
+
 def fetch_bybit_price(symbol: str) -> float | None:
-    try:
-        resp = requests.get(
-            BYBIT_TICKERS_URL,
-            params={"category": "linear", "symbol": symbol},
-            timeout=10,
-        )
-        resp.raise_for_status()
-        data = resp.json()
-        rows = data.get("result", {}).get("list", [])
-        if not rows:
-            return None
-        return float(rows[0]["lastPrice"])
-    except Exception:
-        logger.exception("Bybit price fetch failed for %s", symbol)
+    data = _bybit_get("/v5/market/tickers", {"category": "linear", "symbol": symbol})
+    if data is None:
         return None
+    rows = data.get("result", {}).get("list", [])
+    if not rows:
+        return None
+    return float(rows[0]["lastPrice"])
 
 
 KRX_CLOSE_HOUR_UTC = 6  # KST 15:30 장마감 ≈ UTC 06:30 (근사치, 조기폐장/휴장일 미반영)
@@ -75,19 +99,19 @@ def fetch_bybit_close_at_krx_close(symbol: str, trade_date: str) -> float | None
         target = datetime.strptime(trade_date, "%Y-%m-%d").replace(
             hour=KRX_CLOSE_HOUR_UTC, minute=KRX_CLOSE_MINUTE_UTC, tzinfo=UTC
         )
-        resp = requests.get(
-            BYBIT_KLINE_URL,
-            params={
+        data = _bybit_get(
+            "/v5/market/kline",
+            {
                 "category": "linear",
                 "symbol": symbol,
                 "interval": "60",
                 "end": int(target.timestamp() * 1000),
                 "limit": 3,
             },
-            timeout=10,
         )
-        resp.raise_for_status()
-        rows = resp.json().get("result", {}).get("list", [])
+        if data is None:
+            return None
+        rows = data.get("result", {}).get("list", [])
         if not rows:
             return None
         return float(rows[0][4])  # 가장 최근(=target 이하 중 최신) 캔들의 종가
