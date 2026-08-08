@@ -34,6 +34,23 @@ function formatKrwApprox(value: number, isPartial: boolean): string {
   return isPartial ? `${body}+` : body;
 }
 
+function MarketBadge({ market }: { market: string | null }) {
+  if (!market) return null;
+  const isKospi = market === "코스피";
+  return (
+    <span
+      className={
+        "ml-1.5 inline-block rounded px-1 py-0.5 text-[9px] font-medium " +
+        (isKospi
+          ? "bg-[#3987e5]/15 text-[#3987e5]"
+          : "bg-[#d55181]/15 text-[#d55181]")
+      }
+    >
+      {market}
+    </span>
+  );
+}
+
 export default function PefActivityPage() {
   const dartData = readLivePefActivity();
   const dartRows = dartData?.rows ?? [];
@@ -167,7 +184,10 @@ export default function PefActivityPage() {
                 {combinedRows.map((r) => (
                   <TableRow key={r.ticker}>
                     <TableCell className="whitespace-normal">
-                      <div className="font-medium">{r.corpName}</div>
+                      <div className="font-medium">
+                        {r.corpName}
+                        <MarketBadge market={r.market} />
+                      </div>
                       <div className="text-[10px] text-muted-foreground">
                         {r.ticker}
                       </div>
@@ -238,7 +258,10 @@ export default function PefActivityPage() {
                 {flowRows.map((r) => (
                   <TableRow key={r.ticker}>
                     <TableCell className="whitespace-normal">
-                      <div className="font-medium">{r.corpName}</div>
+                      <div className="font-medium">
+                        {r.corpName}
+                        <MarketBadge market={r.market} />
+                      </div>
                       <div className="text-[10px] text-muted-foreground">
                         {r.ticker}
                       </div>
@@ -299,7 +322,10 @@ export default function PefActivityPage() {
                 {dartRows.map((r) => (
                   <TableRow key={r.corpCode}>
                     <TableCell className="whitespace-normal">
-                      <div className="font-medium">{r.corpName}</div>
+                      <div className="font-medium">
+                        {r.corpName}
+                        <MarketBadge market={r.market} />
+                      </div>
                       {r.stockCode && (
                         <div className="text-[10px] text-muted-foreground">
                           {r.stockCode}

@@ -52,6 +52,8 @@ export interface PefActivityRow {
   corpCode: string;
   corpName: string;
   stockCode: string | null;
+  /** "코스피"/"코스닥"/"코넥스"/"기타". DART corp_cls 기반. */
+  market: string | null;
   pefNetBuyShares: number;
   /** 보유비율 증감(%). 주식수는 주가가 싼 회사일수록 커 보이는 착시가
    * 있어 회사 간 비교엔 이 값(주가 무관, DART가 직접 주는 필드)이 더
@@ -78,6 +80,8 @@ export interface PefActivityRow {
 export interface PefFlowActivityRow {
   ticker: string;
   corpName: string;
+  /** "코스피"/"코스닥". */
+  market: string | null;
   netBuyValueKrw: number;
   /** 1이 최근 1년(대략 250거래일) 중 가장 강했던 날. */
   rank: number;
@@ -102,6 +106,8 @@ export interface PefFlowActivityRow {
 export interface PefCombinedSignalRow {
   ticker: string;
   corpName: string;
+  /** "코스피"/"코스닥". */
+  market: string | null;
   pefNetBuyValueKrw: number;
   pefConsecutiveBuyDays: number;
   pefStreakTotalValueKrw: number;

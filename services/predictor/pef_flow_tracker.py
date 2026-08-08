@@ -67,6 +67,14 @@ _HISTORY_CALENDAR_BUFFER_DAYS = 380  # 주말/공휴일 감안 여유
 # "기관합계"에서 "사모"를 뺀 순수 기관 자금 하위분류 (위 docstring 참고).
 _INSTITUTION_EXCL_PEF_COLUMNS = ["금융투자", "보험", "투신", "은행", "기타금융", "연기금"]
 
+_MARKET_LABELS = {"KOSPI": "코스피", "KOSDAQ": "코스닥"}
+
+
+def _market_label(raw: str | None) -> str | None:
+    if raw is None:
+        return None
+    return _MARKET_LABELS.get(raw, raw)
+
 
 def _compute_rank(history: pd.Series, today_value: float) -> int:
     """오늘보다 절대금액이 더 강했던 과거 날짜 수 + 1 (1위=최근 1년 중
@@ -142,6 +150,7 @@ def collect_pef_flow_activity() -> dict:
             {
                 "ticker": ticker,
                 "corpName": row.get("종목명"),
+                "market": _market_label(row.get("시장")),
                 "netBuyValueKrw": round(today_value),
                 "rank": rank,
                 "sampleDays": sample_days,
@@ -196,12 +205,14 @@ def collect_combined_signal_activity() -> dict:
         inst_buys["순매수거래대금"].sort_values(ascending=False).index
     ).head(_TOP_CANDIDATES)
 
-    name_by_ticker = {}
+    info_by_ticker = {}
     for df in (pef_candidates, inst_candidates):
         for ticker, row in df.iterrows():
-            name_by_ticker.setdefault(ticker, row.get("종목명"))
+            info_by_ticker.setdefault(
+                ticker, {"name": row.get("종목명"), "market": row.get("시장")}
+            )
 
-    if not name_by_ticker:
+    if not info_by_ticker:
         return {"tradeDate": _to_dashed(date_str), "rows": []}
 
     end_date = dt.datetime.strptime(date_str, "%Y%m%d").date()
@@ -209,7 +220,7 @@ def collect_combined_signal_activity() -> dict:
     start_str, end_str = start_date.strftime("%Y%m%d"), end_date.strftime("%Y%m%d")
 
     rows: list[dict] = []
-    for ticker, corp_name in name_by_ticker.items():
+    for ticker, info in info_by_ticker.items():
         detail = fetch_daily_investor_detail_history(ticker, start_str, end_str)
         if detail is None or detail.empty or "사모" not in detail.columns:
             continue
@@ -237,7 +248,8 @@ def collect_combined_signal_activity() -> dict:
         rows.append(
             {
                 "ticker": ticker,
-                "corpName": corp_name,
+                "corpName": info["name"],
+                "market": _market_label(info["market"]),
                 "pefNetBuyValueKrw": round(pef_today_value),
                 "pefConsecutiveBuyDays": pef_days,
                 "pefStreakTotalValueKrw": round(pef_streak_total),

@@ -29,6 +29,8 @@ def fetch_today_net_buy_by_ticker(date_str: str, investor: str = "사모") -> pd
                 date_str, date_str, market, investor=investor
             )
             if not df.empty:
+                df = df.copy()
+                df["시장"] = market  # 코스피/코스닥 구분용 (UI 표시)
                 frames.append(df)
         except Exception:
             logger.exception("%s %s 전종목 수급 조회 실패", market, date_str)

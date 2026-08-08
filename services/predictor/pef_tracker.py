@@ -40,12 +40,19 @@ _LOOKBACK_DAYS = 30  # 5%룰 공시는 드문 이벤트라 넉넉히 한 달치�
 # DART corp_cls -> yfinance 접미사. Y=유가증권(KOSPI), K=코스닥(KOSDAQ).
 # N(코넥스)/E(기타)는 yfinance에 안정적으로 없어서 가격조회를 건너뛴다.
 _MARKET_SUFFIX = {"Y": ".KS", "K": ".KQ"}
+_MARKET_LABELS = {"Y": "코스피", "K": "코스닥", "N": "코넥스", "E": "기타"}
 
 
 def _to_yf_ticker(stock_code: str | None, corp_cls: str | None) -> str | None:
     if not stock_code or corp_cls not in _MARKET_SUFFIX:
         return None
     return f"{stock_code}{_MARKET_SUFFIX[corp_cls]}"
+
+
+def _market_label(corp_cls: str | None) -> str | None:
+    if corp_cls is None:
+        return None
+    return _MARKET_LABELS.get(corp_cls, corp_cls)
 
 
 def _to_dashed_date(yyyymmdd_or_dashed: str) -> str:
@@ -155,6 +162,7 @@ def collect_pef_activity() -> list[dict]:
                     "corpCode": corp_code,
                     "corpName": meta.get("corp_name"),
                     "stockCode": meta.get("stock_code"),
+                    "market": _market_label(meta.get("corp_cls")),
                     "pefNetBuyShares": round(pef_net_buy),
                     "pefNetBuyRatioPercent": round(pef_net_buy_ratio, 2),
                     "pefNetBuyValueKrw": round(pef_net_buy_value),
