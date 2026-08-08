@@ -1,11 +1,12 @@
 {
-  "generatedAt": "2026-08-08T05:16:12.745795+00:00",
+  "generatedAt": "2026-08-08T15:30:18.956934+00:00",
   "tradeDate": "2026-08-07",
   "historyTradingDaysApprox": 250,
   "rows": [
     {
       "ticker": "138040",
       "corpName": "메리츠금융지주",
+      "market": "코스피",
       "pefNetBuyValueKrw": 161501500,
       "pefConsecutiveBuyDays": 3,
       "pefStreakTotalValueKrw": 2266538550,
@@ -18,22 +19,9 @@
       "sampleDays": 255
     },
     {
-      "ticker": "298050",
-      "corpName": "HS효성첨단소재",
-      "pefNetBuyValueKrw": 867400,
-      "pefConsecutiveBuyDays": 7,
-      "pefStreakTotalValueKrw": 114463500,
-      "pefRank": 211,
-      "institutionNetBuyValueKrw": 1094661000,
-      "institutionConsecutiveBuyDays": 16,
-      "institutionStreakTotalValueKrw": 6464280900,
-      "institutionRank": 8,
-      "combinedScore": 23,
-      "sampleDays": 255
-    },
-    {
       "ticker": "128940",
       "corpName": "한미약품",
+      "market": "코스피",
       "pefNetBuyValueKrw": 3141990500,
       "pefConsecutiveBuyDays": 19,
       "pefStreakTotalValueKrw": 61138308750,
@@ -48,6 +36,7 @@
     {
       "ticker": "375500",
       "corpName": "DL이앤씨",
+      "market": "코스피",
       "pefNetBuyValueKrw": 45791650,
       "pefConsecutiveBuyDays": 14,
       "pefStreakTotalValueKrw": 3752262200,
@@ -62,6 +51,7 @@
     {
       "ticker": "010060",
       "corpName": "OCI홀딩스",
+      "market": "코스피",
       "pefNetBuyValueKrw": 4985177500,
       "pefConsecutiveBuyDays": 4,
       "pefStreakTotalValueKrw": 26619014750,
@@ -76,6 +66,7 @@
     {
       "ticker": "032350",
       "corpName": "롯데관광개발",
+      "market": "코스피",
       "pefNetBuyValueKrw": 278858480,
       "pefConsecutiveBuyDays": 12,
       "pefStreakTotalValueKrw": 12689066675,
@@ -90,6 +81,7 @@
     {
       "ticker": "008930",
       "corpName": "한미사이언스",
+      "market": "코스피",
       "pefNetBuyValueKrw": 2839266450,
       "pefConsecutiveBuyDays": 12,
       "pefStreakTotalValueKrw": 21683848800,
@@ -104,6 +96,7 @@
     {
       "ticker": "103140",
       "corpName": "풍산",
+      "market": "코스피",
       "pefNetBuyValueKrw": 292615700,
       "pefConsecutiveBuyDays": 3,
       "pefStreakTotalValueKrw": 4086871800,
@@ -118,6 +111,7 @@
     {
       "ticker": "078520",
       "corpName": "에이블씨엔씨",
+      "market": "코스피",
       "pefNetBuyValueKrw": 267593710,
       "pefConsecutiveBuyDays": 16,
       "pefStreakTotalValueKrw": 5714677615,
@@ -132,6 +126,7 @@
     {
       "ticker": "139130",
       "corpName": "iM금융지주",
+      "market": "코스피",
       "pefNetBuyValueKrw": 351428370,
       "pefConsecutiveBuyDays": 12,
       "pefStreakTotalValueKrw": 7671205905,
@@ -146,6 +141,7 @@
     {
       "ticker": "051900",
       "corpName": "LG생활건강",
+      "market": "코스피",
       "pefNetBuyValueKrw": 3713109000,
       "pefConsecutiveBuyDays": 2,
       "pefStreakTotalValueKrw": 5462349250,
@@ -160,6 +156,7 @@
     {
       "ticker": "192820",
       "corpName": "코스맥스",
+      "market": "코스피",
       "pefNetBuyValueKrw": 515873500,
       "pefConsecutiveBuyDays": 11,
       "pefStreakTotalValueKrw": 20101662700,
@@ -172,22 +169,9 @@
       "sampleDays": 255
     },
     {
-      "ticker": "006340",
-      "corpName": "대원전선",
-      "pefNetBuyValueKrw": 99697860,
-      "pefConsecutiveBuyDays": 7,
-      "pefStreakTotalValueKrw": 1411005730,
-      "pefRank": 62,
-      "institutionNetBuyValueKrw": 986937470,
-      "institutionConsecutiveBuyDays": 5,
-      "institutionStreakTotalValueKrw": 2710806480,
-      "institutionRank": 23,
-      "combinedScore": 12,
-      "sampleDays": 255
-    },
-    {
       "ticker": "066570",
       "corpName": "LG전자",
+      "market": "코스피",
       "pefNetBuyValueKrw": 6109598300,
       "pefConsecutiveBuyDays": 5,
       "pefStreakTotalValueKrw": 9289248900,
@@ -202,6 +186,7 @@
     {
       "ticker": "047050",
       "corpName": "포스코인터내셔널",
+      "market": "코스피",
       "pefNetBuyValueKrw": 56639600,
       "pefConsecutiveBuyDays": 2,
       "pefStreakTotalValueKrw": 77773650,
@@ -216,6 +201,7 @@
     {
       "ticker": "001430",
       "corpName": "세아베스틸지주",
+      "market": "코스피",
       "pefNetBuyValueKrw": 132819975,
       "pefConsecutiveBuyDays": 1,
       "pefStreakTotalValueKrw": 132819975,
@@ -228,22 +214,9 @@
       "sampleDays": 255
     },
     {
-      "ticker": "097950",
-      "corpName": "CJ제일제당",
-      "pefNetBuyValueKrw": 127235250,
-      "pefConsecutiveBuyDays": 7,
-      "pefStreakTotalValueKrw": 3358532750,
-      "pefRank": 106,
-      "institutionNetBuyValueKrw": 1691801500,
-      "institutionConsecutiveBuyDays": 4,
-      "institutionStreakTotalValueKrw": 9177261000,
-      "institutionRank": 104,
-      "combinedScore": 11,
-      "sampleDays": 255
-    },
-    {
       "ticker": "131290",
       "corpName": "티에스이",
+      "market": "코스닥",
       "pefNetBuyValueKrw": 1655497000,
       "pefConsecutiveBuyDays": 4,
       "pefStreakTotalValueKrw": 4570332850,
@@ -258,6 +231,7 @@
     {
       "ticker": "298040",
       "corpName": "효성중공업",
+      "market": "코스피",
       "pefNetBuyValueKrw": 1059812500,
       "pefConsecutiveBuyDays": 6,
       "pefStreakTotalValueKrw": 16667033500,
@@ -272,6 +246,7 @@
     {
       "ticker": "009830",
       "corpName": "한화솔루션",
+      "market": "코스피",
       "pefNetBuyValueKrw": 17794635775,
       "pefConsecutiveBuyDays": 5,
       "pefStreakTotalValueKrw": 27911088125,
@@ -286,6 +261,7 @@
     {
       "ticker": "078930",
       "corpName": "GS",
+      "market": "코스피",
       "pefNetBuyValueKrw": 2788094800,
       "pefConsecutiveBuyDays": 4,
       "pefStreakTotalValueKrw": 16499078900,
@@ -300,6 +276,7 @@
     {
       "ticker": "018260",
       "corpName": "삼성에스디에스",
+      "market": "코스피",
       "pefNetBuyValueKrw": 1017227750,
       "pefConsecutiveBuyDays": 4,
       "pefStreakTotalValueKrw": 3677287250,
@@ -314,6 +291,7 @@
     {
       "ticker": "298380",
       "corpName": "에이비엘바이오",
+      "market": "코스닥",
       "pefNetBuyValueKrw": 497502200,
       "pefConsecutiveBuyDays": 7,
       "pefStreakTotalValueKrw": 5401227050,
@@ -328,6 +306,7 @@
     {
       "ticker": "307950",
       "corpName": "현대오토에버",
+      "market": "코스피",
       "pefNetBuyValueKrw": 330936000,
       "pefConsecutiveBuyDays": 3,
       "pefStreakTotalValueKrw": 1117221000,
@@ -342,6 +321,7 @@
     {
       "ticker": "417840",
       "corpName": "저스템",
+      "market": "코스닥",
       "pefNetBuyValueKrw": 325420935,
       "pefConsecutiveBuyDays": 6,
       "pefStreakTotalValueKrw": 1228586795,
@@ -356,6 +336,7 @@
     {
       "ticker": "317400",
       "corpName": "자이에스앤디",
+      "market": "코스피",
       "pefNetBuyValueKrw": -854787165,
       "pefConsecutiveBuyDays": 0,
       "pefStreakTotalValueKrw": 0,
@@ -370,6 +351,7 @@
     {
       "ticker": "009540",
       "corpName": "HD한국조선해양",
+      "market": "코스피",
       "pefNetBuyValueKrw": 2129022750,
       "pefConsecutiveBuyDays": 4,
       "pefStreakTotalValueKrw": 6830417250,
@@ -384,6 +366,7 @@
     {
       "ticker": "006260",
       "corpName": "LS",
+      "market": "코스피",
       "pefNetBuyValueKrw": 2051657750,
       "pefConsecutiveBuyDays": 2,
       "pefStreakTotalValueKrw": 3446807000,
@@ -398,6 +381,7 @@
     {
       "ticker": "089860",
       "corpName": "롯데렌탈",
+      "market": "코스피",
       "pefNetBuyValueKrw": 1011245750,
       "pefConsecutiveBuyDays": 7,
       "pefStreakTotalValueKrw": 4502823750,
@@ -412,6 +396,7 @@
     {
       "ticker": "204320",
       "corpName": "HL만도",
+      "market": "코스피",
       "pefNetBuyValueKrw": 234076550,
       "pefConsecutiveBuyDays": 2,
       "pefStreakTotalValueKrw": 722535700,
@@ -426,6 +411,7 @@
     {
       "ticker": "030200",
       "corpName": "KT",
+      "market": "코스피",
       "pefNetBuyValueKrw": 29840900,
       "pefConsecutiveBuyDays": 3,
       "pefStreakTotalValueKrw": 251781350,
@@ -438,22 +424,9 @@
       "sampleDays": 255
     },
     {
-      "ticker": "213420",
-      "corpName": "덕산네오룩스",
-      "pefNetBuyValueKrw": 0,
-      "pefConsecutiveBuyDays": 0,
-      "pefStreakTotalValueKrw": 0,
-      "pefRank": null,
-      "institutionNetBuyValueKrw": 1177122025,
-      "institutionConsecutiveBuyDays": 8,
-      "institutionStreakTotalValueKrw": 9057148825,
-      "institutionRank": 131,
-      "combinedScore": 8,
-      "sampleDays": 255
-    },
-    {
       "ticker": "347700",
       "corpName": "스피어",
+      "market": "코스닥",
       "pefNetBuyValueKrw": 4919183975,
       "pefConsecutiveBuyDays": 2,
       "pefStreakTotalValueKrw": 6850455585,
@@ -468,6 +441,7 @@
     {
       "ticker": "055550",
       "corpName": "신한지주",
+      "market": "코스피",
       "pefNetBuyValueKrw": 2208517300,
       "pefConsecutiveBuyDays": 5,
       "pefStreakTotalValueKrw": 7848606600,
@@ -482,6 +456,7 @@
     {
       "ticker": "112610",
       "corpName": "씨에스윈드",
+      "market": "코스피",
       "pefNetBuyValueKrw": 2177443925,
       "pefConsecutiveBuyDays": 2,
       "pefStreakTotalValueKrw": 2180209125,
@@ -496,6 +471,7 @@
     {
       "ticker": "347850",
       "corpName": "디앤디파마텍",
+      "market": "코스닥",
       "pefNetBuyValueKrw": 1312044450,
       "pefConsecutiveBuyDays": 5,
       "pefStreakTotalValueKrw": 11087264550,
@@ -510,6 +486,7 @@
     {
       "ticker": "105560",
       "corpName": "KB금융",
+      "market": "코스피",
       "pefNetBuyValueKrw": 833388750,
       "pefConsecutiveBuyDays": 5,
       "pefStreakTotalValueKrw": 5492272300,
@@ -524,6 +501,7 @@
     {
       "ticker": "161890",
       "corpName": "한국콜마",
+      "market": "코스피",
       "pefNetBuyValueKrw": 673087600,
       "pefConsecutiveBuyDays": 5,
       "pefStreakTotalValueKrw": 6225522650,
@@ -538,6 +516,7 @@
     {
       "ticker": "003550",
       "corpName": "LG",
+      "market": "코스피",
       "pefNetBuyValueKrw": 391588750,
       "pefConsecutiveBuyDays": 3,
       "pefStreakTotalValueKrw": 1179742750,
@@ -552,6 +531,7 @@
     {
       "ticker": "000120",
       "corpName": "CJ대한통운",
+      "market": "코스피",
       "pefNetBuyValueKrw": 383472400,
       "pefConsecutiveBuyDays": 4,
       "pefStreakTotalValueKrw": 2120946300,
@@ -566,6 +546,7 @@
     {
       "ticker": "138080",
       "corpName": "오이솔루션",
+      "market": "코스닥",
       "pefNetBuyValueKrw": 238547975,
       "pefConsecutiveBuyDays": 2,
       "pefStreakTotalValueKrw": 334450825,
@@ -580,6 +561,7 @@
     {
       "ticker": "006360",
       "corpName": "GS건설",
+      "market": "코스피",
       "pefNetBuyValueKrw": -210539975,
       "pefConsecutiveBuyDays": 0,
       "pefStreakTotalValueKrw": 0,
@@ -594,6 +576,7 @@
     {
       "ticker": "032640",
       "corpName": "LG유플러스",
+      "market": "코스피",
       "pefNetBuyValueKrw": 90136660,
       "pefConsecutiveBuyDays": 2,
       "pefStreakTotalValueKrw": 134789880,
@@ -608,6 +591,7 @@
     {
       "ticker": "373220",
       "corpName": "LG에너지솔루션",
+      "market": "코스피",
       "pefNetBuyValueKrw": 10106999250,
       "pefConsecutiveBuyDays": 4,
       "pefStreakTotalValueKrw": 13916382000,
@@ -622,6 +606,7 @@
     {
       "ticker": "353200",
       "corpName": "대덕전자",
+      "market": "코스피",
       "pefNetBuyValueKrw": 1686449250,
       "pefConsecutiveBuyDays": 3,
       "pefStreakTotalValueKrw": 41999645800,
@@ -636,6 +621,7 @@
     {
       "ticker": "010140",
       "corpName": "삼성중공업",
+      "market": "코스피",
       "pefNetBuyValueKrw": 987311425,
       "pefConsecutiveBuyDays": 2,
       "pefStreakTotalValueKrw": 1209623600,
@@ -650,6 +636,7 @@
     {
       "ticker": "000150",
       "corpName": "두산",
+      "market": "코스피",
       "pefNetBuyValueKrw": 443504500,
       "pefConsecutiveBuyDays": 6,
       "pefStreakTotalValueKrw": 13771420500,
@@ -664,6 +651,7 @@
     {
       "ticker": "120110",
       "corpName": "코오롱인더",
+      "market": "코스피",
       "pefNetBuyValueKrw": 261325900,
       "pefConsecutiveBuyDays": 2,
       "pefStreakTotalValueKrw": 538110500,
@@ -678,6 +666,7 @@
     {
       "ticker": "0015N0",
       "corpName": "아로마티카",
+      "market": "코스닥",
       "pefNetBuyValueKrw": 223293480,
       "pefConsecutiveBuyDays": 2,
       "pefStreakTotalValueKrw": 923394355,
@@ -692,6 +681,7 @@
     {
       "ticker": "377300",
       "corpName": "카카오페이",
+      "market": "코스피",
       "pefNetBuyValueKrw": 216102950,
       "pefConsecutiveBuyDays": 1,
       "pefStreakTotalValueKrw": 216102950,
@@ -706,6 +696,7 @@
     {
       "ticker": "086790",
       "corpName": "하나금융지주",
+      "market": "코스피",
       "pefNetBuyValueKrw": 213929150,
       "pefConsecutiveBuyDays": 3,
       "pefStreakTotalValueKrw": 1515484050,
@@ -720,6 +711,7 @@
     {
       "ticker": "010120",
       "corpName": "LS ELECTRIC",
+      "market": "코스피",
       "pefNetBuyValueKrw": -272817850,
       "pefConsecutiveBuyDays": 0,
       "pefStreakTotalValueKrw": 0,
@@ -732,22 +724,9 @@
       "sampleDays": 252
     },
     {
-      "ticker": "044490",
-      "corpName": "태웅",
-      "pefNetBuyValueKrw": 130138525,
-      "pefConsecutiveBuyDays": 3,
-      "pefStreakTotalValueKrw": 347885700,
-      "pefRank": 99,
-      "institutionNetBuyValueKrw": 1251154650,
-      "institutionConsecutiveBuyDays": 3,
-      "institutionStreakTotalValueKrw": 2706155525,
-      "institutionRank": 73,
-      "combinedScore": 6,
-      "sampleDays": 255
-    },
-    {
       "ticker": "009150",
       "corpName": "삼성전기",
+      "market": "코스피",
       "pefNetBuyValueKrw": 9729607500,
       "pefConsecutiveBuyDays": 3,
       "pefStreakTotalValueKrw": 50465456000,
@@ -762,6 +741,7 @@
     {
       "ticker": "267250",
       "corpName": "HD현대",
+      "market": "코스피",
       "pefNetBuyValueKrw": 613998250,
       "pefConsecutiveBuyDays": 1,
       "pefStreakTotalValueKrw": 613998250,
@@ -776,6 +756,7 @@
     {
       "ticker": "195940",
       "corpName": "HK이노엔",
+      "market": "코스닥",
       "pefNetBuyValueKrw": 527454450,
       "pefConsecutiveBuyDays": 5,
       "pefStreakTotalValueKrw": 1822988500,
@@ -790,6 +771,7 @@
     {
       "ticker": "219130",
       "corpName": "타이거일렉",
+      "market": "코스닥",
       "pefNetBuyValueKrw": 374172900,
       "pefConsecutiveBuyDays": 3,
       "pefStreakTotalValueKrw": 1448233550,
@@ -804,6 +786,7 @@
     {
       "ticker": "068270",
       "corpName": "셀트리온",
+      "market": "코스피",
       "pefNetBuyValueKrw": 372024950,
       "pefConsecutiveBuyDays": 3,
       "pefStreakTotalValueKrw": 10146283050,
@@ -818,6 +801,7 @@
     {
       "ticker": "011200",
       "corpName": "HMM",
+      "market": "코스피",
       "pefNetBuyValueKrw": 336038575,
       "pefConsecutiveBuyDays": 3,
       "pefStreakTotalValueKrw": 459162850,
@@ -832,6 +816,7 @@
     {
       "ticker": "458870",
       "corpName": "씨어스",
+      "market": "코스닥",
       "pefNetBuyValueKrw": 289806550,
       "pefConsecutiveBuyDays": 4,
       "pefStreakTotalValueKrw": 3840702950,
@@ -846,6 +831,7 @@
     {
       "ticker": "012630",
       "corpName": "HDC",
+      "market": "코스피",
       "pefNetBuyValueKrw": 276039050,
       "pefConsecutiveBuyDays": 3,
       "pefStreakTotalValueKrw": 528153525,
@@ -860,6 +846,7 @@
     {
       "ticker": "316140",
       "corpName": "우리금융지주",
+      "market": "코스피",
       "pefNetBuyValueKrw": -63288900,
       "pefConsecutiveBuyDays": 0,
       "pefStreakTotalValueKrw": 0,
@@ -874,6 +861,7 @@
     {
       "ticker": "086280",
       "corpName": "현대글로비스",
+      "market": "코스피",
       "pefNetBuyValueKrw": -23588000,
       "pefConsecutiveBuyDays": 0,
       "pefStreakTotalValueKrw": 0,
@@ -888,6 +876,7 @@
     {
       "ticker": "001440",
       "corpName": "대한전선",
+      "market": "코스피",
       "pefNetBuyValueKrw": -285773600,
       "pefConsecutiveBuyDays": 0,
       "pefStreakTotalValueKrw": 0,
@@ -902,6 +891,7 @@
     {
       "ticker": "010130",
       "corpName": "고려아연",
+      "market": "코스피",
       "pefNetBuyValueKrw": -3600106000,
       "pefConsecutiveBuyDays": 0,
       "pefStreakTotalValueKrw": 0,
@@ -914,64 +904,9 @@
       "sampleDays": 255
     },
     {
-      "ticker": "356860",
-      "corpName": "티엘비",
-      "pefNetBuyValueKrw": 153906225,
-      "pefConsecutiveBuyDays": 2,
-      "pefStreakTotalValueKrw": 717380750,
-      "pefRank": 183,
-      "institutionNetBuyValueKrw": 1454289775,
-      "institutionConsecutiveBuyDays": 3,
-      "institutionStreakTotalValueKrw": 2772083900,
-      "institutionRank": 90,
-      "combinedScore": 5,
-      "sampleDays": 255
-    },
-    {
-      "ticker": "326030",
-      "corpName": "SK바이오팜",
-      "pefNetBuyValueKrw": 26003750,
-      "pefConsecutiveBuyDays": 2,
-      "pefStreakTotalValueKrw": 106836400,
-      "pefRank": 201,
-      "institutionNetBuyValueKrw": 1561993800,
-      "institutionConsecutiveBuyDays": 3,
-      "institutionStreakTotalValueKrw": 5210573350,
-      "institutionRank": 116,
-      "combinedScore": 5,
-      "sampleDays": 255
-    },
-    {
-      "ticker": "475830",
-      "corpName": "오름테라퓨틱",
-      "pefNetBuyValueKrw": -15052200,
-      "pefConsecutiveBuyDays": 0,
-      "pefStreakTotalValueKrw": 0,
-      "pefRank": null,
-      "institutionNetBuyValueKrw": 1449039850,
-      "institutionConsecutiveBuyDays": 5,
-      "institutionStreakTotalValueKrw": 7821987850,
-      "institutionRank": 56,
-      "combinedScore": 5,
-      "sampleDays": 255
-    },
-    {
-      "ticker": "138930",
-      "corpName": "BNK금융지주",
-      "pefNetBuyValueKrw": -949608085,
-      "pefConsecutiveBuyDays": 0,
-      "pefStreakTotalValueKrw": 0,
-      "pefRank": null,
-      "institutionNetBuyValueKrw": 2018490735,
-      "institutionConsecutiveBuyDays": 5,
-      "institutionStreakTotalValueKrw": 9083275075,
-      "institutionRank": 112,
-      "combinedScore": 5,
-      "sampleDays": 255
-    },
-    {
       "ticker": "195870",
       "corpName": "해성디에스",
+      "market": "코스피",
       "pefNetBuyValueKrw": 2445555500,
       "pefConsecutiveBuyDays": 4,
       "pefStreakTotalValueKrw": 7474758675,
@@ -986,6 +921,7 @@
     {
       "ticker": "010950",
       "corpName": "S-Oil",
+      "market": "코스피",
       "pefNetBuyValueKrw": 2008578550,
       "pefConsecutiveBuyDays": 2,
       "pefStreakTotalValueKrw": 3089016300,
@@ -1000,6 +936,7 @@
     {
       "ticker": "051910",
       "corpName": "LG화학",
+      "market": "코스피",
       "pefNetBuyValueKrw": 1228449750,
       "pefConsecutiveBuyDays": 2,
       "pefStreakTotalValueKrw": 1295419000,
@@ -1014,6 +951,7 @@
     {
       "ticker": "257720",
       "corpName": "실리콘투",
+      "market": "코스닥",
       "pefNetBuyValueKrw": 1104088625,
       "pefConsecutiveBuyDays": 2,
       "pefStreakTotalValueKrw": 2315169100,
@@ -1028,6 +966,7 @@
     {
       "ticker": "004370",
       "corpName": "농심",
+      "market": "코스피",
       "pefNetBuyValueKrw": 1036865500,
       "pefConsecutiveBuyDays": 2,
       "pefStreakTotalValueKrw": 1039975000,
@@ -1042,6 +981,7 @@
     {
       "ticker": "241710",
       "corpName": "코스메카코리아",
+      "market": "코스닥",
       "pefNetBuyValueKrw": 1001979000,
       "pefConsecutiveBuyDays": 4,
       "pefStreakTotalValueKrw": 3360851050,
@@ -1056,6 +996,7 @@
     {
       "ticker": "329180",
       "corpName": "HD현대중공업",
+      "market": "코스피",
       "pefNetBuyValueKrw": 732268250,
       "pefConsecutiveBuyDays": 4,
       "pefStreakTotalValueKrw": 9865570000,
@@ -1070,6 +1011,7 @@
     {
       "ticker": "005830",
       "corpName": "DB손해보험",
+      "market": "코스피",
       "pefNetBuyValueKrw": 599664100,
       "pefConsecutiveBuyDays": 2,
       "pefStreakTotalValueKrw": 609647100,
@@ -1084,6 +1026,7 @@
     {
       "ticker": "0126Z0",
       "corpName": "삼성에피스홀딩스",
+      "market": "코스피",
       "pefNetBuyValueKrw": 588116250,
       "pefConsecutiveBuyDays": 2,
       "pefStreakTotalValueKrw": 953036000,
@@ -1098,6 +1041,7 @@
     {
       "ticker": "078600",
       "corpName": "대주전자재료",
+      "market": "코스닥",
       "pefNetBuyValueKrw": 507031050,
       "pefConsecutiveBuyDays": 2,
       "pefStreakTotalValueKrw": 910764200,
@@ -1112,6 +1056,7 @@
     {
       "ticker": "352820",
       "corpName": "하이브",
+      "market": "코스피",
       "pefNetBuyValueKrw": 497038950,
       "pefConsecutiveBuyDays": 2,
       "pefStreakTotalValueKrw": 690674400,
@@ -1126,6 +1071,7 @@
     {
       "ticker": "214450",
       "corpName": "파마리서치",
+      "market": "코스닥",
       "pefNetBuyValueKrw": 390218750,
       "pefConsecutiveBuyDays": 2,
       "pefStreakTotalValueKrw": 5958488500,
@@ -1140,6 +1086,7 @@
     {
       "ticker": "006110",
       "corpName": "삼아알미늄",
+      "market": "코스피",
       "pefNetBuyValueKrw": 267430500,
       "pefConsecutiveBuyDays": 2,
       "pefStreakTotalValueKrw": 331303650,
@@ -1154,6 +1101,7 @@
     {
       "ticker": "011070",
       "corpName": "LG이노텍",
+      "market": "코스피",
       "pefNetBuyValueKrw": 259298000,
       "pefConsecutiveBuyDays": 3,
       "pefStreakTotalValueKrw": 17245573000,
@@ -1168,6 +1116,7 @@
     {
       "ticker": "036570",
       "corpName": "NC",
+      "market": "코스피",
       "pefNetBuyValueKrw": 246758000,
       "pefConsecutiveBuyDays": 2,
       "pefStreakTotalValueKrw": 421642500,
@@ -1182,6 +1131,7 @@
     {
       "ticker": "023590",
       "corpName": "다우기술",
+      "market": "코스피",
       "pefNetBuyValueKrw": 225340450,
       "pefConsecutiveBuyDays": 2,
       "pefStreakTotalValueKrw": 226035700,
@@ -1196,6 +1146,7 @@
     {
       "ticker": "007070",
       "corpName": "GS리테일",
+      "market": "코스피",
       "pefNetBuyValueKrw": 180956125,
       "pefConsecutiveBuyDays": 2,
       "pefStreakTotalValueKrw": 354461925,
@@ -1210,6 +1161,7 @@
     {
       "ticker": "034020",
       "corpName": "두산에너빌리티",
+      "market": "코스피",
       "pefNetBuyValueKrw": -27389850,
       "pefConsecutiveBuyDays": 0,
       "pefStreakTotalValueKrw": 0,
@@ -1224,6 +1176,7 @@
     {
       "ticker": "028050",
       "corpName": "삼성E&A",
+      "market": "코스피",
       "pefNetBuyValueKrw": -2358239225,
       "pefConsecutiveBuyDays": 0,
       "pefStreakTotalValueKrw": 0,
@@ -1238,6 +1191,7 @@
     {
       "ticker": "047040",
       "corpName": "대우건설",
+      "market": "코스피",
       "pefNetBuyValueKrw": -303700910,
       "pefConsecutiveBuyDays": 0,
       "pefStreakTotalValueKrw": 0,
@@ -1252,6 +1206,7 @@
     {
       "ticker": "323410",
       "corpName": "카카오뱅크",
+      "market": "코스피",
       "pefNetBuyValueKrw": 6986850,
       "pefConsecutiveBuyDays": 1,
       "pefStreakTotalValueKrw": 6986850,
@@ -1266,6 +1221,7 @@
     {
       "ticker": "007340",
       "corpName": "DN오토모티브",
+      "market": "코스피",
       "pefNetBuyValueKrw": -252105100,
       "pefConsecutiveBuyDays": 0,
       "pefStreakTotalValueKrw": 0,
@@ -1280,6 +1236,7 @@
     {
       "ticker": "000100",
       "corpName": "유한양행",
+      "market": "코스피",
       "pefNetBuyValueKrw": 11552600,
       "pefConsecutiveBuyDays": 2,
       "pefStreakTotalValueKrw": 18539000,
@@ -1294,6 +1251,7 @@
     {
       "ticker": "036460",
       "corpName": "한국가스공사",
+      "market": "코스피",
       "pefNetBuyValueKrw": 93249175,
       "pefConsecutiveBuyDays": 2,
       "pefStreakTotalValueKrw": 97745575,
@@ -1306,78 +1264,9 @@
       "sampleDays": 255
     },
     {
-      "ticker": "272210",
-      "corpName": "한화시스템",
-      "pefNetBuyValueKrw": -484472550,
-      "pefConsecutiveBuyDays": 0,
-      "pefStreakTotalValueKrw": 0,
-      "pefRank": null,
-      "institutionNetBuyValueKrw": 2274773350,
-      "institutionConsecutiveBuyDays": 4,
-      "institutionStreakTotalValueKrw": 9724213300,
-      "institutionRank": 172,
-      "combinedScore": 4,
-      "sampleDays": 255
-    },
-    {
-      "ticker": "064400",
-      "corpName": "LG씨엔에스",
-      "pefNetBuyValueKrw": -753980000,
-      "pefConsecutiveBuyDays": 0,
-      "pefStreakTotalValueKrw": 0,
-      "pefRank": null,
-      "institutionNetBuyValueKrw": 2388381450,
-      "institutionConsecutiveBuyDays": 4,
-      "institutionStreakTotalValueKrw": 29578313550,
-      "institutionRank": 93,
-      "combinedScore": 4,
-      "sampleDays": 255
-    },
-    {
-      "ticker": "081660",
-      "corpName": "미스토홀딩스",
-      "pefNetBuyValueKrw": 3715250,
-      "pefConsecutiveBuyDays": 2,
-      "pefStreakTotalValueKrw": 7455200,
-      "pefRank": 217,
-      "institutionNetBuyValueKrw": 1190815050,
-      "institutionConsecutiveBuyDays": 2,
-      "institutionStreakTotalValueKrw": 2319694850,
-      "institutionRank": 53,
-      "combinedScore": 4,
-      "sampleDays": 255
-    },
-    {
-      "ticker": "035250",
-      "corpName": "강원랜드",
-      "pefNetBuyValueKrw": 196589050,
-      "pefConsecutiveBuyDays": 2,
-      "pefStreakTotalValueKrw": 205633930,
-      "pefRank": 57,
-      "institutionNetBuyValueKrw": 981605225,
-      "institutionConsecutiveBuyDays": 2,
-      "institutionStreakTotalValueKrw": 1781518665,
-      "institutionRank": 112,
-      "combinedScore": 4,
-      "sampleDays": 255
-    },
-    {
-      "ticker": "018670",
-      "corpName": "SK가스",
-      "pefNetBuyValueKrw": -293881000,
-      "pefConsecutiveBuyDays": 0,
-      "pefStreakTotalValueKrw": 0,
-      "pefRank": null,
-      "institutionNetBuyValueKrw": 1287105000,
-      "institutionConsecutiveBuyDays": 4,
-      "institutionStreakTotalValueKrw": 3117469600,
-      "institutionRank": 38,
-      "combinedScore": 4,
-      "sampleDays": 255
-    },
-    {
       "ticker": "005490",
       "corpName": "POSCO홀딩스",
+      "market": "코스피",
       "pefNetBuyValueKrw": 8507871500,
       "pefConsecutiveBuyDays": 1,
       "pefStreakTotalValueKrw": 8507871500,
@@ -1392,6 +1281,7 @@
     {
       "ticker": "005090",
       "corpName": "SGC에너지",
+      "market": "코스피",
       "pefNetBuyValueKrw": 4076495450,
       "pefConsecutiveBuyDays": 1,
       "pefStreakTotalValueKrw": 4076495450,
@@ -1406,6 +1296,7 @@
     {
       "ticker": "281740",
       "corpName": "레이크머티리얼즈",
+      "market": "코스닥",
       "pefNetBuyValueKrw": 2673682945,
       "pefConsecutiveBuyDays": 3,
       "pefStreakTotalValueKrw": 2953076750,
@@ -1420,6 +1311,7 @@
     {
       "ticker": "035720",
       "corpName": "카카오",
+      "market": "코스피",
       "pefNetBuyValueKrw": 2345303150,
       "pefConsecutiveBuyDays": 2,
       "pefStreakTotalValueKrw": 2960628350,
@@ -1434,6 +1326,7 @@
     {
       "ticker": "247540",
       "corpName": "에코프로비엠",
+      "market": "코스닥",
       "pefNetBuyValueKrw": 1739147050,
       "pefConsecutiveBuyDays": 3,
       "pefStreakTotalValueKrw": 1971016300,
@@ -1448,6 +1341,7 @@
     {
       "ticker": "295310",
       "corpName": "에이치브이엠",
+      "market": "코스닥",
       "pefNetBuyValueKrw": 1663428100,
       "pefConsecutiveBuyDays": 1,
       "pefStreakTotalValueKrw": 1663428100,
@@ -1462,6 +1356,7 @@
     {
       "ticker": "064290",
       "corpName": "인텍플러스",
+      "market": "코스닥",
       "pefNetBuyValueKrw": 1418307775,
       "pefConsecutiveBuyDays": 2,
       "pefStreakTotalValueKrw": 1529917000,
@@ -1476,6 +1371,7 @@
     {
       "ticker": "086520",
       "corpName": "에코프로",
+      "market": "코스닥",
       "pefNetBuyValueKrw": 1393777250,
       "pefConsecutiveBuyDays": 3,
       "pefStreakTotalValueKrw": 2255890750,
@@ -1490,6 +1386,7 @@
     {
       "ticker": "006400",
       "corpName": "삼성SDI",
+      "market": "코스피",
       "pefNetBuyValueKrw": 1358272750,
       "pefConsecutiveBuyDays": 1,
       "pefStreakTotalValueKrw": 1358272750,
@@ -1504,6 +1401,7 @@
     {
       "ticker": "207940",
       "corpName": "삼성바이오로직스",
+      "market": "코스피",
       "pefNetBuyValueKrw": 687499000,
       "pefConsecutiveBuyDays": 1,
       "pefStreakTotalValueKrw": 687499000,
@@ -1518,6 +1416,7 @@
     {
       "ticker": "090430",
       "corpName": "아모레퍼시픽",
+      "market": "코스피",
       "pefNetBuyValueKrw": 391186100,
       "pefConsecutiveBuyDays": 1,
       "pefStreakTotalValueKrw": 391186100,
@@ -1532,6 +1431,7 @@
     {
       "ticker": "028670",
       "corpName": "팬오션",
+      "market": "코스피",
       "pefNetBuyValueKrw": 367341775,
       "pefConsecutiveBuyDays": 2,
       "pefStreakTotalValueKrw": 525405400,
@@ -1546,6 +1446,7 @@
     {
       "ticker": "365340",
       "corpName": "성일하이텍",
+      "market": "코스닥",
       "pefNetBuyValueKrw": 365388450,
       "pefConsecutiveBuyDays": 1,
       "pefStreakTotalValueKrw": 365388450,
@@ -1560,6 +1461,7 @@
     {
       "ticker": "023530",
       "corpName": "롯데쇼핑",
+      "market": "코스피",
       "pefNetBuyValueKrw": 323531200,
       "pefConsecutiveBuyDays": 3,
       "pefStreakTotalValueKrw": 718097400,
@@ -1574,6 +1476,7 @@
     {
       "ticker": "397030",
       "corpName": "에이프릴바이오",
+      "market": "코스닥",
       "pefNetBuyValueKrw": 320265000,
       "pefConsecutiveBuyDays": 3,
       "pefStreakTotalValueKrw": 505694700,
@@ -1588,6 +1491,7 @@
     {
       "ticker": "091580",
       "corpName": "상신이디피",
+      "market": "코스닥",
       "pefNetBuyValueKrw": 317113250,
       "pefConsecutiveBuyDays": 1,
       "pefStreakTotalValueKrw": 317113250,
@@ -1602,6 +1506,7 @@
     {
       "ticker": "00680K",
       "corpName": "미래에셋증권2우B",
+      "market": "코스피",
       "pefNetBuyValueKrw": 279888630,
       "pefConsecutiveBuyDays": 1,
       "pefStreakTotalValueKrw": 279888630,
@@ -1616,6 +1521,7 @@
     {
       "ticker": "018290",
       "corpName": "브이티",
+      "market": "코스닥",
       "pefNetBuyValueKrw": 273027785,
       "pefConsecutiveBuyDays": 3,
       "pefStreakTotalValueKrw": 920880485,
@@ -1630,6 +1536,7 @@
     {
       "ticker": "175330",
       "corpName": "JB금융지주",
+      "market": "코스피",
       "pefNetBuyValueKrw": 258389100,
       "pefConsecutiveBuyDays": 1,
       "pefStreakTotalValueKrw": 258389100,
@@ -1644,6 +1551,7 @@
     {
       "ticker": "003010",
       "corpName": "혜인",
+      "market": "코스피",
       "pefNetBuyValueKrw": 217193685,
       "pefConsecutiveBuyDays": 1,
       "pefStreakTotalValueKrw": 217193685,
@@ -1658,6 +1566,7 @@
     {
       "ticker": "254490",
       "corpName": "미래반도체",
+      "market": "코스닥",
       "pefNetBuyValueKrw": 210873090,
       "pefConsecutiveBuyDays": 1,
       "pefStreakTotalValueKrw": 210873090,
@@ -1672,6 +1581,7 @@
     {
       "ticker": "267270",
       "corpName": "HD건설기계",
+      "market": "코스피",
       "pefNetBuyValueKrw": -2959128500,
       "pefConsecutiveBuyDays": 0,
       "pefStreakTotalValueKrw": 0,
@@ -1686,6 +1596,7 @@
     {
       "ticker": "000810",
       "corpName": "삼성화재",
+      "market": "코스피",
       "pefNetBuyValueKrw": 196361000,
       "pefConsecutiveBuyDays": 1,
       "pefStreakTotalValueKrw": 196361000,
@@ -1700,6 +1611,7 @@
     {
       "ticker": "062040",
       "corpName": "산일전기",
+      "market": "코스피",
       "pefNetBuyValueKrw": -17884350,
       "pefConsecutiveBuyDays": 0,
       "pefStreakTotalValueKrw": 0,
@@ -1714,6 +1626,7 @@
     {
       "ticker": "119850",
       "corpName": "지엔씨에너지",
+      "market": "코스닥",
       "pefNetBuyValueKrw": 137929700,
       "pefConsecutiveBuyDays": 1,
       "pefStreakTotalValueKrw": 137929700,
@@ -1726,36 +1639,9 @@
       "sampleDays": 255
     },
     {
-      "ticker": "251270",
-      "corpName": "넷마블",
-      "pefNetBuyValueKrw": 2295650,
-      "pefConsecutiveBuyDays": 2,
-      "pefStreakTotalValueKrw": 9637550,
-      "pefRank": 248,
-      "institutionNetBuyValueKrw": 1493957225,
-      "institutionConsecutiveBuyDays": 1,
-      "institutionStreakTotalValueKrw": 1493957225,
-      "institutionRank": 95,
-      "combinedScore": 3,
-      "sampleDays": 255
-    },
-    {
-      "ticker": "024110",
-      "corpName": "기업은행",
-      "pefNetBuyValueKrw": 17691500,
-      "pefConsecutiveBuyDays": 1,
-      "pefStreakTotalValueKrw": 17691500,
-      "pefRank": 220,
-      "institutionNetBuyValueKrw": 1280759300,
-      "institutionConsecutiveBuyDays": 2,
-      "institutionStreakTotalValueKrw": 2209549125,
-      "institutionRank": 169,
-      "combinedScore": 3,
-      "sampleDays": 255
-    },
-    {
       "ticker": "096770",
       "corpName": "SK이노베이션",
+      "market": "코스피",
       "pefNetBuyValueKrw": 6253440200,
       "pefConsecutiveBuyDays": 1,
       "pefStreakTotalValueKrw": 6253440200,
@@ -1770,6 +1656,7 @@
     {
       "ticker": "222800",
       "corpName": "심텍",
+      "market": "코스닥",
       "pefNetBuyValueKrw": 4640034650,
       "pefConsecutiveBuyDays": 1,
       "pefStreakTotalValueKrw": 4640034650,
@@ -1784,6 +1671,7 @@
     {
       "ticker": "079550",
       "corpName": "LIG디펜스앤에어로스페이스",
+      "market": "코스피",
       "pefNetBuyValueKrw": 2894026000,
       "pefConsecutiveBuyDays": 1,
       "pefStreakTotalValueKrw": 2894026000,
@@ -1798,6 +1686,7 @@
     {
       "ticker": "000720",
       "corpName": "현대건설",
+      "market": "코스피",
       "pefNetBuyValueKrw": 2419086450,
       "pefConsecutiveBuyDays": 2,
       "pefStreakTotalValueKrw": 3106338800,
@@ -1812,6 +1701,7 @@
     {
       "ticker": "005935",
       "corpName": "삼성전자우",
+      "market": "코스피",
       "pefNetBuyValueKrw": 1696005400,
       "pefConsecutiveBuyDays": 1,
       "pefStreakTotalValueKrw": 1696005400,
@@ -1826,6 +1716,7 @@
     {
       "ticker": "089970",
       "corpName": "브이엠",
+      "market": "코스닥",
       "pefNetBuyValueKrw": 1595240600,
       "pefConsecutiveBuyDays": 2,
       "pefStreakTotalValueKrw": 3847931450,
@@ -1840,6 +1731,7 @@
     {
       "ticker": "032830",
       "corpName": "삼성생명",
+      "market": "코스피",
       "pefNetBuyValueKrw": 1215416250,
       "pefConsecutiveBuyDays": 2,
       "pefStreakTotalValueKrw": 4191957000,
@@ -1854,6 +1746,7 @@
     {
       "ticker": "034220",
       "corpName": "LG디스플레이",
+      "market": "코스피",
       "pefNetBuyValueKrw": 575395135,
       "pefConsecutiveBuyDays": 1,
       "pefStreakTotalValueKrw": 575395135,
@@ -1868,6 +1761,7 @@
     {
       "ticker": "047810",
       "corpName": "한국항공우주",
+      "market": "코스피",
       "pefNetBuyValueKrw": 537475400,
       "pefConsecutiveBuyDays": 2,
       "pefStreakTotalValueKrw": 1726399450,
@@ -1882,6 +1776,7 @@
     {
       "ticker": "322000",
       "corpName": "HD현대에너지솔루션",
+      "market": "코스피",
       "pefNetBuyValueKrw": 511910700,
       "pefConsecutiveBuyDays": 2,
       "pefStreakTotalValueKrw": 1212718450,
@@ -1896,6 +1791,7 @@
     {
       "ticker": "259960",
       "corpName": "크래프톤",
+      "market": "코스피",
       "pefNetBuyValueKrw": 487502250,
       "pefConsecutiveBuyDays": 1,
       "pefStreakTotalValueKrw": 487502250,
@@ -1910,6 +1806,7 @@
     {
       "ticker": "087010",
       "corpName": "펩트론",
+      "market": "코스닥",
       "pefNetBuyValueKrw": 447831200,
       "pefConsecutiveBuyDays": 2,
       "pefStreakTotalValueKrw": 1615868500,
@@ -1924,6 +1821,7 @@
     {
       "ticker": "005440",
       "corpName": "현대지에프홀딩스",
+      "market": "코스피",
       "pefNetBuyValueKrw": 413341230,
       "pefConsecutiveBuyDays": 2,
       "pefStreakTotalValueKrw": 894056300,
@@ -1938,6 +1836,7 @@
     {
       "ticker": "456040",
       "corpName": "OCI",
+      "market": "코스피",
       "pefNetBuyValueKrw": 411506150,
       "pefConsecutiveBuyDays": 1,
       "pefStreakTotalValueKrw": 411506150,
@@ -1952,6 +1851,7 @@
     {
       "ticker": "028300",
       "corpName": "HLB",
+      "market": "코스닥",
       "pefNetBuyValueKrw": 249268050,
       "pefConsecutiveBuyDays": 2,
       "pefStreakTotalValueKrw": 733142100,
@@ -1966,6 +1866,7 @@
     {
       "ticker": "090460",
       "corpName": "비에이치",
+      "market": "코스피",
       "pefNetBuyValueKrw": 226767720,
       "pefConsecutiveBuyDays": 2,
       "pefStreakTotalValueKrw": 228839880,
@@ -1980,6 +1881,7 @@
     {
       "ticker": "361610",
       "corpName": "SK아이이테크놀로지",
+      "market": "코스피",
       "pefNetBuyValueKrw": 220412010,
       "pefConsecutiveBuyDays": 1,
       "pefStreakTotalValueKrw": 220412010,
@@ -1994,6 +1896,7 @@
     {
       "ticker": "137400",
       "corpName": "피엔티",
+      "market": "코스닥",
       "pefNetBuyValueKrw": 220098175,
       "pefConsecutiveBuyDays": 2,
       "pefStreakTotalValueKrw": 232118675,
@@ -2008,6 +1911,7 @@
     {
       "ticker": "065350",
       "corpName": "신성델타테크",
+      "market": "코스닥",
       "pefNetBuyValueKrw": 217218000,
       "pefConsecutiveBuyDays": 2,
       "pefStreakTotalValueKrw": 227999250,
@@ -2022,6 +1926,7 @@
     {
       "ticker": "100790",
       "corpName": "미래에셋벤처투자",
+      "market": "코스닥",
       "pefNetBuyValueKrw": 216437810,
       "pefConsecutiveBuyDays": 2,
       "pefStreakTotalValueKrw": 221700260,
@@ -2036,6 +1941,7 @@
     {
       "ticker": "033780",
       "corpName": "KT&G",
+      "market": "코스피",
       "pefNetBuyValueKrw": -369683150,
       "pefConsecutiveBuyDays": 0,
       "pefStreakTotalValueKrw": 0,
@@ -2050,6 +1956,7 @@
     {
       "ticker": "003230",
       "corpName": "삼양식품",
+      "market": "코스피",
       "pefNetBuyValueKrw": -7358045000,
       "pefConsecutiveBuyDays": 0,
       "pefStreakTotalValueKrw": 0,
@@ -2064,6 +1971,7 @@
     {
       "ticker": "141080",
       "corpName": "리가켐바이오",
+      "market": "코스닥",
       "pefNetBuyValueKrw": -329970100,
       "pefConsecutiveBuyDays": 0,
       "pefStreakTotalValueKrw": 0,
@@ -2078,6 +1986,7 @@
     {
       "ticker": "271560",
       "corpName": "오리온",
+      "market": "코스피",
       "pefNetBuyValueKrw": -88291550,
       "pefConsecutiveBuyDays": 0,
       "pefStreakTotalValueKrw": 0,
@@ -2090,22 +1999,9 @@
       "sampleDays": 255
     },
     {
-      "ticker": "103590",
-      "corpName": "일진전기",
-      "pefNetBuyValueKrw": -27146450,
-      "pefConsecutiveBuyDays": 0,
-      "pefStreakTotalValueKrw": 0,
-      "pefRank": null,
-      "institutionNetBuyValueKrw": 1021402050,
-      "institutionConsecutiveBuyDays": 2,
-      "institutionStreakTotalValueKrw": 2325540450,
-      "institutionRank": 153,
-      "combinedScore": 2,
-      "sampleDays": 255
-    },
-    {
       "ticker": "005930",
       "corpName": "삼성전자",
+      "market": "코스피",
       "pefNetBuyValueKrw": 67724107250,
       "pefConsecutiveBuyDays": 1,
       "pefStreakTotalValueKrw": 67724107250,
@@ -2120,6 +2016,7 @@
     {
       "ticker": "012450",
       "corpName": "한화에어로스페이스",
+      "market": "코스피",
       "pefNetBuyValueKrw": 9294818500,
       "pefConsecutiveBuyDays": 1,
       "pefStreakTotalValueKrw": 9294818500,
@@ -2134,6 +2031,7 @@
     {
       "ticker": "041830",
       "corpName": "인바디",
+      "market": "코스닥",
       "pefNetBuyValueKrw": 8193424350,
       "pefConsecutiveBuyDays": 1,
       "pefStreakTotalValueKrw": 8193424350,
@@ -2148,6 +2046,7 @@
     {
       "ticker": "196170",
       "corpName": "알테오젠",
+      "market": "코스닥",
       "pefNetBuyValueKrw": 4921225750,
       "pefConsecutiveBuyDays": 1,
       "pefStreakTotalValueKrw": 4921225750,
@@ -2162,6 +2061,7 @@
     {
       "ticker": "004170",
       "corpName": "신세계",
+      "market": "코스피",
       "pefNetBuyValueKrw": 854572250,
       "pefConsecutiveBuyDays": 1,
       "pefStreakTotalValueKrw": 854572250,
@@ -2176,6 +2076,7 @@
     {
       "ticker": "095610",
       "corpName": "테스",
+      "market": "코스닥",
       "pefNetBuyValueKrw": 841334650,
       "pefConsecutiveBuyDays": 1,
       "pefStreakTotalValueKrw": 841334650,
@@ -2190,6 +2091,7 @@
     {
       "ticker": "336260",
       "corpName": "두산퓨얼셀",
+      "market": "코스피",
       "pefNetBuyValueKrw": 752855400,
       "pefConsecutiveBuyDays": 1,
       "pefStreakTotalValueKrw": 752855400,
@@ -2204,6 +2106,7 @@
     {
       "ticker": "096530",
       "corpName": "씨젠",
+      "market": "코스닥",
       "pefNetBuyValueKrw": 543163850,
       "pefConsecutiveBuyDays": 1,
       "pefStreakTotalValueKrw": 543163850,
@@ -2218,6 +2121,7 @@
     {
       "ticker": "001040",
       "corpName": "CJ",
+      "market": "코스피",
       "pefNetBuyValueKrw": 526056600,
       "pefConsecutiveBuyDays": 1,
       "pefStreakTotalValueKrw": 526056600,
@@ -2232,6 +2136,7 @@
     {
       "ticker": "084370",
       "corpName": "유진테크",
+      "market": "코스닥",
       "pefNetBuyValueKrw": 439732950,
       "pefConsecutiveBuyDays": 1,
       "pefStreakTotalValueKrw": 439732950,
@@ -2246,6 +2151,7 @@
     {
       "ticker": "083450",
       "corpName": "GST",
+      "market": "코스닥",
       "pefNetBuyValueKrw": 286372425,
       "pefConsecutiveBuyDays": 1,
       "pefStreakTotalValueKrw": 286372425,
@@ -2260,6 +2166,7 @@
     {
       "ticker": "454910",
       "corpName": "두산로보틱스",
+      "market": "코스피",
       "pefNetBuyValueKrw": 233700450,
       "pefConsecutiveBuyDays": 1,
       "pefStreakTotalValueKrw": 233700450,
@@ -2274,6 +2181,7 @@
     {
       "ticker": "000250",
       "corpName": "삼천당제약",
+      "market": "코스닥",
       "pefNetBuyValueKrw": 225049400,
       "pefConsecutiveBuyDays": 1,
       "pefStreakTotalValueKrw": 225049400,
@@ -2288,6 +2196,7 @@
     {
       "ticker": "035760",
       "corpName": "CJ ENM",
+      "market": "코스닥",
       "pefNetBuyValueKrw": 210249350,
       "pefConsecutiveBuyDays": 1,
       "pefStreakTotalValueKrw": 210249350,
@@ -2302,6 +2211,7 @@
     {
       "ticker": "064760",
       "corpName": "티씨케이",
+      "market": "코스닥",
       "pefNetBuyValueKrw": 207497900,
       "pefConsecutiveBuyDays": 1,
       "pefStreakTotalValueKrw": 207497900,
@@ -2316,6 +2226,7 @@
     {
       "ticker": "034230",
       "corpName": "파라다이스",
+      "market": "코스피",
       "pefNetBuyValueKrw": 207251470,
       "pefConsecutiveBuyDays": 1,
       "pefStreakTotalValueKrw": 207251470,
@@ -2330,6 +2241,7 @@
     {
       "ticker": "000660",
       "corpName": "SK하이닉스",
+      "market": "코스피",
       "pefNetBuyValueKrw": -36683672500,
       "pefConsecutiveBuyDays": 0,
       "pefStreakTotalValueKrw": 0,
@@ -2344,6 +2256,7 @@
     {
       "ticker": "007810",
       "corpName": "코리아써키트",
+      "market": "코스피",
       "pefNetBuyValueKrw": -1002600,
       "pefConsecutiveBuyDays": 0,
       "pefStreakTotalValueKrw": 0,
@@ -2358,6 +2271,7 @@
     {
       "ticker": "088980",
       "corpName": "맥쿼리인프라",
+      "market": "코스피",
       "pefNetBuyValueKrw": -501110960,
       "pefConsecutiveBuyDays": 0,
       "pefStreakTotalValueKrw": 0,
@@ -2366,34 +2280,6 @@
       "institutionConsecutiveBuyDays": 1,
       "institutionStreakTotalValueKrw": 3239104050,
       "institutionRank": 41,
-      "combinedScore": 1,
-      "sampleDays": 255
-    },
-    {
-      "ticker": "441270",
-      "corpName": "파인엠텍",
-      "pefNetBuyValueKrw": -230717585,
-      "pefConsecutiveBuyDays": 0,
-      "pefStreakTotalValueKrw": 0,
-      "pefRank": null,
-      "institutionNetBuyValueKrw": 2034752125,
-      "institutionConsecutiveBuyDays": 1,
-      "institutionStreakTotalValueKrw": 2034752125,
-      "institutionRank": 10,
-      "combinedScore": 1,
-      "sampleDays": 255
-    },
-    {
-      "ticker": "489790",
-      "corpName": "한화비전",
-      "pefNetBuyValueKrw": -17477150,
-      "pefConsecutiveBuyDays": 0,
-      "pefStreakTotalValueKrw": 0,
-      "pefRank": null,
-      "institutionNetBuyValueKrw": 1378870350,
-      "institutionConsecutiveBuyDays": 1,
-      "institutionStreakTotalValueKrw": 1378870350,
-      "institutionRank": 175,
       "combinedScore": 1,
       "sampleDays": 255
     }
