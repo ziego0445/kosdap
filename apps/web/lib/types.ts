@@ -42,3 +42,18 @@ export interface PredictionHistoryRow {
   actual: number | null;
   errorPercent: number | null;
 }
+
+/**
+ * DART 대량보유상황보고서(5%룰) 기반 — 최근 사모펀드/SPC로 추정되는
+ * 보고자가 지분을 늘린 상장사 랭킹. services/predictor/pef_tracker.py 참고.
+ * 취득단가 정보는 DART API에 없어서 포함하지 않음 — "얼마나 샀는지"만.
+ */
+export interface PefActivityRow {
+  corpCode: string;
+  corpName: string;
+  stockCode: string | null;
+  pefNetBuyShares: number;
+  pefReporters: string[];
+  latestReportDate: string | null;
+  latestReportReason: string | null;
+}

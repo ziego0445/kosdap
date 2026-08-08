@@ -4,6 +4,7 @@ import { LineChart } from "lucide-react";
 const NAV_ITEMS = [
   { href: "/", label: "추정가" },
   { href: "/history", label: "예측 기록" },
+  { href: "/pef", label: "사모펀드" },
   { href: "/admin", label: "데이터 소스" },
 ];
 

@@ -13,6 +13,7 @@ from pathlib import Path
 
 import accuracy_log
 import db
+import pef_tracker
 import token_change_cache
 from collectors.equities import collect_equity_changes
 from collectors.flows import collect_daily_flows
@@ -31,35 +32,42 @@ from models.scoring import compute_prediction
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-# 하루 1회만 스크래핑하기 위한 가드(_maybe_collect_flows 참고)의 마지막 수집
-# 날짜 — 실측으로 발견한 버그: 예전엔 모듈 전역 변수(메모리)였는데, 로컬
+# 하루 1회만 도는 작업들(공매도/수급, PEF 지분공시)의 "마지막 실행 날짜"
+# 가드 — 실측으로 발견한 버그: 예전엔 모듈 전역 변수(메모리)였는데, 로컬
 # scheduler.py(오래 켜져있는 프로세스)에선 맞게 동작해도 GitHub Actions는
 # 매 실행마다 python main.py를 완전히 새 프로세스로 띄우기 때문에 메모리
 # 변수는 매번 초기화돼 가드가 사실상 무력화됨 — 하루 144번(10분 간격)
 # KRX 로그인 + 네이버 스크래핑이 벌어지고 있었음(2026-08-08 확인). git에
-# 커밋되는 파일로 영속화해서 accuracy_log.py와 같은 방식으로 고침.
-_FLOWS_STATE_PATH = Path(__file__).resolve().parent / "data" / "flows_state.json"
+# 커밋되는 파일로 영속화해서 accuracy_log.py와 같은 방식으로 고침. 여러
+# 일일 작업이 키만 다르게 같은 파일을 공유한다.
+_DAILY_STATE_PATH = Path(__file__).resolve().parent / "data" / "flows_state.json"
 
 
-def _load_last_flows_date() -> str | None:
+def _load_last_run_date(key: str) -> str | None:
     try:
-        if not _FLOWS_STATE_PATH.exists():
+        if not _DAILY_STATE_PATH.exists():
             return None
-        return json.loads(_FLOWS_STATE_PATH.read_text(encoding="utf-8")).get("last_flows_date")
+        return json.loads(_DAILY_STATE_PATH.read_text(encoding="utf-8")).get(key)
     except Exception:
-        logger.exception("%s 읽기 실패 — 오늘 다시 수집함", _FLOWS_STATE_PATH)
+        logger.exception("%s 읽기 실패 — 오늘 다시 수집함", _DAILY_STATE_PATH)
         return None
 
 
-def _save_last_flows_date(date_str: str) -> None:
+def _save_last_run_date(key: str, date_str: str) -> None:
     try:
-        _FLOWS_STATE_PATH.parent.mkdir(parents=True, exist_ok=True)
-        _FLOWS_STATE_PATH.write_text(
-            json.dumps({"last_flows_date": date_str}, ensure_ascii=False, indent=2),
-            encoding="utf-8",
+        _DAILY_STATE_PATH.parent.mkdir(parents=True, exist_ok=True)
+        existing = {}
+        if _DAILY_STATE_PATH.exists():
+            try:
+                existing = json.loads(_DAILY_STATE_PATH.read_text(encoding="utf-8"))
+            except Exception:
+                existing = {}
+        existing[key] = date_str
+        _DAILY_STATE_PATH.write_text(
+            json.dumps(existing, ensure_ascii=False, indent=2), encoding="utf-8"
         )
     except Exception:
-        logger.exception("%s 저장 실패", _FLOWS_STATE_PATH)
+        logger.exception("%s 저장 실패", _DAILY_STATE_PATH)
 
 
 # Supabase를 아직 안 붙였을 때도 웹에서 실제 값을 볼 수 있도록, 계산 결과를
@@ -67,6 +75,7 @@ def _save_last_flows_date(date_str: str) -> None:
 # 이 파일 대신 predictions 테이블을 읽도록 apps/web 쪽만 바꾸면 됨.
 _WEB_SNAPSHOT_PATH = Path(__file__).resolve().parents[2] / "apps" / "web" / "public" / "predictions.json"
 _WEB_ACCURACY_PATH = Path(__file__).resolve().parents[2] / "apps" / "web" / "public" / "accuracy-history.json"
+_WEB_PEF_PATH = Path(__file__).resolve().parents[2] / "apps" / "web" / "public" / "pef-activity.json"
 
 # 실제 기록(accuracy_log)이 아직 부족할 때 쓰는 초기 폴백 — 2026-08-06
 # 40일 표본 백테스트 방향적중률 (docs/PRD.md 4.2). 실제 예측->확정 사이클이
@@ -115,12 +124,12 @@ def _maybe_collect_flows() -> None:
     """공매도/수급은 장마감 후 하루 1회만 갱신되므로, run_once가 몇 분마다
     호출돼도 실제 스크래핑(+ KRX 로그인)은 날짜가 바뀔 때만 수행한다 (Naver/
     KRX 과다호출·계정 이상탐지 방지). 마지막 수집 날짜는 git에 커밋되는
-    파일(_FLOWS_STATE_PATH)로 영속화한다 — 프로세스 메모리에만 두면 매
-    실행마다 새 프로세스인 GitHub Actions에서 가드가 무력화되기 때문
-    (2026-08-08 실측으로 발견: 하루 144번 로그인되고 있었음).
+    파일로 영속화한다 — 프로세스 메모리에만 두면 매 실행마다 새 프로세스인
+    GitHub Actions에서 가드가 무력화되기 때문(2026-08-08 실측으로 발견:
+    하루 144번 로그인되고 있었음).
     """
     today = dt.datetime.now(KST).date().isoformat()  # KRX 거래일은 KST 기준
-    if today == _load_last_flows_date():
+    if today == _load_last_run_date("last_flows_date"):
         return
     for symbol, meta in SYMBOLS.items():
         flows = collect_daily_flows(meta["krx_code"])
@@ -128,7 +137,20 @@ def _maybe_collect_flows() -> None:
             if value is not None:
                 db.insert("raw_snapshots", {"source": f"flows:{symbol}:{metric}", "value": value})
         logger.info("%s: 수급 데이터 수집 — %s", symbol, flows)
-    _save_last_flows_date(today)
+    _save_last_run_date("last_flows_date", today)
+
+
+def _maybe_collect_pef_activity() -> None:
+    """PEF 지분공시(DART)도 하루 1회면 충분한 이벤트라 같은 가드를 쓴다
+    (5%룰 공시는 실시간성이 필요 없고, DART 요청 수를 아낄 이유도 있음)."""
+    today = dt.datetime.now(KST).date().isoformat()
+    if today == _load_last_run_date("last_pef_date"):
+        return
+    try:
+        pef_tracker.export_pef_activity()
+    except Exception:
+        logger.exception("PEF 활동 랭킹 수집 실패")
+    _save_last_run_date("last_pef_date", today)
 
 
 def run_once() -> None:
@@ -136,6 +158,7 @@ def run_once() -> None:
     macro_changes = collect_macro_changes()
     token_prices = collect_token_prices()
     _maybe_collect_flows()  # 아직 scoring에는 미반영 — raw_snapshots에만 적재 (docs/PRD.md 4.3)
+    _maybe_collect_pef_activity()
 
     # market_hours.get_session()과 동일하게 KST 기준으로 판정 (실행 서버가
     # 다른 시간대여도 일관되게 나오도록 — 예전엔 로컬 시간대 기준이라 어긋날 수 있었음)
@@ -297,6 +320,7 @@ def run_once() -> None:
         _write_web_snapshot(web_rows)
 
     accuracy_log.export_history_for_web(_WEB_ACCURACY_PATH)
+    pef_tracker.export_for_web(_WEB_PEF_PATH)
 
     db.log_admin_event("pipeline", "ok", "run_once completed")
 

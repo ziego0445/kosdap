@@ -21,6 +21,11 @@ TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID", "")
 BINANCE_API_KEY = os.getenv("BINANCE_API_KEY", "")
 BINANCE_API_SECRET = os.getenv("BINANCE_API_SECRET", "")
 
+# 사모펀드(PEF) 지분공시 추적 탭용 — opendart.fss.or.kr에서 무료 발급받는
+# DART Open API 인증키. KRX_ID/Open API 키와는 완전히 별개. 없으면
+# pef_tracker.py가 조용히 건너뜀 (collectors/dart.py 참고).
+DART_API_KEY = os.getenv("DART_API_KEY", "")
+
 # Seconds between collection runs, per source category.
 INTERVAL_TOKEN_SECONDS = int(os.getenv("INTERVAL_TOKEN_SECONDS", "300"))  # 24/7
 INTERVAL_EQUITY_SECONDS = int(os.getenv("INTERVAL_EQUITY_SECONDS", "600"))  # US market hours only

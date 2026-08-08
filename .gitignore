@@ -10,6 +10,7 @@ next-env.d.ts
 # 쪽이고, 이건 그걸 빌드마다 복사해 만드는 파생 파일이라 커밋 안 함.
 apps/web/public/predictions.json
 apps/web/public/accuracy-history.json
+apps/web/public/pef-activity.json
 
 # Python
 __pycache__/

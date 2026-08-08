@@ -44,6 +44,9 @@ jobs:
           # 없으면 short_selling_ratio가 None으로 빠질 뿐 파이프라인은 계속 동작함.
           KRX_ID: ${{ secrets.KRX_ID }}
           KRX_PW: ${{ secrets.KRX_PW }}
+          # PEF 지분공시 추적 탭(pef_tracker.py) — DART Open API 인증키.
+          # 없으면 PEF 랭킹이 빈 목록으로 빠질 뿐 파이프라인은 계속 동작함.
+          DART_API_KEY: ${{ secrets.DART_API_KEY }}
         run: python main.py
 
       - name: Commit accuracy records (git-tracked, accumulates across runs)
