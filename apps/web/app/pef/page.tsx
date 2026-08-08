@@ -145,7 +145,7 @@ export default function PefActivityPage() {
         <Card size="sm">
           <CardHeader>
             <CardTitle className="text-sm">
-              복합 수급 신호 (사모+기관)
+              복합 수급 신호 (사모펀드+기관)
               {combinedData?.tradeDate && (
                 <span className="ml-1.5 font-normal text-muted-foreground">
                   ({combinedData.tradeDate} 기준, {combinedRows.length}개 종목)
@@ -158,8 +158,8 @@ export default function PefActivityPage() {
               <TableHeader>
                 <TableRow>
                   <TableHead>종목</TableHead>
-                  <TableHead className="text-right">사모</TableHead>
-                  <TableHead className="text-right">기관(사모 제외)</TableHead>
+                  <TableHead className="text-right">사모펀드</TableHead>
+                  <TableHead className="text-right">기관(사모펀드 제외)</TableHead>
                   <TableHead className="text-right">점수</TableHead>
                 </TableRow>
               </TableHeader>
@@ -215,7 +215,7 @@ export default function PefActivityPage() {
         <Card size="sm">
           <CardHeader>
             <CardTitle className="text-sm">
-              사모 수급 이례치
+              사모펀드 수급 이례치
               {flowData?.tradeDate && (
                 <span className="ml-1.5 font-normal text-muted-foreground">
                   ({flowData.tradeDate} 기준, {flowRows.length}개 종목)
