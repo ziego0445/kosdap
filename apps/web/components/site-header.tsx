@@ -6,7 +6,7 @@ import { LineChart } from "lucide-react";
 
 const NAV_ITEMS = [
   { href: "/", label: "오늘 얼마니?" },
-  { href: "/pef", label: "사모펀드 뭐샀니?" },
+  { href: "/pef", label: "기관/사모 뭐샀니?" },
 ];
 
 /** trailingSlash:true라 /pef가 /pef/로 올 수 있어 끝 슬래시를 정규화해서 비교. */

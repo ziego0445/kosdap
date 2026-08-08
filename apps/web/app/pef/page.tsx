@@ -48,11 +48,11 @@ export default function PefActivityPage() {
     <div className="space-y-1">
       <h1 className="text-2xl font-bold tracking-tight">
         <span className="bg-gradient-to-r from-[#3987e5] to-[#d55181] bg-clip-text text-transparent">
-          사모펀드 뭐샀니?
+          기관/사모 뭐샀니?
         </span>
       </h1>
       <p className="text-xs text-muted-foreground">
-        KRX·DART 공개 데이터로 사모펀드 관련 수급을 두 가지 시각으로
+        KRX·DART 공개 데이터로 기관·사모펀드 관련 수급을 세 가지 시각으로
         보여줍니다.
       </p>
     </div>
