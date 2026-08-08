@@ -14,6 +14,12 @@ DART 5%룰 공시 기반 pef_tracker.py와는 접근이 다르다:
 이상)을 다 이렇게 조회하면 종목당 왕복 시간 때문에 20~30분이 걸려
 비현실적이라(실측 확인), 먼저 "오늘 순매수 절대금액" 상위 후보만 추린
 뒤 그 후보들만 250일 히스토리를 조회한다.
+
+추가(사용자 피드백, 2026-08-08): 하루짜리 스파이크는 노이즈(단발성
+블록딜 등)일 수 있어서, "며칠 연속으로 매수가 들어왔는지"(연속 매수일)
+도 같이 본다 — 이미 받아둔 250일 히스토리로 추가 API 호출 없이 계산
+가능. 여러 날 연속 순매수가 하루짜리 스파이크보다 진짜 매집일 가능성이
+높다고 보고, 정렬 기준도 연속일수를 1순위로 바꿨다.
 """
 
 from __future__ import annotations
@@ -86,6 +92,17 @@ def collect_pef_flow_activity() -> dict:
         rank = int((history.abs() > abs(today_value)).sum()) + 1
         sample_days = len(history)
 
+        # 연속 매수일: 오늘부터 거슬러가며 순매수(양수)가 끊기지 않고
+        # 이어진 날 수. 하루짜리 스파이크(노이즈 가능성)와 며칠에 걸친
+        # 진짜 매집을 구분하기 위함.
+        consecutive_buy_days = 0
+        streak_total_value = 0.0
+        for v in reversed(history.tolist()):
+            if v <= 0:
+                break
+            consecutive_buy_days += 1
+            streak_total_value += v
+
         market_cap = None
         pct_of_cap = None
         if ticker in cap_df.index:
@@ -100,14 +117,23 @@ def collect_pef_flow_activity() -> dict:
                 "netBuyValueKrw": round(today_value),
                 "rank": rank,
                 "sampleDays": sample_days,
+                "consecutiveBuyDays": consecutive_buy_days,
+                "streakTotalValueKrw": round(streak_total_value),
                 "marketCapKrw": round(market_cap) if market_cap else None,
                 "netBuyPercentOfCap": pct_of_cap,
             }
         )
 
-    # 순위가 1에 가까울수록("최근 1년 중 가장 강했던 날") 강한 신호.
-    # 동률이면 시총 대비 비율이 큰 쪽을 우선.
-    rows.sort(key=lambda r: (r["rank"], -(r["netBuyPercentOfCap"] or 0)))
+    # 며칠 연속으로 들어왔는지를 1순위로 본다(하루짜리 스파이크보다
+    # 진짜 매집 가능성이 높다고 보고) — 동률이면 오늘 순위가 강한(1에
+    # 가까운) 쪽, 그다음 시총 대비 비율이 큰 쪽을 우선.
+    rows.sort(
+        key=lambda r: (
+            -r["consecutiveBuyDays"],
+            r["rank"],
+            -(r["netBuyPercentOfCap"] or 0),
+        )
+    )
     return {"tradeDate": _to_dashed(date_str), "rows": rows}
 
 

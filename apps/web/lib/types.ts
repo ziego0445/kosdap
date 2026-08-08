@@ -82,6 +82,11 @@ export interface PefFlowActivityRow {
   /** 1이 최근 1년(대략 250거래일) 중 가장 강했던 날. */
   rank: number;
   sampleDays: number;
+  /** 오늘까지 순매수가 끊기지 않고 이어진 날 수. 하루짜리 스파이크(노이즈
+   * 가능성)와 며칠에 걸친 진짜 매집을 구분하는 데 씀 — 랭킹 1순위 기준. */
+  consecutiveBuyDays: number;
+  /** 위 연속 매수 기간 동안의 누적 순매수 금액(원). */
+  streakTotalValueKrw: number;
   marketCapKrw: number | null;
   netBuyPercentOfCap: number | null;
 }

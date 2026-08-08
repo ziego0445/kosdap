@@ -72,10 +72,13 @@ export default function PefActivityPage() {
             KRX 공식 투자자 분류 &quot;사모&quot; 카테고리(경영참여형
             PEF + 헤지펀드성 사모펀드 합산 집계치)의 종목별 순매수를 써서,
             &quot;오늘 수급이 이 종목 자체 최근 1년 역사 중 몇 번째로
-            강했는지&quot;를 봅니다. 집계 데이터라 개별 펀드명은 알 수
-            없고, 종목 간 비교가 아니라 그 종목 스스로의 평소 대비
-            이례적인 정도라는 점에 유의하세요. 전 종목을 다 검사하면
-            너무 오래 걸려 그날 순매수 상위 후보만 정밀 계산합니다.
+            강했는지&quot;를 봅니다. 하루짜리 스파이크는 노이즈일 수
+            있어서, 정렬은 순위보다 연속 매수일수를 우선합니다(여러 날
+            이어진 매수가 진짜 매집일 가능성이 높다고 보고). 집계
+            데이터라 개별 펀드명은 알 수 없고, 종목 간 비교가 아니라 그
+            종목 스스로의 평소 대비 이례적인 정도라는 점에 유의하세요.
+            전 종목을 다 검사하면 너무 오래 걸려 그날 순매수 상위
+            후보만 정밀 계산합니다.
           </p>
           <p>
             <span className="font-semibold text-foreground">공시 기반 랭킹</span>
@@ -139,7 +142,8 @@ export default function PefActivityPage() {
               <TableHeader>
                 <TableRow>
                   <TableHead>종목</TableHead>
-                  <TableHead className="text-right">순매수금액</TableHead>
+                  <TableHead className="text-right">연속 매수</TableHead>
+                  <TableHead className="text-right">오늘 순매수</TableHead>
                   <TableHead className="text-right">시총 대비</TableHead>
                   <TableHead className="text-right">최근 1년 순위</TableHead>
                 </TableRow>
@@ -153,7 +157,21 @@ export default function PefActivityPage() {
                         {r.ticker}
                       </div>
                     </TableCell>
-                    <TableCell className="text-right font-semibold tabular-nums text-[#e66767]">
+                    <TableCell className="text-right tabular-nums">
+                      {r.consecutiveBuyDays >= 2 ? (
+                        <>
+                          <span className="font-semibold text-[#e66767]">
+                            {r.consecutiveBuyDays}일 연속
+                          </span>
+                          <div className="text-[10px] text-muted-foreground">
+                            누적 {formatKrw(r.streakTotalValueKrw)}
+                          </div>
+                        </>
+                      ) : (
+                        <span className="text-muted-foreground">단발</span>
+                      )}
+                    </TableCell>
+                    <TableCell className="text-right font-semibold tabular-nums">
                       {formatKrw(r.netBuyValueKrw)}
                     </TableCell>
                     <TableCell className="text-right tabular-nums text-muted-foreground">
