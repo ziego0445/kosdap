@@ -9,7 +9,7 @@ export function SiteFooter() {
           책임은 이용자 본인에게 있습니다.
         </p>
         <p className="text-[10px] text-muted-foreground/60">
-          © {new Date().getFullYear()} 오늘 얼마니!?. All rights reserved.
+          © {new Date().getFullYear()} 삼전 닉스 오늘 얼마니?. All rights reserved.
         </p>
       </div>
     </footer>

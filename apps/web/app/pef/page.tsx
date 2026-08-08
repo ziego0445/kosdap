@@ -18,7 +18,7 @@ export default function PefActivityPage() {
     <div className="space-y-1">
       <h1 className="text-2xl font-bold tracking-tight">
         <span className="bg-gradient-to-r from-[#3987e5] to-[#d55181] bg-clip-text text-transparent">
-          사모펀드 매수 동향
+          사모펀드 뭐샀니?
         </span>
       </h1>
       <p className="text-xs text-muted-foreground">

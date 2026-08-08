@@ -22,9 +22,9 @@ export default function Home() {
           30초마다 자동 갱신
         </div>
         <h1 className="text-3xl font-bold tracking-tight">
-          오늘의{" "}
+          삼전 닉스{" "}
           <span className="bg-gradient-to-r from-[#3987e5] to-[#d55181] bg-clip-text text-transparent">
-            추정가
+            오늘 얼마니?
           </span>
         </h1>
         <p className="text-xs text-muted-foreground">
