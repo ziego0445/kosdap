@@ -11,7 +11,9 @@
 export const chartColors = {
   light: {
     up: "#e34948",
+    upRgb: "227, 73, 72",
     down: "#2a78d6",
+    downRgb: "42, 120, 214",
     predicted: "#2a78d6",
     actual: "#eb6834",
     neutralGrid: "#e1e0d9",
@@ -19,7 +21,9 @@ export const chartColors = {
   },
   dark: {
     up: "#e66767",
+    upRgb: "230, 103, 103",
     down: "#3987e5",
+    downRgb: "57, 135, 229",
     predicted: "#3987e5",
     actual: "#d95926",
     neutralGrid: "#2c2c2a",

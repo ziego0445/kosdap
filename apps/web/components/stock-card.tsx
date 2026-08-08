@@ -10,6 +10,10 @@ import { Separator } from "@/components/ui/separator";
 import { StockPrediction } from "@/lib/types";
 import { FactorChart } from "@/components/factor-chart";
 import { SYMBOL_ACCENT } from "@/lib/brand";
+import { chartColors } from "@/lib/chart-colors";
+
+// 항상 dark 톤 고정(lib/use-color-mode.ts 참고)이라 여기서도 dark 세트를 바로 씀.
+const directionColors = chartColors.dark;
 
 function formatKrw(value: number) {
   return `${value.toLocaleString("ko-KR")}원`;
@@ -18,6 +22,10 @@ function formatKrw(value: number) {
 export function StockCard({ data }: { data: StockPrediction }) {
   const isUp = data.changePercent >= 0;
   const accent = SYMBOL_ACCENT[data.symbol];
+  // 추정가는 국내 증시 관례대로 상승=빨강/하락=파랑 (lib/chart-colors.ts 참고).
+  // 브랜드 액센트(accent)는 종목 정체성 색이라 아바타/글로우/정확도 바에만 남겨둔다.
+  const directionColor = isUp ? directionColors.up : directionColors.down;
+  const directionRgb = isUp ? directionColors.upRgb : directionColors.downRgb;
 
   return (
     <Card
@@ -78,13 +86,17 @@ export function StockCard({ data }: { data: StockPrediction }) {
             </p>
             <p
               className="text-3xl font-bold tabular-nums"
-              style={data.isEstimate ? { color: accent.color } : undefined}
+              style={data.isEstimate ? { color: directionColor } : undefined}
             >
               {formatKrw(data.isEstimate ? data.predictedPrice : data.currentPrice)}
             </p>
             <span
               className="mt-1 inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-semibold tabular-nums"
-              style={{ backgroundColor: `rgba(${accent.rgb}, 0.16)`, color: accent.color }}
+              style={
+                data.isEstimate
+                  ? { backgroundColor: `rgba(${directionRgb}, 0.16)`, color: directionColor }
+                  : { backgroundColor: `rgba(${accent.rgb}, 0.16)`, color: accent.color }
+              }
             >
               {isUp ? (
                 <TrendingUp className="h-3 w-3" />
