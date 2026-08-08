@@ -42,6 +42,14 @@ def _parse_number(raw: str | None) -> float:
         return 0.0
 
 
+def _normalize_date(raw: str) -> str:
+    """비교용으로만 쓴다 — list.json은 YYYYMMDD, majorstock.json은
+    YYYY-MM-DD로 rcept_dt 포맷이 서로 다르다는 걸 실측으로 발견함
+    (2026-08-08). 이것 때문에 처음엔 날짜 필터가 항상 어긋나서 결과가
+    0건이었음 — 하이픈을 지워서 같은 포맷으로 맞춘다."""
+    return raw.replace("-", "")
+
+
 def collect_pef_activity() -> list[dict]:
     end = dt.datetime.now(KST).date()
     start = end - dt.timedelta(days=_LOOKBACK_DAYS)
@@ -51,10 +59,17 @@ def collect_pef_activity() -> list[dict]:
     if not filings:
         return []
 
-    # 회사 중복 제거 (같은 회사가 이 기간에 여러 번 공시했을 수 있음)
-    companies = {f["corp_code"]: f for f in filings if f.get("corp_code")}
-    logger.info("DART 대량보유상황보고서: %d개 회사에서 %d건 (최근 %d일)",
-                len(companies), len(filings), _LOOKBACK_DAYS)
+    # 회사당 상세조회(majorstock.json)는 네트워크 왕복이 있어(실측 ~0.7초/건)
+    # 전체 회사를 다 부르면 느리다(30일치는 수백~천 개 회사) — list.json
+    # 응답에 이미 제출인명(flr_nm)이 있으므로, 그걸로 먼저 PEF로 보이는
+    # 회사만 걸러내고 그 회사들만 상세조회한다 (2026-08-08 실측으로
+    # 병목 확인 후 최적화: 전체 회사 조회 시 30일치가 9분 가까이 걸렸음).
+    pef_candidate_filings = [f for f in filings if looks_like_pef(f.get("flr_nm", ""))]
+    companies = {f["corp_code"]: f for f in pef_candidate_filings if f.get("corp_code")}
+    logger.info(
+        "DART 대량보유상황보고서: 전체 %d건 중 PEF로 추정되는 제출인 %d건 -> %d개 회사 상세조회 (최근 %d일)",
+        len(filings), len(pef_candidate_filings), len(companies), _LOOKBACK_DAYS,
+    )
 
     rows: list[dict] = []
     for corp_code, meta in companies.items():
@@ -63,10 +78,12 @@ def collect_pef_activity() -> list[dict]:
         pef_reporters: set[str] = set()
         latest_report_reason = None
         latest_date = None
+        latest_date_norm = None
 
         for entry in history:
             rcept_dt = entry.get("rcept_dt", "")
-            if not (bgn_de <= rcept_dt <= end_de):
+            rcept_dt_norm = _normalize_date(rcept_dt)
+            if not (bgn_de <= rcept_dt_norm <= end_de):
                 continue
             reporter = entry.get("repror", "")
             if not looks_like_pef(reporter):
@@ -75,7 +92,8 @@ def collect_pef_activity() -> list[dict]:
             delta = _parse_number(entry.get("stkqy_irds"))
             pef_net_buy += delta
             pef_reporters.add(reporter)
-            if latest_date is None or rcept_dt > latest_date:
+            if latest_date_norm is None or rcept_dt_norm > latest_date_norm:
+                latest_date_norm = rcept_dt_norm
                 latest_date = rcept_dt
                 latest_report_reason = entry.get("report_resn")
 

@@ -1,5 +1,326 @@
 {
-  "generatedAt": "2026-08-08T03:13:22.496508+00:00",
+  "generatedAt": "2026-08-08T03:36:15.069943+00:00",
   "lookbackDays": 30,
-  "rows": []
+  "rows": [
+    {
+      "corpCode": "00131896",
+      "corpName": "선광",
+      "stockCode": "003100",
+      "pefNetBuyShares": 3859648,
+      "pefReporters": [
+        "화인파트너스"
+      ],
+      "latestReportDate": "2026-07-31",
+      "latestReportReason": "- 대표보고자 변경에 따른 신규 보고\n  (변경 전 : 심충식 / 변경 후 : (주)화인파트너스)"
+    },
+    {
+      "corpCode": "00506294",
+      "corpName": "가비아",
+      "stockCode": "079940",
+      "pefNetBuyShares": 3270248,
+      "pefReporters": [
+        "디씨케이인베스트먼트"
+      ],
+      "latestReportDate": "2026-07-20",
+      "latestReportReason": "- 주식매매계약 체결"
+    },
+    {
+      "corpCode": "00111722",
+      "corpName": "미래에셋증권",
+      "stockCode": "006800",
+      "pefNetBuyShares": 2586314,
+      "pefReporters": [
+        "미래에셋캐피탈"
+      ],
+      "latestReportDate": "2026-08-07",
+      "latestReportReason": "특별관계자 합산 1%이상 보유비율 변동\n(대상기간 중 발생회사 주식소각에 따른 지분율 변동 등)"
+    },
+    {
+      "corpCode": "00162416",
+      "corpName": "한양증권",
+      "stockCode": "001750",
+      "pefNetBuyShares": 2393052,
+      "pefReporters": [
+        "케이씨지아이제2호사모투자"
+      ],
+      "latestReportDate": "2026-07-15",
+      "latestReportReason": "- 제3자배정 유상증자에 따른 보유비율 변동\n- 특별관계자 변동\n- 추가 근질권설정계약 체결"
+    },
+    {
+      "corpCode": "00608802",
+      "corpName": "텔콘RF제약",
+      "stockCode": "200230",
+      "pefNetBuyShares": 2329916,
+      "pefReporters": [
+        "에버코어인베스트먼트홀딩스"
+      ],
+      "latestReportDate": "2026-07-16",
+      "latestReportReason": "유상증자 신주취득 등에 따른 특별관계자 추가\n및 대표보고자 변경"
+    },
+    {
+      "corpCode": "01491607",
+      "corpName": "오에스피",
+      "stockCode": "368970",
+      "pefNetBuyShares": 2289813,
+      "pefReporters": [
+        "와이투케이파트너스"
+      ],
+      "latestReportDate": "2026-07-15",
+      "latestReportReason": "3자배정 유상증자(7.7납입 및 7.13납입) 및 장내매수"
+    },
+    {
+      "corpCode": "00961774",
+      "corpName": "유티아이",
+      "stockCode": "179900",
+      "pefNetBuyShares": 1429833,
+      "pefReporters": [
+        "세븐브릿지제6호유니크글래스사모투자"
+      ],
+      "latestReportDate": "2026-07-23",
+      "latestReportReason": "전환사채 추가취득 및 전환가액 조정에 따른 변동보고"
+    },
+    {
+      "corpCode": "00545114",
+      "corpName": "랩지노믹스",
+      "stockCode": "084650",
+      "pefNetBuyShares": 1240100,
+      "pefReporters": [
+        "루하프라이빗에쿼티"
+      ],
+      "latestReportDate": "2026-07-14",
+      "latestReportReason": "장내 매수를 통한 지분 취득"
+    },
+    {
+      "corpCode": "00447007",
+      "corpName": "알리코제약",
+      "stockCode": "260660",
+      "pefNetBuyShares": 1226992,
+      "pefReporters": [
+        "시너지아이비투자"
+      ],
+      "latestReportDate": "2026-08-07",
+      "latestReportReason": "제4회차 전환사채 취득 및 전환가액 조정에 따른 보고"
+    },
+    {
+      "corpCode": "01228515",
+      "corpName": "앱튼",
+      "stockCode": "270520",
+      "pefNetBuyShares": 1200292,
+      "pefReporters": [
+        "유토피아 파트너스"
+      ],
+      "latestReportDate": "2026-07-31",
+      "latestReportReason": "1. 전환사채 추가 양수도 계약 체결로 인한 보유비율 변동\n2. 특별관계자 추가 및 이에 따른 출자비율 변동\n3. 특별관계자 탈퇴 및 현물배분에 따른 특별관계해소와 보유비율 변동 "
+    },
+    {
+      "corpCode": "00163761",
+      "corpName": "한창제지",
+      "stockCode": "009460",
+      "pefNetBuyShares": 773694,
+      "pefReporters": [
+        "시너지아이비투자"
+      ],
+      "latestReportDate": "2026-08-07",
+      "latestReportReason": "제80회차 전환사채 전환가액 조정에 따른 보고"
+    },
+    {
+      "corpCode": "01305869",
+      "corpName": "세니젠",
+      "stockCode": "188260",
+      "pefNetBuyShares": 645382,
+      "pefReporters": [
+        "지씨파트너스"
+      ],
+      "latestReportDate": "2026-07-10",
+      "latestReportReason": "제3자배정 유상증자 신주 취득(주식회사 지씨파트너스) 및 전환가액 변동으로 인한 전환가능주식수 변동\n(지씨1호조합)"
+    },
+    {
+      "corpCode": "01364297",
+      "corpName": "코퍼스코리아",
+      "stockCode": "322780",
+      "pefNetBuyShares": 556792,
+      "pefReporters": [
+        "빅터그로스파트너스조합"
+      ],
+      "latestReportDate": "2026-07-29",
+      "latestReportReason": "사모5CB 인수로 인한 신규보고"
+    },
+    {
+      "corpCode": "01700587",
+      "corpName": "이노스페이스",
+      "stockCode": "462350",
+      "pefNetBuyShares": 418146,
+      "pefReporters": [
+        "코오롱인베스트먼트"
+      ],
+      "latestReportDate": "2026-07-15",
+      "latestReportReason": "- 유상증자 (미참여)로 인한 보유비율 변동 및 무상증자에 따른 보유주식수 등 변동"
+    },
+    {
+      "corpCode": "00367695",
+      "corpName": "에이전트AI",
+      "stockCode": "060900",
+      "pefNetBuyShares": 204675,
+      "pefReporters": [
+        "엘앤엘파트너스"
+      ],
+      "latestReportDate": "2026-07-15",
+      "latestReportReason": "5% 이상 신규 보고"
+    },
+    {
+      "corpCode": "01924673",
+      "corpName": "나노솔루션",
+      "stockCode": "238540",
+      "pefNetBuyShares": 165510,
+      "pefReporters": [
+        "캡스톤파트너스"
+      ],
+      "latestReportDate": "2026-07-28",
+      "latestReportReason": "코넥스시장 신규상장에 따른 지분공시"
+    },
+    {
+      "corpCode": "00426828",
+      "corpName": "케이웨더",
+      "stockCode": "068100",
+      "pefNetBuyShares": 76873,
+      "pefReporters": [
+        "웰비안파트너스"
+      ],
+      "latestReportDate": "2026-07-23",
+      "latestReportReason": "장내매수"
+    },
+    {
+      "corpCode": "01510489",
+      "corpName": "프레스티지바이오파마",
+      "stockCode": "950210",
+      "pefNetBuyShares": 34733,
+      "pefReporters": [
+        "메이슨파트너스"
+      ],
+      "latestReportDate": "2026-08-04",
+      "latestReportReason": "특별관계자 지분 변동"
+    },
+    {
+      "corpCode": "00288495",
+      "corpName": "HC홈센타",
+      "stockCode": "060560",
+      "pefNetBuyShares": 0,
+      "pefReporters": [
+        "에이치씨파트너스"
+      ],
+      "latestReportDate": "2026-08-06",
+      "latestReportReason": "주식담보대출 상환 및 연장"
+    },
+    {
+      "corpCode": "01042650",
+      "corpName": "큐리언트",
+      "stockCode": "115180",
+      "pefNetBuyShares": 0,
+      "pefReporters": [
+        "유암코키스톤구조혁신기업재무안정사모투자"
+      ],
+      "latestReportDate": "2026-08-05",
+      "latestReportReason": "특별관계자의 담보대출 일부 상환에 따른 변경 보고"
+    },
+    {
+      "corpCode": "00233653",
+      "corpName": "한국토지신탁",
+      "stockCode": "034830",
+      "pefNetBuyShares": 0,
+      "pefReporters": [
+        "엠케이인베스트먼트"
+      ],
+      "latestReportDate": "2026-07-31",
+      "latestReportReason": "보고자의 보유주식등에 관한 계약 변경"
+    },
+    {
+      "corpCode": "00111111",
+      "corpName": "대양금속",
+      "stockCode": "009190",
+      "pefNetBuyShares": 0,
+      "pefReporters": [
+        "디와이엠파트너스"
+      ],
+      "latestReportDate": "2026-07-20",
+      "latestReportReason": "담보대출계약 변경"
+    },
+    {
+      "corpCode": "00409140",
+      "corpName": "이원컴포텍",
+      "stockCode": "088290",
+      "pefNetBuyShares": 0,
+      "pefReporters": [
+        "래인파트너스"
+      ],
+      "latestReportDate": "2026-07-14",
+      "latestReportReason": "담보 제공"
+    },
+    {
+      "corpCode": "01466373",
+      "corpName": "알트",
+      "stockCode": "459550",
+      "pefNetBuyShares": -405508,
+      "pefReporters": [
+        "크로스로드6호사모투자"
+      ],
+      "latestReportDate": "2026-08-06",
+      "latestReportReason": "1% 이상 주식 보유비율 변동"
+    },
+    {
+      "corpCode": "00296324",
+      "corpName": "큐로홀딩스",
+      "stockCode": "051780",
+      "pefNetBuyShares": -467434,
+      "pefReporters": [
+        "시너지아이비투자",
+        "케이파트너스"
+      ],
+      "latestReportDate": "2026-07-31",
+      "latestReportReason": "특수관계인의 주식 매입"
+    },
+    {
+      "corpCode": "01565364",
+      "corpName": "폴레드",
+      "stockCode": "487580",
+      "pefNetBuyShares": -648322,
+      "pefReporters": [
+        "코오롱인베스트먼트"
+      ],
+      "latestReportDate": "2026-08-07",
+      "latestReportReason": "장내 매도에 따른 주식수 변동 보고"
+    },
+    {
+      "corpCode": "00523176",
+      "corpName": "광동헬스바이오",
+      "stockCode": "086220",
+      "pefNetBuyShares": -727272,
+      "pefReporters": [
+        "마그나인베스트먼트"
+      ],
+      "latestReportDate": "2026-07-21",
+      "latestReportReason": "보유주식 양도에 따른 변동"
+    },
+    {
+      "corpCode": "00119672",
+      "corpName": "두올",
+      "stockCode": "016740",
+      "pefNetBuyShares": -4200000,
+      "pefReporters": [
+        "프리미어성장전략엠앤에이사모투자"
+      ],
+      "latestReportDate": "2026-07-31",
+      "latestReportReason": "주식매매계약 종결에 따른 보유주식 수 변동"
+    },
+    {
+      "corpCode": "00445841",
+      "corpName": "MDS테크",
+      "stockCode": "086960",
+      "pefNetBuyShares": -7952727,
+      "pefReporters": [
+        "시너지아이비투자"
+      ],
+      "latestReportDate": "2026-07-10",
+      "latestReportReason": "1. (주)MDS테크 매도청구권행사\n2. 전환청구권 행사 및 주식매매"
+    }
+  ]
 }
