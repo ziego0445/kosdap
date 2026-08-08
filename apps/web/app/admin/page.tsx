@@ -21,7 +21,7 @@ export default function AdminPage() {
           </span>
         </h1>
         <p className="text-xs text-muted-foreground">
-          kosdap이 추정가 계산에 실제로 사용하는 데이터 출처와 갱신 주기입니다.
+          오늘 얼마니!?가 추정가 계산에 실제로 사용하는 데이터 출처와 갱신 주기입니다.
         </p>
       </div>
 
