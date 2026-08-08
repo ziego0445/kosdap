@@ -75,7 +75,14 @@ export default function PefActivityPage() {
     </div>
   );
 
-  const ad = (
+  const topAd = (
+    <div className="space-y-1.5">
+      <p className="text-center text-[10px] text-muted-foreground/60">광고</p>
+      <KakaoAdFit adUnit="DAN-bSSPuseVGSyLlMSJ" width={320} height={50} />
+    </div>
+  );
+
+  const bottomAd = (
     <div className="space-y-1.5">
       <p className="text-center text-[10px] text-muted-foreground/60">광고</p>
       <KakaoAdFit adUnit="DAN-tVZV5lnlMQBExDP1" width={300} height={250} />
@@ -136,7 +143,7 @@ export default function PefActivityPage() {
     return (
       <div className="space-y-5">
         {header}
-        {ad}
+        {topAd}
         <Card size="sm">
           <CardContent className="flex flex-col items-center gap-3 py-10 text-center">
             <Hourglass className="h-8 w-8 text-muted-foreground" />
@@ -149,6 +156,7 @@ export default function PefActivityPage() {
           </CardContent>
         </Card>
         {disclaimer}
+        {bottomAd}
       </div>
     );
   }
@@ -156,7 +164,7 @@ export default function PefActivityPage() {
   return (
     <div className="space-y-5">
       {header}
-      {ad}
+      {topAd}
 
       {combinedRows.length > 0 && (
         <Card size="sm">
@@ -371,6 +379,7 @@ export default function PefActivityPage() {
       )}
 
       {disclaimer}
+      {bottomAd}
     </div>
   );
 }
