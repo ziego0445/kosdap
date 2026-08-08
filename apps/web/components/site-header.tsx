@@ -4,12 +4,9 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { LineChart } from "lucide-react";
 
-// 탭 이름도 페이지 타이틀과 같은 말투로 맞춤 (전체 타이틀은 각 페이지
-// h1 참고: "삼전 닉스 오늘 얼마니?" / "사모펀드 뭐샀니?") — 네브바는
-// 공간이 좁아 축약형을 씀.
 const NAV_ITEMS = [
   { href: "/", label: "오늘 얼마니?" },
-  { href: "/pef", label: "뭐샀니?" },
+  { href: "/pef", label: "사모펀드 뭐샀니?" },
 ];
 
 /** trailingSlash:true라 /pef가 /pef/로 올 수 있어 끝 슬래시를 정규화해서 비교. */
