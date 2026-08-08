@@ -47,12 +47,28 @@ jobs:
         run: python main.py
 
       - name: Commit accuracy records (git-tracked, accumulates across runs)
+        # 로컬 PC도 같은 디렉터리(특히 token_change_cache.json)를 독립적으로
+        # 커밋+푸시하므로(git_sync.py) 동시에 겹치면 non-fast-forward로
+        # 거절될 수 있다 — pull --rebase 후 재시도. 그래도 실패하면 이번
+        # 사이클의 기록 커밋만 건너뛰고(다음 사이클에 다시 시도) 사이트
+        # 배포(build/deploy 스텝)는 계속 진행되도록 continue-on-error.
+        continue-on-error: true
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add services/predictor/data/
-          git diff --cached --quiet || git commit -m "chore: 예측/정확도 기록 갱신 [skip ci]"
-          git push
+          if git diff --cached --quiet; then
+            exit 0
+          fi
+          git commit -m "chore: 예측/정확도 기록 갱신 [skip ci]"
+          for i in 1 2 3; do
+            if git push; then
+              exit 0
+            fi
+            echo "push 실패(시도 $i) — pull --rebase 후 재시도"
+            git pull --rebase || { echo "rebase 실패 — 이번 사이클 커밋 포기"; exit 0; }
+          done
+          echo "push 3회 재시도 모두 실패 — 이번 사이클 커밋 포기"
 
       - uses: actions/setup-node@v4
         with:

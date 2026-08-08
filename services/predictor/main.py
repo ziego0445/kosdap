@@ -13,6 +13,7 @@ from pathlib import Path
 
 import accuracy_log
 import db
+import token_change_cache
 from collectors.equities import collect_equity_changes
 from collectors.flows import collect_daily_flows
 from collectors.krx import (
@@ -223,6 +224,17 @@ def run_once() -> None:
                     BYBIT_SYMBOLS[symbol],
                     trade_date,
                 )
+
+        # Bybit가 GitHub Actions(클라우드 IP)에서 구조적으로 막혀 있어
+        # (token_change_cache.py 참고) 여기서 실패하는 게 정상적으로 자주
+        # 있는 일이다 — 로컬이 최근 저장해둔 값이 신선하면 그걸로 대체한다.
+        if token_change_percent is not None:
+            token_change_cache.save(symbol, token_change_percent)
+        else:
+            cached = token_change_cache.load_fresh(symbol)
+            if cached is not None:
+                token_change_percent = cached
+                logger.info("%s: Bybit 직접 조회 실패 — 로컬 캐시값 사용 (%.2f%%)", symbol, cached)
 
         prediction = compute_prediction(
             symbol=symbol,

@@ -15,17 +15,26 @@ import logging
 
 from apscheduler.schedulers.blocking import BlockingScheduler
 
+import git_sync
 from config import INTERVAL_TOKEN_SECONDS
 from main import run_once
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
+_SYNC_INTERVAL_SECONDS = 900  # 15분마다 — GitHub Actions 봇 커밋과 너무 자주
+# 부딪히지 않으면서도(git_sync.py의 재시도 로직이 있긴 함), CI가 읽는
+# token_change_cache.json이 크게 오래되지 않도록(캐시 유효기간 30분) 하는 절충.
+
 
 def main() -> None:
     scheduler = BlockingScheduler()
     scheduler.add_job(run_once, "interval", seconds=INTERVAL_TOKEN_SECONDS, next_run_time=None)
-    logger.info("predictor scheduler started (every %ss)", INTERVAL_TOKEN_SECONDS)
+    scheduler.add_job(git_sync.sync, "interval", seconds=_SYNC_INTERVAL_SECONDS, next_run_time=None)
+    logger.info(
+        "predictor scheduler started (every %ss, git sync every %ss)",
+        INTERVAL_TOKEN_SECONDS, _SYNC_INTERVAL_SECONDS,
+    )
     run_once()  # 즉시 1회 실행
     scheduler.start()
 
