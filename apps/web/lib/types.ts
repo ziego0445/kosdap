@@ -90,3 +90,28 @@ export interface PefFlowActivityRow {
   marketCapKrw: number | null;
   netBuyPercentOfCap: number | null;
 }
+
+/**
+ * 사모 + 기관(사모 제외) 복합 수급 신호. "같은 날 동시에" 조건 없이 각자
+ * 독립적으로 계산한 연속매수일을 단순 합산한 점수로 정렬한다 — 사모는
+ * 어제, 기관은 오늘처럼 날짜가 어긋나도 잡힘. services/predictor/
+ * pef_flow_tracker.py의 collect_combined_signal_activity 참고. 여러
+ * 신호를 하나의 "매수의견"으로 바꾸지 않고 각 지표를 그대로 나란히
+ * 보여준다 — 정렬에만 점수를 쓴다.
+ */
+export interface PefCombinedSignalRow {
+  ticker: string;
+  corpName: string;
+  pefNetBuyValueKrw: number;
+  pefConsecutiveBuyDays: number;
+  pefStreakTotalValueKrw: number;
+  /** 오늘 사모가 순매도/보합이면(연속매수일=0) null. */
+  pefRank: number | null;
+  institutionNetBuyValueKrw: number;
+  institutionConsecutiveBuyDays: number;
+  institutionStreakTotalValueKrw: number;
+  institutionRank: number | null;
+  /** pefConsecutiveBuyDays + institutionConsecutiveBuyDays, 정렬 기준. */
+  combinedScore: number;
+  sampleDays: number;
+}

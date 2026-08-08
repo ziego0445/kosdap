@@ -60,15 +60,25 @@ def fetch_daily_net_buy_history(
     """`ticker` 하나의 [start_date, end_date] 일별 `investor_column`
     순매수거래대금 시계열 (detail=True라 사모/외국인/개인 등 세부
     카테고리로 나뉘어 나온다)."""
+    df = fetch_daily_investor_detail_history(ticker, start_date, end_date)
+    if df is None or investor_column not in df.columns:
+        return None
+    return df[investor_column]
+
+
+def fetch_daily_investor_detail_history(
+    ticker: str, start_date: str, end_date: str
+) -> pd.DataFrame | None:
+    """`ticker` 하나의 [start_date, end_date] 일별 투자자 세부분류 전체
+    (금융투자/보험/투신/사모/은행/기타금융/연기금/기타법인/개인/외국인/
+    기타외국인/전체). 한 번 호출로 여러 카테고리를 동시에 얻을 수 있어서
+    (예: 사모 + 기관(사모 제외) 합산) 카테고리별로 따로 호출할 필요가 없다."""
     from pykrx import stock
 
     try:
-        df = stock.get_market_trading_value_by_date(
+        return stock.get_market_trading_value_by_date(
             start_date, end_date, ticker, detail=True
         )
-        if investor_column not in df.columns:
-            return None
-        return df[investor_column]
     except Exception:
-        logger.exception("%s 일별 수급 히스토리 조회 실패", ticker)
+        logger.exception("%s 일별 투자자 세부 히스토리 조회 실패", ticker)
         return None

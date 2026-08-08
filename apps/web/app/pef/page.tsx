@@ -11,6 +11,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { KakaoAdFit } from "@/components/kakao-adfit";
 import { readLivePefActivity } from "@/lib/live-pef";
 import { readLivePefFlowActivity } from "@/lib/live-pef-flow";
+import { readLivePefCombinedSignal } from "@/lib/live-pef-combined";
 
 /** 억원 단위가 감이 잘 오니 그걸 우선으로, 너무 작으면 만원 단위로. */
 function formatKrw(value: number, { approx = false }: { approx?: boolean } = {}) {
@@ -39,6 +40,9 @@ export default function PefActivityPage() {
 
   const flowData = readLivePefFlowActivity();
   const flowRows = flowData?.rows ?? [];
+
+  const combinedData = readLivePefCombinedSignal();
+  const combinedRows = combinedData?.rows ?? [];
 
   const header = (
     <div className="space-y-1">
@@ -90,14 +94,26 @@ export default function PefActivityPage() {
             근사치입니다.
           </p>
           <p>
-            둘 다 매수/매도 추천이 아니라 공개 데이터 사실 나열입니다.
+            <span className="font-semibold text-foreground">복합 수급 신호</span>
+            {": "}
+            사모와 기관(사모 제외) 자금이 각각 며칠 연속 순매수했는지를
+            독립적으로 계산해 연속일수를 단순 합산한 점수로 정렬합니다
+            — &quot;같은 날 동시에&quot; 들어와야 하는 건 아닙니다(사모는
+            어제, 기관은 오늘이어도 잡힙니다). 여러 신호를 하나의 매수
+            의견으로 바꾸는 게 아니라 각 지표를 그대로 나란히 보여주고
+            정렬에만 점수를 씁니다. 기관합계는 사모를 포함하는 상위
+            카테고리라 이중계산을 피하려고 사모를 뺀 값을 씁니다.
+          </p>
+          <p>
+            셋 다 매수/매도 추천이 아니라 공개 데이터 사실 나열입니다.
           </p>
         </div>
       </CardContent>
     </Card>
   );
 
-  const hasAnyData = flowRows.length > 0 || dartRows.length > 0;
+  const hasAnyData =
+    combinedRows.length > 0 || flowRows.length > 0 || dartRows.length > 0;
 
   if (!hasAnyData) {
     return (
@@ -124,6 +140,76 @@ export default function PefActivityPage() {
     <div className="space-y-5">
       {header}
       {ad}
+
+      {combinedRows.length > 0 && (
+        <Card size="sm">
+          <CardHeader>
+            <CardTitle className="text-sm">
+              복합 수급 신호 (사모+기관)
+              {combinedData?.tradeDate && (
+                <span className="ml-1.5 font-normal text-muted-foreground">
+                  ({combinedData.tradeDate} 기준, {combinedRows.length}개 종목)
+                </span>
+              )}
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="px-2 sm:px-6">
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead>종목</TableHead>
+                  <TableHead className="text-right">사모</TableHead>
+                  <TableHead className="text-right">기관(사모 제외)</TableHead>
+                  <TableHead className="text-right">점수</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {combinedRows.map((r) => (
+                  <TableRow key={r.ticker}>
+                    <TableCell className="whitespace-normal">
+                      <div className="font-medium">{r.corpName}</div>
+                      <div className="text-[10px] text-muted-foreground">
+                        {r.ticker}
+                      </div>
+                    </TableCell>
+                    <TableCell className="text-right tabular-nums">
+                      {r.pefConsecutiveBuyDays > 0 ? (
+                        <>
+                          <span className="font-semibold text-[#e66767]">
+                            {r.pefConsecutiveBuyDays}일 연속
+                          </span>
+                          <div className="text-[10px] text-muted-foreground">
+                            {formatKrw(r.pefStreakTotalValueKrw)}
+                          </div>
+                        </>
+                      ) : (
+                        <span className="text-muted-foreground">-</span>
+                      )}
+                    </TableCell>
+                    <TableCell className="text-right tabular-nums">
+                      {r.institutionConsecutiveBuyDays > 0 ? (
+                        <>
+                          <span className="font-semibold text-[#e66767]">
+                            {r.institutionConsecutiveBuyDays}일 연속
+                          </span>
+                          <div className="text-[10px] text-muted-foreground">
+                            {formatKrw(r.institutionStreakTotalValueKrw)}
+                          </div>
+                        </>
+                      ) : (
+                        <span className="text-muted-foreground">-</span>
+                      )}
+                    </TableCell>
+                    <TableCell className="text-right font-semibold tabular-nums">
+                      {r.combinedScore}
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </CardContent>
+        </Card>
+      )}
 
       {flowRows.length > 0 && (
         <Card size="sm">

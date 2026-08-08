@@ -12,6 +12,7 @@ apps/web/public/predictions.json
 apps/web/public/accuracy-history.json
 apps/web/public/pef-activity.json
 apps/web/public/pef-flow-activity.json
+apps/web/public/pef-combined-signal.json
 
 # Python
 __pycache__/

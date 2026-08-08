@@ -78,6 +78,7 @@ _WEB_SNAPSHOT_PATH = Path(__file__).resolve().parents[2] / "apps" / "web" / "pub
 _WEB_ACCURACY_PATH = Path(__file__).resolve().parents[2] / "apps" / "web" / "public" / "accuracy-history.json"
 _WEB_PEF_PATH = Path(__file__).resolve().parents[2] / "apps" / "web" / "public" / "pef-activity.json"
 _WEB_PEF_FLOW_PATH = Path(__file__).resolve().parents[2] / "apps" / "web" / "public" / "pef-flow-activity.json"
+_WEB_PEF_COMBINED_PATH = Path(__file__).resolve().parents[2] / "apps" / "web" / "public" / "pef-combined-signal.json"
 
 # 실제 기록(accuracy_log)이 아직 부족할 때 쓰는 초기 폴백 — 2026-08-06
 # 40일 표본 백테스트 방향적중률 (docs/PRD.md 4.2). 실제 예측->확정 사이클이
@@ -167,6 +168,19 @@ def _maybe_collect_pef_flow_activity() -> None:
     _save_last_run_date("last_pef_flow_date", today)
 
 
+def _maybe_collect_pef_combined_signal() -> None:
+    """사모+기관 복합 수급 신호도 하루 1회. 별도 가드 키를 써서 위 단일
+    신호 수집과 독립적으로 재시도할 수 있게 한다."""
+    today = dt.datetime.now(KST).date().isoformat()
+    if today == _load_last_run_date("last_pef_combined_date"):
+        return
+    try:
+        pef_flow_tracker.export_combined_signal_activity()
+    except Exception:
+        logger.exception("PEF 복합 수급 신호 수집 실패")
+    _save_last_run_date("last_pef_combined_date", today)
+
+
 def run_once() -> None:
     equity_changes = collect_equity_changes()
     macro_changes = collect_macro_changes()
@@ -174,6 +188,7 @@ def run_once() -> None:
     _maybe_collect_flows()  # 아직 scoring에는 미반영 — raw_snapshots에만 적재 (docs/PRD.md 4.3)
     _maybe_collect_pef_activity()
     _maybe_collect_pef_flow_activity()
+    _maybe_collect_pef_combined_signal()
 
     # market_hours.get_session()과 동일하게 KST 기준으로 판정 (실행 서버가
     # 다른 시간대여도 일관되게 나오도록 — 예전엔 로컬 시간대 기준이라 어긋날 수 있었음)
@@ -337,6 +352,7 @@ def run_once() -> None:
     accuracy_log.export_history_for_web(_WEB_ACCURACY_PATH)
     pef_tracker.export_for_web(_WEB_PEF_PATH)
     pef_flow_tracker.export_for_web(_WEB_PEF_FLOW_PATH)
+    pef_flow_tracker.export_combined_signal_for_web(_WEB_PEF_COMBINED_PATH)
 
     db.log_admin_event("pipeline", "ok", "run_once completed")
 
