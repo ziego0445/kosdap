@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-09T00:51:00.141680+00:00",
+  "generatedAt": "2026-08-09T15:16:51.252699+00:00",
   "lookbackDays": 30,
   "rows": [
     {
@@ -168,21 +168,6 @@
       "latestReportReason": "전환사채 추가취득 및 전환가액 조정에 따른 변동보고"
     },
     {
-      "corpCode": "01305869",
-      "corpName": "세니젠",
-      "stockCode": "188260",
-      "market": "코스닥",
-      "pefNetBuyShares": 645382,
-      "pefNetBuyRatioPercent": 1.96,
-      "pefNetBuyValueKrw": 1374663660,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "지씨파트너스"
-      ],
-      "latestReportDate": "2026-07-10",
-      "latestReportReason": "제3자배정 유상증자 신주 취득(주식회사 지씨파트너스) 및 전환가액 변동으로 인한 전환가능주식수 변동\n(지씨1호조합)"
-    },
-    {
       "corpCode": "00111722",
       "corpName": "미래에셋증권",
       "stockCode": "006800",
@@ -301,6 +286,21 @@
       ],
       "latestReportDate": "2026-07-20",
       "latestReportReason": "담보대출계약 변경"
+    },
+    {
+      "corpCode": "00409140",
+      "corpName": "이원컴포텍",
+      "stockCode": "088290",
+      "market": "코스닥",
+      "pefNetBuyShares": 0,
+      "pefNetBuyRatioPercent": 0.0,
+      "pefNetBuyValueKrw": 0,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "래인파트너스"
+      ],
+      "latestReportDate": "2026-07-14",
+      "latestReportReason": "담보 제공"
     }
   ]
 }
