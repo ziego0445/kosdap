@@ -61,6 +61,7 @@ _OUTPUT_PATH = _DATA_DIR / "pef_flow_activity.json"
 _COMBINED_OUTPUT_PATH = _DATA_DIR / "pef_combined_signal.json"
 
 _TOP_CANDIDATES = 120  # 오늘 순매수 절대금액 상위 몇 개까지 상세조회할지
+_DISPLAY_LIMIT = 20  # 화면엔 정렬 후 상위 20개까지만 (사용자 요청, 2026-08-09)
 _HISTORY_TRADING_DAYS_LABEL = 250  # UI 표기용("최근 1년" 근사)
 _HISTORY_CALENDAR_BUFFER_DAYS = 380  # 주말/공휴일 감안 여유
 
@@ -171,7 +172,7 @@ def collect_pef_flow_activity() -> dict:
             -(r["netBuyPercentOfCap"] or 0),
         )
     )
-    return {"tradeDate": _to_dashed(date_str), "rows": rows}
+    return {"tradeDate": _to_dashed(date_str), "rows": rows[:_DISPLAY_LIMIT]}
 
 
 def collect_combined_signal_activity() -> dict:
@@ -266,7 +267,7 @@ def collect_combined_signal_activity() -> dict:
     # 점수(사모 연속일수 + 기관 연속일수 단순 합산)가 높은 순 — "따로 보여
     # 주고 점수만 합산"(사용자 요청 문구 그대로).
     rows.sort(key=lambda r: -r["combinedScore"])
-    return {"tradeDate": _to_dashed(date_str), "rows": rows}
+    return {"tradeDate": _to_dashed(date_str), "rows": rows[:_DISPLAY_LIMIT]}
 
 
 def export_combined_signal_activity() -> None:

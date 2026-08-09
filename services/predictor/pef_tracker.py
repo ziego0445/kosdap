@@ -36,6 +36,7 @@ _DATA_DIR = Path(__file__).resolve().parent / "data"
 _OUTPUT_PATH = _DATA_DIR / "pef_activity.json"
 
 _LOOKBACK_DAYS = 30  # 5%룰 공시는 드문 이벤트라 넉넉히 한 달치를 본다
+_DISPLAY_LIMIT = 20  # 화면엔 정렬 후 상위 20개까지만 (사용자 요청, 2026-08-09)
 
 # DART corp_cls -> yfinance 접미사. Y=유가증권(KOSPI), K=코스닥(KOSDAQ).
 # N(코넥스)/E(기타)는 yfinance에 안정적으로 없어서 가격조회를 건너뛴다.
@@ -176,7 +177,7 @@ def collect_pef_activity() -> list[dict]:
     # 주식수보다 지분율 변동(%)이 회사 규모/주가와 무관한 더 정직한 비교
     # 지표라 이걸 기준으로 정렬한다 (2026-08-08, 사용자 피드백 반영).
     rows.sort(key=lambda r: r["pefNetBuyRatioPercent"], reverse=True)
-    return rows
+    return rows[:_DISPLAY_LIMIT]
 
 
 def export_pef_activity() -> None:
