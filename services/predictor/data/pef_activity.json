@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-09T15:16:51.252699+00:00",
+  "generatedAt": "2026-08-10T15:46:08.709406+00:00",
   "lookbackDays": 30,
   "rows": [
     {
@@ -33,21 +33,6 @@
       "latestReportReason": "- 주식매매계약 체결"
     },
     {
-      "corpCode": "01491607",
-      "corpName": "오에스피",
-      "stockCode": "368970",
-      "market": "코스닥",
-      "pefNetBuyShares": 2289813,
-      "pefNetBuyRatioPercent": 22.46,
-      "pefNetBuyValueKrw": 5071935795,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "와이투케이파트너스"
-      ],
-      "latestReportDate": "2026-07-15",
-      "latestReportReason": "3자배정 유상증자(7.7납입 및 7.13납입) 및 장내매수"
-    },
-    {
       "corpCode": "00608802",
       "corpName": "텔콘RF제약",
       "stockCode": "200230",
@@ -61,6 +46,22 @@
       ],
       "latestReportDate": "2026-07-16",
       "latestReportReason": "유상증자 신주취득 등에 따른 특별관계자 추가\n및 대표보고자 변경"
+    },
+    {
+      "corpCode": "01491607",
+      "corpName": "오에스피",
+      "stockCode": "368970",
+      "market": "코스닥",
+      "pefNetBuyShares": 2001213,
+      "pefNetBuyRatioPercent": 16.52,
+      "pefNetBuyValueKrw": 4419699795,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "와이투케이파트너스",
+        "지씨파트너스"
+      ],
+      "latestReportDate": "2026-08-10",
+      "latestReportReason": "보유비율 1% 이상 변동 보고, \n무상증자로인한 보유주식수변동"
     },
     {
       "corpCode": "01924673",
