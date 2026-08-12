@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-11T15:12:56.555649+00:00",
+  "generatedAt": "2026-08-12T15:37:14.841310+00:00",
   "lookbackDays": 30,
   "rows": [
     {
@@ -235,7 +235,7 @@
       "market": "코스닥",
       "pefNetBuyShares": 579478,
       "pefNetBuyRatioPercent": 0.57,
-      "pefNetBuyValueKrw": 437505890,
+      "pefNetBuyValueKrw": 453731274,
       "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "에스에이치인베스트먼트"
@@ -250,7 +250,7 @@
       "market": "코스피",
       "pefNetBuyShares": 44680,
       "pefNetBuyRatioPercent": 0.37,
-      "pefNetBuyValueKrw": 287101400,
+      "pefNetBuyValueKrw": 289488680,
       "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "메이슨파트너스"
@@ -289,19 +289,19 @@
       "latestReportReason": "보고자의 보유주식등에 관한 계약 변경"
     },
     {
-      "corpCode": "00111111",
-      "corpName": "대양금속",
-      "stockCode": "009190",
-      "market": "코스피",
+      "corpCode": "00409140",
+      "corpName": "이원컴포텍",
+      "stockCode": "088290",
+      "market": "코스닥",
       "pefNetBuyShares": 0,
       "pefNetBuyRatioPercent": 0.0,
       "pefNetBuyValueKrw": 0,
       "pefNetBuyValueIsPartial": false,
       "pefReporters": [
-        "디와이엠파트너스"
+        "래인파트너스"
       ],
-      "latestReportDate": "2026-07-20",
-      "latestReportReason": "담보대출계약 변경"
+      "latestReportDate": "2026-07-14",
+      "latestReportReason": "담보 제공"
     }
   ]
 }
