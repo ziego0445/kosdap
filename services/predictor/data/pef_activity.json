@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-12T15:37:14.841310+00:00",
+  "generatedAt": "2026-08-13T15:44:21.158241+00:00",
   "lookbackDays": 30,
   "rows": [
     {
@@ -92,6 +92,21 @@
       ],
       "latestReportDate": "2026-07-15",
       "latestReportReason": "- 제3자배정 유상증자에 따른 보유비율 변동\n- 특별관계자 변동\n- 추가 근질권설정계약 체결"
+    },
+    {
+      "corpCode": "00155355",
+      "corpName": "풀무원",
+      "stockCode": "017810",
+      "market": "코스피",
+      "pefNetBuyShares": 3375812,
+      "pefNetBuyRatioPercent": 8.14,
+      "pefNetBuyValueKrw": 31395051600,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "엔브이메자닌그로쓰에쿼티사모투자"
+      ],
+      "latestReportDate": "2026-08-13",
+      "latestReportReason": "제3자 배정 유상증자로 인한 주식 취득"
     },
     {
       "corpCode": "00447007",
@@ -199,21 +214,6 @@
       "latestReportReason": "1. 전환사채 추가 양수도 계약 체결로 인한 보유비율 변동\n2. 특별관계자 추가 및 이에 따른 출자비율 변동\n3. 특별관계자 탈퇴 및 현물배분에 따른 특별관계해소와 보유비율 변동 "
     },
     {
-      "corpCode": "00545114",
-      "corpName": "랩지노믹스",
-      "stockCode": "084650",
-      "market": "코스닥",
-      "pefNetBuyShares": 1240100,
-      "pefNetBuyRatioPercent": 1.52,
-      "pefNetBuyValueKrw": 807305100,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "루하프라이빗에쿼티"
-      ],
-      "latestReportDate": "2026-07-14",
-      "latestReportReason": "장내 매수를 통한 지분 취득"
-    },
-    {
       "corpCode": "00426828",
       "corpName": "케이웨더",
       "stockCode": "068100",
@@ -289,19 +289,19 @@
       "latestReportReason": "보고자의 보유주식등에 관한 계약 변경"
     },
     {
-      "corpCode": "00409140",
-      "corpName": "이원컴포텍",
-      "stockCode": "088290",
+      "corpCode": "01042650",
+      "corpName": "큐리언트",
+      "stockCode": "115180",
       "market": "코스닥",
       "pefNetBuyShares": 0,
-      "pefNetBuyRatioPercent": 0.0,
+      "pefNetBuyRatioPercent": -0.01,
       "pefNetBuyValueKrw": 0,
       "pefNetBuyValueIsPartial": false,
       "pefReporters": [
-        "래인파트너스"
+        "유암코키스톤구조혁신기업재무안정사모투자"
       ],
-      "latestReportDate": "2026-07-14",
-      "latestReportReason": "담보 제공"
+      "latestReportDate": "2026-08-05",
+      "latestReportReason": "특별관계자의 담보대출 일부 상환에 따른 변경 보고"
     }
   ]
 }
