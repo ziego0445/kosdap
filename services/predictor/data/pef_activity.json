@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-13T15:44:21.158241+00:00",
+  "generatedAt": "2026-08-14T15:11:37.043330+00:00",
   "lookbackDays": 30,
   "rows": [
     {
@@ -48,22 +48,6 @@
       "latestReportReason": "유상증자 신주취득 등에 따른 특별관계자 추가\n및 대표보고자 변경"
     },
     {
-      "corpCode": "01491607",
-      "corpName": "오에스피",
-      "stockCode": "368970",
-      "market": "코스닥",
-      "pefNetBuyShares": 2001213,
-      "pefNetBuyRatioPercent": 16.52,
-      "pefNetBuyValueKrw": 4405269795,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "와이투케이파트너스",
-        "지씨파트너스"
-      ],
-      "latestReportDate": "2026-08-10",
-      "latestReportReason": "보유비율 1% 이상 변동 보고, \n무상증자로인한 보유주식수변동"
-    },
-    {
       "corpCode": "01924673",
       "corpName": "나노솔루션",
       "stockCode": "238540",
@@ -79,28 +63,13 @@
       "latestReportReason": "코넥스시장 신규상장에 따른 지분공시"
     },
     {
-      "corpCode": "00162416",
-      "corpName": "한양증권",
-      "stockCode": "001750",
-      "market": "코스피",
-      "pefNetBuyShares": 2393052,
-      "pefNetBuyRatioPercent": 9.57,
-      "pefNetBuyValueKrw": 47980692600,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "케이씨지아이제2호사모투자"
-      ],
-      "latestReportDate": "2026-07-15",
-      "latestReportReason": "- 제3자배정 유상증자에 따른 보유비율 변동\n- 특별관계자 변동\n- 추가 근질권설정계약 체결"
-    },
-    {
       "corpCode": "00155355",
       "corpName": "풀무원",
       "stockCode": "017810",
       "market": "코스피",
       "pefNetBuyShares": 3375812,
       "pefNetBuyRatioPercent": 8.14,
-      "pefNetBuyValueKrw": 31395051600,
+      "pefNetBuyValueKrw": 30956196040,
       "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "엔브이메자닌그로쓰에쿼티사모투자"
@@ -152,21 +121,6 @@
       ],
       "latestReportDate": "2026-07-29",
       "latestReportReason": "사모5CB 인수로 인한 신규보고"
-    },
-    {
-      "corpCode": "00367695",
-      "corpName": "에이전트AI",
-      "stockCode": "060900",
-      "market": "코스닥",
-      "pefNetBuyShares": 204675,
-      "pefNetBuyRatioPercent": 5.13,
-      "pefNetBuyValueKrw": 895453125,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "엘앤엘파트너스"
-      ],
-      "latestReportDate": "2026-07-15",
-      "latestReportReason": "5% 이상 신규 보고"
     },
     {
       "corpCode": "00961774",
@@ -259,19 +213,19 @@
       "latestReportReason": "특별관계자 지분 변동"
     },
     {
-      "corpCode": "00288495",
-      "corpName": "HC홈센타",
-      "stockCode": "060560",
+      "corpCode": "00296324",
+      "corpName": "큐로홀딩스",
+      "stockCode": "051780",
       "market": "코스닥",
-      "pefNetBuyShares": 0,
-      "pefNetBuyRatioPercent": 0.0,
-      "pefNetBuyValueKrw": 0,
+      "pefNetBuyShares": 2700,
+      "pefNetBuyRatioPercent": 0.04,
+      "pefNetBuyValueKrw": 6574500,
       "pefNetBuyValueIsPartial": false,
       "pefReporters": [
-        "에이치씨파트너스"
+        "케이파트너스"
       ],
-      "latestReportDate": "2026-08-06",
-      "latestReportReason": "주식담보대출 상환 및 연장"
+      "latestReportDate": "2026-07-31",
+      "latestReportReason": "특수관계인의 주식 매입"
     },
     {
       "corpCode": "00233653",
@@ -289,6 +243,21 @@
       "latestReportReason": "보고자의 보유주식등에 관한 계약 변경"
     },
     {
+      "corpCode": "00288495",
+      "corpName": "HC홈센타",
+      "stockCode": "060560",
+      "market": "코스닥",
+      "pefNetBuyShares": 0,
+      "pefNetBuyRatioPercent": 0.0,
+      "pefNetBuyValueKrw": 0,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "에이치씨파트너스"
+      ],
+      "latestReportDate": "2026-08-06",
+      "latestReportReason": "주식담보대출 상환 및 연장"
+    },
+    {
       "corpCode": "01042650",
       "corpName": "큐리언트",
       "stockCode": "115180",
@@ -302,6 +271,36 @@
       ],
       "latestReportDate": "2026-08-05",
       "latestReportReason": "특별관계자의 담보대출 일부 상환에 따른 변경 보고"
+    },
+    {
+      "corpCode": "01466373",
+      "corpName": "알트",
+      "stockCode": "459550",
+      "market": "코스닥",
+      "pefNetBuyShares": -405508,
+      "pefNetBuyRatioPercent": -1.64,
+      "pefNetBuyValueKrw": -758299960,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "크로스로드6호사모투자"
+      ],
+      "latestReportDate": "2026-08-06",
+      "latestReportReason": "1% 이상 주식 보유비율 변동"
+    },
+    {
+      "corpCode": "01565364",
+      "corpName": "폴레드",
+      "stockCode": "487580",
+      "market": "코스닥",
+      "pefNetBuyShares": -648322,
+      "pefNetBuyRatioPercent": -2.58,
+      "pefNetBuyValueKrw": -2304784710,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "코오롱인베스트먼트"
+      ],
+      "latestReportDate": "2026-08-07",
+      "latestReportReason": "장내 매도에 따른 주식수 변동 보고"
     }
   ]
 }
