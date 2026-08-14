@@ -383,5 +383,16 @@
     "actual_change_percent": -2.37,
     "predicted_at": "2026-08-14T21:34:55.549025+00:00",
     "recorded_at": "2026-08-14T21:53:47.541983+00:00"
+  },
+  {
+    "symbol": "SAMSUNG",
+    "date": "2026-08-14",
+    "predicted_price": 267235,
+    "actual_price": 274500.0,
+    "error_percent": -2.65,
+    "predicted_change_percent": -0.29,
+    "actual_change_percent": 2.43,
+    "predicted_at": "2026-08-14T21:53:47.542638+00:00",
+    "recorded_at": "2026-08-14T22:11:40.333773+00:00"
   }
 ]
