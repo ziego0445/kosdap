@@ -48,5 +48,10 @@ SYMBOLS = {
 # 2026-08-06 실측 검증 — Hyperliquid는 폐기, Binance SKHYB는 보조 소스)
 
 # Secondary/explanatory proxies (yfinance tickers)
-EQUITY_PROXIES = ["MU", "NVDA", "TSM", "SOXX", "SMH"]
+# ES=F/NQ=F(S&P500·나스닥 선물): 개별주(MU/NVDA 등)는 미국 정규장이 닫히면
+# 다음 개장 전까지 전일 종가로 멈춰있지만(장외시간엔 무의미), 선물은 거의
+# 24시간 계속 거래돼(실측 확인: 2026-08-14, 미 동부 19~21시대도 시간별
+# 가격 갱신됨) KRX 장마감~다음 개장 사이 유일하게 "장외시간에도 살아있는"
+# 해외 리스크 심리 신호가 된다. PRD 3.2엔 원래 있었는데 구현이 빠져있었음.
+EQUITY_PROXIES = ["MU", "NVDA", "TSM", "SOXX", "SMH", "ES=F", "NQ=F"]
 MACRO_PROXIES = ["KRW=X", "DX-Y.NYB", "^TNX", "^VIX", "BTC-USD", "ETH-USD"]

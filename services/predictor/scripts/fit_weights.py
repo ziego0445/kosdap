@@ -31,8 +31,8 @@ import yfinance as yf
 
 KRX = {"SAMSUNG": "005930.KS", "SKHYNIX": "000660.KS"}
 BYBIT_SYMBOL = {"SAMSUNG": "SAMSUNGUSDT", "SKHYNIX": "SKHYNIXUSDT"}
-FEATURES = ["token", "NVDA", "MU", "SOXX", "TSM", "SMH", "KRW=X", "DX-Y.NYB", "^TNX", "^VIX", "BTC-USD", "ETH-USD"]
-PROXIES = ["NVDA", "MU", "SOXX", "TSM", "SMH"]
+FEATURES = ["token", "NVDA", "MU", "SOXX", "TSM", "SMH", "ES=F", "NQ=F", "KRW=X", "DX-Y.NYB", "^TNX", "^VIX", "BTC-USD", "ETH-USD"]
+PROXIES = ["NVDA", "MU", "SOXX", "TSM", "SMH", "ES=F", "NQ=F"]
 MACRO = ["KRW=X", "DX-Y.NYB", "^TNX", "^VIX", "BTC-USD", "ETH-USD"]
 ALPHAS = [1, 3, 10, 30, 100, 300, 1000, 3000, 10000, 30000, 100000]
 
