@@ -13,6 +13,7 @@ from pathlib import Path
 
 import accuracy_log
 import db
+import last_real_price
 import pef_flow_tracker
 import pef_tracker
 import token_change_cache
@@ -214,15 +215,20 @@ def run_once() -> None:
                 continue
 
             change_percent_today = (live_price - prev_close) / prev_close * 100
+            today_str = dt.datetime.now(KST).date().isoformat()
             db.insert(
                 "actual_prices",
                 {
                     "symbol": symbol,
                     "price": live_price,
                     "session": session,
-                    "trade_date": dt.datetime.now(KST).date().isoformat(),
+                    "trade_date": today_str,
                 },
             )
+            # closed 세션(장마감 후)에서 "현재가"를 이 값으로 보여줄 수 있게
+            # 로컬(→git→CI)에도 캐싱해둔다 — Supabase는 CI에서 쓰기 전용이라
+            # 여기서 다시 읽어올 수 없어서 별도 캐시가 필요하다.
+            last_real_price.save(symbol, price=live_price, session=session, trade_date=today_str)
             logger.info(
                 "%s: 실제가 %.0f (전일比 %.2f%%, 세션=%s) — 예측 생략",
                 symbol, live_price, change_percent_today, session,
@@ -319,15 +325,29 @@ def run_once() -> None:
             f"{token_change_percent:.2f}%" if token_change_percent is not None else "N/A",
         )
 
+        # 화면에 보여줄 "현재가"는 가능하면 last_close(정규장 종가)보다 더
+        # 신선한 정보를 쓴다 — 오늘 장후 시간외(16:00~18:00)에서 이미 확보한
+        # 실제 체결가가 있으면 그걸 우선한다. 실측으로 발견한 문제: 종전엔
+        # closed 세션으로 넘어가는 순간 이 실제 시간외가를 버리고 몇 시간
+        # 전 정규장 종가를 "현재가"라고 표시하고 있었다. 예측 계산 자체
+        # (score 산출)는 학습 방식(정규장 종가→다음 정규장 종가)과 어긋나지
+        # 않도록 last_close 기준을 그대로 쓰고, 아래 anchor_price는 표시용
+        # current_price/changePercent에만 반영한다 — 모델 입력에 섞으면
+        # 이미 반영된 시간외 움직임을 예측폭에 또 더하는 이중 반영이 된다.
+        anchor_price = last_real_price.load_post_market_anchor(symbol, trade_date) or last_close
+        display_change_percent = round(
+            (prediction.predicted_price - anchor_price) / anchor_price * 100, 2
+        )
+
         accuracy_pct, accuracy_is_real = _recent_accuracy(symbol)
         web_rows.append(
             {
                 "symbol": symbol,
                 "name": meta["name"],
                 "ticker": meta["krx_code"],
-                "currentPrice": prediction.current_price,
+                "currentPrice": round(anchor_price),
                 "predictedPrice": prediction.predicted_price,
-                "changePercent": prediction.change_percent,
+                "changePercent": display_change_percent,
                 "confidence": prediction.confidence,
                 "probabilityUp": prediction.probability_up,
                 "rangeLow": prediction.range_low,
