@@ -39,6 +39,21 @@ def _normal_cdf(x: float) -> float:
 _NORMAL_TOKEN_MOVE_PERCENT = 2.0  # "평범한 날" 기준 토큰가 변동폭(%) 근사치
 _MAX_VOLATILITY_MULTIPLIER = 4.0
 
+# 2026-08-14 실측 확인: 절편(intercept, 삼성 -1.35%p·SK하이닉스 -1.39%p)이
+# 예측치를 사실상 지배하고 있었다. alpha=3000(LOOCV가 고른 값)이 요인
+# 계수를 거의 0으로 눌러버려서, 절편이 적합 표본(40일, 2026-06-05~08-04)의
+# "평균 일간 수익률"을 거의 그대로 베낀 값이 됐기 때문 — 그 표본 기간이
+# 하락 추세였다는 사실이 그대로 절편에 박제되어, 요인이 어떻든 매일
+# -1%대 하락으로 예측하는 구조적 편향을 만들었다. (실측: accuracy_history
+# 4건 중 2건 방향 오적중 — SKHYNIX 08-06 예측 -1.56% vs 실제 +5.13% 등.
+# 삼성 08-14 사례에선 요인 기여도 합이 +0.55%p였는데도 절편에 눌려 최종
+# -0.81%로 하락 예측됨.)
+#
+# 주가엔 그런 정상성(그 40일의 추세가 계속된다는 가정)이 없으므로, 표본이
+# 더 쌓여 재적합하기 전까지는 절편의 절반만 반영해 이 하락 편향을 완화한다.
+# 계수(요인 반영분)는 그대로 둔다 — 문제는 요인이 아니라 절편이었으므로.
+_INTERCEPT_SHRINKAGE = 0.5
+
 
 def _volatility_multiplier(token_change_percent: float | None) -> float:
     if token_change_percent is None:
@@ -76,7 +91,7 @@ def compute_prediction(
         if v is not None and k in coefficients
     }
 
-    score_percent = intercept + sum(contributions.values())
+    score_percent = intercept * _INTERCEPT_SHRINKAGE + sum(contributions.values())
     predicted_price = current_price * (1 + score_percent / 100)
 
     # "token" 라벨은 종목마다 실제로 다른 값(SAMSUNGUSDT vs SKHYNIXUSDT)을
