@@ -11,3 +11,8 @@ beautifulsoup4>=4.12
 # 공매도비율: data.krx.co.kr 로그인 세션이 필요해 KRX_ID/KRX_PW 환경변수로
 # 로그인하는 pykrx를 씀 (2026-08-07 실측 검증, collectors/flows.py 참고).
 pykrx>=1.2.8
+# 공휴일 캘린더(collectors/market_hours.py get_session()): 요일만으론 평일
+# 공휴일(설날/추석 등)을 못 걸러서 추가. pykrx.get_business_days()는 실측
+# 결과(2026-08-14) KRX API 쪽 문제로 에러가 나 못 씀 — holidays는 오프라인
+# 계산이라 그런 문제 자체가 없음.
+holidays>=0.50
