@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-14T15:11:37.043330+00:00",
+  "generatedAt": "2026-08-15T15:16:13.448079+00:00",
   "lookbackDays": 30,
   "rows": [
     {
@@ -31,21 +31,6 @@
       ],
       "latestReportDate": "2026-07-20",
       "latestReportReason": "- 주식매매계약 체결"
-    },
-    {
-      "corpCode": "00608802",
-      "corpName": "텔콘RF제약",
-      "stockCode": "200230",
-      "market": "코스닥",
-      "pefNetBuyShares": 2329916,
-      "pefNetBuyRatioPercent": 19.21,
-      "pefNetBuyValueKrw": 5242311000,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "에버코어인베스트먼트홀딩스"
-      ],
-      "latestReportDate": "2026-07-16",
-      "latestReportReason": "유상증자 신주취득 등에 따른 특별관계자 추가\n및 대표보고자 변경"
     },
     {
       "corpCode": "01924673",
@@ -228,6 +213,21 @@
       "latestReportReason": "특수관계인의 주식 매입"
     },
     {
+      "corpCode": "00100601",
+      "corpName": "강원에너지",
+      "stockCode": "114190",
+      "market": "코스닥",
+      "pefNetBuyShares": 0,
+      "pefNetBuyRatioPercent": 0.0,
+      "pefNetBuyValueKrw": 0,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "평산파트너스"
+      ],
+      "latestReportDate": "2026-08-14",
+      "latestReportReason": "주식 담보대출 계약의 변경"
+    },
+    {
       "corpCode": "00233653",
       "corpName": "한국토지신탁",
       "stockCode": "034830",
@@ -239,7 +239,7 @@
       "pefReporters": [
         "엠케이인베스트먼트"
       ],
-      "latestReportDate": "2026-07-31",
+      "latestReportDate": "2026-08-14",
       "latestReportReason": "보고자의 보유주식등에 관한 계약 변경"
     },
     {
