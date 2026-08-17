@@ -29,6 +29,12 @@ import pandas as pd
 import requests
 import yfinance as yf
 
+# TODO(2026-08-17): SKHYNIX엔 나스닥 ADR(SKHY, collectors/adr.py) 피처가
+# 추가됐는데("adr", models/fitted_weights.py에 수동 계수 0.6으로 임시
+# 반영), 삼성전자는 대응 ADR 유동성이 없어 이 피처가 없다 — 이 스크립트는
+# 아직 모든 종목이 같은 FEATURES를 공유한다고 가정하므로, 재적합 전에
+# 종목별로 다른 FEATURES 집합을 다루도록 먼저 고쳐야 한다(SKHYNIX만
+# "adr" 추가, SAMSUNG은 제외). 표본이 충분히 쌓이기 전까진 급하지 않음.
 KRX = {"SAMSUNG": "005930.KS", "SKHYNIX": "000660.KS"}
 BYBIT_SYMBOL = {"SAMSUNG": "SAMSUNGUSDT", "SKHYNIX": "SKHYNIXUSDT"}
 FEATURES = ["token", "NVDA", "MU", "SOXX", "TSM", "SMH", "ES=F", "NQ=F", "KRW=X", "DX-Y.NYB", "^TNX", "^VIX", "BTC-USD", "ETH-USD"]

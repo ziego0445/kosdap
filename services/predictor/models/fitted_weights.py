@@ -91,6 +91,15 @@ FITTED_MODELS: dict[str, dict] = {
     "SKHYNIX": {
         "intercept": -1.4620,
         "coefficients": {
+            # 2026-08-17 추가, 회귀로 적합한 값이 아니라 수동으로 크게 잡은
+            # 값이다(사용자 요청 — "SKHY 값 있을 때 비중을 많이 높여").
+            # 근거: SKHY는 Bybit 토큰화 선물(token, 유동성 낮은 크립토
+            # 무기한선물)과 달리 나스닥 정규 상장 종목이라 가격발견/유동성
+            # 신뢰도가 훨씬 높음(collectors/adr.py 참고) — 그래서 token
+            # 계수(0.12)보다 한참 높게 잡았다. 아직 이 피처로 학습한 표본이
+            # 없어 통계적 근거는 없으므로 "질적 판단"으로 취급할 것 — 데이터
+            # 쌓이면(scripts/fit_weights.py) 반드시 재적합해서 이 값을 대체.
+            "adr": 0.6,
             "token": 0.1207,
             "NVDA": 0.0160,
             "MU": 0.1264,
@@ -113,6 +122,7 @@ FITTED_MODELS: dict[str, dict] = {
 }
 
 FACTOR_LABELS: dict[str, str] = {
+    "adr": "ADR(나스닥:SKHY)",
     "token": "토큰화 주식/선물(Bybit)",
     "NVDA": "Nvidia",
     "MU": "Micron",

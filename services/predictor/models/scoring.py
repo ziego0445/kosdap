@@ -67,6 +67,7 @@ def compute_prediction(
     token_change_percent: float | None,
     equity_changes: dict[str, float | None],
     macro_changes: dict[str, float | None],
+    adr_change_percent: float | None = None,
 ) -> Prediction:
     model = FITTED_MODELS.get(symbol)
     if model is None:
@@ -78,6 +79,7 @@ def compute_prediction(
 
     inputs: dict[str, float | None] = {
         "token": token_change_percent,
+        "adr": adr_change_percent,
         **equity_changes,
         **macro_changes,
     }

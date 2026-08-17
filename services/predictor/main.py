@@ -17,6 +17,7 @@ import last_real_price
 import pef_flow_tracker
 import pef_tracker
 import token_change_cache
+from collectors.adr import collect_adr_changes
 from collectors.equities import collect_equity_changes
 from collectors.flows import collect_daily_flows
 from collectors.krx import (
@@ -186,6 +187,7 @@ def run_once() -> None:
     equity_changes = collect_equity_changes()
     macro_changes = collect_macro_changes()
     token_prices = collect_token_prices()
+    adr_changes = collect_adr_changes()  # SK하이닉스 나스닥 ADR(SKHY) — collectors/adr.py 참고
     _maybe_collect_flows()  # 아직 scoring에는 미반영 — raw_snapshots에만 적재 (docs/PRD.md 4.3)
     _maybe_collect_pef_activity()
     _maybe_collect_pef_flow_activity()
@@ -299,6 +301,7 @@ def run_once() -> None:
             symbol=symbol,
             current_price=last_close,
             token_change_percent=token_change_percent,
+            adr_change_percent=adr_changes.get(symbol),
             equity_changes=equity_changes,
             macro_changes=macro_changes,
         )
