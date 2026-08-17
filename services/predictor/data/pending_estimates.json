@@ -4,13 +4,13 @@
     "based_on_price": 274500.0,
     "predicted_price": 274155,
     "change_percent": -0.13,
-    "predicted_at": "2026-08-17T20:25:49.156396+00:00"
+    "predicted_at": "2026-08-17T20:26:30.036415+00:00"
   },
   "SKHYNIX": {
     "based_on_date": "2026-08-14",
     "based_on_price": 1645000.0,
-    "predicted_price": 1678538,
+    "predicted_price": 1678536,
     "change_percent": 2.04,
-    "predicted_at": "2026-08-17T20:25:49.966603+00:00"
+    "predicted_at": "2026-08-17T20:26:30.689607+00:00"
   }
 }
