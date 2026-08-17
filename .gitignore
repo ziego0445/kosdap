@@ -31,3 +31,6 @@ Thumbs.db
 
 # Claude Code 세션/스케줄러 내부 상태 (로컬 런타임 전용, 프로젝트 코드 아님)
 .claude/
+
+# 로컬 scheduler.py 실행 로그 (run_scheduler.bat이 씀, 매번 커지는 로컬 전용 파일)
+services/predictor/logs/
