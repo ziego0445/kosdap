@@ -8,7 +8,19 @@ CI가 이걸 못 올리면 24/7 핵심 신호가 CI 배포판에서 계속 빠�
 
 GitHub Actions도 같은 디렉터리에 독립적으로 커밋한다(정확도 기록 갱신,
 .github/workflows/deploy.yml). 두 프로세스가 비슷한 시각에 push하면
-non-fast-forward로 거절될 수 있어 pull --rebase 후 재시도한다.
+non-fast-forward로 거절될 수 있다.
+
+2026-08-17 실측: 원래는 push 실패 시 `git pull --rebase`로 재시도했는데,
+data/*.json이 자주 같은 줄에서 충돌하는 성격이라(둘 다 "최신 스냅샷"을
+같은 키에 덮어쓰는 캐시 파일) 리베이스 도중 충돌이 나면 detached HEAD +
+conflict-marker 상태로 멈춰버렸다 — 다음 사이클에 main.py가 그 충돌
+마커가 그대로 남은 파일을 읽다가 JSONDecodeError를 내는 사고까지 발생.
+리베이스는 사람이 수동으로 계속(rebase --continue)해야 완전히 풀리는
+구조라 자동 재시도와는 원래 안 맞았다. `git merge -X ours`로 교체 —
+merge는 실패해도 현재 브랜치에 그대로 남아있고(detached HEAD 없음),
+`-X ours`가 텍스트 충돌을 사람 개입 없이 "이번에 로컬이 만든 값"으로
+자동 해소한다(어차피 다음 사이클에 다시 덮어써질 캐시라 어느 쪽이
+이기든 상관없음 — 매번 로컬이 이기게 고정해서 예측 가능하게 함).
 """
 
 from __future__ import annotations
@@ -26,12 +38,13 @@ _MAX_PUSH_ATTEMPTS = 3
 
 def _run(*args: str) -> subprocess.CompletedProcess:
     return subprocess.run(
-        ["git", *args], cwd=_REPO_ROOT, capture_output=True, text=True, timeout=30
+        ["git", *args], cwd=_REPO_ROOT, capture_output=True, text=True, timeout=30,
+        encoding="utf-8", errors="replace",
     )
 
 
 def sync() -> None:
-    """변경사항이 있으면 커밋하고, push 실패 시 pull --rebase 후 재시도한다.
+    """변경사항이 있으면 커밋하고, push 실패 시 merge -X ours 후 재시도한다.
     실패해도 예외를 올리지 않는다 — 다음 주기에 다시 시도하면 되니까 스케줄러
     전체를 죽일 이유가 없다."""
     try:
@@ -53,12 +66,20 @@ def sync() -> None:
                 logger.info("로컬 데이터 캐시 push 완료")
                 return
             logger.warning(
-                "git push 실패(시도 %d/%d) — pull --rebase 후 재시도: %s",
+                "git push 실패(시도 %d/%d) — fetch + merge -X ours 후 재시도: %s",
                 attempt, _MAX_PUSH_ATTEMPTS, push.stderr.strip(),
             )
-            rebase = _run("pull", "--rebase")
-            if rebase.returncode != 0:
-                logger.error("git pull --rebase 실패 — 동기화 포기, 다음 주기에 재시도: %s", rebase.stderr.strip())
+            fetch = _run("fetch", "origin", "master")
+            if fetch.returncode != 0:
+                logger.error("git fetch 실패 — 동기화 포기, 다음 주기에 재시도: %s", fetch.stderr.strip())
+                return
+            merge = _run("merge", "-X", "ours", "--no-edit", "origin/master")
+            if merge.returncode != 0:
+                logger.error(
+                    "git merge 실패 — merge 중단하고 동기화 포기, 다음 주기에 재시도: %s",
+                    merge.stderr.strip(),
+                )
+                _run("merge", "--abort")
                 return
         logger.error("git push %d회 재시도 모두 실패 — 다음 주기에 다시 시도", _MAX_PUSH_ATTEMPTS)
     except Exception:
