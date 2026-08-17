@@ -25,6 +25,34 @@ for _stream in (sys.stdout, sys.stderr):
     except Exception:  # noqa: BLE001 - 콘솔이 없는 환경(파이프 등)에서는 무시
         pass
 
+# 2026-08-17 실측: run_scheduler.bat을 실제 콘솔 창에서 띄운 상태로 몇
+# 사이클 도는 걸 확인했는데(네트워크 정상, 서브프로세스 정상 종료,
+# predictions.json도 갱신됨), 그 다음부턴 CPU 0%로 몇십 분씩 완전히
+# 멈췄다 — 매번 "성공적으로 몇 사이클 돌다가 어느 순간부터 영원히
+# 멈춤" 패턴이 반복돼서 코드 버그로 계속 오인했었는데, 실은 Windows
+# 콘솔의 "빠른 편집 모드(QuickEdit Mode)" 때문일 가능성이 높다 — 콘솔
+# 창 안을 클릭/드래그해서 텍스트를 선택하면(의도치 않은 스크롤 포함)
+# Windows가 그 창에 쓰려는 프로세스를 Esc를 누르기 전까지 통째로
+# 멈춰버린다. logging의 StreamHandler(sys.stdout) 쓰기가 이 창을
+# 거치므로, 한 번 걸리면 같은 emit() 안의 FileHandler까지 같이 멈춰서
+# 로그 파일도 함께 끊긴다 — 여기서 프로그램적으로 꺼서 이 문제 자체를
+# 없앤다. 콘솔이 없는 환경(파이프/서비스로 실행 등)에서는 조용히 무시.
+if sys.platform == "win32":
+    try:
+        import ctypes
+
+        _STD_INPUT_HANDLE = -10
+        _ENABLE_EXTENDED_FLAGS = 0x0080
+        _ENABLE_QUICK_EDIT_MODE = 0x0040
+        _kernel32 = ctypes.windll.kernel32
+        _console_handle = _kernel32.GetStdHandle(_STD_INPUT_HANDLE)
+        _mode = ctypes.c_uint32()
+        if _console_handle and _kernel32.GetConsoleMode(_console_handle, ctypes.byref(_mode)):
+            _new_mode = (_mode.value & ~_ENABLE_QUICK_EDIT_MODE) | _ENABLE_EXTENDED_FLAGS
+            _kernel32.SetConsoleMode(_console_handle, _new_mode)
+    except Exception:  # noqa: BLE001
+        pass
+
 _LOG_DIR = Path(__file__).resolve().parent / "logs"
 _LOG_DIR.mkdir(exist_ok=True)
 _LOG_FILE = _LOG_DIR / "scheduler.log"
