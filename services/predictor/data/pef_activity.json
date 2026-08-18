@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-17T15:02:24.708674+00:00",
+  "generatedAt": "2026-08-18T15:02:33.488751+00:00",
   "lookbackDays": 30,
   "rows": [
     {
@@ -123,6 +123,21 @@
       "latestReportReason": "전환사채 추가취득 및 전환가액 조정에 따른 변동보고"
     },
     {
+      "corpCode": "00296324",
+      "corpName": "큐로홀딩스",
+      "stockCode": "051780",
+      "market": "코스닥",
+      "pefNetBuyShares": 149117,
+      "pefNetBuyRatioPercent": 2.35,
+      "pefNetBuyValueKrw": 429719630,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "케이파트너스"
+      ],
+      "latestReportDate": "2026-08-18",
+      "latestReportReason": "특수관계인의 주식 매입"
+    },
+    {
       "corpCode": "00111722",
       "corpName": "미래에셋증권",
       "stockCode": "006800",
@@ -196,21 +211,6 @@
       ],
       "latestReportDate": "2026-08-11",
       "latestReportReason": "특별관계자 지분 변동"
-    },
-    {
-      "corpCode": "00296324",
-      "corpName": "큐로홀딩스",
-      "stockCode": "051780",
-      "market": "코스닥",
-      "pefNetBuyShares": 2700,
-      "pefNetBuyRatioPercent": 0.04,
-      "pefNetBuyValueKrw": 6574500,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "케이파트너스"
-      ],
-      "latestReportDate": "2026-07-31",
-      "latestReportReason": "특수관계인의 주식 매입"
     },
     {
       "corpCode": "00100601",
