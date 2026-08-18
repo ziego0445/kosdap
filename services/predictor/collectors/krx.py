@@ -52,13 +52,10 @@ def fetch_last_close_with_date(krx_ticker: str) -> tuple[float | None, str | Non
         return None, None
 
 
-def fetch_after_hours_price(krx_ticker: str) -> float | None:
-    """장전/장후 시간외 단일가(07:30~08:30, 16:00~18:00 KST) 실제 체결가.
-
-    실측 확인(2026-08-07): 네이버 금융 모바일이 쓰는 실시간 polling API의
-    `overMarketPriceInfo.overPrice` 필드가 정확히 이 값을 준다 (삼성전자·
-    SK하이닉스 둘 다 확인함). 비공식 API라 응답 구조가 바뀌면 깨질 수 있음.
-    """
+def _fetch_naver_price(krx_ticker: str, field_extractor) -> float | None:
+    """네이버 금융 모바일 실시간 polling API 공통 호출부. `field_extractor`가
+    응답의 첫 row에서 원하는 가격 필드를 뽑아 문자열("1,234,000")을 float로
+    변환한다. 비공식 API라 응답 구조가 바뀌면 깨질 수 있음."""
     code = krx_ticker.split(".")[0]
     try:
         resp = requests.get(
@@ -70,33 +67,58 @@ def fetch_after_hours_price(krx_ticker: str) -> float | None:
         rows = resp.json().get("datas", [])
         if not rows:
             return None
-        over = rows[0].get("overMarketPriceInfo")
-        if not over or not over.get("overPrice"):
+        raw = field_extractor(rows[0])
+        if not raw:
             return None
-        return float(str(over["overPrice"]).replace(",", ""))
+        return float(str(raw).replace(",", ""))
     except Exception:
-        logger.exception("KRX after-hours price fetch failed for %s", krx_ticker)
+        logger.exception("Naver polling API fetch failed for %s", krx_ticker)
         return None
+
+
+def fetch_after_hours_price(krx_ticker: str) -> float | None:
+    """장전/장후 시간외 단일가(07:30~08:30, 16:00~18:00 KST) 실제 체결가.
+
+    실측 확인(2026-08-07): 네이버 금융 모바일이 쓰는 실시간 polling API의
+    `overMarketPriceInfo.overPrice` 필드가 정확히 이 값을 준다 (삼성전자·
+    SK하이닉스 둘 다 확인함).
+    """
+    return _fetch_naver_price(
+        krx_ticker,
+        lambda row: (row.get("overMarketPriceInfo") or {}).get("overPrice"),
+    )
+
+
+def fetch_intraday_price_naver(krx_ticker: str) -> float | None:
+    """정규장 중 네이버 실시간가(`closePrice` 필드 — 이름과 달리 장중엔
+    "지금까지의 최신 체결가"를 계속 갱신해서 준다, 실측 확인 2026-08-18)."""
+    return _fetch_naver_price(krx_ticker, lambda row: row.get("closePrice"))
 
 
 def fetch_intraday_price(krx_ticker: str) -> float | None:
     """정규장(09:00~15:30 KST) 운영 중 실시간(근사) 체결가.
 
-    yfinance의 1분봉 중 가장 최근 값을 쓴다 — 몇 분 지연될 수 있으나 실제
-    체결가 기반이라 "추정"이 아니다. 장이 열려있을 때만 의미있는 값을 준다.
-    실측 확인: 장중에는 일봉(1d)의 Close도 이미 실시간에 가깝게 갱신되고
-    있었음 — 다만 "오늘 대비 등락률" 계산엔 전일 완결 종가가 따로 필요해서
-    fetch_previous_close()를 별도로 둔다.
+    1순위로 yfinance 1분봉 중 가장 최근 값을 쓴다 — 몇 분 지연될 수 있으나
+    실제 체결가 기반이라 "추정"이 아니다. 실측 확인: 장중에는 일봉(1d)의
+    Close도 이미 실시간에 가깝게 갱신되고 있었음 — 다만 "오늘 대비 등락률"
+    계산엔 전일 완결 종가가 따로 필요해서 fetch_previous_close()를 별도로 둔다.
+
+    2026-08-18 실측: yfinance가 특정 종목(SK하이닉스)만 당일 1분봉/일봉을
+    통째로 못 주는 경우가 있었음(다른 종목은 정상 — Yahoo 쪽 종목별 데이터
+    지연/장애로 추정, 우리 쪽 원인 아님). 네이버 실시간가(이미
+    fetch_after_hours_price가 신뢰하는 같은 소스)로 폴백해서 이런 날에도
+    끊기지 않게 한다.
     """
     try:
         hist = yf.Ticker(krx_ticker).history(period="1d", interval="1m")
         closes = hist["Close"].dropna()
-        if closes.empty:
-            return None
-        return float(closes.iloc[-1])
+        if not closes.empty:
+            return float(closes.iloc[-1])
     except Exception:
-        logger.exception("KRX intraday price fetch failed for %s", krx_ticker)
-        return None
+        logger.exception("KRX intraday price fetch failed for %s (yfinance)", krx_ticker)
+
+    logger.warning("%s: yfinance 1분봉 조회 실패/빈 응답 — 네이버 실시간가로 폴백", krx_ticker)
+    return fetch_intraday_price_naver(krx_ticker)
 
 
 def fetch_previous_close(krx_ticker: str) -> tuple[float | None, str | None]:
