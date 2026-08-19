@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-18T15:02:33.488751+00:00",
+  "generatedAt": "2026-08-19T15:02:50.424297+00:00",
   "lookbackDays": 30,
   "rows": [
     {
@@ -18,21 +18,6 @@
       "latestReportReason": "- 대표보고자 변경에 따른 신규 보고\n  (변경 전 : 심충식 / 변경 후 : (주)화인파트너스)"
     },
     {
-      "corpCode": "00506294",
-      "corpName": "가비아",
-      "stockCode": "079940",
-      "market": "코스닥",
-      "pefNetBuyShares": 3270248,
-      "pefNetBuyRatioPercent": 24.37,
-      "pefNetBuyValueKrw": 144054424400,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "디씨케이인베스트먼트"
-      ],
-      "latestReportDate": "2026-07-20",
-      "latestReportReason": "- 주식매매계약 체결"
-    },
-    {
       "corpCode": "01924673",
       "corpName": "나노솔루션",
       "stockCode": "238540",
@@ -46,6 +31,21 @@
       ],
       "latestReportDate": "2026-07-28",
       "latestReportReason": "코넥스시장 신규상장에 따른 지분공시"
+    },
+    {
+      "corpCode": "01461730",
+      "corpName": "딜리셔스",
+      "stockCode": "483350",
+      "market": "코스닥",
+      "pefNetBuyShares": 1933598,
+      "pefNetBuyRatioPercent": 8.73,
+      "pefNetBuyValueKrw": 8430487280,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "DSC인베스트먼트"
+      ],
+      "latestReportDate": "2026-08-19",
+      "latestReportReason": "신규 상장 및 장내 매도"
     },
     {
       "corpCode": "00155355",
@@ -129,7 +129,7 @@
       "market": "코스닥",
       "pefNetBuyShares": 149117,
       "pefNetBuyRatioPercent": 2.35,
-      "pefNetBuyValueKrw": 429719630,
+      "pefNetBuyValueKrw": 425327120,
       "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "케이파트너스"
@@ -202,14 +202,14 @@
       "corpName": "프레스티지바이오파마",
       "stockCode": "950210",
       "market": "코스피",
-      "pefNetBuyShares": 44680,
-      "pefNetBuyRatioPercent": 0.37,
-      "pefNetBuyValueKrw": 289488680,
+      "pefNetBuyShares": 49000,
+      "pefNetBuyRatioPercent": 0.41,
+      "pefNetBuyValueKrw": 317568680,
       "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "메이슨파트너스"
       ],
-      "latestReportDate": "2026-08-11",
+      "latestReportDate": "2026-08-19",
       "latestReportReason": "특별관계자 지분 변동"
     },
     {
@@ -273,6 +273,21 @@
       "latestReportReason": "특별관계자의 담보대출 일부 상환에 따른 변경 보고"
     },
     {
+      "corpCode": "00139214",
+      "corpName": "삼성화재해상보험",
+      "stockCode": "000810",
+      "market": "코스피",
+      "pefNetBuyShares": -342398,
+      "pefNetBuyRatioPercent": -0.61,
+      "pefNetBuyValueKrw": -214341148000,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "슈로더인베스트먼트매니지먼트"
+      ],
+      "latestReportDate": "2026-08-19",
+      "latestReportReason": "단순 취득/처분"
+    },
+    {
       "corpCode": "01466373",
       "corpName": "알트",
       "stockCode": "459550",
@@ -286,21 +301,6 @@
       ],
       "latestReportDate": "2026-08-06",
       "latestReportReason": "1% 이상 주식 보유비율 변동"
-    },
-    {
-      "corpCode": "01565364",
-      "corpName": "폴레드",
-      "stockCode": "487580",
-      "market": "코스닥",
-      "pefNetBuyShares": -648322,
-      "pefNetBuyRatioPercent": -2.58,
-      "pefNetBuyValueKrw": -2304784710,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "코오롱인베스트먼트"
-      ],
-      "latestReportDate": "2026-08-07",
-      "latestReportReason": "장내 매도에 따른 주식수 변동 보고"
     }
   ]
 }
