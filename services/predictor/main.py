@@ -334,14 +334,17 @@ def run_once() -> None:
         # closed 세션으로 넘어가는 순간 이 실제 시간외가를 버리고 몇 시간
         # 전 정규장 종가를 "현재가"라고 표시하고 있었다. 예측 계산 자체
         # (score 산출)는 학습 방식(정규장 종가→다음 정규장 종가)과 어긋나지
-        # 않도록 last_close 기준을 그대로 쓰고, 아래 anchor_price는 표시용
-        # current_price/changePercent에만 반영한다 — 모델 입력에 섞으면
-        # 이미 반영된 시간외 움직임을 예측폭에 또 더하는 이중 반영이 된다.
+        # 않도록 last_close 기준을 그대로 쓴다.
         anchor_price = last_real_price.load_post_market_anchor(symbol, trade_date) or last_close
-        display_change_percent = round(
-            (prediction.predicted_price - anchor_price) / anchor_price * 100, 2
-        )
 
+        # 2026-08-19 실측으로 발견한 버그: changePercent를 anchor_price 기준으로
+        # 다시 계산했더니, 장후 시간외에 정규장 종가 대비 크게 움직인 날엔
+        # 부호까지 뒤집혀 보였다(예: 모델은 last_close 대비 +0.57% 상승 예측
+        # 했는데, 그날 시간외가 이미 +9.6% 뛰어있어서 anchor 대비로는
+        # -8.24% "급락 예측"처럼 표시됨 — 모델이 실제로 계산하지 않은 숫자를
+        # 보여준 셈). currentPrice(가장 신선한 실제가)와 changePercent(모델이
+        # last_close 기준으로 실제 계산한 등락률)는 기준점이 다르다는 걸
+        # 감안하고 각각 그대로 보여준다 — 서로 재계산해서 섞지 않는다.
         accuracy_pct, accuracy_is_real = _recent_accuracy(symbol)
         web_rows.append(
             {
@@ -350,7 +353,7 @@ def run_once() -> None:
                 "ticker": meta["krx_code"],
                 "currentPrice": round(anchor_price),
                 "predictedPrice": prediction.predicted_price,
-                "changePercent": display_change_percent,
+                "changePercent": prediction.change_percent,
                 "confidence": prediction.confidence,
                 "probabilityUp": prediction.probability_up,
                 "rangeLow": prediction.range_low,
