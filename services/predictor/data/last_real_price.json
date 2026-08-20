@@ -1,14 +1,14 @@
 {
   "SAMSUNG": {
-    "price": 269500.0,
-    "session": "post_market",
-    "trade_date": "2026-08-20",
-    "captured_at": "2026-08-20T08:56:34.691260+00:00"
+    "price": 271000.0,
+    "session": "pre_market",
+    "trade_date": "2026-08-21",
+    "captured_at": "2026-08-20T22:38:07.994453+00:00"
   },
   "SKHYNIX": {
-    "price": 1677000.0,
-    "session": "post_market",
-    "trade_date": "2026-08-20",
-    "captured_at": "2026-08-20T08:56:35.416992+00:00"
+    "price": 1691000.0,
+    "session": "pre_market",
+    "trade_date": "2026-08-21",
+    "captured_at": "2026-08-20T22:38:08.934480+00:00"
   }
 }
