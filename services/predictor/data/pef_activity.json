@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-19T15:02:50.424297+00:00",
+  "generatedAt": "2026-08-20T15:02:29.434273+00:00",
   "lookbackDays": 30,
   "rows": [
     {
@@ -39,7 +39,7 @@
       "market": "코스닥",
       "pefNetBuyShares": 1933598,
       "pefNetBuyRatioPercent": 8.73,
-      "pefNetBuyValueKrw": 8430487280,
+      "pefNetBuyValueKrw": 7579704160,
       "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "DSC인베스트먼트"
@@ -204,13 +204,28 @@
       "market": "코스피",
       "pefNetBuyShares": 49000,
       "pefNetBuyRatioPercent": 0.41,
-      "pefNetBuyValueKrw": 317568680,
+      "pefNetBuyValueKrw": 316575080,
       "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "메이슨파트너스"
       ],
       "latestReportDate": "2026-08-19",
       "latestReportReason": "특별관계자 지분 변동"
+    },
+    {
+      "corpCode": "01265251",
+      "corpName": "츌립앤사이언스",
+      "stockCode": "291650",
+      "market": "코스닥",
+      "pefNetBuyShares": -2383278,
+      "pefNetBuyRatioPercent": 0.36,
+      "pefNetBuyValueKrw": -4380464964,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "에이치엔제이인베스트먼트"
+      ],
+      "latestReportDate": "2026-08-20",
+      "latestReportReason": "발행회사의 주식병합 및 전환사채 전환가액 조정"
     },
     {
       "corpCode": "00100601",
@@ -279,28 +294,13 @@
       "market": "코스피",
       "pefNetBuyShares": -342398,
       "pefNetBuyRatioPercent": -0.61,
-      "pefNetBuyValueKrw": -214341148000,
+      "pefNetBuyValueKrw": -209889974000,
       "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "슈로더인베스트먼트매니지먼트"
       ],
       "latestReportDate": "2026-08-19",
       "latestReportReason": "단순 취득/처분"
-    },
-    {
-      "corpCode": "01466373",
-      "corpName": "알트",
-      "stockCode": "459550",
-      "market": "코스닥",
-      "pefNetBuyShares": -405508,
-      "pefNetBuyRatioPercent": -1.64,
-      "pefNetBuyValueKrw": -758299960,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "크로스로드6호사모투자"
-      ],
-      "latestReportDate": "2026-08-06",
-      "latestReportReason": "1% 이상 주식 보유비율 변동"
     }
   ]
 }
