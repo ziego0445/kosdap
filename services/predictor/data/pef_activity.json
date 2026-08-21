@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-20T15:02:29.434273+00:00",
+  "generatedAt": "2026-08-21T15:02:28.428768+00:00",
   "lookbackDays": 30,
   "rows": [
     {
@@ -219,7 +219,7 @@
       "market": "코스닥",
       "pefNetBuyShares": -2383278,
       "pefNetBuyRatioPercent": 0.36,
-      "pefNetBuyValueKrw": -4380464964,
+      "pefNetBuyValueKrw": -4742723220,
       "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "에이치엔제이인베스트먼트"
