@@ -614,5 +614,27 @@
     "actual_change_percent": 2.13,
     "predicted_at": "2026-08-20T23:56:39.830804+00:00",
     "recorded_at": "2026-08-21T06:30:51.652360+00:00"
+  },
+  {
+    "symbol": "SAMSUNG",
+    "date": "2026-08-20",
+    "predicted_price": 277922,
+    "actual_price": 271000.0,
+    "error_percent": 2.55,
+    "predicted_change_percent": -1.27,
+    "actual_change_percent": -3.73,
+    "predicted_at": "2026-08-21T14:56:37.871880+00:00",
+    "recorded_at": "2026-08-21T15:04:42.918680+00:00"
+  },
+  {
+    "symbol": "SKHYNIX",
+    "date": "2026-08-20",
+    "predicted_price": 1714688,
+    "actual_price": 1691000.0,
+    "error_percent": 1.4,
+    "predicted_change_percent": -0.89,
+    "actual_change_percent": -2.25,
+    "predicted_at": "2026-08-21T14:56:38.205564+00:00",
+    "recorded_at": "2026-08-21T15:04:43.170118+00:00"
   }
 ]
