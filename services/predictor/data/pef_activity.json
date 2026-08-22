@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-21T15:02:28.428768+00:00",
+  "generatedAt": "2026-08-22T15:02:22.893406+00:00",
   "lookbackDays": 30,
   "rows": [
     {
@@ -108,21 +108,6 @@
       "latestReportReason": "사모5CB 인수로 인한 신규보고"
     },
     {
-      "corpCode": "00961774",
-      "corpName": "유티아이",
-      "stockCode": "179900",
-      "market": "코스닥",
-      "pefNetBuyShares": 1429833,
-      "pefNetBuyRatioPercent": 5.01,
-      "pefNetBuyValueKrw": 4461078960,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "세븐브릿지제6호유니크글래스사모투자"
-      ],
-      "latestReportDate": "2026-07-23",
-      "latestReportReason": "전환사채 추가취득 및 전환가액 조정에 따른 변동보고"
-    },
-    {
       "corpCode": "00296324",
       "corpName": "큐로홀딩스",
       "stockCode": "051780",
@@ -166,21 +151,6 @@
       ],
       "latestReportDate": "2026-07-31",
       "latestReportReason": "1. 전환사채 추가 양수도 계약 체결로 인한 보유비율 변동\n2. 특별관계자 추가 및 이에 따른 출자비율 변동\n3. 특별관계자 탈퇴 및 현물배분에 따른 특별관계해소와 보유비율 변동 "
-    },
-    {
-      "corpCode": "00426828",
-      "corpName": "케이웨더",
-      "stockCode": "068100",
-      "market": "코스닥",
-      "pefNetBuyShares": 76873,
-      "pefNetBuyRatioPercent": 0.64,
-      "pefNetBuyValueKrw": 185263930,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "웰비안파트너스"
-      ],
-      "latestReportDate": "2026-07-23",
-      "latestReportReason": "장내매수"
     },
     {
       "corpCode": "00131504",
@@ -301,6 +271,36 @@
       ],
       "latestReportDate": "2026-08-19",
       "latestReportReason": "단순 취득/처분"
+    },
+    {
+      "corpCode": "01605529",
+      "corpName": "버넥트",
+      "stockCode": "438700",
+      "market": "코스닥",
+      "pefNetBuyShares": -110379,
+      "pefNetBuyRatioPercent": -1.0,
+      "pefNetBuyValueKrw": -187865058,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "케이비인베스트먼트"
+      ],
+      "latestReportDate": "2026-08-21",
+      "latestReportReason": "장내매도"
+    },
+    {
+      "corpCode": "01466373",
+      "corpName": "알트",
+      "stockCode": "459550",
+      "market": "코스닥",
+      "pefNetBuyShares": -405508,
+      "pefNetBuyRatioPercent": -1.64,
+      "pefNetBuyValueKrw": -758299960,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "크로스로드6호사모투자"
+      ],
+      "latestReportDate": "2026-08-06",
+      "latestReportReason": "1% 이상 주식 보유비율 변동"
     }
   ]
 }
