@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-23T15:05:06.287154+00:00",
+  "generatedAt": "2026-08-24T15:05:04.730730+00:00",
   "lookbackDays": 30,
   "rows": [
     {
@@ -31,6 +31,21 @@
       ],
       "latestReportDate": "2026-07-28",
       "latestReportReason": "코넥스시장 신규상장에 따른 지분공시"
+    },
+    {
+      "corpCode": "00296324",
+      "corpName": "큐로홀딩스",
+      "stockCode": "051780",
+      "market": "코스닥",
+      "pefNetBuyShares": 1413526,
+      "pefNetBuyRatioPercent": 9.99,
+      "pefNetBuyValueKrw": 3908773915,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "케이파트너스"
+      ],
+      "latestReportDate": "2026-08-24",
+      "latestReportReason": "제3자배정 유상증자로 인한 특별관계자 보유주식 변동등 및\n주식근질권설정변경계약 체결"
     },
     {
       "corpCode": "01461730",
@@ -108,21 +123,6 @@
       "latestReportReason": "사모5CB 인수로 인한 신규보고"
     },
     {
-      "corpCode": "00296324",
-      "corpName": "큐로홀딩스",
-      "stockCode": "051780",
-      "market": "코스닥",
-      "pefNetBuyShares": 149117,
-      "pefNetBuyRatioPercent": 2.35,
-      "pefNetBuyValueKrw": 425327120,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "케이파트너스"
-      ],
-      "latestReportDate": "2026-08-18",
-      "latestReportReason": "특수관계인의 주식 매입"
-    },
-    {
       "corpCode": "00111722",
       "corpName": "미래에셋증권",
       "stockCode": "006800",
@@ -198,6 +198,36 @@
       "latestReportReason": "발행회사의 주식병합 및 전환사채 전환가액 조정"
     },
     {
+      "corpCode": "01412822",
+      "corpName": "솔루스첨단소재",
+      "stockCode": "336370",
+      "market": "코스피",
+      "pefNetBuyShares": 26408,
+      "pefNetBuyRatioPercent": 0.04,
+      "pefNetBuyValueKrw": 185648240,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "스카이레이크롱텀스트래티직인베스트먼트"
+      ],
+      "latestReportDate": "2026-08-24",
+      "latestReportReason": "특별관계자 추가, 주식근질권설정계약 체결"
+    },
+    {
+      "corpCode": "00109824",
+      "corpName": "대림통상",
+      "stockCode": "006570",
+      "market": "코스피",
+      "pefNetBuyShares": 0,
+      "pefNetBuyRatioPercent": 0.0,
+      "pefNetBuyValueKrw": 0,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "디앤디파트너스"
+      ],
+      "latestReportDate": "2026-08-24",
+      "latestReportReason": "주식담보계약 변경"
+    },
+    {
       "corpCode": "00100601",
       "corpName": "강원에너지",
       "stockCode": "114190",
@@ -271,36 +301,6 @@
       ],
       "latestReportDate": "2026-08-19",
       "latestReportReason": "단순 취득/처분"
-    },
-    {
-      "corpCode": "01605529",
-      "corpName": "버넥트",
-      "stockCode": "438700",
-      "market": "코스닥",
-      "pefNetBuyShares": -110379,
-      "pefNetBuyRatioPercent": -1.0,
-      "pefNetBuyValueKrw": -187865058,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "케이비인베스트먼트"
-      ],
-      "latestReportDate": "2026-08-21",
-      "latestReportReason": "장내매도"
-    },
-    {
-      "corpCode": "01466373",
-      "corpName": "알트",
-      "stockCode": "459550",
-      "market": "코스닥",
-      "pefNetBuyShares": -405508,
-      "pefNetBuyRatioPercent": -1.64,
-      "pefNetBuyValueKrw": -758299960,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "크로스로드6호사모투자"
-      ],
-      "latestReportDate": "2026-08-06",
-      "latestReportReason": "1% 이상 주식 보유비율 변동"
     }
   ]
 }
