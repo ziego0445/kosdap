@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-24T15:05:04.730730+00:00",
+  "generatedAt": "2026-08-25T15:05:23.862008+00:00",
   "lookbackDays": 30,
   "rows": [
     {
@@ -39,7 +39,7 @@
       "market": "코스닥",
       "pefNetBuyShares": 1413526,
       "pefNetBuyRatioPercent": 9.99,
-      "pefNetBuyValueKrw": 3908773915,
+      "pefNetBuyValueKrw": 3877163690,
       "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "케이파트너스"
@@ -153,6 +153,21 @@
       "latestReportReason": "1. 전환사채 추가 양수도 계약 체결로 인한 보유비율 변동\n2. 특별관계자 추가 및 이에 따른 출자비율 변동\n3. 특별관계자 탈퇴 및 현물배분에 따른 특별관계해소와 보유비율 변동 "
     },
     {
+      "corpCode": "00360036",
+      "corpName": "백금T&A",
+      "stockCode": "046310",
+      "market": "코스닥",
+      "pefNetBuyShares": 202144,
+      "pefNetBuyRatioPercent": 1.23,
+      "pefNetBuyValueKrw": 474027680,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "차파트너스자산운용"
+      ],
+      "latestReportDate": "2026-08-25",
+      "latestReportReason": "장내매매에 따른 보유주식 수 변동"
+    },
+    {
       "corpCode": "00131504",
       "corpName": "서한",
       "stockCode": "011370",
@@ -204,7 +219,7 @@
       "market": "코스피",
       "pefNetBuyShares": 26408,
       "pefNetBuyRatioPercent": 0.04,
-      "pefNetBuyValueKrw": 185648240,
+      "pefNetBuyValueKrw": 194626960,
       "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "스카이레이크롱텀스트래티직인베스트먼트"
@@ -286,21 +301,6 @@
       ],
       "latestReportDate": "2026-08-05",
       "latestReportReason": "특별관계자의 담보대출 일부 상환에 따른 변경 보고"
-    },
-    {
-      "corpCode": "00139214",
-      "corpName": "삼성화재해상보험",
-      "stockCode": "000810",
-      "market": "코스피",
-      "pefNetBuyShares": -342398,
-      "pefNetBuyRatioPercent": -0.61,
-      "pefNetBuyValueKrw": -209889974000,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "슈로더인베스트먼트매니지먼트"
-      ],
-      "latestReportDate": "2026-08-19",
-      "latestReportReason": "단순 취득/처분"
     }
   ]
 }
