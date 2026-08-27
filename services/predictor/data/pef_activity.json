@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-26T15:05:00.991837+00:00",
+  "generatedAt": "2026-08-27T15:05:14.843822+00:00",
   "lookbackDays": 30,
   "rows": [
     {
@@ -16,21 +16,6 @@
       ],
       "latestReportDate": "2026-07-31",
       "latestReportReason": "- 대표보고자 변경에 따른 신규 보고\n  (변경 전 : 심충식 / 변경 후 : (주)화인파트너스)"
-    },
-    {
-      "corpCode": "01924673",
-      "corpName": "나노솔루션",
-      "stockCode": "238540",
-      "market": "코넥스",
-      "pefNetBuyShares": 165510,
-      "pefNetBuyRatioPercent": 11.61,
-      "pefNetBuyValueKrw": 0,
-      "pefNetBuyValueIsPartial": true,
-      "pefReporters": [
-        "캡스톤파트너스"
-      ],
-      "latestReportDate": "2026-07-28",
-      "latestReportReason": "코넥스시장 신규상장에 따른 지분공시"
     },
     {
       "corpCode": "00296324",
@@ -301,6 +286,21 @@
       ],
       "latestReportDate": "2026-08-05",
       "latestReportReason": "특별관계자의 담보대출 일부 상환에 따른 변경 보고"
+    },
+    {
+      "corpCode": "00139214",
+      "corpName": "삼성화재해상보험",
+      "stockCode": "000810",
+      "market": "코스피",
+      "pefNetBuyShares": -342398,
+      "pefNetBuyRatioPercent": -0.61,
+      "pefNetBuyValueKrw": -209889974000,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "슈로더인베스트먼트매니지먼트"
+      ],
+      "latestReportDate": "2026-08-19",
+      "latestReportReason": "단순 취득/처분"
     }
   ]
 }
