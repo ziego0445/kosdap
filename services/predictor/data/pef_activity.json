@@ -1,5 +1,306 @@
 {
-  "generatedAt": "2026-08-28T15:04:11.559970+00:00",
+  "generatedAt": "2026-08-29T15:04:41.202157+00:00",
   "lookbackDays": 30,
-  "rows": []
+  "rows": [
+    {
+      "corpCode": "00131896",
+      "corpName": "선광",
+      "stockCode": "003100",
+      "market": "코스닥",
+      "pefNetBuyShares": 3859648,
+      "pefNetBuyRatioPercent": 58.48,
+      "pefNetBuyValueKrw": 74491206400,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "화인파트너스"
+      ],
+      "latestReportDate": "2026-07-31",
+      "latestReportReason": "- 대표보고자 변경에 따른 신규 보고\n  (변경 전 : 심충식 / 변경 후 : (주)화인파트너스)"
+    },
+    {
+      "corpCode": "00296324",
+      "corpName": "큐로홀딩스",
+      "stockCode": "051780",
+      "market": "코스닥",
+      "pefNetBuyShares": 1413526,
+      "pefNetBuyRatioPercent": 9.99,
+      "pefNetBuyValueKrw": 3877163690,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "케이파트너스"
+      ],
+      "latestReportDate": "2026-08-24",
+      "latestReportReason": "제3자배정 유상증자로 인한 특별관계자 보유주식 변동등 및\n주식근질권설정변경계약 체결"
+    },
+    {
+      "corpCode": "01461730",
+      "corpName": "딜리셔스",
+      "stockCode": "483350",
+      "market": "코스닥",
+      "pefNetBuyShares": 1933598,
+      "pefNetBuyRatioPercent": 8.73,
+      "pefNetBuyValueKrw": 7579704160,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "DSC인베스트먼트"
+      ],
+      "latestReportDate": "2026-08-19",
+      "latestReportReason": "신규 상장 및 장내 매도"
+    },
+    {
+      "corpCode": "00155355",
+      "corpName": "풀무원",
+      "stockCode": "017810",
+      "market": "코스피",
+      "pefNetBuyShares": 3375812,
+      "pefNetBuyRatioPercent": 8.14,
+      "pefNetBuyValueKrw": 30956196040,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "엔브이메자닌그로쓰에쿼티사모투자"
+      ],
+      "latestReportDate": "2026-08-13",
+      "latestReportReason": "제3자 배정 유상증자로 인한 주식 취득"
+    },
+    {
+      "corpCode": "00447007",
+      "corpName": "알리코제약",
+      "stockCode": "260660",
+      "market": "코스닥",
+      "pefNetBuyShares": 1226992,
+      "pefNetBuyRatioPercent": 7.41,
+      "pefNetBuyValueKrw": 3067480000,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "시너지아이비투자"
+      ],
+      "latestReportDate": "2026-08-07",
+      "latestReportReason": "제4회차 전환사채 취득 및 전환가액 조정에 따른 보고"
+    },
+    {
+      "corpCode": "00537221",
+      "corpName": "인바이츠바이오코아",
+      "stockCode": "216400",
+      "market": "코넥스",
+      "pefNetBuyShares": 570574,
+      "pefNetBuyRatioPercent": 6.17,
+      "pefNetBuyValueKrw": 0,
+      "pefNetBuyValueIsPartial": true,
+      "pefReporters": [
+        "SBI인베스트먼트"
+      ],
+      "latestReportDate": "2026-08-28",
+      "latestReportReason": "장외매수"
+    },
+    {
+      "corpCode": "00163761",
+      "corpName": "한창제지",
+      "stockCode": "009460",
+      "market": "코스피",
+      "pefNetBuyShares": 773694,
+      "pefNetBuyRatioPercent": 6.09,
+      "pefNetBuyValueKrw": 2441004570,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "시너지아이비투자"
+      ],
+      "latestReportDate": "2026-08-07",
+      "latestReportReason": "제80회차 전환사채 전환가액 조정에 따른 보고"
+    },
+    {
+      "corpCode": "00111722",
+      "corpName": "미래에셋증권",
+      "stockCode": "006800",
+      "market": "코스피",
+      "pefNetBuyShares": 2586314,
+      "pefNetBuyRatioPercent": 1.94,
+      "pefNetBuyValueKrw": 87676044600,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "미래에셋캐피탈"
+      ],
+      "latestReportDate": "2026-08-07",
+      "latestReportReason": "특별관계자 합산 1%이상 보유비율 변동\n(대상기간 중 발생회사 주식소각에 따른 지분율 변동 등)"
+    },
+    {
+      "corpCode": "01228515",
+      "corpName": "앱튼",
+      "stockCode": "270520",
+      "market": "코스닥",
+      "pefNetBuyShares": 1200292,
+      "pefNetBuyRatioPercent": 1.58,
+      "pefNetBuyValueKrw": 3780919800,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "유토피아 파트너스"
+      ],
+      "latestReportDate": "2026-07-31",
+      "latestReportReason": "1. 전환사채 추가 양수도 계약 체결로 인한 보유비율 변동\n2. 특별관계자 추가 및 이에 따른 출자비율 변동\n3. 특별관계자 탈퇴 및 현물배분에 따른 특별관계해소와 보유비율 변동 "
+    },
+    {
+      "corpCode": "00360036",
+      "corpName": "백금T&A",
+      "stockCode": "046310",
+      "market": "코스닥",
+      "pefNetBuyShares": 202144,
+      "pefNetBuyRatioPercent": 1.23,
+      "pefNetBuyValueKrw": 483124160,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "차파트너스자산운용"
+      ],
+      "latestReportDate": "2026-08-25",
+      "latestReportReason": "장내매매에 따른 보유주식 수 변동"
+    },
+    {
+      "corpCode": "00131504",
+      "corpName": "서한",
+      "stockCode": "011370",
+      "market": "코스닥",
+      "pefNetBuyShares": 579478,
+      "pefNetBuyRatioPercent": 0.57,
+      "pefNetBuyValueKrw": 453731274,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "에스에이치인베스트먼트"
+      ],
+      "latestReportDate": "2026-08-11",
+      "latestReportReason": "단순 추가취득"
+    },
+    {
+      "corpCode": "01510489",
+      "corpName": "프레스티지바이오파마",
+      "stockCode": "950210",
+      "market": "코스피",
+      "pefNetBuyShares": 49000,
+      "pefNetBuyRatioPercent": 0.41,
+      "pefNetBuyValueKrw": 316575080,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "메이슨파트너스"
+      ],
+      "latestReportDate": "2026-08-19",
+      "latestReportReason": "특별관계자 지분 변동"
+    },
+    {
+      "corpCode": "01265251",
+      "corpName": "츌립앤사이언스",
+      "stockCode": "291650",
+      "market": "코스닥",
+      "pefNetBuyShares": -2383278,
+      "pefNetBuyRatioPercent": 0.36,
+      "pefNetBuyValueKrw": -4742723220,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "에이치엔제이인베스트먼트"
+      ],
+      "latestReportDate": "2026-08-20",
+      "latestReportReason": "발행회사의 주식병합 및 전환사채 전환가액 조정"
+    },
+    {
+      "corpCode": "01412822",
+      "corpName": "솔루스첨단소재",
+      "stockCode": "336370",
+      "market": "코스피",
+      "pefNetBuyShares": 26408,
+      "pefNetBuyRatioPercent": 0.04,
+      "pefNetBuyValueKrw": 194626960,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "스카이레이크롱텀스트래티직인베스트먼트"
+      ],
+      "latestReportDate": "2026-08-24",
+      "latestReportReason": "특별관계자 추가, 주식근질권설정계약 체결"
+    },
+    {
+      "corpCode": "00109824",
+      "corpName": "대림통상",
+      "stockCode": "006570",
+      "market": "코스피",
+      "pefNetBuyShares": 0,
+      "pefNetBuyRatioPercent": 0.0,
+      "pefNetBuyValueKrw": 0,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "디앤디파트너스"
+      ],
+      "latestReportDate": "2026-08-24",
+      "latestReportReason": "주식담보계약 변경"
+    },
+    {
+      "corpCode": "00100601",
+      "corpName": "강원에너지",
+      "stockCode": "114190",
+      "market": "코스닥",
+      "pefNetBuyShares": 0,
+      "pefNetBuyRatioPercent": 0.0,
+      "pefNetBuyValueKrw": 0,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "평산파트너스"
+      ],
+      "latestReportDate": "2026-08-14",
+      "latestReportReason": "주식 담보대출 계약의 변경"
+    },
+    {
+      "corpCode": "00233653",
+      "corpName": "한국토지신탁",
+      "stockCode": "034830",
+      "market": "코스피",
+      "pefNetBuyShares": 0,
+      "pefNetBuyRatioPercent": 0.0,
+      "pefNetBuyValueKrw": 0,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "엠케이인베스트먼트"
+      ],
+      "latestReportDate": "2026-08-14",
+      "latestReportReason": "보고자의 보유주식등에 관한 계약 변경"
+    },
+    {
+      "corpCode": "00288495",
+      "corpName": "HC홈센타",
+      "stockCode": "060560",
+      "market": "코스닥",
+      "pefNetBuyShares": 0,
+      "pefNetBuyRatioPercent": 0.0,
+      "pefNetBuyValueKrw": 0,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "에이치씨파트너스"
+      ],
+      "latestReportDate": "2026-08-06",
+      "latestReportReason": "주식담보대출 상환 및 연장"
+    },
+    {
+      "corpCode": "01042650",
+      "corpName": "큐리언트",
+      "stockCode": "115180",
+      "market": "코스닥",
+      "pefNetBuyShares": 0,
+      "pefNetBuyRatioPercent": -0.01,
+      "pefNetBuyValueKrw": 0,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "유암코키스톤구조혁신기업재무안정사모투자"
+      ],
+      "latestReportDate": "2026-08-05",
+      "latestReportReason": "특별관계자의 담보대출 일부 상환에 따른 변경 보고"
+    },
+    {
+      "corpCode": "00139214",
+      "corpName": "삼성화재해상보험",
+      "stockCode": "000810",
+      "market": "코스피",
+      "pefNetBuyShares": -342398,
+      "pefNetBuyRatioPercent": -0.61,
+      "pefNetBuyValueKrw": -209889974000,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "슈로더인베스트먼트매니지먼트"
+      ],
+      "latestReportDate": "2026-08-19",
+      "latestReportReason": "단순 취득/처분"
+    }
+  ]
 }
