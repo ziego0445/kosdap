@@ -1197,5 +1197,16 @@
     "actual_change_percent": 4.64,
     "predicted_at": "2026-08-29T03:08:39.607517+00:00",
     "recorded_at": "2026-08-29T03:09:18.127655+00:00"
+  },
+  {
+    "symbol": "SKHYNIX",
+    "date": "2026-08-27",
+    "predicted_price": 1629201,
+    "actual_price": 1729625.0,
+    "error_percent": -5.81,
+    "predicted_change_percent": -1.44,
+    "actual_change_percent": 4.64,
+    "predicted_at": "2026-08-29T03:23:39.885868+00:00",
+    "recorded_at": "2026-08-29T03:24:18.516038+00:00"
   }
 ]
