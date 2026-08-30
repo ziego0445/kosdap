@@ -1,30 +1,15 @@
 {
-  "generatedAt": "2026-08-29T15:04:41.202157+00:00",
+  "generatedAt": "2026-08-30T15:04:36.719176+00:00",
   "lookbackDays": 30,
   "rows": [
-    {
-      "corpCode": "00131896",
-      "corpName": "선광",
-      "stockCode": "003100",
-      "market": "코스닥",
-      "pefNetBuyShares": 3859648,
-      "pefNetBuyRatioPercent": 58.48,
-      "pefNetBuyValueKrw": 74491206400,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "화인파트너스"
-      ],
-      "latestReportDate": "2026-07-31",
-      "latestReportReason": "- 대표보고자 변경에 따른 신규 보고\n  (변경 전 : 심충식 / 변경 후 : (주)화인파트너스)"
-    },
     {
       "corpCode": "00296324",
       "corpName": "큐로홀딩스",
       "stockCode": "051780",
       "market": "코스닥",
-      "pefNetBuyShares": 1413526,
-      "pefNetBuyRatioPercent": 9.99,
-      "pefNetBuyValueKrw": 3877163690,
+      "pefNetBuyShares": 1410826,
+      "pefNetBuyRatioPercent": 9.95,
+      "pefNetBuyValueKrw": 3870589190,
       "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "케이파트너스"
@@ -123,21 +108,6 @@
       "latestReportReason": "특별관계자 합산 1%이상 보유비율 변동\n(대상기간 중 발생회사 주식소각에 따른 지분율 변동 등)"
     },
     {
-      "corpCode": "01228515",
-      "corpName": "앱튼",
-      "stockCode": "270520",
-      "market": "코스닥",
-      "pefNetBuyShares": 1200292,
-      "pefNetBuyRatioPercent": 1.58,
-      "pefNetBuyValueKrw": 3780919800,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "유토피아 파트너스"
-      ],
-      "latestReportDate": "2026-07-31",
-      "latestReportReason": "1. 전환사채 추가 양수도 계약 체결로 인한 보유비율 변동\n2. 특별관계자 추가 및 이에 따른 출자비율 변동\n3. 특별관계자 탈퇴 및 현물배분에 따른 특별관계해소와 보유비율 변동 "
-    },
-    {
       "corpCode": "00360036",
       "corpName": "백금T&A",
       "stockCode": "046310",
@@ -168,21 +138,6 @@
       "latestReportReason": "단순 추가취득"
     },
     {
-      "corpCode": "01510489",
-      "corpName": "프레스티지바이오파마",
-      "stockCode": "950210",
-      "market": "코스피",
-      "pefNetBuyShares": 49000,
-      "pefNetBuyRatioPercent": 0.41,
-      "pefNetBuyValueKrw": 316575080,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "메이슨파트너스"
-      ],
-      "latestReportDate": "2026-08-19",
-      "latestReportReason": "특별관계자 지분 변동"
-    },
-    {
       "corpCode": "01265251",
       "corpName": "츌립앤사이언스",
       "stockCode": "291650",
@@ -196,6 +151,21 @@
       ],
       "latestReportDate": "2026-08-20",
       "latestReportReason": "발행회사의 주식병합 및 전환사채 전환가액 조정"
+    },
+    {
+      "corpCode": "01510489",
+      "corpName": "프레스티지바이오파마",
+      "stockCode": "950210",
+      "market": "코스피",
+      "pefNetBuyShares": 28267,
+      "pefNetBuyRatioPercent": 0.24,
+      "pefNetBuyValueKrw": 183883880,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "메이슨파트너스"
+      ],
+      "latestReportDate": "2026-08-19",
+      "latestReportReason": "특별관계자 지분 변동"
     },
     {
       "corpCode": "01412822",
@@ -301,6 +271,36 @@
       ],
       "latestReportDate": "2026-08-19",
       "latestReportReason": "단순 취득/처분"
+    },
+    {
+      "corpCode": "01544468",
+      "corpName": "이엔셀",
+      "stockCode": "456070",
+      "market": "코스닥",
+      "pefNetBuyShares": 0,
+      "pefNetBuyRatioPercent": -0.7,
+      "pefNetBuyValueKrw": 0,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "원앤파트너스"
+      ],
+      "latestReportDate": "2026-08-27",
+      "latestReportReason": "공동목적보유확약 기간 연장 및 확약 대상 주식 수 변경"
+    },
+    {
+      "corpCode": "01605529",
+      "corpName": "버넥트",
+      "stockCode": "438700",
+      "market": "코스닥",
+      "pefNetBuyShares": -110379,
+      "pefNetBuyRatioPercent": -1.0,
+      "pefNetBuyValueKrw": -187865058,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "케이비인베스트먼트"
+      ],
+      "latestReportDate": "2026-08-21",
+      "latestReportReason": "장내매도"
     }
   ]
 }
