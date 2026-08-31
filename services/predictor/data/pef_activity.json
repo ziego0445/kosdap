@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-30T15:04:36.719176+00:00",
+  "generatedAt": "2026-08-31T15:04:39.513743+00:00",
   "lookbackDays": 30,
   "rows": [
     {
@@ -106,6 +106,21 @@
       ],
       "latestReportDate": "2026-08-07",
       "latestReportReason": "특별관계자 합산 1%이상 보유비율 변동\n(대상기간 중 발생회사 주식소각에 따른 지분율 변동 등)"
+    },
+    {
+      "corpCode": "00632845",
+      "corpName": "노랑풍선",
+      "stockCode": "104620",
+      "market": "코스닥",
+      "pefNetBuyShares": 277158,
+      "pefNetBuyRatioPercent": 1.25,
+      "pefNetBuyValueKrw": 906306660,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "브이씨엠그로쓰제1호사모투자"
+      ],
+      "latestReportDate": "2026-08-31",
+      "latestReportReason": "전환가액 조정으로 인한 보고"
     },
     {
       "corpCode": "00360036",
@@ -286,21 +301,6 @@
       ],
       "latestReportDate": "2026-08-27",
       "latestReportReason": "공동목적보유확약 기간 연장 및 확약 대상 주식 수 변경"
-    },
-    {
-      "corpCode": "01605529",
-      "corpName": "버넥트",
-      "stockCode": "438700",
-      "market": "코스닥",
-      "pefNetBuyShares": -110379,
-      "pefNetBuyRatioPercent": -1.0,
-      "pefNetBuyValueKrw": -187865058,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "케이비인베스트먼트"
-      ],
-      "latestReportDate": "2026-08-21",
-      "latestReportReason": "장내매도"
     }
   ]
 }
