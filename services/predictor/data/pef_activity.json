@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-31T15:04:39.513743+00:00",
+  "generatedAt": "2026-09-01T15:04:48.459581+00:00",
   "lookbackDays": 30,
   "rows": [
     {
@@ -114,7 +114,7 @@
       "market": "코스닥",
       "pefNetBuyShares": 277158,
       "pefNetBuyRatioPercent": 1.25,
-      "pefNetBuyValueKrw": 906306660,
+      "pefNetBuyValueKrw": 889677180,
       "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "브이씨엠그로쓰제1호사모투자"
@@ -144,7 +144,7 @@
       "market": "코스닥",
       "pefNetBuyShares": 579478,
       "pefNetBuyRatioPercent": 0.57,
-      "pefNetBuyValueKrw": 453731274,
+      "pefNetBuyValueKrw": 2268656370,
       "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "에스에이치인베스트먼트"
@@ -172,14 +172,14 @@
       "corpName": "프레스티지바이오파마",
       "stockCode": "950210",
       "market": "코스피",
-      "pefNetBuyShares": 28267,
-      "pefNetBuyRatioPercent": 0.24,
-      "pefNetBuyValueKrw": 183883880,
+      "pefNetBuyShares": 33067,
+      "pefNetBuyRatioPercent": 0.28,
+      "pefNetBuyValueKrw": 215083880,
       "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "메이슨파트너스"
       ],
-      "latestReportDate": "2026-08-19",
+      "latestReportDate": "2026-09-01",
       "latestReportReason": "특별관계자 지분 변동"
     },
     {
