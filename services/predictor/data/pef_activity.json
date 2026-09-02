@@ -1,7 +1,22 @@
 {
-  "generatedAt": "2026-09-01T15:04:48.459581+00:00",
+  "generatedAt": "2026-09-02T15:04:50.924547+00:00",
   "lookbackDays": 30,
   "rows": [
+    {
+      "corpCode": "00115287",
+      "corpName": "동방",
+      "stockCode": "004140",
+      "market": "코스피",
+      "pefNetBuyShares": 5422503,
+      "pefNetBuyRatioPercent": 10.16,
+      "pefNetBuyValueKrw": 9879800466,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "제이커브디케이기관전용사모투자"
+      ],
+      "latestReportDate": "2026-09-02",
+      "latestReportReason": "전환사채 투자에 따른 신규보고"
+    },
     {
       "corpCode": "00296324",
       "corpName": "큐로홀딩스",
@@ -174,7 +189,7 @@
       "market": "코스피",
       "pefNetBuyShares": 33067,
       "pefNetBuyRatioPercent": 0.28,
-      "pefNetBuyValueKrw": 215083880,
+      "pefNetBuyValueKrw": 215179880,
       "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "메이슨파트너스"
@@ -273,34 +288,19 @@
       "latestReportReason": "특별관계자의 담보대출 일부 상환에 따른 변경 보고"
     },
     {
-      "corpCode": "00139214",
-      "corpName": "삼성화재해상보험",
-      "stockCode": "000810",
-      "market": "코스피",
-      "pefNetBuyShares": -342398,
-      "pefNetBuyRatioPercent": -0.61,
-      "pefNetBuyValueKrw": -209889974000,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "슈로더인베스트먼트매니지먼트"
-      ],
-      "latestReportDate": "2026-08-19",
-      "latestReportReason": "단순 취득/처분"
-    },
-    {
-      "corpCode": "01544468",
-      "corpName": "이엔셀",
-      "stockCode": "456070",
+      "corpCode": "01259311",
+      "corpName": "푸드나무",
+      "stockCode": "290720",
       "market": "코스닥",
       "pefNetBuyShares": 0,
-      "pefNetBuyRatioPercent": -0.7,
+      "pefNetBuyRatioPercent": -0.27,
       "pefNetBuyValueKrw": 0,
       "pefNetBuyValueIsPartial": false,
       "pefReporters": [
-        "원앤파트너스"
+        "온힐파트너스"
       ],
-      "latestReportDate": "2026-08-27",
-      "latestReportReason": "공동목적보유확약 기간 연장 및 확약 대상 주식 수 변경"
+      "latestReportDate": "2026-09-02",
+      "latestReportReason": "양도담보주식 매매계약 체결에 따른 보고"
     }
   ]
 }
