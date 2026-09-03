@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-02T15:04:50.924547+00:00",
+  "generatedAt": "2026-09-03T15:04:54.988315+00:00",
   "lookbackDays": 30,
   "rows": [
     {
@@ -9,7 +9,7 @@
       "market": "코스피",
       "pefNetBuyShares": 5422503,
       "pefNetBuyRatioPercent": 10.16,
-      "pefNetBuyValueKrw": 9879800466,
+      "pefNetBuyValueKrw": 9690012861,
       "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "제이커브디케이기관전용사모투자"
@@ -187,9 +187,9 @@
       "corpName": "프레스티지바이오파마",
       "stockCode": "950210",
       "market": "코스피",
-      "pefNetBuyShares": 33067,
-      "pefNetBuyRatioPercent": 0.28,
-      "pefNetBuyValueKrw": 215179880,
+      "pefNetBuyShares": 19067,
+      "pefNetBuyRatioPercent": 0.17,
+      "pefNetBuyValueKrw": 126419880,
       "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "메이슨파트너스"
