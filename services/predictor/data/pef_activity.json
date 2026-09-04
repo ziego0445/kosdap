@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-03T15:04:54.988315+00:00",
+  "generatedAt": "2026-09-04T15:04:54.799713+00:00",
   "lookbackDays": 30,
   "rows": [
     {
@@ -213,6 +213,21 @@
       "latestReportReason": "특별관계자 추가, 주식근질권설정계약 체결"
     },
     {
+      "corpCode": "00233653",
+      "corpName": "한국토지신탁",
+      "stockCode": "034830",
+      "market": "코스피",
+      "pefNetBuyShares": 0,
+      "pefNetBuyRatioPercent": 0.0,
+      "pefNetBuyValueKrw": 0,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "엠케이인베스트먼트"
+      ],
+      "latestReportDate": "2026-09-04",
+      "latestReportReason": "보고자의 보유주식등에 관한 계약 변경"
+    },
+    {
       "corpCode": "00109824",
       "corpName": "대림통상",
       "stockCode": "006570",
@@ -224,7 +239,7 @@
       "pefReporters": [
         "디앤디파트너스"
       ],
-      "latestReportDate": "2026-08-24",
+      "latestReportDate": "2026-09-04",
       "latestReportReason": "주식담보계약 변경"
     },
     {
@@ -243,21 +258,6 @@
       "latestReportReason": "주식 담보대출 계약의 변경"
     },
     {
-      "corpCode": "00233653",
-      "corpName": "한국토지신탁",
-      "stockCode": "034830",
-      "market": "코스피",
-      "pefNetBuyShares": 0,
-      "pefNetBuyRatioPercent": 0.0,
-      "pefNetBuyValueKrw": 0,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "엠케이인베스트먼트"
-      ],
-      "latestReportDate": "2026-08-14",
-      "latestReportReason": "보고자의 보유주식등에 관한 계약 변경"
-    },
-    {
       "corpCode": "00288495",
       "corpName": "HC홈센타",
       "stockCode": "060560",
@@ -273,21 +273,6 @@
       "latestReportReason": "주식담보대출 상환 및 연장"
     },
     {
-      "corpCode": "01042650",
-      "corpName": "큐리언트",
-      "stockCode": "115180",
-      "market": "코스닥",
-      "pefNetBuyShares": 0,
-      "pefNetBuyRatioPercent": -0.01,
-      "pefNetBuyValueKrw": 0,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "유암코키스톤구조혁신기업재무안정사모투자"
-      ],
-      "latestReportDate": "2026-08-05",
-      "latestReportReason": "특별관계자의 담보대출 일부 상환에 따른 변경 보고"
-    },
-    {
       "corpCode": "01259311",
       "corpName": "푸드나무",
       "stockCode": "290720",
@@ -301,6 +286,21 @@
       ],
       "latestReportDate": "2026-09-02",
       "latestReportReason": "양도담보주식 매매계약 체결에 따른 보고"
+    },
+    {
+      "corpCode": "00139214",
+      "corpName": "삼성화재해상보험",
+      "stockCode": "000810",
+      "market": "코스피",
+      "pefNetBuyShares": -342398,
+      "pefNetBuyRatioPercent": -0.61,
+      "pefNetBuyValueKrw": -209889974000,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "슈로더인베스트먼트매니지먼트"
+      ],
+      "latestReportDate": "2026-08-19",
+      "latestReportReason": "단순 취득/처분"
     }
   ]
 }
