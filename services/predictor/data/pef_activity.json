@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-04T15:04:54.799713+00:00",
+  "generatedAt": "2026-09-05T15:05:03.788098+00:00",
   "lookbackDays": 30,
   "rows": [
     {
@@ -258,21 +258,6 @@
       "latestReportReason": "주식 담보대출 계약의 변경"
     },
     {
-      "corpCode": "00288495",
-      "corpName": "HC홈센타",
-      "stockCode": "060560",
-      "market": "코스닥",
-      "pefNetBuyShares": 0,
-      "pefNetBuyRatioPercent": 0.0,
-      "pefNetBuyValueKrw": 0,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "에이치씨파트너스"
-      ],
-      "latestReportDate": "2026-08-06",
-      "latestReportReason": "주식담보대출 상환 및 연장"
-    },
-    {
       "corpCode": "01259311",
       "corpName": "푸드나무",
       "stockCode": "290720",
@@ -301,6 +286,21 @@
       ],
       "latestReportDate": "2026-08-19",
       "latestReportReason": "단순 취득/처분"
+    },
+    {
+      "corpCode": "01544468",
+      "corpName": "이엔셀",
+      "stockCode": "456070",
+      "market": "코스닥",
+      "pefNetBuyShares": 0,
+      "pefNetBuyRatioPercent": -0.7,
+      "pefNetBuyValueKrw": 0,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "원앤파트너스"
+      ],
+      "latestReportDate": "2026-08-27",
+      "latestReportReason": "공동목적보유확약 기간 연장 및 확약 대상 주식 수 변경"
     }
   ]
 }
