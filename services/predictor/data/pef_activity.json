@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-05T15:05:03.788098+00:00",
+  "generatedAt": "2026-09-06T15:05:03.688418+00:00",
   "lookbackDays": 30,
   "rows": [
     {
@@ -63,21 +63,6 @@
       "latestReportReason": "제3자 배정 유상증자로 인한 주식 취득"
     },
     {
-      "corpCode": "00447007",
-      "corpName": "알리코제약",
-      "stockCode": "260660",
-      "market": "코스닥",
-      "pefNetBuyShares": 1226992,
-      "pefNetBuyRatioPercent": 7.41,
-      "pefNetBuyValueKrw": 3067480000,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "시너지아이비투자"
-      ],
-      "latestReportDate": "2026-08-07",
-      "latestReportReason": "제4회차 전환사채 취득 및 전환가액 조정에 따른 보고"
-    },
-    {
       "corpCode": "00537221",
       "corpName": "인바이츠바이오코아",
       "stockCode": "216400",
@@ -91,36 +76,6 @@
       ],
       "latestReportDate": "2026-08-28",
       "latestReportReason": "장외매수"
-    },
-    {
-      "corpCode": "00163761",
-      "corpName": "한창제지",
-      "stockCode": "009460",
-      "market": "코스피",
-      "pefNetBuyShares": 773694,
-      "pefNetBuyRatioPercent": 6.09,
-      "pefNetBuyValueKrw": 2441004570,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "시너지아이비투자"
-      ],
-      "latestReportDate": "2026-08-07",
-      "latestReportReason": "제80회차 전환사채 전환가액 조정에 따른 보고"
-    },
-    {
-      "corpCode": "00111722",
-      "corpName": "미래에셋증권",
-      "stockCode": "006800",
-      "market": "코스피",
-      "pefNetBuyShares": 2586314,
-      "pefNetBuyRatioPercent": 1.94,
-      "pefNetBuyValueKrw": 87676044600,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "미래에셋캐피탈"
-      ],
-      "latestReportDate": "2026-08-07",
-      "latestReportReason": "특별관계자 합산 1%이상 보유비율 변동\n(대상기간 중 발생회사 주식소각에 따른 지분율 변동 등)"
     },
     {
       "corpCode": "00632845",
@@ -301,6 +256,51 @@
       ],
       "latestReportDate": "2026-08-27",
       "latestReportReason": "공동목적보유확약 기간 연장 및 확약 대상 주식 수 변경"
+    },
+    {
+      "corpCode": "01605529",
+      "corpName": "버넥트",
+      "stockCode": "438700",
+      "market": "코스닥",
+      "pefNetBuyShares": -110379,
+      "pefNetBuyRatioPercent": -1.0,
+      "pefNetBuyValueKrw": -187865058,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "케이비인베스트먼트"
+      ],
+      "latestReportDate": "2026-08-21",
+      "latestReportReason": "장내매도"
+    },
+    {
+      "corpCode": "01802928",
+      "corpName": "코스모로보틱스",
+      "stockCode": "439960",
+      "market": "코스닥",
+      "pefNetBuyShares": -885977,
+      "pefNetBuyRatioPercent": -2.73,
+      "pefNetBuyValueKrw": -14636340040,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "엔비에이치캐피탈"
+      ],
+      "latestReportDate": "2026-08-13",
+      "latestReportReason": "장내 매도로 인한 변동"
+    },
+    {
+      "corpCode": "00991225",
+      "corpName": "더콘텐츠온",
+      "stockCode": "302920",
+      "market": "코넥스",
+      "pefNetBuyShares": -10282,
+      "pefNetBuyRatioPercent": -3.76,
+      "pefNetBuyValueKrw": 0,
+      "pefNetBuyValueIsPartial": true,
+      "pefReporters": [
+        "SBI인베스트먼트"
+      ],
+      "latestReportDate": "2026-08-28",
+      "latestReportReason": "장내매매 및 장외매매에 따른 특별관계자 변동"
     }
   ]
 }
