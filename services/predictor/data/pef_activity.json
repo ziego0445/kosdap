@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-06T15:05:03.688418+00:00",
+  "generatedAt": "2026-09-07T15:05:02.788667+00:00",
   "lookbackDays": 30,
   "rows": [
     {
@@ -22,15 +22,15 @@
       "corpName": "큐로홀딩스",
       "stockCode": "051780",
       "market": "코스닥",
-      "pefNetBuyShares": 1410826,
-      "pefNetBuyRatioPercent": 9.95,
-      "pefNetBuyValueKrw": 3870589190,
+      "pefNetBuyShares": 1417150,
+      "pefNetBuyRatioPercent": 10.03,
+      "pefNetBuyValueKrw": 3886430810,
       "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "케이파트너스"
       ],
-      "latestReportDate": "2026-08-24",
-      "latestReportReason": "제3자배정 유상증자로 인한 특별관계자 보유주식 변동등 및\n주식근질권설정변경계약 체결"
+      "latestReportDate": "2026-09-07",
+      "latestReportReason": "특수관계인의 주식 매입 및 주식근질권설정변경계약 체결"
     },
     {
       "corpCode": "01461730",
