@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-07T15:05:02.788667+00:00",
+  "generatedAt": "2026-09-08T15:05:24.220239+00:00",
   "lookbackDays": 30,
   "rows": [
     {
@@ -24,7 +24,7 @@
       "market": "코스닥",
       "pefNetBuyShares": 1417150,
       "pefNetBuyRatioPercent": 10.03,
-      "pefNetBuyValueKrw": 3886430810,
+      "pefNetBuyValueKrw": 3886399190,
       "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "케이파트너스"
@@ -46,6 +46,21 @@
       ],
       "latestReportDate": "2026-08-19",
       "latestReportReason": "신규 상장 및 장내 매도"
+    },
+    {
+      "corpCode": "01299203",
+      "corpName": "그리드위즈",
+      "stockCode": "453450",
+      "market": "코스닥",
+      "pefNetBuyShares": 708415,
+      "pefNetBuyRatioPercent": 8.19,
+      "pefNetBuyValueKrw": 9131469350,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "SBI인베스트먼트"
+      ],
+      "latestReportDate": "2026-09-08",
+      "latestReportReason": "전환사채 인수"
     },
     {
       "corpCode": "00155355",
@@ -286,21 +301,6 @@
       ],
       "latestReportDate": "2026-08-13",
       "latestReportReason": "장내 매도로 인한 변동"
-    },
-    {
-      "corpCode": "00991225",
-      "corpName": "더콘텐츠온",
-      "stockCode": "302920",
-      "market": "코넥스",
-      "pefNetBuyShares": -10282,
-      "pefNetBuyRatioPercent": -3.76,
-      "pefNetBuyValueKrw": 0,
-      "pefNetBuyValueIsPartial": true,
-      "pefReporters": [
-        "SBI인베스트먼트"
-      ],
-      "latestReportDate": "2026-08-28",
-      "latestReportReason": "장내매매 및 장외매매에 따른 특별관계자 변동"
     }
   ]
 }
