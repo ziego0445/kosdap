@@ -1,7 +1,22 @@
 {
-  "generatedAt": "2026-09-08T15:05:24.220239+00:00",
+  "generatedAt": "2026-09-09T15:05:03.967359+00:00",
   "lookbackDays": 30,
   "rows": [
+    {
+      "corpCode": "00139764",
+      "corpName": "에넥스",
+      "stockCode": "011090",
+      "market": "코스피",
+      "pefNetBuyShares": 3377388,
+      "pefNetBuyRatioPercent": 28.48,
+      "pefNetBuyValueKrw": 4471661712,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "굿뉴스파트너스"
+      ],
+      "latestReportDate": "2026-09-09",
+      "latestReportReason": "매수인 지위 양도ㆍ양수계약 체결"
+    },
     {
       "corpCode": "00115287",
       "corpName": "동방",
@@ -54,7 +69,7 @@
       "market": "코스닥",
       "pefNetBuyShares": 708415,
       "pefNetBuyRatioPercent": 8.19,
-      "pefNetBuyValueKrw": 9131469350,
+      "pefNetBuyValueKrw": 9287320650,
       "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "SBI인베스트먼트"
@@ -198,21 +213,6 @@
       "latestReportReason": "보고자의 보유주식등에 관한 계약 변경"
     },
     {
-      "corpCode": "00109824",
-      "corpName": "대림통상",
-      "stockCode": "006570",
-      "market": "코스피",
-      "pefNetBuyShares": 0,
-      "pefNetBuyRatioPercent": 0.0,
-      "pefNetBuyValueKrw": 0,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "디앤디파트너스"
-      ],
-      "latestReportDate": "2026-09-04",
-      "latestReportReason": "주식담보계약 변경"
-    },
-    {
       "corpCode": "00100601",
       "corpName": "강원에너지",
       "stockCode": "114190",
@@ -288,19 +288,19 @@
       "latestReportReason": "장내매도"
     },
     {
-      "corpCode": "01802928",
-      "corpName": "코스모로보틱스",
-      "stockCode": "439960",
-      "market": "코스닥",
-      "pefNetBuyShares": -885977,
-      "pefNetBuyRatioPercent": -2.73,
-      "pefNetBuyValueKrw": -14636340040,
+      "corpCode": "00109824",
+      "corpName": "대림통상",
+      "stockCode": "006570",
+      "market": "코스피",
+      "pefNetBuyShares": -157880,
+      "pefNetBuyRatioPercent": -1.04,
+      "pefNetBuyValueKrw": -303761120,
       "pefNetBuyValueIsPartial": false,
       "pefReporters": [
-        "엔비에이치캐피탈"
+        "디앤디파트너스"
       ],
-      "latestReportDate": "2026-08-13",
-      "latestReportReason": "장내 매도로 인한 변동"
+      "latestReportDate": "2026-09-09",
+      "latestReportReason": "시간외매매"
     }
   ]
 }
