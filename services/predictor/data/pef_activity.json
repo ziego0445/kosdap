@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-09T15:05:03.967359+00:00",
+  "generatedAt": "2026-09-10T15:05:09.163642+00:00",
   "lookbackDays": 30,
   "rows": [
     {
@@ -9,7 +9,7 @@
       "market": "코스피",
       "pefNetBuyShares": 3377388,
       "pefNetBuyRatioPercent": 28.48,
-      "pefNetBuyValueKrw": 4471661712,
+      "pefNetBuyValueKrw": 4387227012,
       "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "굿뉴스파트너스"
@@ -108,6 +108,21 @@
       "latestReportReason": "장외매수"
     },
     {
+      "corpCode": "01181807",
+      "corpName": "형지글로벌",
+      "stockCode": "308100",
+      "market": "코스닥",
+      "pefNetBuyShares": 639404,
+      "pefNetBuyRatioPercent": 1.42,
+      "pefNetBuyValueKrw": 187345372,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "시너지아이비투자"
+      ],
+      "latestReportDate": "2026-09-10",
+      "latestReportReason": "제11회차 전환사채 일부 상환에 따른 지분변동"
+    },
+    {
       "corpCode": "00632845",
       "corpName": "노랑풍선",
       "stockCode": "104620",
@@ -138,19 +153,19 @@
       "latestReportReason": "장내매매에 따른 보유주식 수 변동"
     },
     {
-      "corpCode": "00131504",
-      "corpName": "서한",
-      "stockCode": "011370",
-      "market": "코스닥",
-      "pefNetBuyShares": 579478,
-      "pefNetBuyRatioPercent": 0.57,
-      "pefNetBuyValueKrw": 2268656370,
+      "corpCode": "00219574",
+      "corpName": "코스맥스비티아이",
+      "stockCode": "044820",
+      "market": "코스피",
+      "pefNetBuyShares": 102991,
+      "pefNetBuyRatioPercent": 1.07,
+      "pefNetBuyValueKrw": 2260652450,
       "pefNetBuyValueIsPartial": false,
       "pefReporters": [
-        "에스에이치인베스트먼트"
+        "리캐피탈"
       ],
-      "latestReportDate": "2026-08-11",
-      "latestReportReason": "단순 추가취득"
+      "latestReportDate": "2026-09-10",
+      "latestReportReason": "장내매수"
     },
     {
       "corpCode": "01265251",
@@ -172,9 +187,9 @@
       "corpName": "프레스티지바이오파마",
       "stockCode": "950210",
       "market": "코스피",
-      "pefNetBuyShares": 19067,
-      "pefNetBuyRatioPercent": 0.17,
-      "pefNetBuyValueKrw": 126419880,
+      "pefNetBuyShares": 9120,
+      "pefNetBuyRatioPercent": 0.08,
+      "pefNetBuyValueKrw": 58382400,
       "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "메이슨파트너스"
@@ -286,21 +301,6 @@
       ],
       "latestReportDate": "2026-08-21",
       "latestReportReason": "장내매도"
-    },
-    {
-      "corpCode": "00109824",
-      "corpName": "대림통상",
-      "stockCode": "006570",
-      "market": "코스피",
-      "pefNetBuyShares": -157880,
-      "pefNetBuyRatioPercent": -1.04,
-      "pefNetBuyValueKrw": -303761120,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "디앤디파트너스"
-      ],
-      "latestReportDate": "2026-09-09",
-      "latestReportReason": "시간외매매"
     }
   ]
 }
