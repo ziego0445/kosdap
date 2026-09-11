@@ -3,12 +3,12 @@
     "price": 260500.0,
     "session": "post_market",
     "trade_date": "2026-09-11",
-    "captured_at": "2026-09-11T07:14:10.348474+00:00"
+    "captured_at": "2026-09-11T07:14:53.719045+00:00"
   },
   "SKHYNIX": {
-    "price": 1817000.0,
+    "price": 1816000.0,
     "session": "post_market",
     "trade_date": "2026-09-11",
-    "captured_at": "2026-09-11T07:14:11.176504+00:00"
+    "captured_at": "2026-09-11T07:14:54.625128+00:00"
   }
 }
