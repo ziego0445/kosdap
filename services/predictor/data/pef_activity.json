@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-10T15:05:09.163642+00:00",
+  "generatedAt": "2026-09-11T15:03:41.547457+00:00",
   "lookbackDays": 30,
   "rows": [
     {
@@ -106,6 +106,21 @@
       ],
       "latestReportDate": "2026-08-28",
       "latestReportReason": "장외매수"
+    },
+    {
+      "corpCode": "02030166",
+      "corpName": "엔에이치스팩34호",
+      "stockCode": "0197V0",
+      "market": "코스닥",
+      "pefNetBuyShares": 500000,
+      "pefNetBuyRatioPercent": 5.52,
+      "pefNetBuyValueKrw": 1037500000,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "컴파파트너스"
+      ],
+      "latestReportDate": "2026-09-11",
+      "latestReportReason": "5% 이상 보유에 따른 공시의무 발생"
     },
     {
       "corpCode": "01181807",
@@ -286,21 +301,6 @@
       ],
       "latestReportDate": "2026-08-27",
       "latestReportReason": "공동목적보유확약 기간 연장 및 확약 대상 주식 수 변경"
-    },
-    {
-      "corpCode": "01605529",
-      "corpName": "버넥트",
-      "stockCode": "438700",
-      "market": "코스닥",
-      "pefNetBuyShares": -110379,
-      "pefNetBuyRatioPercent": -1.0,
-      "pefNetBuyValueKrw": -187865058,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "케이비인베스트먼트"
-      ],
-      "latestReportDate": "2026-08-21",
-      "latestReportReason": "장내매도"
     }
   ]
 }
