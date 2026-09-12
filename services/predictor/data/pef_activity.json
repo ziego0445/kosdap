@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-11T15:03:41.547457+00:00",
+  "generatedAt": "2026-09-12T15:03:36.369440+00:00",
   "lookbackDays": 30,
   "rows": [
     {
@@ -78,21 +78,6 @@
       "latestReportReason": "전환사채 인수"
     },
     {
-      "corpCode": "00155355",
-      "corpName": "풀무원",
-      "stockCode": "017810",
-      "market": "코스피",
-      "pefNetBuyShares": 3375812,
-      "pefNetBuyRatioPercent": 8.14,
-      "pefNetBuyValueKrw": 30956196040,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "엔브이메자닌그로쓰에쿼티사모투자"
-      ],
-      "latestReportDate": "2026-08-13",
-      "latestReportReason": "제3자 배정 유상증자로 인한 주식 취득"
-    },
-    {
       "corpCode": "00537221",
       "corpName": "인바이츠바이오코아",
       "stockCode": "216400",
@@ -114,7 +99,7 @@
       "market": "코스닥",
       "pefNetBuyShares": 500000,
       "pefNetBuyRatioPercent": 5.52,
-      "pefNetBuyValueKrw": 1037500000,
+      "pefNetBuyValueKrw": 965500000,
       "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "컴파파트너스"
@@ -301,6 +286,21 @@
       ],
       "latestReportDate": "2026-08-27",
       "latestReportReason": "공동목적보유확약 기간 연장 및 확약 대상 주식 수 변경"
+    },
+    {
+      "corpCode": "01605529",
+      "corpName": "버넥트",
+      "stockCode": "438700",
+      "market": "코스닥",
+      "pefNetBuyShares": -110379,
+      "pefNetBuyRatioPercent": -1.0,
+      "pefNetBuyValueKrw": -187865058,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "케이비인베스트먼트"
+      ],
+      "latestReportDate": "2026-08-21",
+      "latestReportReason": "장내매도"
     }
   ]
 }
