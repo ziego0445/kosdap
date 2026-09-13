@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-12T15:03:36.369440+00:00",
+  "generatedAt": "2026-09-13T15:03:33.863064+00:00",
   "lookbackDays": 30,
   "rows": [
     {
@@ -228,21 +228,6 @@
       "latestReportReason": "보고자의 보유주식등에 관한 계약 변경"
     },
     {
-      "corpCode": "00100601",
-      "corpName": "강원에너지",
-      "stockCode": "114190",
-      "market": "코스닥",
-      "pefNetBuyShares": 0,
-      "pefNetBuyRatioPercent": 0.0,
-      "pefNetBuyValueKrw": 0,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "평산파트너스"
-      ],
-      "latestReportDate": "2026-08-14",
-      "latestReportReason": "주식 담보대출 계약의 변경"
-    },
-    {
       "corpCode": "01259311",
       "corpName": "푸드나무",
       "stockCode": "290720",
@@ -301,6 +286,21 @@
       ],
       "latestReportDate": "2026-08-21",
       "latestReportReason": "장내매도"
+    },
+    {
+      "corpCode": "00109824",
+      "corpName": "대림통상",
+      "stockCode": "006570",
+      "market": "코스피",
+      "pefNetBuyShares": -157880,
+      "pefNetBuyRatioPercent": -1.04,
+      "pefNetBuyValueKrw": -314181200,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "디앤디파트너스"
+      ],
+      "latestReportDate": "2026-09-09",
+      "latestReportReason": "시간외매매"
     }
   ]
 }
