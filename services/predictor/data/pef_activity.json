@@ -1,22 +1,7 @@
 {
-  "generatedAt": "2026-09-15T15:03:40.863642+00:00",
+  "generatedAt": "2026-09-16T15:03:43.990460+00:00",
   "lookbackDays": 30,
   "rows": [
-    {
-      "corpCode": "00139764",
-      "corpName": "에넥스",
-      "stockCode": "011090",
-      "market": "코스피",
-      "pefNetBuyShares": 3377388,
-      "pefNetBuyRatioPercent": 28.48,
-      "pefNetBuyValueKrw": 4387227012,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "굿뉴스파트너스"
-      ],
-      "latestReportDate": "2026-09-09",
-      "latestReportReason": "매수인 지위 양도ㆍ양수계약 체결"
-    },
     {
       "corpCode": "00115287",
       "corpName": "동방",
@@ -213,6 +198,36 @@
       "latestReportReason": "특별관계자 추가, 주식근질권설정계약 체결"
     },
     {
+      "corpCode": "00139764",
+      "corpName": "에넥스",
+      "stockCode": "011090",
+      "market": "코스피",
+      "pefNetBuyShares": 0,
+      "pefNetBuyRatioPercent": 0.0,
+      "pefNetBuyValueKrw": -1590749748,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "굿뉴스파트너스"
+      ],
+      "latestReportDate": "2026-09-16",
+      "latestReportReason": "매수인 지위 양도ㆍ양수 변경계약 체결"
+    },
+    {
+      "corpCode": "00131896",
+      "corpName": "선광",
+      "stockCode": "003100",
+      "market": "코스닥",
+      "pefNetBuyShares": 0,
+      "pefNetBuyRatioPercent": 0.0,
+      "pefNetBuyValueKrw": 0,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "화인파트너스"
+      ],
+      "latestReportDate": "2026-09-16",
+      "latestReportReason": "- 증여 및 수증에 따른 특별관계자 추가 및 보유주식수 변동"
+    },
+    {
       "corpCode": "00233653",
       "corpName": "한국토지신탁",
       "stockCode": "034830",
@@ -286,21 +301,6 @@
       ],
       "latestReportDate": "2026-08-21",
       "latestReportReason": "장내매도"
-    },
-    {
-      "corpCode": "00109824",
-      "corpName": "대림통상",
-      "stockCode": "006570",
-      "market": "코스피",
-      "pefNetBuyShares": -157880,
-      "pefNetBuyRatioPercent": -1.04,
-      "pefNetBuyValueKrw": -314181200,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "디앤디파트너스"
-      ],
-      "latestReportDate": "2026-09-09",
-      "latestReportReason": "시간외매매"
     }
   ]
 }
