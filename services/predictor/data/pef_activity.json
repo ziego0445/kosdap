@@ -1,7 +1,23 @@
 {
-  "generatedAt": "2026-09-16T15:03:43.990460+00:00",
+  "generatedAt": "2026-09-17T15:03:43.112004+00:00",
   "lookbackDays": 30,
   "rows": [
+    {
+      "corpCode": "02030166",
+      "corpName": "엔에이치스팩34호",
+      "stockCode": "0197V0",
+      "market": "코스닥",
+      "pefNetBuyShares": 1500000,
+      "pefNetBuyRatioPercent": 15.5,
+      "pefNetBuyValueKrw": 2895500000,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "디에이밸류인베스트먼트",
+        "컴파파트너스"
+      ],
+      "latestReportDate": "2026-09-17",
+      "latestReportReason": "5% 이상 보유에 따른 공시의무 발생"
+    },
     {
       "corpCode": "00115287",
       "corpName": "동방",
@@ -16,21 +32,6 @@
       ],
       "latestReportDate": "2026-09-02",
       "latestReportReason": "전환사채 투자에 따른 신규보고"
-    },
-    {
-      "corpCode": "00296324",
-      "corpName": "큐로홀딩스",
-      "stockCode": "051780",
-      "market": "코스닥",
-      "pefNetBuyShares": 1417150,
-      "pefNetBuyRatioPercent": 10.03,
-      "pefNetBuyValueKrw": 3886399190,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "케이파트너스"
-      ],
-      "latestReportDate": "2026-09-07",
-      "latestReportReason": "특수관계인의 주식 매입 및 주식근질권설정변경계약 체결"
     },
     {
       "corpCode": "01461730",
@@ -63,6 +64,21 @@
       "latestReportReason": "전환사채 인수"
     },
     {
+      "corpCode": "00296324",
+      "corpName": "큐로홀딩스",
+      "stockCode": "051780",
+      "market": "코스닥",
+      "pefNetBuyShares": 1270733,
+      "pefNetBuyRatioPercent": 7.72,
+      "pefNetBuyValueKrw": 3467646570,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "케이파트너스"
+      ],
+      "latestReportDate": "2026-09-07",
+      "latestReportReason": "특수관계인의 주식 매입 및 주식근질권설정변경계약 체결"
+    },
+    {
       "corpCode": "00537221",
       "corpName": "인바이츠바이오코아",
       "stockCode": "216400",
@@ -76,21 +92,6 @@
       ],
       "latestReportDate": "2026-08-28",
       "latestReportReason": "장외매수"
-    },
-    {
-      "corpCode": "02030166",
-      "corpName": "엔에이치스팩34호",
-      "stockCode": "0197V0",
-      "market": "코스닥",
-      "pefNetBuyShares": 500000,
-      "pefNetBuyRatioPercent": 5.52,
-      "pefNetBuyValueKrw": 965500000,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "컴파파트너스"
-      ],
-      "latestReportDate": "2026-09-11",
-      "latestReportReason": "5% 이상 보유에 따른 공시의무 발생"
     },
     {
       "corpCode": "01181807",
@@ -198,13 +199,28 @@
       "latestReportReason": "특별관계자 추가, 주식근질권설정계약 체결"
     },
     {
+      "corpCode": "00506294",
+      "corpName": "가비아",
+      "stockCode": "079940",
+      "market": "코스닥",
+      "pefNetBuyShares": 0,
+      "pefNetBuyRatioPercent": 0.0,
+      "pefNetBuyValueKrw": 0,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "얼라인파트너스자산운용"
+      ],
+      "latestReportDate": "2026-09-17",
+      "latestReportReason": "특별관계 해소, 시간외대량매매에 따른 보유주식 변동, 발행회사 주식에 대한 Align Partners Korea Fund LP의 주요계약 효력 상실"
+    },
+    {
       "corpCode": "00139764",
       "corpName": "에넥스",
       "stockCode": "011090",
       "market": "코스피",
       "pefNetBuyShares": 0,
       "pefNetBuyRatioPercent": 0.0,
-      "pefNetBuyValueKrw": -1590749748,
+      "pefNetBuyValueKrw": -1776506088,
       "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "굿뉴스파트너스"
@@ -286,21 +302,6 @@
       ],
       "latestReportDate": "2026-08-27",
       "latestReportReason": "공동목적보유확약 기간 연장 및 확약 대상 주식 수 변경"
-    },
-    {
-      "corpCode": "01605529",
-      "corpName": "버넥트",
-      "stockCode": "438700",
-      "market": "코스닥",
-      "pefNetBuyShares": -110379,
-      "pefNetBuyRatioPercent": -1.0,
-      "pefNetBuyValueKrw": -187865058,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "케이비인베스트먼트"
-      ],
-      "latestReportDate": "2026-08-21",
-      "latestReportReason": "장내매도"
     }
   ]
 }
