@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-17T15:03:43.112004+00:00",
+  "generatedAt": "2026-09-18T15:03:43.070268+00:00",
   "lookbackDays": 30,
   "rows": [
     {
@@ -34,19 +34,19 @@
       "latestReportReason": "전환사채 투자에 따른 신규보고"
     },
     {
-      "corpCode": "01461730",
-      "corpName": "딜리셔스",
-      "stockCode": "483350",
-      "market": "코스닥",
-      "pefNetBuyShares": 1933598,
-      "pefNetBuyRatioPercent": 8.73,
-      "pefNetBuyValueKrw": 7579704160,
-      "pefNetBuyValueIsPartial": false,
+      "corpCode": "00756163",
+      "corpName": "볼빅",
+      "stockCode": "206950",
+      "market": "코넥스",
+      "pefNetBuyShares": 1560062,
+      "pefNetBuyRatioPercent": 8.52,
+      "pefNetBuyValueKrw": 0,
+      "pefNetBuyValueIsPartial": true,
       "pefReporters": [
-        "DSC인베스트먼트"
+        "우리벤처-에버베스트기업재무안정사모투자"
       ],
-      "latestReportDate": "2026-08-19",
-      "latestReportReason": "신규 상장 및 장내 매도"
+      "latestReportDate": "2026-09-18",
+      "latestReportReason": "주식 취득"
     },
     {
       "corpCode": "01299203",
@@ -173,9 +173,9 @@
       "corpName": "프레스티지바이오파마",
       "stockCode": "950210",
       "market": "코스피",
-      "pefNetBuyShares": 9120,
-      "pefNetBuyRatioPercent": 0.08,
-      "pefNetBuyValueKrw": 58382400,
+      "pefNetBuyShares": 4800,
+      "pefNetBuyRatioPercent": 0.04,
+      "pefNetBuyValueKrw": 31296000,
       "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "메이슨파트너스"
@@ -274,21 +274,6 @@
       "latestReportReason": "양도담보주식 매매계약 체결에 따른 보고"
     },
     {
-      "corpCode": "00139214",
-      "corpName": "삼성화재해상보험",
-      "stockCode": "000810",
-      "market": "코스피",
-      "pefNetBuyShares": -342398,
-      "pefNetBuyRatioPercent": -0.61,
-      "pefNetBuyValueKrw": -209889974000,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "슈로더인베스트먼트매니지먼트"
-      ],
-      "latestReportDate": "2026-08-19",
-      "latestReportReason": "단순 취득/처분"
-    },
-    {
       "corpCode": "01544468",
       "corpName": "이엔셀",
       "stockCode": "456070",
@@ -302,6 +287,21 @@
       ],
       "latestReportDate": "2026-08-27",
       "latestReportReason": "공동목적보유확약 기간 연장 및 확약 대상 주식 수 변경"
+    },
+    {
+      "corpCode": "01605529",
+      "corpName": "버넥트",
+      "stockCode": "438700",
+      "market": "코스닥",
+      "pefNetBuyShares": -110379,
+      "pefNetBuyRatioPercent": -1.0,
+      "pefNetBuyValueKrw": -187865058,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "케이비인베스트먼트"
+      ],
+      "latestReportDate": "2026-08-21",
+      "latestReportReason": "장내매도"
     }
   ]
 }
