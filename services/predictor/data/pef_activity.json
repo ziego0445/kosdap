@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-18T15:03:43.070268+00:00",
+  "generatedAt": "2026-09-19T15:03:40.930797+00:00",
   "lookbackDays": 30,
   "rows": [
     {
@@ -154,21 +154,6 @@
       "latestReportReason": "장내매수"
     },
     {
-      "corpCode": "01265251",
-      "corpName": "츌립앤사이언스",
-      "stockCode": "291650",
-      "market": "코스닥",
-      "pefNetBuyShares": -2383278,
-      "pefNetBuyRatioPercent": 0.36,
-      "pefNetBuyValueKrw": -4742723220,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "에이치엔제이인베스트먼트"
-      ],
-      "latestReportDate": "2026-08-20",
-      "latestReportReason": "발행회사의 주식병합 및 전환사채 전환가액 조정"
-    },
-    {
       "corpCode": "01510489",
       "corpName": "프레스티지바이오파마",
       "stockCode": "950210",
@@ -302,6 +287,21 @@
       ],
       "latestReportDate": "2026-08-21",
       "latestReportReason": "장내매도"
+    },
+    {
+      "corpCode": "00109824",
+      "corpName": "대림통상",
+      "stockCode": "006570",
+      "market": "코스피",
+      "pefNetBuyShares": -157880,
+      "pefNetBuyRatioPercent": -1.04,
+      "pefNetBuyValueKrw": -314181200,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "디앤디파트너스"
+      ],
+      "latestReportDate": "2026-09-09",
+      "latestReportReason": "시간외매매"
     }
   ]
 }
