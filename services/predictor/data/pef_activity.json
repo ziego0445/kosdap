@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-19T15:03:40.930797+00:00",
+  "generatedAt": "2026-09-20T15:03:39.812701+00:00",
   "lookbackDays": 30,
   "rows": [
     {
@@ -274,21 +274,6 @@
       "latestReportReason": "공동목적보유확약 기간 연장 및 확약 대상 주식 수 변경"
     },
     {
-      "corpCode": "01605529",
-      "corpName": "버넥트",
-      "stockCode": "438700",
-      "market": "코스닥",
-      "pefNetBuyShares": -110379,
-      "pefNetBuyRatioPercent": -1.0,
-      "pefNetBuyValueKrw": -187865058,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "케이비인베스트먼트"
-      ],
-      "latestReportDate": "2026-08-21",
-      "latestReportReason": "장내매도"
-    },
-    {
       "corpCode": "00109824",
       "corpName": "대림통상",
       "stockCode": "006570",
@@ -302,6 +287,21 @@
       ],
       "latestReportDate": "2026-09-09",
       "latestReportReason": "시간외매매"
+    },
+    {
+      "corpCode": "01802928",
+      "corpName": "코스모로보틱스",
+      "stockCode": "439960",
+      "market": "코스닥",
+      "pefNetBuyShares": -515903,
+      "pefNetBuyRatioPercent": -1.59,
+      "pefNetBuyValueKrw": -5907089350,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "엔비에이치캐피탈"
+      ],
+      "latestReportDate": "2026-09-14",
+      "latestReportReason": "장내 매도로 인한 변동"
     }
   ]
 }
