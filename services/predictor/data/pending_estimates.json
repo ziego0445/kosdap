@@ -2,15 +2,15 @@
   "SAMSUNG": {
     "based_on_date": "2026-09-23",
     "based_on_price": 285500.0,
-    "predicted_price": 281822,
+    "predicted_price": 281815,
     "change_percent": -1.29,
-    "predicted_at": "2026-09-23T23:25:13.612975+00:00"
+    "predicted_at": "2026-09-23T23:40:13.641396+00:00"
   },
   "SKHYNIX": {
     "based_on_date": "2026-09-23",
     "based_on_price": 1862000.0,
-    "predicted_price": 1799239,
+    "predicted_price": 1799251,
     "change_percent": -3.37,
-    "predicted_at": "2026-09-23T23:25:14.433184+00:00"
+    "predicted_at": "2026-09-23T23:40:14.480813+00:00"
   }
 }
