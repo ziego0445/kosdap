@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-22T15:01:16.088331+00:00",
+  "generatedAt": "2026-09-23T15:01:13.630269+00:00",
   "lookbackDays": 30,
   "rows": [
     {
@@ -62,21 +62,6 @@
       ],
       "latestReportDate": "2026-09-08",
       "latestReportReason": "전환사채 인수"
-    },
-    {
-      "corpCode": "00296324",
-      "corpName": "큐로홀딩스",
-      "stockCode": "051780",
-      "market": "코스닥",
-      "pefNetBuyShares": 1270733,
-      "pefNetBuyRatioPercent": 7.72,
-      "pefNetBuyValueKrw": 3467646570,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "케이파트너스"
-      ],
-      "latestReportDate": "2026-09-07",
-      "latestReportReason": "특수관계인의 주식 매입 및 주식근질권설정변경계약 체결"
     },
     {
       "corpCode": "00537221",
@@ -154,6 +139,21 @@
       "latestReportReason": "장내매수"
     },
     {
+      "corpCode": "00296324",
+      "corpName": "큐로홀딩스",
+      "stockCode": "051780",
+      "market": "코스닥",
+      "pefNetBuyShares": 6324,
+      "pefNetBuyRatioPercent": 0.08,
+      "pefNetBuyValueKrw": 15810000,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "케이파트너스"
+      ],
+      "latestReportDate": "2026-09-07",
+      "latestReportReason": "특수관계인의 주식 매입 및 주식근질권설정변경계약 체결"
+    },
+    {
       "corpCode": "01510489",
       "corpName": "프레스티지바이오파마",
       "stockCode": "950210",
@@ -167,36 +167,6 @@
       ],
       "latestReportDate": "2026-09-01",
       "latestReportReason": "특별관계자 지분 변동"
-    },
-    {
-      "corpCode": "01412822",
-      "corpName": "솔루스첨단소재",
-      "stockCode": "336370",
-      "market": "코스피",
-      "pefNetBuyShares": 26408,
-      "pefNetBuyRatioPercent": 0.04,
-      "pefNetBuyValueKrw": 194626960,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "스카이레이크롱텀스트래티직인베스트먼트"
-      ],
-      "latestReportDate": "2026-08-24",
-      "latestReportReason": "특별관계자 추가, 주식근질권설정계약 체결"
-    },
-    {
-      "corpCode": "00506294",
-      "corpName": "가비아",
-      "stockCode": "079940",
-      "market": "코스닥",
-      "pefNetBuyShares": 0,
-      "pefNetBuyRatioPercent": 0.0,
-      "pefNetBuyValueKrw": 0,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "얼라인파트너스자산운용"
-      ],
-      "latestReportDate": "2026-09-17",
-      "latestReportReason": "특별관계 해소, 시간외대량매매에 따른 보유주식 변동, 발행회사 주식에 대한 Align Partners Korea Fund LP의 주요계약 효력 상실"
     },
     {
       "corpCode": "00139764",
@@ -302,6 +272,36 @@
       ],
       "latestReportDate": "2026-09-14",
       "latestReportReason": "장내 매도로 인한 변동"
+    },
+    {
+      "corpCode": "00327396",
+      "corpName": "옵트론텍",
+      "stockCode": "082210",
+      "market": "코스닥",
+      "pefNetBuyShares": -216280,
+      "pefNetBuyRatioPercent": -1.8,
+      "pefNetBuyValueKrw": -379571400,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "얼머스인베스트먼트"
+      ],
+      "latestReportDate": "2026-09-15",
+      "latestReportReason": "주식매도"
+    },
+    {
+      "corpCode": "00412348",
+      "corpName": "LB세미콘",
+      "stockCode": "061970",
+      "market": "코스닥",
+      "pefNetBuyShares": 414086,
+      "pefNetBuyRatioPercent": -1.9,
+      "pefNetBuyValueKrw": 1691541310,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "유암코-케이비크레딧제1호사모투자"
+      ],
+      "latestReportDate": "2026-09-10",
+      "latestReportReason": "전환사채 행사가액 변동 및 대차 거래에 따른 지분 변동"
     }
   ]
 }
