@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-23T15:01:13.630269+00:00",
+  "generatedAt": "2026-09-24T15:01:06.096554+00:00",
   "lookbackDays": 30,
   "rows": [
     {
@@ -107,21 +107,6 @@
       ],
       "latestReportDate": "2026-08-31",
       "latestReportReason": "전환가액 조정으로 인한 보고"
-    },
-    {
-      "corpCode": "00360036",
-      "corpName": "백금T&A",
-      "stockCode": "046310",
-      "market": "코스닥",
-      "pefNetBuyShares": 202144,
-      "pefNetBuyRatioPercent": 1.23,
-      "pefNetBuyValueKrw": 483124160,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "차파트너스자산운용"
-      ],
-      "latestReportDate": "2026-08-25",
-      "latestReportReason": "장내매매에 따른 보유주식 수 변동"
     },
     {
       "corpCode": "00219574",
@@ -302,6 +287,21 @@
       ],
       "latestReportDate": "2026-09-10",
       "latestReportReason": "전환사채 행사가액 변동 및 대차 거래에 따른 지분 변동"
+    },
+    {
+      "corpCode": "01859500",
+      "corpName": "아이엠바이오로직스",
+      "stockCode": "493280",
+      "market": "코스닥",
+      "pefNetBuyShares": -280991,
+      "pefNetBuyRatioPercent": -1.93,
+      "pefNetBuyValueKrw": -4209245180,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "신한벤처투자"
+      ],
+      "latestReportDate": "2026-09-10",
+      "latestReportReason": "보유주식 장내매도에 따른 공시"
     }
   ]
 }
