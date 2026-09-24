@@ -16,3 +16,8 @@ pykrx>=1.2.8
 # 결과(2026-08-14) KRX API 쪽 문제로 에러가 나 못 씀 — holidays는 오프라인
 # 계산이라 그런 문제 자체가 없음.
 holidays>=0.50
+# 사모펀드 수급 리포트 네이버 블로그 자동 발행(pef_blog_post.py) — 이미
+# --remote-debugging-port=9222로 띄워둔 로그인된 크롬에 CDP로 붙어서 쓴다.
+# 브라우저 바이너리는 따로 설치 안 해도 됨(playwright install 불필요) —
+# 우리가 직접 브라우저를 띄우는 게 아니라 기존 크롬에 연결만 하기 때문.
+playwright>=1.40

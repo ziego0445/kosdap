@@ -14,6 +14,7 @@ from pathlib import Path
 import accuracy_log
 import db
 import last_real_price
+import pef_blog_post
 import pef_flow_tracker
 import pef_tracker
 import token_change_cache
@@ -183,6 +184,26 @@ def _maybe_collect_pef_combined_signal() -> None:
     _save_last_run_date("last_pef_combined_date", today)
 
 
+def _maybe_post_daily_blog() -> None:
+    """사모펀드 수급 분석 글(제목/본문/요약카드 이미지)을 하루 1회
+    준비해서 data/blog_post_draft.txt로 저장한다 (pef_blog_post.py 참고).
+    PEF 데이터 수집(위 3개 함수) 뒤에 불러야 오늘자 신선한 데이터로 써진다.
+
+    2026-09-24부터: 네이버 에디터 브라우저 자동화(Playwright)로 직접
+    발행까지 시켜봤는데, 발행 직전에 제목/본문 첫 줄이 서로 섞여 들어가는
+    문제가 반복 재현되고 원인을 못 찾았다 — 그래서 자동 발행은 접고,
+    사람이 draft 파일을 보고 직접(또는 ChatGPT 등을 통해) 올리는 것으로
+    범위를 줄였다. 이 함수는 글만 준비해둔다."""
+    today = dt.datetime.now(KST).date().isoformat()
+    if today == _load_last_run_date("last_blog_post_date"):
+        return
+    try:
+        pef_blog_post.run_daily_post()
+    except Exception:
+        logger.exception("사모펀드 블로그 글 준비 실패")
+    _save_last_run_date("last_blog_post_date", today)
+
+
 def run_once() -> None:
     equity_changes = collect_equity_changes()
     macro_changes = collect_macro_changes()
@@ -192,6 +213,7 @@ def run_once() -> None:
     _maybe_collect_pef_activity()
     _maybe_collect_pef_flow_activity()
     _maybe_collect_pef_combined_signal()
+    _maybe_post_daily_blog()
 
     # market_hours.get_session()과 동일하게 KST 기준으로 판정 (실행 서버가
     # 다른 시간대여도 일관되게 나오도록 — 예전엔 로컬 시간대 기준이라 어긋날 수 있었음)
