@@ -411,6 +411,7 @@ def publish_to_naver(title: str, lines: list[str], tags: str, image_path: Path |
 
 
 _DRAFT_PATH = _DATA_DIR / "blog_post_draft.txt"
+_PUBLISHED_PATH = _DATA_DIR / "blog_last_published.json"
 
 
 def save_draft(title: str, lines: list[str], tags: str, card_path: Path | None, trade_date: str) -> Path:
@@ -449,8 +450,17 @@ def run_daily_post() -> None:
     draft_path = save_draft(title, lines, tags, card_path, trade_date)
     logger.info("네이버 블로그용 글 준비 완료 (%s 기준): %s", trade_date, draft_path)
 
+    published = _load_json(_PUBLISHED_PATH, {})
+    if published.get("trade_date") == trade_date:
+        logger.info("%s 거래일 글은 이미 발행됨(%s) — 휴장일 중복 발행 방지로 건너뜀",
+                    trade_date, published.get("url"))
+        return
+
     url = publish_to_naver(title, lines, tags, card_path)
     if url:
+        _PUBLISHED_PATH.write_text(
+            json.dumps({"trade_date": trade_date, "url": url}, ensure_ascii=False), encoding="utf-8"
+        )
         logger.info("네이버 블로그 발행 완료: %s", url)
     else:
         logger.warning("네이버 블로그 자동 발행 실패 — draft 파일로 수동 업로드 필요")
