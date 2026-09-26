@@ -35,6 +35,21 @@ function formatKrwApprox(value: number, isPartial: boolean): string {
   return isPartial ? `${body}+` : body;
 }
 
+/** ISO 타임스탬프를 "2026-09-26 11:20" 형태(한국 시간)로. 파싱 실패 시 null. */
+function formatUpdatedAt(iso: string | null | undefined): string | null {
+  if (!iso) return null;
+  const d = new Date(iso);
+  if (Number.isNaN(d.getTime())) return null;
+  return d.toLocaleString("ko-KR", {
+    timeZone: "Asia/Seoul",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+}
+
 function MarketBadge({ market }: { market: string | null }) {
   if (!market) return null;
   const isKospi = market === "코스피";
@@ -63,6 +78,18 @@ export default function PefActivityPage() {
   const combinedRows = combinedData?.rows ?? [];
 
   const topPicks = buildTopPicks(flowRows, combinedRows, dartRows);
+
+  const latestGeneratedAt = [
+    dartData?.generatedAt,
+    flowData?.generatedAt,
+    combinedData?.generatedAt,
+  ]
+    .filter((v): v is string => !!v)
+    .reduce<string | null>((latest, cur) => {
+      if (!latest) return cur;
+      return new Date(cur).getTime() > new Date(latest).getTime() ? cur : latest;
+    }, null);
+  const updatedAtLabel = formatUpdatedAt(latestGeneratedAt);
 
   const header = (
     <div className="space-y-1">
@@ -93,6 +120,11 @@ export default function PefActivityPage() {
           사모펀드 수급·복합 신호·DART 공시를 전부 합쳐서, 그중 가장
           눈에 띄는 5종목만 뽑았어요.
         </p>
+        {updatedAtLabel && (
+          <p className="text-[10px] text-muted-foreground/70">
+            최종 업데이트: {updatedAtLabel} (KST)
+          </p>
+        )}
       </CardHeader>
       <CardContent className="space-y-2 px-3 sm:px-6">
         {topPicks.map((p) => (
