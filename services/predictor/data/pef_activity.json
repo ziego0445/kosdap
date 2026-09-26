@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-25T15:01:09.815844+00:00",
+  "generatedAt": "2026-09-26T15:01:07.785402+00:00",
   "lookbackDays": 30,
   "rows": [
     {
@@ -214,21 +214,6 @@
       "latestReportReason": "양도담보주식 매매계약 체결에 따른 보고"
     },
     {
-      "corpCode": "01544468",
-      "corpName": "이엔셀",
-      "stockCode": "456070",
-      "market": "코스닥",
-      "pefNetBuyShares": 0,
-      "pefNetBuyRatioPercent": -0.7,
-      "pefNetBuyValueKrw": 0,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "원앤파트너스"
-      ],
-      "latestReportDate": "2026-08-27",
-      "latestReportReason": "공동목적보유확약 기간 연장 및 확약 대상 주식 수 변경"
-    },
-    {
       "corpCode": "00109824",
       "corpName": "대림통상",
       "stockCode": "006570",
@@ -302,6 +287,21 @@
       ],
       "latestReportDate": "2026-09-10",
       "latestReportReason": "보유주식 장내매도에 따른 공시"
+    },
+    {
+      "corpCode": "01228515",
+      "corpName": "앱튼",
+      "stockCode": "270520",
+      "market": "코스닥",
+      "pefNetBuyShares": 1200292,
+      "pefNetBuyRatioPercent": -3.73,
+      "pefNetBuyValueKrw": 3678894980,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "유토피아 파트너스"
+      ],
+      "latestReportDate": "2026-09-10",
+      "latestReportReason": "1. 전환청구권 행사에 따른 보유주식등의 내역 변경\n2. 발행회사의 주식수 증가로 인한 보유비율 변동"
     }
   ]
 }
