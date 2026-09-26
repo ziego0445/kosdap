@@ -340,6 +340,10 @@ def publish_to_naver(title: str, lines: list[str], tags: str, image_path: Path |
                     if frame.locator(".se-popup-transfer-error").count() > 0:
                         logger.warning("요약 카드 이미지 업로드 실패")
                         page.keyboard.press("Escape")
+                    sidebar_close = frame.locator(".se-sidebar-close-button")
+                    if sidebar_close.count() > 0 and sidebar_close.first.is_visible():
+                        _click_center(page, sidebar_close.first)  # 업로드 후 열리는 라이브러리 패널
+                        page.wait_for_timeout(400)
                 except Exception:
                     logger.exception("요약 카드 이미지 삽입 실패 — 이미지 없이 진행")
 
