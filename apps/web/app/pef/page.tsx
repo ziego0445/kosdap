@@ -12,6 +12,7 @@ import { KakaoAdFit } from "@/components/kakao-adfit";
 import { readLivePefActivity } from "@/lib/live-pef";
 import { readLivePefFlowActivity } from "@/lib/live-pef-flow";
 import { readLivePefCombinedSignal } from "@/lib/live-pef-combined";
+import { buildTopPicks } from "@/lib/pef-picks";
 
 /** 억원 단위가 감이 잘 오니 그걸 우선으로, 너무 작으면 만원 단위로. */
 function formatKrw(value: number, { approx = false }: { approx?: boolean } = {}) {
@@ -61,6 +62,8 @@ export default function PefActivityPage() {
   const combinedData = readLivePefCombinedSignal();
   const combinedRows = combinedData?.rows ?? [];
 
+  const topPicks = buildTopPicks(flowRows, combinedRows, dartRows);
+
   const header = (
     <div className="space-y-1">
       <h1 className="text-2xl font-bold tracking-tight">
@@ -73,6 +76,50 @@ export default function PefActivityPage() {
         보여줍니다.
       </p>
     </div>
+  );
+
+  const topPicksCard = topPicks.length > 0 && (
+    <Card
+      size="sm"
+      className="overflow-hidden border-white/10 bg-gradient-to-br from-[#3987e5]/10 via-transparent to-[#d55181]/10"
+    >
+      <CardHeader>
+        <CardTitle className="text-base">
+          <span className="bg-gradient-to-r from-[#3987e5] to-[#d55181] bg-clip-text text-transparent">
+            오늘의 종합 추천 Top 5
+          </span>
+        </CardTitle>
+        <p className="text-[11px] text-muted-foreground">
+          사모펀드 수급·복합 신호·DART 공시를 전부 합쳐서, 그중 가장
+          눈에 띄는 5종목만 뽑았어요.
+        </p>
+      </CardHeader>
+      <CardContent className="space-y-2 px-3 sm:px-6">
+        {topPicks.map((p) => (
+          <div
+            key={p.ticker}
+            className="flex items-start gap-3 rounded-lg bg-white/[0.03] p-2.5"
+          >
+            <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#3987e5] to-[#d55181] text-xs font-bold text-white">
+              {p.rank}
+            </div>
+            <div className="min-w-0 flex-1">
+              <div className="flex flex-wrap items-center gap-1.5">
+                <span className="font-semibold">{p.name}</span>
+                <span className="text-[10px] text-muted-foreground">
+                  {p.ticker}
+                </span>
+                <MarketBadge market={p.market} />
+              </div>
+              <p className="mt-0.5 text-xs font-medium text-[#e66767]">
+                {p.reason}
+              </p>
+              <p className="text-[10px] text-muted-foreground">{p.detail}</p>
+            </div>
+          </div>
+        ))}
+      </CardContent>
+    </Card>
   );
 
   const topAd = (
@@ -164,6 +211,7 @@ export default function PefActivityPage() {
   return (
     <div className="space-y-5">
       {header}
+      {topPicksCard}
       {topAd}
 
       {combinedRows.length > 0 && (
