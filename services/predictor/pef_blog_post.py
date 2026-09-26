@@ -21,6 +21,9 @@
   이 팝업의 확인/취소와 무관하게 예전 임시저장 내용이 뜰 수 있어서,
   제목/본문을 항상 쓰고 나서 검증하는 게 안전하다(여기서는 새 글만
   다루므로 취소로 충분).
+- 제목/본문은 keyboard.type이 아니라 에디터의 input_buffer iframe에
+  paste 이벤트를 쏴서 넣는다(_paste 참고) — 글자 단위 타이핑은 제목과
+  본문이 섞이는 문제가 있었다(2026-09-26 원인 확인·수정).
 - 발행 성공 여부는 블로그 홈을 다시 긁어서 logNo를 찾는 방식이 아니라
   (예전 글의 logNo를 잘못 주워서 성공한 것처럼 오탐났었다), 발행 버튼
   클릭 후 실제로 URL이 .../숫자 로 바뀌는지로 확인해야 한다.
@@ -29,6 +32,7 @@
 from __future__ import annotations
 
 import datetime as dt
+import html
 import json
 import logging
 import re
@@ -39,7 +43,7 @@ import blog_card
 logger = logging.getLogger(__name__)
 
 _DATA_DIR = Path(__file__).resolve().parent / "data"
-_CDP_URL = "http://localhost:9222"
+_CDP_URL = "http://127.0.0.1:9222"  # localhost는 ::1로 풀려 연결 거부됨
 _BLOG_ID = "opzx77"
 _CATEGORY = "매일 주식 추천"
 _SITE_URL = "https://ziego0445.github.io/kosdap/pef"
@@ -221,6 +225,45 @@ def generate_post(trade_date: str, highlights: list[dict]) -> tuple[str, list[st
     return title, lines, tags, date_kr
 
 
+_PASTE_JS = """
+([text, htmlStr]) => {
+  const dt = new DataTransfer();
+  dt.setData('text/plain', text);
+  if (htmlStr) dt.setData('text/html', htmlStr);
+  const target = document.activeElement || document.body;
+  target.dispatchEvent(new ClipboardEvent('paste', {clipboardData: dt, bubbles: true, cancelable: true}));
+}
+"""
+
+
+def _click_center(page, locator) -> None:
+    b = locator.bounding_box()
+    page.mouse.click(b["x"] + b["width"] / 2, b["y"] + b["height"] / 2)
+
+
+def _paste(frame, text: str, html_str: str | None) -> bool:
+    # 스마트에디터는 모든 칸이 공유하는 숨은 input_buffer iframe으로 키 입력을
+    # 받아 포커스된 칸에 옮겨 적는다. 한 글자씩 치면 칸을 옮길 때 버퍼에 남은
+    # 글자가 다른 칸으로 새서 제목/본문이 섞였다 — 통째로 paste 이벤트 한 번.
+    for child in frame.child_frames:
+        if child.name.startswith("input_buffer"):
+            child.evaluate(_PASTE_JS, [text, html_str])
+            return True
+    return False
+
+
+def _lines_to_html(lines: list[str]) -> str:
+    out = []
+    for ln in lines:
+        if ln == "":
+            out.append("<p><br></p>")
+        elif ln.startswith("▶"):
+            out.append(f"<p><b>{html.escape(ln)}</b></p>")
+        else:
+            out.append(f"<p>{html.escape(ln)}</p>")
+    return "".join(out)
+
+
 def publish_to_naver(title: str, lines: list[str], tags: str, image_path: Path | None = None) -> str | None:
     """새 글로 작성해서 발행. 성공하면 게시글 URL, 실패하면 None (예외를
     올리지 않는다 — 크롬이 안 떠있거나 로그인이 안 된 상태가 흔할 수 있어서
@@ -273,46 +316,38 @@ def publish_to_naver(title: str, lines: list[str], tags: str, image_path: Path |
                 pass
 
             title_el = frame.locator(".se-title-text").first
-            tbox = title_el.bounding_box()
-            page.mouse.click(tbox["x"] + tbox["width"] / 2, tbox["y"] + tbox["height"] / 2)
-            page.wait_for_timeout(300)
-            page.keyboard.press("Control+A")
-            page.keyboard.press("Delete")
-            page.wait_for_timeout(200)
-            page.keyboard.type(title, delay=12)
+            _click_center(page, title_el)
             page.wait_for_timeout(400)
-            if title not in title_el.inner_text():
-                logger.warning("제목 입력 검증 실패 — 그대로 진행")
+            if not _paste(frame, title, None):
+                logger.warning("에디터 입력 버퍼를 못 찾음 — 발행 중단")
+                page.close()
+                return None
+            page.wait_for_timeout(800)
 
-            body_ph = frame.locator(".se-component-content .se-text-paragraph, .se-placeholder").first
-            body_ph.click(timeout=5000)
-            page.wait_for_timeout(200)
-            page.keyboard.press("Control+A")
-            page.keyboard.press("Delete")
+            _click_center(page, frame.locator(".se-component-content .se-text-paragraph, .se-placeholder").last)
+            page.wait_for_timeout(400)
+            _paste(frame, "\n".join(lines), _lines_to_html(lines))
+            page.wait_for_timeout(2000)
 
             if image_path and image_path.exists():
                 try:
+                    _click_center(page, frame.locator(".se-component-content .se-text-paragraph").last)
+                    page.keyboard.press("End")
                     with page.expect_file_chooser(timeout=10000) as fc_info:
                         frame.click("button[data-name='image']", timeout=5000)
                     fc_info.value.set_files(str(image_path))
-                    page.wait_for_timeout(4500)
+                    page.wait_for_timeout(5000)
                     if frame.locator(".se-popup-transfer-error").count() > 0:
                         logger.warning("요약 카드 이미지 업로드 실패")
                         page.keyboard.press("Escape")
-                    page.keyboard.press("End")
-                    page.keyboard.press("Enter")
                 except Exception:
-                    logger.exception("요약 카드 이미지 삽입 실패")
+                    logger.exception("요약 카드 이미지 삽입 실패 — 이미지 없이 진행")
 
-            for line in lines:
-                if line == "":
-                    page.keyboard.press("Enter")
-                else:
-                    page.keyboard.type(line, delay=5)
-                    page.keyboard.press("Enter")
-                page.wait_for_timeout(120)
-
-            page.wait_for_timeout(2000)
+            page.wait_for_timeout(1500)
+            got_title = title_el.inner_text().replace("\xa0", " ").strip()
+            if got_title != title:
+                logger.warning("제목 검증 실패 — 발행 중단 (기대=%r, 실제=%r)", title, got_title)
+                return None
 
             open_btn = frame.get_by_text("발행", exact=True).first
             obox = open_btn.bounding_box()
@@ -413,3 +448,9 @@ def run_daily_post() -> None:
 
     draft_path = save_draft(title, lines, tags, card_path, trade_date)
     logger.info("네이버 블로그용 글 준비 완료 (%s 기준): %s", trade_date, draft_path)
+
+    url = publish_to_naver(title, lines, tags, card_path)
+    if url:
+        logger.info("네이버 블로그 발행 완료: %s", url)
+    else:
+        logger.warning("네이버 블로그 자동 발행 실패 — draft 파일로 수동 업로드 필요")

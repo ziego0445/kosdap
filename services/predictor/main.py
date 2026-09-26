@@ -189,11 +189,8 @@ def _maybe_post_daily_blog() -> None:
     준비해서 data/blog_post_draft.txt로 저장한다 (pef_blog_post.py 참고).
     PEF 데이터 수집(위 3개 함수) 뒤에 불러야 오늘자 신선한 데이터로 써진다.
 
-    2026-09-24부터: 네이버 에디터 브라우저 자동화(Playwright)로 직접
-    발행까지 시켜봤는데, 발행 직전에 제목/본문 첫 줄이 서로 섞여 들어가는
-    문제가 반복 재현되고 원인을 못 찾았다 — 그래서 자동 발행은 접고,
-    사람이 draft 파일을 보고 직접(또는 ChatGPT 등을 통해) 올리는 것으로
-    범위를 줄였다. 이 함수는 글만 준비해둔다."""
+    draft 파일을 항상 남기고, 디버그 크롬(9222)이 떠있으면 네이버에
+    자동 발행까지 한다. 발행 실패 시엔 draft로 수동 업로드."""
     today = dt.datetime.now(KST).date().isoformat()
     if today == _load_last_run_date("last_blog_post_date"):
         return
