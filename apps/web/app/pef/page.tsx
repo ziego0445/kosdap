@@ -50,6 +50,45 @@ function formatUpdatedAt(iso: string | null | undefined): string | null {
   });
 }
 
+/** 종목명 아래 한 줄: 종가 · 매수 기간 주가 · 거래량 배수 · 사모 거래 비중. 값 있는 것만. */
+function PriceVolumeLine({
+  closePrice,
+  streakPriceChangePercent,
+  volumeRatio,
+  pefBuySharePercent,
+}: {
+  closePrice: number | null;
+  streakPriceChangePercent: number | null;
+  volumeRatio: number | null;
+  pefBuySharePercent: number | null;
+}) {
+  const items: React.ReactNode[] = [];
+  if (closePrice !== null) items.push(<span key="c">{closePrice.toLocaleString("ko-KR")}원</span>);
+  if (streakPriceChangePercent !== null) {
+    const v = streakPriceChangePercent;
+    items.push(
+      <span key="s" className={v > 0 ? "text-[#e66767]" : v < 0 ? "text-[#3987e5]" : undefined}>
+        매수기간 {v > 0 ? "+" : ""}
+        {v}%
+      </span>,
+    );
+  }
+  if (volumeRatio !== null) {
+    items.push(
+      <span key="v" className={volumeRatio >= 2 ? "font-semibold text-amber-400" : undefined}>
+        거래량 {volumeRatio}배
+      </span>,
+    );
+  }
+  if (pefBuySharePercent !== null) items.push(<span key="p">사모비중 {pefBuySharePercent}%</span>);
+  if (items.length === 0) return null;
+  return (
+    <div className="flex min-w-[8.5rem] flex-wrap gap-x-1.5 text-[10px] text-muted-foreground tabular-nums [&>span]:whitespace-nowrap">
+      {items}
+    </div>
+  );
+}
+
 function MarketBadge({ market }: { market: string | null }) {
   if (!market) return null;
   const isKospi = market === "코스피";
@@ -147,6 +186,11 @@ export default function PefActivityPage() {
                 {p.reason}
               </p>
               <p className="text-[10px] text-muted-foreground">{p.detail}</p>
+              {p.caution && (
+                <p className="text-[10px] font-medium text-amber-400">
+                  ⚠ {p.caution}
+                </p>
+              )}
             </div>
           </div>
         ))}
@@ -279,6 +323,7 @@ export default function PefActivityPage() {
                       <div className="text-[10px] text-muted-foreground">
                         {r.ticker}
                       </div>
+                      <PriceVolumeLine {...r} />
                     </TableCell>
                     <TableCell className="text-right tabular-nums">
                       {r.pefConsecutiveBuyDays > 0 ? (
@@ -353,6 +398,7 @@ export default function PefActivityPage() {
                       <div className="text-[10px] text-muted-foreground">
                         {r.ticker}
                       </div>
+                      <PriceVolumeLine {...r} />
                     </TableCell>
                     <TableCell className="text-right tabular-nums">
                       {r.consecutiveBuyDays >= 2 ? (

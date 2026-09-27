@@ -93,6 +93,13 @@ export interface PefFlowActivityRow {
   streakTotalValueKrw: number;
   marketCapKrw: number | null;
   netBuyPercentOfCap: number | null;
+  closePrice: number | null;
+  /** 오늘 거래량 ÷ 최근 20거래일 평균. 시세 스냅샷이 5일 이상 쌓여야 값이 생김. */
+  volumeRatio: number | null;
+  /** 연속매수 시작 전날 종가 대비 오늘 종가 변화(%). */
+  streakPriceChangePercent: number | null;
+  /** 오늘 전체 거래대금 중 사모가 매수한 비중(%). */
+  pefBuySharePercent: number | null;
 }
 
 /**
@@ -120,4 +127,9 @@ export interface PefCombinedSignalRow {
   /** pefConsecutiveBuyDays + institutionConsecutiveBuyDays, 정렬 기준. */
   combinedScore: number;
   sampleDays: number;
+  closePrice: number | null;
+  volumeRatio: number | null;
+  /** 사모/기관 중 더 긴 연속매수 기간 동안의 주가 변화(%). */
+  streakPriceChangePercent: number | null;
+  pefBuySharePercent: number | null;
 }

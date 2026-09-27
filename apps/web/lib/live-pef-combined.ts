@@ -6,8 +6,15 @@ interface RawPefCombinedSignal {
   generatedAt: string;
   tradeDate: string | null;
   historyTradingDaysApprox: number;
-  rows: PefCombinedSignalRow[];
+  rows: (Omit<PefCombinedSignalRow, PriceVolumeKeys> &
+    Partial<Pick<PefCombinedSignalRow, PriceVolumeKeys>>)[];
 }
+
+type PriceVolumeKeys =
+  | "closePrice"
+  | "volumeRatio"
+  | "streakPriceChangePercent"
+  | "pefBuySharePercent";
 
 export interface LivePefCombinedSignal {
   generatedAt: string;
@@ -26,7 +33,17 @@ export function readLivePefCombinedSignal(): LivePefCombinedSignal | null {
     const filePath = path.join(process.cwd(), "public", "pef-combined-signal.json");
     if (!fs.existsSync(filePath)) return null;
     const raw = fs.readFileSync(filePath, "utf-8");
-    return JSON.parse(raw) as RawPefCombinedSignal;
+    const parsed = JSON.parse(raw) as RawPefCombinedSignal;
+    return {
+      ...parsed,
+      rows: parsed.rows.map((r) => ({
+        ...r,
+        closePrice: r.closePrice ?? null,
+        volumeRatio: r.volumeRatio ?? null,
+        streakPriceChangePercent: r.streakPriceChangePercent ?? null,
+        pefBuySharePercent: r.pefBuySharePercent ?? null,
+      })),
+    };
   } catch {
     return null;
   }

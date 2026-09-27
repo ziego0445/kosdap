@@ -95,6 +95,89 @@ def _compute_streak(history: pd.Series) -> tuple[int, float]:
     return days, total
 
 
+_SNAPSHOT_DIR = _DATA_DIR / "market_snapshots"
+_SNAPSHOT_KEEP = 25  # 거래일 기준 보관 개수 (20일 평균 + 여유)
+_VOLUME_RATIO_MIN_SAMPLES = 5
+
+
+def _save_market_snapshot(date_str: str, cap_df: pd.DataFrame) -> None:
+    """시가총액 조회에 딸려오는 전종목 종가/거래량/거래대금을 날짜별 파일로
+    쌓아둔다 — 추가 KRX 호출 없이 거래량 평균·기간 수익률을 계산하기 위해.
+    날짜별 파일로 나눈 건 git에 매일 새 파일 하나만 늘게 하려고(한 파일을
+    통째로 갱신하면 커밋마다 전체가 다시 저장돼 저장소가 빨리 불어난다)."""
+    if cap_df is None or cap_df.empty:
+        return
+    try:
+        snap = {
+            str(t): [int(r["종가"]), int(r["거래량"]), int(r["거래대금"])]
+            for t, r in cap_df.iterrows()
+            if r["거래량"] > 0
+        }
+        _SNAPSHOT_DIR.mkdir(parents=True, exist_ok=True)
+        (_SNAPSHOT_DIR / f"{_to_dashed(date_str)}.json").write_text(
+            json.dumps(snap, separators=(",", ":")), encoding="utf-8"
+        )
+        for old in sorted(_SNAPSHOT_DIR.glob("*.json"))[:-_SNAPSHOT_KEEP]:
+            old.unlink()
+    except Exception:
+        logger.exception("시세 스냅샷 저장 실패")
+
+
+def _load_market_snapshots() -> dict[str, dict[str, list[int]]]:
+    out: dict[str, dict[str, list[int]]] = {}
+    if not _SNAPSHOT_DIR.exists():
+        return out
+    for f in sorted(_SNAPSHOT_DIR.glob("*.json")):
+        try:
+            out[f.stem] = json.loads(f.read_text(encoding="utf-8"))
+        except Exception:
+            logger.exception("시세 스냅샷 읽기 실패: %s", f)
+    return out
+
+
+def _price_volume_metrics(
+    ticker: str, trade_date: str, history: pd.Series, streak_days: int, snapshots: dict
+) -> dict:
+    """스냅샷에서 종가/거래량 배수/연속매수 기간 주가변화를 계산. 스냅샷이
+    아직 덜 쌓였으면 해당 값은 None (쌓이는 대로 자동으로 채워짐)."""
+    today = snapshots.get(trade_date, {}).get(ticker)
+    close = today[0] if today else None
+    value = today[2] if today else None
+
+    volume_ratio = None
+    if today:
+        prev = [
+            snapshots[d][ticker][1]
+            for d in sorted(snapshots)
+            if d < trade_date and ticker in snapshots[d]
+        ][-20:]
+        if len(prev) >= _VOLUME_RATIO_MIN_SAMPLES:
+            avg = sum(prev) / len(prev)
+            if avg > 0:
+                volume_ratio = round(today[1] / avg, 2)
+
+    streak_change = None
+    if today and streak_days > 0 and len(history) > streak_days:
+        base_date = pd.Timestamp(history.index[-(streak_days + 1)]).strftime("%Y-%m-%d")
+        base = snapshots.get(base_date, {}).get(ticker)
+        if base and base[0] > 0:
+            streak_change = round((today[0] / base[0] - 1) * 100, 1)
+
+    return {
+        "closePrice": close,
+        "tradingValueKrw": value,
+        "volumeRatio": volume_ratio,
+        "streakPriceChangePercent": streak_change,
+    }
+
+
+def _buy_share_percent(pef_buy_value: float | None, trading_value: int | None) -> float | None:
+    """오늘 이 종목 전체 거래대금 중 사모가 매수한 비중(%)."""
+    if not pef_buy_value or not trading_value:
+        return None
+    return round(pef_buy_value / trading_value * 100, 1)
+
+
 def _find_latest_trading_date():
     """오늘부터 최대 7일 거슬러가며 데이터가 있는 가장 최근 거래일을 찾는다
     (주말/공휴일엔 당연히 빈 응답이 오므로)."""
@@ -123,6 +206,9 @@ def collect_pef_flow_activity() -> dict:
     ).head(_TOP_CANDIDATES)
 
     cap_df = fetch_market_cap_by_ticker(date_str)
+    _save_market_snapshot(date_str, cap_df)
+    snapshots = _load_market_snapshots()
+    trade_date = _to_dashed(date_str)
 
     end_date = dt.datetime.strptime(date_str, "%Y%m%d").date()
     start_date = end_date - dt.timedelta(days=_HISTORY_CALENDAR_BUFFER_DAYS)
@@ -147,6 +233,8 @@ def collect_pef_flow_activity() -> dict:
             if market_cap:
                 pct_of_cap = round(today_value / market_cap * 100, 3)
 
+        pv = _price_volume_metrics(ticker, trade_date, history, consecutive_buy_days, snapshots)
+
         rows.append(
             {
                 "ticker": ticker,
@@ -159,6 +247,12 @@ def collect_pef_flow_activity() -> dict:
                 "streakTotalValueKrw": round(streak_total_value),
                 "marketCapKrw": round(market_cap) if market_cap else None,
                 "netBuyPercentOfCap": pct_of_cap,
+                "closePrice": pv["closePrice"],
+                "volumeRatio": pv["volumeRatio"],
+                "streakPriceChangePercent": pv["streakPriceChangePercent"],
+                "pefBuySharePercent": _buy_share_percent(
+                    row.get("매수거래대금"), pv["tradingValueKrw"]
+                ),
             }
         )
 
@@ -220,6 +314,10 @@ def collect_combined_signal_activity() -> dict:
     start_date = end_date - dt.timedelta(days=_HISTORY_CALENDAR_BUFFER_DAYS)
     start_str, end_str = start_date.strftime("%Y%m%d"), end_date.strftime("%Y%m%d")
 
+    # 사모 수급 이례치 수집이 먼저 돌면서 저장해둔 오늘 스냅샷을 재사용 (추가 호출 없음)
+    snapshots = _load_market_snapshots()
+    trade_date = _to_dashed(date_str)
+
     rows: list[dict] = []
     for ticker, info in info_by_ticker.items():
         detail = fetch_daily_investor_detail_history(ticker, start_str, end_str)
@@ -246,6 +344,15 @@ def collect_combined_signal_activity() -> dict:
         pef_rank = _compute_rank(pef_series, pef_today_value) if pef_today_value > 0 else None
         inst_rank = _compute_rank(inst_series, inst_today_value) if inst_today_value > 0 else None
 
+        pv = _price_volume_metrics(
+            ticker, trade_date, pef_series, max(pef_days, inst_days), snapshots
+        )
+        pef_buy_value = (
+            pef_today.loc[ticker, "매수거래대금"]
+            if ticker in pef_today.index and "매수거래대금" in pef_today.columns
+            else None
+        )
+
         rows.append(
             {
                 "ticker": ticker,
@@ -261,6 +368,13 @@ def collect_combined_signal_activity() -> dict:
                 "institutionRank": inst_rank,
                 "combinedScore": pef_days + inst_days,
                 "sampleDays": len(pef_series),
+                "closePrice": pv["closePrice"],
+                "volumeRatio": pv["volumeRatio"],
+                "streakPriceChangePercent": pv["streakPriceChangePercent"],
+                "pefBuySharePercent": _buy_share_percent(
+                    float(pef_buy_value) if pef_buy_value is not None else None,
+                    pv["tradingValueKrw"],
+                ),
             }
         )
 

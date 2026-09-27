@@ -8,13 +8,23 @@ interface RawPefFlowActivity {
   historyTradingDaysApprox: number;
   rows: (Omit<
     PefFlowActivityRow,
-    "consecutiveBuyDays" | "streakTotalValueKrw" | "market"
+    | "consecutiveBuyDays"
+    | "streakTotalValueKrw"
+    | "market"
+    | "closePrice"
+    | "volumeRatio"
+    | "streakPriceChangePercent"
+    | "pefBuySharePercent"
   > & {
-    // 필드 추가 전(2026-08-08)에 커밋된 데이터엔 없을 수 있어 optional로 —
+    // 필드 추가 전에 커밋된 데이터엔 없을 수 있어 optional로 —
     // 다음 수집 사이클에 자동으로 채워짐.
     consecutiveBuyDays?: number;
     streakTotalValueKrw?: number;
     market?: string | null;
+    closePrice?: number | null;
+    volumeRatio?: number | null;
+    streakPriceChangePercent?: number | null;
+    pefBuySharePercent?: number | null;
   })[];
 }
 
@@ -42,6 +52,10 @@ export function readLivePefFlowActivity(): LivePefFlowActivity | null {
         market: r.market ?? null,
         consecutiveBuyDays: r.consecutiveBuyDays ?? 0,
         streakTotalValueKrw: r.streakTotalValueKrw ?? 0,
+        closePrice: r.closePrice ?? null,
+        volumeRatio: r.volumeRatio ?? null,
+        streakPriceChangePercent: r.streakPriceChangePercent ?? null,
+        pefBuySharePercent: r.pefBuySharePercent ?? null,
       })),
     };
   } catch {
