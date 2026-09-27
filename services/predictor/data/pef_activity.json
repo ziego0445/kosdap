@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-26T15:01:07.785402+00:00",
+  "generatedAt": "2026-09-27T15:01:02.484125+00:00",
   "lookbackDays": 30,
   "rows": [
     {
@@ -62,21 +62,6 @@
       ],
       "latestReportDate": "2026-09-08",
       "latestReportReason": "전환사채 인수"
-    },
-    {
-      "corpCode": "00537221",
-      "corpName": "인바이츠바이오코아",
-      "stockCode": "216400",
-      "market": "코넥스",
-      "pefNetBuyShares": 570574,
-      "pefNetBuyRatioPercent": 6.17,
-      "pefNetBuyValueKrw": 0,
-      "pefNetBuyValueIsPartial": true,
-      "pefReporters": [
-        "SBI인베스트먼트"
-      ],
-      "latestReportDate": "2026-08-28",
-      "latestReportReason": "장외매수"
     },
     {
       "corpCode": "01181807",
@@ -302,6 +287,22 @@
       ],
       "latestReportDate": "2026-09-10",
       "latestReportReason": "1. 전환청구권 행사에 따른 보유주식등의 내역 변경\n2. 발행회사의 주식수 증가로 인한 보유비율 변동"
+    },
+    {
+      "corpCode": "00506294",
+      "corpName": "가비아",
+      "stockCode": "079940",
+      "market": "코스닥",
+      "pefNetBuyShares": -3270248,
+      "pefNetBuyRatioPercent": -24.37,
+      "pefNetBuyValueKrw": -135224754800,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "디씨케이인베스트먼트",
+        "얼라인파트너스자산운용"
+      ],
+      "latestReportDate": "2026-09-23",
+      "latestReportReason": "- 주식매매계약 해제"
     }
   ]
 }

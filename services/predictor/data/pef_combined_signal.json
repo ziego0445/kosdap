@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-26T15:01:57.392431+00:00",
+  "generatedAt": "2026-09-27T15:02:04.987000+00:00",
   "tradeDate": "2026-09-23",
   "historyTradingDaysApprox": 250,
   "rows": [
@@ -16,7 +16,11 @@
       "institutionStreakTotalValueKrw": 87806386425,
       "institutionRank": 77,
       "combinedScore": 26,
-      "sampleDays": 255
+      "sampleDays": 255,
+      "closePrice": 30150,
+      "volumeRatio": null,
+      "streakPriceChangePercent": null,
+      "pefBuySharePercent": null
     },
     {
       "ticker": "088980",
@@ -31,7 +35,11 @@
       "institutionStreakTotalValueKrw": 49356215390,
       "institutionRank": 49,
       "combinedScore": 23,
-      "sampleDays": 255
+      "sampleDays": 255,
+      "closePrice": 9780,
+      "volumeRatio": null,
+      "streakPriceChangePercent": null,
+      "pefBuySharePercent": null
     },
     {
       "ticker": "281820",
@@ -46,7 +54,11 @@
       "institutionStreakTotalValueKrw": 19914074050,
       "institutionRank": 4,
       "combinedScore": 18,
-      "sampleDays": 255
+      "sampleDays": 255,
+      "closePrice": 86800,
+      "volumeRatio": null,
+      "streakPriceChangePercent": null,
+      "pefBuySharePercent": 4.1
     },
     {
       "ticker": "014680",
@@ -61,7 +73,11 @@
       "institutionStreakTotalValueKrw": 20286704750,
       "institutionRank": 59,
       "combinedScore": 17,
-      "sampleDays": 255
+      "sampleDays": 255,
+      "closePrice": 236500,
+      "volumeRatio": null,
+      "streakPriceChangePercent": null,
+      "pefBuySharePercent": 8.1
     },
     {
       "ticker": "082920",
@@ -76,7 +92,11 @@
       "institutionStreakTotalValueKrw": 0,
       "institutionRank": null,
       "combinedScore": 17,
-      "sampleDays": 255
+      "sampleDays": 255,
+      "closePrice": 27850,
+      "volumeRatio": null,
+      "streakPriceChangePercent": null,
+      "pefBuySharePercent": 12.6
     },
     {
       "ticker": "112610",
@@ -91,7 +111,11 @@
       "institutionStreakTotalValueKrw": 1190421900,
       "institutionRank": 152,
       "combinedScore": 17,
-      "sampleDays": 255
+      "sampleDays": 255,
+      "closePrice": 50100,
+      "volumeRatio": null,
+      "streakPriceChangePercent": null,
+      "pefBuySharePercent": 3.1
     },
     {
       "ticker": "361610",
@@ -106,7 +130,11 @@
       "institutionStreakTotalValueKrw": 30203673440,
       "institutionRank": 13,
       "combinedScore": 17,
-      "sampleDays": 255
+      "sampleDays": 255,
+      "closePrice": 17170,
+      "volumeRatio": null,
+      "streakPriceChangePercent": null,
+      "pefBuySharePercent": 0.6
     },
     {
       "ticker": "229640",
@@ -121,7 +149,11 @@
       "institutionStreakTotalValueKrw": 24804040175,
       "institutionRank": 11,
       "combinedScore": 16,
-      "sampleDays": 255
+      "sampleDays": 255,
+      "closePrice": 64000,
+      "volumeRatio": null,
+      "streakPriceChangePercent": null,
+      "pefBuySharePercent": 1.5
     },
     {
       "ticker": "005070",
@@ -136,7 +168,11 @@
       "institutionStreakTotalValueKrw": 11426333325,
       "institutionRank": 128,
       "combinedScore": 16,
-      "sampleDays": 255
+      "sampleDays": 255,
+      "closePrice": 41550,
+      "volumeRatio": null,
+      "streakPriceChangePercent": null,
+      "pefBuySharePercent": 6.3
     },
     {
       "ticker": "068930",
@@ -151,7 +187,11 @@
       "institutionStreakTotalValueKrw": 2031194700,
       "institutionRank": 2,
       "combinedScore": 16,
-      "sampleDays": 255
+      "sampleDays": 255,
+      "closePrice": 9600,
+      "volumeRatio": null,
+      "streakPriceChangePercent": null,
+      "pefBuySharePercent": null
     },
     {
       "ticker": "001430",
@@ -166,7 +206,11 @@
       "institutionStreakTotalValueKrw": 9219535750,
       "institutionRank": 141,
       "combinedScore": 15,
-      "sampleDays": 255
+      "sampleDays": 255,
+      "closePrice": 44300,
+      "volumeRatio": null,
+      "streakPriceChangePercent": null,
+      "pefBuySharePercent": 8.4
     },
     {
       "ticker": "290550",
@@ -181,7 +225,11 @@
       "institutionStreakTotalValueKrw": 15964919065,
       "institutionRank": 53,
       "combinedScore": 14,
-      "sampleDays": 255
+      "sampleDays": 255,
+      "closePrice": 22300,
+      "volumeRatio": null,
+      "streakPriceChangePercent": null,
+      "pefBuySharePercent": 1.8
     },
     {
       "ticker": "103590",
@@ -196,7 +244,11 @@
       "institutionStreakTotalValueKrw": 15211390950,
       "institutionRank": 84,
       "combinedScore": 13,
-      "sampleDays": 255
+      "sampleDays": 255,
+      "closePrice": 81700,
+      "volumeRatio": null,
+      "streakPriceChangePercent": null,
+      "pefBuySharePercent": 15.5
     },
     {
       "ticker": "468530",
@@ -211,7 +263,11 @@
       "institutionStreakTotalValueKrw": 3044748100,
       "institutionRank": 66,
       "combinedScore": 13,
-      "sampleDays": 255
+      "sampleDays": 255,
+      "closePrice": 47250,
+      "volumeRatio": null,
+      "streakPriceChangePercent": null,
+      "pefBuySharePercent": 13.0
     },
     {
       "ticker": "092730",
@@ -226,7 +282,11 @@
       "institutionStreakTotalValueKrw": 1803090700,
       "institutionRank": 82,
       "combinedScore": 13,
-      "sampleDays": 255
+      "sampleDays": 255,
+      "closePrice": 23650,
+      "volumeRatio": null,
+      "streakPriceChangePercent": null,
+      "pefBuySharePercent": 28.0
     },
     {
       "ticker": "053800",
@@ -241,7 +301,11 @@
       "institutionStreakTotalValueKrw": 9208073000,
       "institutionRank": 12,
       "combinedScore": 13,
-      "sampleDays": 255
+      "sampleDays": 255,
+      "closePrice": 74300,
+      "volumeRatio": null,
+      "streakPriceChangePercent": null,
+      "pefBuySharePercent": 2.6
     },
     {
       "ticker": "086450",
@@ -256,7 +320,11 @@
       "institutionStreakTotalValueKrw": 1106206575,
       "institutionRank": 72,
       "combinedScore": 12,
-      "sampleDays": 255
+      "sampleDays": 255,
+      "closePrice": 21350,
+      "volumeRatio": null,
+      "streakPriceChangePercent": null,
+      "pefBuySharePercent": 7.0
     },
     {
       "ticker": "016360",
@@ -271,7 +339,11 @@
       "institutionStreakTotalValueKrw": 14222095200,
       "institutionRank": 65,
       "combinedScore": 11,
-      "sampleDays": 255
+      "sampleDays": 255,
+      "closePrice": 91100,
+      "volumeRatio": null,
+      "streakPriceChangePercent": null,
+      "pefBuySharePercent": 2.3
     },
     {
       "ticker": "340570",
@@ -286,7 +358,11 @@
       "institutionStreakTotalValueKrw": 3802050800,
       "institutionRank": 12,
       "combinedScore": 11,
-      "sampleDays": 255
+      "sampleDays": 255,
+      "closePrice": 28400,
+      "volumeRatio": null,
+      "streakPriceChangePercent": null,
+      "pefBuySharePercent": 7.5
     },
     {
       "ticker": "095340",
@@ -301,7 +377,11 @@
       "institutionStreakTotalValueKrw": 20232629400,
       "institutionRank": 205,
       "combinedScore": 10,
-      "sampleDays": 255
+      "sampleDays": 255,
+      "closePrice": 212500,
+      "volumeRatio": null,
+      "streakPriceChangePercent": null,
+      "pefBuySharePercent": 14.6
     }
   ]
 }

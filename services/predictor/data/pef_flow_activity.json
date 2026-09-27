@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-26T15:01:28.570268+00:00",
+  "generatedAt": "2026-09-27T15:01:30.192885+00:00",
   "tradeDate": "2026-09-23",
   "historyTradingDaysApprox": 250,
   "rows": [
@@ -13,7 +13,11 @@
       "consecutiveBuyDays": 17,
       "streakTotalValueKrw": 15200515350,
       "marketCapKrw": 1257134434450,
-      "netBuyPercentOfCap": 0.069
+      "netBuyPercentOfCap": 0.069,
+      "closePrice": 27850,
+      "volumeRatio": null,
+      "streakPriceChangePercent": null,
+      "pefBuySharePercent": 12.6
     },
     {
       "ticker": "112610",
@@ -25,7 +29,11 @@
       "consecutiveBuyDays": 15,
       "streakTotalValueKrw": 14223190175,
       "marketCapKrw": 2112787290300,
-      "netBuyPercentOfCap": 0.01
+      "netBuyPercentOfCap": 0.01,
+      "closePrice": 50100,
+      "volumeRatio": null,
+      "streakPriceChangePercent": null,
+      "pefBuySharePercent": 3.1
     },
     {
       "ticker": "014680",
@@ -37,7 +45,11 @@
       "consecutiveBuyDays": 11,
       "streakTotalValueKrw": 6821424000,
       "marketCapKrw": 2552789514000,
-      "netBuyPercentOfCap": 0.039
+      "netBuyPercentOfCap": 0.039,
+      "closePrice": 236500,
+      "volumeRatio": null,
+      "streakPriceChangePercent": null,
+      "pefBuySharePercent": 8.1
     },
     {
       "ticker": "086450",
@@ -49,7 +61,11 @@
       "consecutiveBuyDays": 11,
       "streakTotalValueKrw": 6884550185,
       "marketCapKrw": 965669467000,
-      "netBuyPercentOfCap": 0.092
+      "netBuyPercentOfCap": 0.092,
+      "closePrice": 21350,
+      "volumeRatio": null,
+      "streakPriceChangePercent": null,
+      "pefBuySharePercent": 7.0
     },
     {
       "ticker": "281820",
@@ -61,7 +77,11 @@
       "consecutiveBuyDays": 10,
       "streakTotalValueKrw": 5317951050,
       "marketCapKrw": 1718523774800,
-      "netBuyPercentOfCap": 0.04
+      "netBuyPercentOfCap": 0.04,
+      "closePrice": 86800,
+      "volumeRatio": null,
+      "streakPriceChangePercent": null,
+      "pefBuySharePercent": 4.1
     },
     {
       "ticker": "241710",
@@ -73,7 +93,11 @@
       "consecutiveBuyDays": 9,
       "streakTotalValueKrw": 10234347650,
       "marketCapKrw": 1359564000000,
-      "netBuyPercentOfCap": 0.054
+      "netBuyPercentOfCap": 0.054,
+      "closePrice": 127300,
+      "volumeRatio": null,
+      "streakPriceChangePercent": null,
+      "pefBuySharePercent": 11.8
     },
     {
       "ticker": "010170",
@@ -85,7 +109,11 @@
       "consecutiveBuyDays": 8,
       "streakTotalValueKrw": 4981933285,
       "marketCapKrw": 2752096182000,
-      "netBuyPercentOfCap": 0.009
+      "netBuyPercentOfCap": 0.009,
+      "closePrice": 17700,
+      "volumeRatio": null,
+      "streakPriceChangePercent": null,
+      "pefBuySharePercent": 0.2
     },
     {
       "ticker": "468530",
@@ -97,7 +125,11 @@
       "consecutiveBuyDays": 7,
       "streakTotalValueKrw": 3277004700,
       "marketCapKrw": 524718243000,
-      "netBuyPercentOfCap": 0.43
+      "netBuyPercentOfCap": 0.43,
+      "closePrice": 47250,
+      "volumeRatio": null,
+      "streakPriceChangePercent": null,
+      "pefBuySharePercent": 13.0
     },
     {
       "ticker": "131290",
@@ -109,7 +141,11 @@
       "consecutiveBuyDays": 7,
       "streakTotalValueKrw": 6594390000,
       "marketCapKrw": 3196752981000,
-      "netBuyPercentOfCap": 0.05
+      "netBuyPercentOfCap": 0.05,
+      "closePrice": 289000,
+      "volumeRatio": null,
+      "streakPriceChangePercent": null,
+      "pefBuySharePercent": 8.9
     },
     {
       "ticker": "001430",
@@ -121,7 +157,11 @@
       "consecutiveBuyDays": 7,
       "streakTotalValueKrw": 2137547400,
       "marketCapKrw": 1588691871700,
-      "netBuyPercentOfCap": 0.026
+      "netBuyPercentOfCap": 0.026,
+      "closePrice": 44300,
+      "volumeRatio": null,
+      "streakPriceChangePercent": null,
+      "pefBuySharePercent": 8.4
     },
     {
       "ticker": "016360",
@@ -133,7 +173,11 @@
       "consecutiveBuyDays": 7,
       "streakTotalValueKrw": 2589745750,
       "marketCapKrw": 8135230000000,
-      "netBuyPercentOfCap": 0.006
+      "netBuyPercentOfCap": 0.006,
+      "closePrice": 91100,
+      "volumeRatio": null,
+      "streakPriceChangePercent": null,
+      "pefBuySharePercent": 2.3
     },
     {
       "ticker": "092870",
@@ -145,7 +189,11 @@
       "consecutiveBuyDays": 6,
       "streakTotalValueKrw": 4510786875,
       "marketCapKrw": 560531731150,
-      "netBuyPercentOfCap": 0.31
+      "netBuyPercentOfCap": 0.31,
+      "closePrice": 42950,
+      "volumeRatio": null,
+      "streakPriceChangePercent": null,
+      "pefBuySharePercent": 4.8
     },
     {
       "ticker": "064290",
@@ -157,7 +205,11 @@
       "consecutiveBuyDays": 6,
       "streakTotalValueKrw": 3705865225,
       "marketCapKrw": 710075274400,
-      "netBuyPercentOfCap": 0.024
+      "netBuyPercentOfCap": 0.024,
+      "closePrice": 54800,
+      "volumeRatio": null,
+      "streakPriceChangePercent": null,
+      "pefBuySharePercent": 2.2
     },
     {
       "ticker": "079940",
@@ -169,7 +221,11 @@
       "consecutiveBuyDays": 5,
       "streakTotalValueKrw": 1852002200,
       "marketCapKrw": 554945283400,
-      "netBuyPercentOfCap": 0.144
+      "netBuyPercentOfCap": 0.144,
+      "closePrice": 41350,
+      "volumeRatio": null,
+      "streakPriceChangePercent": null,
+      "pefBuySharePercent": 70.7
     },
     {
       "ticker": "200470",
@@ -181,7 +237,11 @@
       "consecutiveBuyDays": 5,
       "streakTotalValueKrw": 2269746480,
       "marketCapKrw": 357600216960,
-      "netBuyPercentOfCap": 0.166
+      "netBuyPercentOfCap": 0.166,
+      "closePrice": 8160,
+      "volumeRatio": null,
+      "streakPriceChangePercent": null,
+      "pefBuySharePercent": 8.0
     },
     {
       "ticker": "354320",
@@ -193,7 +253,11 @@
       "consecutiveBuyDays": 5,
       "streakTotalValueKrw": 1599140200,
       "marketCapKrw": 269716278200,
-      "netBuyPercentOfCap": 0.285
+      "netBuyPercentOfCap": 0.285,
+      "closePrice": 42200,
+      "volumeRatio": null,
+      "streakPriceChangePercent": null,
+      "pefBuySharePercent": 7.1
     },
     {
       "ticker": "319660",
@@ -205,7 +269,11 @@
       "consecutiveBuyDays": 5,
       "streakTotalValueKrw": 7559854050,
       "marketCapKrw": 4194380187200,
-      "netBuyPercentOfCap": 0.12
+      "netBuyPercentOfCap": 0.12,
+      "closePrice": 144800,
+      "volumeRatio": null,
+      "streakPriceChangePercent": null,
+      "pefBuySharePercent": 6.8
     },
     {
       "ticker": "317400",
@@ -217,7 +285,11 @@
       "consecutiveBuyDays": 5,
       "streakTotalValueKrw": 1436035680,
       "marketCapKrw": 379293045600,
-      "netBuyPercentOfCap": 0.055
+      "netBuyPercentOfCap": 0.055,
+      "closePrice": 9780,
+      "volumeRatio": null,
+      "streakPriceChangePercent": null,
+      "pefBuySharePercent": 2.7
     },
     {
       "ticker": "077360",
@@ -229,7 +301,11 @@
       "consecutiveBuyDays": 5,
       "streakTotalValueKrw": 582246240,
       "marketCapKrw": 597042206280,
-      "netBuyPercentOfCap": 0.032
+      "netBuyPercentOfCap": 0.032,
+      "closePrice": 13140,
+      "volumeRatio": null,
+      "streakPriceChangePercent": null,
+      "pefBuySharePercent": 2.0
     },
     {
       "ticker": "079550",
@@ -241,7 +317,11 @@
       "consecutiveBuyDays": 5,
       "streakTotalValueKrw": 12724141000,
       "marketCapKrw": 15224000000000,
-      "netBuyPercentOfCap": 0.003
+      "netBuyPercentOfCap": 0.003,
+      "closePrice": 692000,
+      "volumeRatio": null,
+      "streakPriceChangePercent": null,
+      "pefBuySharePercent": 1.4
     }
   ]
 }
