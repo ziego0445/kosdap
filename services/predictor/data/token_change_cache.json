@@ -1,10 +1,10 @@
 {
   "SAMSUNG": {
-    "token_change_percent": 0.18729435585926404,
-    "updated_at": "2026-09-28T09:25:15.837159+00:00"
+    "token_change_percent": 0.12148823082762877,
+    "updated_at": "2026-09-28T09:40:15.683242+00:00"
   },
   "SKHYNIX": {
-    "token_change_percent": -0.40848233103162307,
-    "updated_at": "2026-09-28T09:25:16.622100+00:00"
+    "token_change_percent": -0.40235126414935285,
+    "updated_at": "2026-09-28T09:40:16.492061+00:00"
   }
 }
