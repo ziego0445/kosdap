@@ -189,8 +189,9 @@ def _maybe_post_daily_blog() -> None:
     준비해서 data/blog_post_draft.txt로 저장한다 (pef_blog_post.py 참고).
     PEF 데이터 수집(위 3개 함수) 뒤에 불러야 오늘자 신선한 데이터로 써진다.
 
-    draft 파일을 항상 남기고, 디버그 크롬(9222)이 떠있으면 네이버에
-    자동 발행까지 한다. 발행 실패 시엔 draft로 수동 업로드."""
+    draft 파일만 남긴다 — 실제 업로드는 사람이 확인 후 Codex(ChatGPT CLI)
+    등을 통해 직접 한다 (2026-09-29, pef_blog_post.py의 publish_to_naver
+    자동 발행 코드는 남아있지만 run_daily_post()에서 호출 안 함)."""
     today = dt.datetime.now(KST).date().isoformat()
     if today == _load_last_run_date("last_blog_post_date"):
         return
