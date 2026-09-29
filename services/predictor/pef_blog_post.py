@@ -420,6 +420,29 @@ def publish_to_naver(title: str, lines: list[str], tags: str, image_path: Path |
 
 
 _DRAFT_PATH = _DATA_DIR / "blog_post_draft.txt"
+_DRAFT_JSON_PATH = _DATA_DIR / "blog_post_draft.json"
+
+
+def save_draft_json(
+    title: str, tags: str, card_path: Path | None, trade_date: str, date_kr: str, highlights: list[dict]
+) -> Path:
+    """save_draft()의 사람이 읽는 .txt와 별개로, 다른 프로세스(예: news 프로젝트의
+    쇼츠 파이프라인)가 파싱 없이 바로 읽을 수 있는 구조화된 버전을 남긴다. 종목별
+    headline/body는 이미 자연스러운 구어체 문장이라 내레이션에 그대로 재사용 가능."""
+    payload = {
+        "tradeDate": trade_date,
+        "dateKr": date_kr,
+        "title": title,
+        "tags": tags,
+        "cardImagePath": str(card_path) if card_path else None,
+        "highlights": [
+            {"name": h["name"], "ticker": h["ticker"], "headline": h["headline"], "body": h["body"]}
+            for h in highlights
+        ],
+    }
+    _DRAFT_JSON_PATH.parent.mkdir(parents=True, exist_ok=True)
+    _DRAFT_JSON_PATH.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+    return _DRAFT_JSON_PATH
 
 
 def save_draft(title: str, lines: list[str], tags: str, card_path: Path | None, trade_date: str) -> Path:
@@ -456,6 +479,7 @@ def run_daily_post() -> None:
         logger.exception("요약 카드 이미지 생성 실패 — 이미지 없이 준비")
 
     draft_path = save_draft(title, lines, tags, card_path, trade_date)
+    save_draft_json(title, tags, card_path, trade_date, date_kr, highlights)
     logger.info("네이버 블로그용 글 준비 완료 (%s 기준): %s", trade_date, draft_path)
     # 2026-09-29부터: 자동 발행(publish_to_naver)은 다시 호출하지 않는다 —
     # 사용자가 draft를 직접 확인 후 Codex(ChatGPT CLI)에게 올리게 하는 쪽을
