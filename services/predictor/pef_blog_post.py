@@ -158,9 +158,14 @@ def select_highlights() -> tuple[str | None, list[dict]]:
             })
             break
 
-    # 4) 최근 DART 5%룰 신규/변경 공시 중 가장 최신 것
-    if activity_rows:
-        recent = sorted(activity_rows, key=lambda r: r.get("latestReportDate", ""), reverse=True)[0]
+    # 4) 최근 DART 5%룰 신규/변경 공시 중 가장 최신 것 — "지분을 늘린"
+    # 것만 다룬다(pefNetBuyRatioPercent > 0). 이 값은 음수도 나올 수 있는데
+    # (지분 처분/계약 해제 등), 그런 경우까지 "신규 확보"라고 쓰면 실제로는
+    # 지분을 줄인 걸 늘렸다고 거꾸로 설명하는 오류가 난다(2026-09-29,
+    # 가비아 -24.37%를 "신규 확보"로 잘못 쓴 사고로 발견).
+    increase_rows = [r for r in activity_rows if (r.get("pefNetBuyRatioPercent") or 0) > 0]
+    if increase_rows:
+        recent = sorted(increase_rows, key=lambda r: r.get("latestReportDate", ""), reverse=True)[0]
         reporters = ", ".join(recent.get("pefReporters", []))
         reason = recent.get("latestReportReason", "대량보유")
         value_krw = recent.get("pefNetBuyValueKrw") or 0

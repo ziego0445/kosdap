@@ -174,10 +174,11 @@ export function buildTopPicks(
     }
   }
 
-  // 5) 가장 최근 DART 5%룰 신규/변경 공시
-  const sortedDart = [...dartRows].sort((a, b) =>
-    (b.latestReportDate ?? "").localeCompare(a.latestReportDate ?? ""),
-  );
+  // 5) 가장 최근 DART 5%룰 신규/변경 공시 — "지분을 늘린" 것만(음수는
+  // 지분 처분/계약 해제 등이라 "확보"라고 쓰면 거꾸로 된 설명이 된다).
+  const sortedDart = [...dartRows]
+    .filter((d) => d.pefNetBuyRatioPercent > 0)
+    .sort((a, b) => (b.latestReportDate ?? "").localeCompare(a.latestReportDate ?? ""));
   for (const d of sortedDart) {
     if (add({
       ticker: d.stockCode ?? d.corpCode,
