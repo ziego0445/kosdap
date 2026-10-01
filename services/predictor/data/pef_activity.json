@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-30T15:01:11.220472+00:00",
+  "generatedAt": "2026-10-01T15:01:10.672333+00:00",
   "lookbackDays": 30,
   "rows": [
     {
@@ -64,6 +64,21 @@
       "latestReportReason": "전환사채 인수"
     },
     {
+      "corpCode": "00169048",
+      "corpName": "HLB글로벌",
+      "stockCode": "003580",
+      "market": "코스피",
+      "pefNetBuyShares": 3043212,
+      "pefNetBuyRatioPercent": 5.67,
+      "pefNetBuyValueKrw": 5964695520,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "시너지아이비투자"
+      ],
+      "latestReportDate": "2026-10-01",
+      "latestReportReason": "제38회차 전환사채 인수에 따른 신규보고"
+    },
+    {
       "corpCode": "01181807",
       "corpName": "형지글로벌",
       "stockCode": "308100",
@@ -107,21 +122,6 @@
       ],
       "latestReportDate": "2026-09-07",
       "latestReportReason": "특수관계인의 주식 매입 및 주식근질권설정변경계약 체결"
-    },
-    {
-      "corpCode": "01510489",
-      "corpName": "프레스티지바이오파마",
-      "stockCode": "950210",
-      "market": "코스피",
-      "pefNetBuyShares": 4800,
-      "pefNetBuyRatioPercent": 0.04,
-      "pefNetBuyValueKrw": 31296000,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "메이슨파트너스"
-      ],
-      "latestReportDate": "2026-09-01",
-      "latestReportReason": "특별관계자 지분 변동"
     },
     {
       "corpCode": "00139764",
@@ -175,7 +175,7 @@
       "market": "코스닥",
       "pefNetBuyShares": -18318896,
       "pefNetBuyRatioPercent": -0.1,
-      "pefNetBuyValueKrw": -46255212400,
+      "pefNetBuyValueKrw": -47903913040,
       "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "루하프라이빗에쿼티"
@@ -259,22 +259,6 @@
       "latestReportReason": "보유주식 장내매도에 따른 공시"
     },
     {
-      "corpCode": "00327396",
-      "corpName": "옵트론텍",
-      "stockCode": "082210",
-      "market": "코스닥",
-      "pefNetBuyShares": -237827,
-      "pefNetBuyRatioPercent": -3.09,
-      "pefNetBuyValueKrw": -416222847,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "얼머스인베스트먼트",
-        "케이투인베스트먼트파트너스"
-      ],
-      "latestReportDate": "2026-09-30",
-      "latestReportReason": "발행사 콜옵션 행사에 따른 전환사채 일부매도"
-    },
-    {
       "corpCode": "01228515",
       "corpName": "앱튼",
       "stockCode": "270520",
@@ -288,6 +272,23 @@
       ],
       "latestReportDate": "2026-09-10",
       "latestReportReason": "1. 전환청구권 행사에 따른 보유주식등의 내역 변경\n2. 발행회사의 주식수 증가로 인한 보유비율 변동"
+    },
+    {
+      "corpCode": "00327396",
+      "corpName": "옵트론텍",
+      "stockCode": "082210",
+      "market": "코스닥",
+      "pefNetBuyShares": -259374,
+      "pefNetBuyRatioPercent": -4.38,
+      "pefNetBuyValueKrw": -454770430,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "리인베스트먼트",
+        "얼머스인베스트먼트",
+        "케이투인베스트먼트파트너스"
+      ],
+      "latestReportDate": "2026-10-01",
+      "latestReportReason": "발행회사의 콜옵션 행사에 따른 전환사채 일부 매도"
     },
     {
       "corpCode": "00506294",
