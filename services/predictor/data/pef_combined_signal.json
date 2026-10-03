@@ -1,27 +1,8 @@
 {
-  "generatedAt": "2026-10-02T15:02:29.835495+00:00",
+  "generatedAt": "2026-10-03T16:37:18.775751+00:00",
   "tradeDate": "2026-10-02",
   "historyTradingDaysApprox": 250,
   "rows": [
-    {
-      "ticker": "088980",
-      "corpName": "맥쿼리인프라",
-      "market": "코스피",
-      "pefNetBuyValueKrw": 0,
-      "pefConsecutiveBuyDays": 0,
-      "pefStreakTotalValueKrw": 0,
-      "pefRank": null,
-      "institutionNetBuyValueKrw": 1240717580,
-      "institutionConsecutiveBuyDays": 28,
-      "institutionStreakTotalValueKrw": 59596836225,
-      "institutionRank": 150,
-      "combinedScore": 28,
-      "sampleDays": 253,
-      "closePrice": 9790,
-      "volumeRatio": null,
-      "streakPriceChangePercent": null,
-      "pefBuySharePercent": null
-    },
     {
       "ticker": "229640",
       "corpName": "LS에코에너지",
@@ -382,6 +363,25 @@
       "volumeRatio": null,
       "streakPriceChangePercent": 25.8,
       "pefBuySharePercent": 13.2
+    },
+    {
+      "ticker": "042520",
+      "corpName": "한스바이오메드",
+      "market": "코스닥",
+      "pefNetBuyValueKrw": 427775800,
+      "pefConsecutiveBuyDays": 9,
+      "pefStreakTotalValueKrw": 3776704350,
+      "pefRank": 96,
+      "institutionNetBuyValueKrw": -129663200,
+      "institutionConsecutiveBuyDays": 0,
+      "institutionStreakTotalValueKrw": 0,
+      "institutionRank": null,
+      "combinedScore": 9,
+      "sampleDays": 253,
+      "closePrice": 21250,
+      "volumeRatio": null,
+      "streakPriceChangePercent": null,
+      "pefBuySharePercent": 25.5
     }
   ]
 }
