@@ -1804,5 +1804,29 @@
     "spannedWeekend": false,
     "predicted_at": "2026-10-01T23:56:04.508134+00:00",
     "recorded_at": "2026-10-02T06:30:21.062454+00:00"
+  },
+  {
+    "symbol": "SAMSUNG",
+    "date": "2026-10-06",
+    "predicted_price": 275034,
+    "actual_price": 272000.0,
+    "error_percent": 1.12,
+    "predicted_change_percent": -0.35,
+    "actual_change_percent": -1.45,
+    "spannedWeekend": true,
+    "predicted_at": "2026-10-05T23:57:49.355446+00:00",
+    "recorded_at": "2026-10-06T14:31:01.537352+00:00"
+  },
+  {
+    "symbol": "SKHYNIX",
+    "date": "2026-10-06",
+    "predicted_price": 1828291,
+    "actual_price": 1773000.0,
+    "error_percent": 3.12,
+    "predicted_change_percent": -0.69,
+    "actual_change_percent": -3.69,
+    "spannedWeekend": true,
+    "predicted_at": "2026-10-05T23:57:50.082798+00:00",
+    "recorded_at": "2026-10-06T14:31:02.257710+00:00"
   }
 ]
