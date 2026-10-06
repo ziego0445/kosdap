@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-05T15:04:54.251445+00:00",
+  "generatedAt": "2026-10-06T15:05:35.836147+00:00",
   "lookbackDays": 30,
   "rows": [
     {
@@ -64,6 +64,21 @@
       "latestReportReason": "제38회차 전환사채 인수에 따른 신규보고"
     },
     {
+      "corpCode": "01722066",
+      "corpName": "빅웨이브로보틱스",
+      "stockCode": "0035S0",
+      "market": "코스닥",
+      "pefNetBuyShares": 366308,
+      "pefNetBuyRatioPercent": 3.57,
+      "pefNetBuyValueKrw": 11611963600,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "케이비인베스트먼트"
+      ],
+      "latestReportDate": "2026-10-06",
+      "latestReportReason": "코스닥 상장으로 인한 신규 보고 및 장내매도"
+    },
+    {
       "corpCode": "01181807",
       "corpName": "형지글로벌",
       "stockCode": "308100",
@@ -107,6 +122,21 @@
       ],
       "latestReportDate": "2026-09-07",
       "latestReportReason": "특수관계인의 주식 매입 및 주식근질권설정변경계약 체결"
+    },
+    {
+      "corpCode": "00288495",
+      "corpName": "HC홈센타",
+      "stockCode": "060560",
+      "market": "코스닥",
+      "pefNetBuyShares": 0,
+      "pefNetBuyRatioPercent": 0.0,
+      "pefNetBuyValueKrw": 0,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "에이치씨파트너스"
+      ],
+      "latestReportDate": "2026-10-06",
+      "latestReportReason": "주식담보대출 상환 및 연장"
     },
     {
       "corpCode": "00100601",
@@ -274,37 +304,6 @@
       ],
       "latestReportDate": "2026-10-01",
       "latestReportReason": "발행회사의 콜옵션 행사에 따른 전환사채 일부 매도"
-    },
-    {
-      "corpCode": "00506294",
-      "corpName": "가비아",
-      "stockCode": "079940",
-      "market": "코스닥",
-      "pefNetBuyShares": -3270248,
-      "pefNetBuyRatioPercent": -24.37,
-      "pefNetBuyValueKrw": -135224754800,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "디씨케이인베스트먼트",
-        "얼라인파트너스자산운용"
-      ],
-      "latestReportDate": "2026-09-23",
-      "latestReportReason": "- 주식매매계약 해제"
-    },
-    {
-      "corpCode": "01468061",
-      "corpName": "레뷰코퍼레이션",
-      "stockCode": "443250",
-      "market": "코스닥",
-      "pefNetBuyShares": -6335760,
-      "pefNetBuyRatioPercent": -58.55,
-      "pefNetBuyValueKrw": -31678800000,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "글로벌커넥트플랫폼사모투자"
-      ],
-      "latestReportDate": "2026-09-23",
-      "latestReportReason": "- 보고자 보유주식 전량의 현물출자에 따른 변동보고\n- 대표보고자 변경(변경 후 대표보고자: 글로벌커넥트플랫폼홀딩스 유한회사)\n- 보유주식 등에 관한 주요계약 변경(보고자 보유주식 전량의 현물출자에 따라 종전 주주간계약 종료)"
     }
   ]
 }
