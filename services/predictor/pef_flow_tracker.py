@@ -384,7 +384,7 @@ def collect_combined_signal_activity() -> dict:
     return {"tradeDate": _to_dashed(date_str), "rows": rows[:_DISPLAY_LIMIT]}
 
 
-def export_combined_signal_activity() -> None:
+def export_combined_signal_activity() -> bool:
     result = collect_combined_signal_activity()
     try:
         _DATA_DIR.mkdir(parents=True, exist_ok=True)
@@ -405,8 +405,10 @@ def export_combined_signal_activity() -> None:
             "복합 수급 신호 저장: %s (%d개 종목)",
             _COMBINED_OUTPUT_PATH, len(result["rows"]),
         )
+        return result["tradeDate"] is not None
     except Exception:
         logger.exception("복합 수급 신호 저장 실패 (%s)", _COMBINED_OUTPUT_PATH)
+        return False
 
 
 def export_combined_signal_for_web(dest: Path) -> None:
@@ -423,7 +425,7 @@ def _to_dashed(yyyymmdd: str) -> str:
     return f"{yyyymmdd[:4]}-{yyyymmdd[4:6]}-{yyyymmdd[6:8]}"
 
 
-def export_pef_flow_activity() -> None:
+def export_pef_flow_activity() -> bool:
     result = collect_pef_flow_activity()
     try:
         _DATA_DIR.mkdir(parents=True, exist_ok=True)
@@ -443,8 +445,10 @@ def export_pef_flow_activity() -> None:
         logger.info(
             "사모 수급 이례치 저장: %s (%d개 종목)", _OUTPUT_PATH, len(result["rows"])
         )
+        return result["tradeDate"] is not None
     except Exception:
         logger.exception("사모 수급 이례치 저장 실패 (%s)", _OUTPUT_PATH)
+        return False
 
 
 def export_for_web(dest: Path) -> None:

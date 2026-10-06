@@ -165,9 +165,11 @@ def _maybe_collect_pef_flow_activity() -> None:
     if today == _load_last_run_date("last_pef_flow_date"):
         return
     try:
-        pef_flow_tracker.export_pef_flow_activity()
-    except Exception:
-        logger.exception("PEF 수급 이례치 수집 실패")
+        ok = pef_flow_tracker.export_pef_flow_activity()
+        if not ok:
+            db.log_admin_event("pef_flow", "error", "KRX 사모 수급 거래일 데이터를 못 받음")
+    except Exception as exc:
+        db.log_admin_event("pef_flow", "error", f"사모 수급 수집 예외: {exc}")
     _save_last_run_date("last_pef_flow_date", today)
 
 
@@ -178,9 +180,11 @@ def _maybe_collect_pef_combined_signal() -> None:
     if today == _load_last_run_date("last_pef_combined_date"):
         return
     try:
-        pef_flow_tracker.export_combined_signal_activity()
-    except Exception:
-        logger.exception("PEF 복합 수급 신호 수집 실패")
+        ok = pef_flow_tracker.export_combined_signal_activity()
+        if not ok:
+            db.log_admin_event("pef_combined", "error", "KRX 복합 수급 거래일 데이터를 못 받음")
+    except Exception as exc:
+        db.log_admin_event("pef_combined", "error", f"복합 수급 수집 예외: {exc}")
     _save_last_run_date("last_pef_combined_date", today)
 
 
