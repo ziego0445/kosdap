@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-06T15:05:35.836147+00:00",
+  "generatedAt": "2026-10-07T15:05:26.381868+00:00",
   "lookbackDays": 30,
   "rows": [
     {
@@ -49,6 +49,21 @@
       "latestReportReason": "전환사채 인수"
     },
     {
+      "corpCode": "00186939",
+      "corpName": "특수건설",
+      "stockCode": "026150",
+      "market": "코스닥",
+      "pefNetBuyShares": 1328823,
+      "pefNetBuyRatioPercent": 7.04,
+      "pefNetBuyValueKrw": 5215630275,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "에이피캐피탈"
+      ],
+      "latestReportDate": "2026-10-07",
+      "latestReportReason": "전환사채 6CB 인수에 따른 신규보고"
+    },
+    {
       "corpCode": "00169048",
       "corpName": "HLB글로벌",
       "stockCode": "003580",
@@ -70,7 +85,7 @@
       "market": "코스닥",
       "pefNetBuyShares": 366308,
       "pefNetBuyRatioPercent": 3.57,
-      "pefNetBuyValueKrw": 11611963600,
+      "pefNetBuyValueKrw": 11355548000,
       "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "케이비인베스트먼트"
@@ -107,21 +122,6 @@
       ],
       "latestReportDate": "2026-09-10",
       "latestReportReason": "장내매수"
-    },
-    {
-      "corpCode": "00296324",
-      "corpName": "큐로홀딩스",
-      "stockCode": "051780",
-      "market": "코스닥",
-      "pefNetBuyShares": 6324,
-      "pefNetBuyRatioPercent": 0.08,
-      "pefNetBuyValueKrw": 15810000,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "케이파트너스"
-      ],
-      "latestReportDate": "2026-09-07",
-      "latestReportReason": "특수관계인의 주식 매입 및 주식근질권설정변경계약 체결"
     },
     {
       "corpCode": "00288495",
