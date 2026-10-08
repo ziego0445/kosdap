@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-07T15:05:26.381868+00:00",
+  "generatedAt": "2026-10-08T15:05:56.834288+00:00",
   "lookbackDays": 30,
   "rows": [
     {
@@ -32,21 +32,6 @@
       ],
       "latestReportDate": "2026-09-18",
       "latestReportReason": "주식 취득"
-    },
-    {
-      "corpCode": "01299203",
-      "corpName": "그리드위즈",
-      "stockCode": "453450",
-      "market": "코스닥",
-      "pefNetBuyShares": 708415,
-      "pefNetBuyRatioPercent": 8.19,
-      "pefNetBuyValueKrw": 9287320650,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "SBI인베스트먼트"
-      ],
-      "latestReportDate": "2026-09-08",
-      "latestReportReason": "전환사채 인수"
     },
     {
       "corpCode": "00186939",
@@ -94,21 +79,6 @@
       "latestReportReason": "코스닥 상장으로 인한 신규 보고 및 장내매도"
     },
     {
-      "corpCode": "01181807",
-      "corpName": "형지글로벌",
-      "stockCode": "308100",
-      "market": "코스닥",
-      "pefNetBuyShares": 639404,
-      "pefNetBuyRatioPercent": 1.42,
-      "pefNetBuyValueKrw": 187345372,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "시너지아이비투자"
-      ],
-      "latestReportDate": "2026-09-10",
-      "latestReportReason": "제11회차 전환사채 일부 상환에 따른 지분변동"
-    },
-    {
       "corpCode": "00219574",
       "corpName": "코스맥스비티아이",
       "stockCode": "044820",
@@ -122,6 +92,21 @@
       ],
       "latestReportDate": "2026-09-10",
       "latestReportReason": "장내매수"
+    },
+    {
+      "corpCode": "01181807",
+      "corpName": "형지글로벌",
+      "stockCode": "308100",
+      "market": "코스닥",
+      "pefNetBuyShares": 248223,
+      "pefNetBuyRatioPercent": 0.21,
+      "pefNetBuyValueKrw": 89158941,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "시너지아이비투자"
+      ],
+      "latestReportDate": "2026-10-08",
+      "latestReportReason": "제11회차 전환사채 일부 상환에 따른 지분변동"
     },
     {
       "corpCode": "00288495",
@@ -304,6 +289,21 @@
       ],
       "latestReportDate": "2026-10-01",
       "latestReportReason": "발행회사의 콜옵션 행사에 따른 전환사채 일부 매도"
+    },
+    {
+      "corpCode": "01397903",
+      "corpName": "엔젠바이오",
+      "stockCode": "354200",
+      "market": "코스닥",
+      "pefNetBuyShares": -1100412,
+      "pefNetBuyRatioPercent": -5.26,
+      "pefNetBuyValueKrw": -774690048,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "시너지아이비투자"
+      ],
+      "latestReportDate": "2026-10-08",
+      "latestReportReason": "제4회차 전환사채 상환에 따른 지분변동"
     }
   ]
 }
