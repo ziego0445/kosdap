@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-08T15:05:56.834288+00:00",
+  "generatedAt": "2026-10-09T15:05:28.883593+00:00",
   "lookbackDays": 30,
   "rows": [
     {
@@ -100,7 +100,7 @@
       "market": "코스닥",
       "pefNetBuyShares": 248223,
       "pefNetBuyRatioPercent": 0.21,
-      "pefNetBuyValueKrw": 89158941,
+      "pefNetBuyValueKrw": 59820366,
       "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "시너지아이비투자"
@@ -154,21 +154,6 @@
       "latestReportReason": "보고자의 보유주식등에 관한 계약 변경"
     },
     {
-      "corpCode": "00139764",
-      "corpName": "에넥스",
-      "stockCode": "011090",
-      "market": "코스피",
-      "pefNetBuyShares": 0,
-      "pefNetBuyRatioPercent": 0.0,
-      "pefNetBuyValueKrw": -1776506088,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "굿뉴스파트너스"
-      ],
-      "latestReportDate": "2026-09-16",
-      "latestReportReason": "매수인 지위 양도ㆍ양수 변경계약 체결"
-    },
-    {
       "corpCode": "00131896",
       "corpName": "선광",
       "stockCode": "003100",
@@ -197,21 +182,6 @@
       ],
       "latestReportDate": "2026-09-30",
       "latestReportReason": "액면병합에 따른 주식 수 변경 및 특관자 변동"
-    },
-    {
-      "corpCode": "00109824",
-      "corpName": "대림통상",
-      "stockCode": "006570",
-      "market": "코스피",
-      "pefNetBuyShares": -157880,
-      "pefNetBuyRatioPercent": -1.04,
-      "pefNetBuyValueKrw": -314181200,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "디앤디파트너스"
-      ],
-      "latestReportDate": "2026-09-09",
-      "latestReportReason": "시간외매매"
     },
     {
       "corpCode": "01802928",
@@ -297,13 +267,44 @@
       "market": "코스닥",
       "pefNetBuyShares": -1100412,
       "pefNetBuyRatioPercent": -5.26,
-      "pefNetBuyValueKrw": -774690048,
+      "pefNetBuyValueKrw": -867124656,
       "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "시너지아이비투자"
       ],
       "latestReportDate": "2026-10-08",
       "latestReportReason": "제4회차 전환사채 상환에 따른 지분변동"
+    },
+    {
+      "corpCode": "00787057",
+      "corpName": "휴맥스",
+      "stockCode": "115160",
+      "market": "코스닥",
+      "pefNetBuyShares": -8271296,
+      "pefNetBuyRatioPercent": -15.83,
+      "pefNetBuyValueKrw": -45657553920,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "시너지아이비투자"
+      ],
+      "latestReportDate": "2026-10-08",
+      "latestReportReason": "제24회차 전환사채 상환에 따른 지분변동"
+    },
+    {
+      "corpCode": "00506294",
+      "corpName": "가비아",
+      "stockCode": "079940",
+      "market": "코스닥",
+      "pefNetBuyShares": -3270248,
+      "pefNetBuyRatioPercent": -24.37,
+      "pefNetBuyValueKrw": -135224754800,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "디씨케이인베스트먼트",
+        "얼라인파트너스자산운용"
+      ],
+      "latestReportDate": "2026-09-23",
+      "latestReportReason": "- 주식매매계약 해제"
     }
   ]
 }
