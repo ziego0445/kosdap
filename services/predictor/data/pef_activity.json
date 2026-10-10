@@ -1,38 +1,7 @@
 {
-  "generatedAt": "2026-10-09T15:05:28.883593+00:00",
+  "generatedAt": "2026-10-10T15:03:55.040404+00:00",
   "lookbackDays": 30,
   "rows": [
-    {
-      "corpCode": "02030166",
-      "corpName": "엔에이치스팩34호",
-      "stockCode": "0197V0",
-      "market": "코스닥",
-      "pefNetBuyShares": 1500000,
-      "pefNetBuyRatioPercent": 15.5,
-      "pefNetBuyValueKrw": 2895500000,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "디에이밸류인베스트먼트",
-        "컴파파트너스"
-      ],
-      "latestReportDate": "2026-09-17",
-      "latestReportReason": "5% 이상 보유에 따른 공시의무 발생"
-    },
-    {
-      "corpCode": "00756163",
-      "corpName": "볼빅",
-      "stockCode": "206950",
-      "market": "코넥스",
-      "pefNetBuyShares": 1560062,
-      "pefNetBuyRatioPercent": 8.52,
-      "pefNetBuyValueKrw": 0,
-      "pefNetBuyValueIsPartial": true,
-      "pefReporters": [
-        "우리벤처-에버베스트기업재무안정사모투자"
-      ],
-      "latestReportDate": "2026-09-18",
-      "latestReportReason": "주식 취득"
-    },
     {
       "corpCode": "00186939",
       "corpName": "특수건설",
@@ -77,36 +46,6 @@
       ],
       "latestReportDate": "2026-10-06",
       "latestReportReason": "코스닥 상장으로 인한 신규 보고 및 장내매도"
-    },
-    {
-      "corpCode": "00219574",
-      "corpName": "코스맥스비티아이",
-      "stockCode": "044820",
-      "market": "코스피",
-      "pefNetBuyShares": 102991,
-      "pefNetBuyRatioPercent": 1.07,
-      "pefNetBuyValueKrw": 2260652450,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "리캐피탈"
-      ],
-      "latestReportDate": "2026-09-10",
-      "latestReportReason": "장내매수"
-    },
-    {
-      "corpCode": "01181807",
-      "corpName": "형지글로벌",
-      "stockCode": "308100",
-      "market": "코스닥",
-      "pefNetBuyShares": 248223,
-      "pefNetBuyRatioPercent": 0.21,
-      "pefNetBuyValueKrw": 59820366,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "시너지아이비투자"
-      ],
-      "latestReportDate": "2026-10-08",
-      "latestReportReason": "제11회차 전환사채 일부 상환에 따른 지분변동"
     },
     {
       "corpCode": "00288495",
@@ -154,21 +93,6 @@
       "latestReportReason": "보고자의 보유주식등에 관한 계약 변경"
     },
     {
-      "corpCode": "00131896",
-      "corpName": "선광",
-      "stockCode": "003100",
-      "market": "코스닥",
-      "pefNetBuyShares": 0,
-      "pefNetBuyRatioPercent": 0.0,
-      "pefNetBuyValueKrw": 0,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "화인파트너스"
-      ],
-      "latestReportDate": "2026-09-16",
-      "latestReportReason": "- 증여 및 수증에 따른 특별관계자 추가 및 보유주식수 변동"
-    },
-    {
       "corpCode": "00545114",
       "corpName": "랩지노믹스",
       "stockCode": "084650",
@@ -184,64 +108,19 @@
       "latestReportReason": "액면병합에 따른 주식 수 변경 및 특관자 변동"
     },
     {
-      "corpCode": "01802928",
-      "corpName": "코스모로보틱스",
-      "stockCode": "439960",
+      "corpCode": "01181807",
+      "corpName": "형지글로벌",
+      "stockCode": "308100",
       "market": "코스닥",
-      "pefNetBuyShares": -515903,
-      "pefNetBuyRatioPercent": -1.59,
-      "pefNetBuyValueKrw": -5907089350,
+      "pefNetBuyShares": -391181,
+      "pefNetBuyRatioPercent": -1.21,
+      "pefNetBuyValueKrw": -127525006,
       "pefNetBuyValueIsPartial": false,
       "pefReporters": [
-        "엔비에이치캐피탈"
+        "시너지아이비투자"
       ],
-      "latestReportDate": "2026-09-14",
-      "latestReportReason": "장내 매도로 인한 변동"
-    },
-    {
-      "corpCode": "00412348",
-      "corpName": "LB세미콘",
-      "stockCode": "061970",
-      "market": "코스닥",
-      "pefNetBuyShares": 414086,
-      "pefNetBuyRatioPercent": -1.9,
-      "pefNetBuyValueKrw": 1691541310,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "유암코-케이비크레딧제1호사모투자"
-      ],
-      "latestReportDate": "2026-09-10",
-      "latestReportReason": "전환사채 행사가액 변동 및 대차 거래에 따른 지분 변동"
-    },
-    {
-      "corpCode": "01859500",
-      "corpName": "아이엠바이오로직스",
-      "stockCode": "493280",
-      "market": "코스닥",
-      "pefNetBuyShares": -280991,
-      "pefNetBuyRatioPercent": -1.93,
-      "pefNetBuyValueKrw": -4209245180,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "신한벤처투자"
-      ],
-      "latestReportDate": "2026-09-10",
-      "latestReportReason": "보유주식 장내매도에 따른 공시"
-    },
-    {
-      "corpCode": "01228515",
-      "corpName": "앱튼",
-      "stockCode": "270520",
-      "market": "코스닥",
-      "pefNetBuyShares": 1200292,
-      "pefNetBuyRatioPercent": -3.73,
-      "pefNetBuyValueKrw": 3678894980,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "유토피아 파트너스"
-      ],
-      "latestReportDate": "2026-09-10",
-      "latestReportReason": "1. 전환청구권 행사에 따른 보유주식등의 내역 변경\n2. 발행회사의 주식수 증가로 인한 보유비율 변동"
+      "latestReportDate": "2026-10-08",
+      "latestReportReason": "제11회차 전환사채 일부 상환에 따른 지분변동"
     },
     {
       "corpCode": "00327396",
@@ -289,22 +168,6 @@
       ],
       "latestReportDate": "2026-10-08",
       "latestReportReason": "제24회차 전환사채 상환에 따른 지분변동"
-    },
-    {
-      "corpCode": "00506294",
-      "corpName": "가비아",
-      "stockCode": "079940",
-      "market": "코스닥",
-      "pefNetBuyShares": -3270248,
-      "pefNetBuyRatioPercent": -24.37,
-      "pefNetBuyValueKrw": -135224754800,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "디씨케이인베스트먼트",
-        "얼라인파트너스자산운용"
-      ],
-      "latestReportDate": "2026-09-23",
-      "latestReportReason": "- 주식매매계약 해제"
     }
   ]
 }
