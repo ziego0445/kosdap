@@ -3,37 +3,6 @@
   "lookbackDays": 30,
   "rows": [
     {
-      "corpCode": "02030166",
-      "corpName": "엔에이치스팩34호",
-      "stockCode": "0197V0",
-      "market": "코스닥",
-      "pefNetBuyShares": 1500000,
-      "pefNetBuyRatioPercent": 15.5,
-      "pefNetBuyValueKrw": 2895500000,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "디에이밸류인베스트먼트",
-        "컴파파트너스"
-      ],
-      "latestReportDate": "2026-09-17",
-      "latestReportReason": "5% 이상 보유에 따른 공시의무 발생"
-    },
-    {
-      "corpCode": "00756163",
-      "corpName": "볼빅",
-      "stockCode": "206950",
-      "market": "코넥스",
-      "pefNetBuyShares": 1560062,
-      "pefNetBuyRatioPercent": 8.52,
-      "pefNetBuyValueKrw": 0,
-      "pefNetBuyValueIsPartial": true,
-      "pefReporters": [
-        "우리벤처-에버베스트기업재무안정사모투자"
-      ],
-      "latestReportDate": "2026-09-18",
-      "latestReportReason": "주식 취득"
-    },
-    {
       "corpCode": "00186939",
       "corpName": "특수건설",
       "stockCode": "026150",
@@ -124,21 +93,6 @@
       "latestReportReason": "보고자의 보유주식등에 관한 계약 변경"
     },
     {
-      "corpCode": "00131896",
-      "corpName": "선광",
-      "stockCode": "003100",
-      "market": "코스닥",
-      "pefNetBuyShares": 0,
-      "pefNetBuyRatioPercent": 0.0,
-      "pefNetBuyValueKrw": 0,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "화인파트너스"
-      ],
-      "latestReportDate": "2026-09-16",
-      "latestReportReason": "- 증여 및 수증에 따른 특별관계자 추가 및 보유주식수 변동"
-    },
-    {
       "corpCode": "00545114",
       "corpName": "랩지노믹스",
       "stockCode": "084650",
@@ -173,12 +127,12 @@
       "corpName": "코스모로보틱스",
       "stockCode": "439960",
       "market": "코스닥",
-      "pefNetBuyShares": -515903,
-      "pefNetBuyRatioPercent": -1.59,
-      "pefNetBuyValueKrw": -5907089350,
+      "pefNetBuyShares": -391181,
+      "pefNetBuyRatioPercent": -1.21,
+      "pefNetBuyValueKrw": -127525006,
       "pefNetBuyValueIsPartial": false,
       "pefReporters": [
-        "엔비에이치캐피탈"
+        "시너지아이비투자"
       ],
       "latestReportDate": "2026-09-14",
       "latestReportReason": "장내 매도로 인한 변동"
