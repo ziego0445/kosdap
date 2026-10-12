@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-11T15:05:21.013251+00:00",
+  "generatedAt": "2026-10-12T15:05:22.141214+00:00",
   "lookbackDays": 30,
   "rows": [
     {
@@ -76,6 +76,21 @@
       ],
       "latestReportDate": "2026-10-06",
       "latestReportReason": "코스닥 상장으로 인한 신규 보고 및 장내매도"
+    },
+    {
+      "corpCode": "00296324",
+      "corpName": "큐로홀딩스",
+      "stockCode": "051780",
+      "market": "코스닥",
+      "pefNetBuyShares": 33072,
+      "pefNetBuyRatioPercent": 0.44,
+      "pefNetBuyValueKrw": 80695680,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "케이파트너스"
+      ],
+      "latestReportDate": "2026-10-12",
+      "latestReportReason": "특수관계인의 주식 매입 및 주식근질권설정변경계약 체결"
     },
     {
       "corpCode": "00288495",
@@ -213,6 +228,21 @@
       ],
       "latestReportDate": "2026-10-08",
       "latestReportReason": "제4회차 전환사채 상환에 따른 지분변동"
+    },
+    {
+      "corpCode": "01228515",
+      "corpName": "앱튼",
+      "stockCode": "270520",
+      "market": "코스닥",
+      "pefNetBuyShares": -5020000,
+      "pefNetBuyRatioPercent": -12.54,
+      "pefNetBuyValueKrw": -4191700000,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "유토피아 파트너스"
+      ],
+      "latestReportDate": "2026-10-12",
+      "latestReportReason": "1. 특별관계자 일부 탈퇴 및 현물배분에 따른 특별관계해소\n2. 조합 해산 및 현물배분에 따른 지분율 변동 및 특별관계자와의 연명보고 관계 해소"
     },
     {
       "corpCode": "00787057",
