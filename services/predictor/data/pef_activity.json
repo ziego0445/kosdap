@@ -1,7 +1,22 @@
 {
-  "generatedAt": "2026-10-13T23:36:26.996820+00:00",
+  "generatedAt": "2026-10-14T15:00:57.633373+00:00",
   "lookbackDays": 30,
   "rows": [
+    {
+      "corpCode": "01559637",
+      "corpName": "블루엠텍",
+      "stockCode": "439580",
+      "market": "코스닥",
+      "pefNetBuyShares": 7131777,
+      "pefNetBuyRatioPercent": 21.07,
+      "pefNetBuyValueKrw": 15475956090,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "산은인베스트먼트"
+      ],
+      "latestReportDate": "2026-10-14",
+      "latestReportReason": "장외 주식매매계약 체결로 인한 신규보고"
+    },
     {
       "corpCode": "02030166",
       "corpName": "엔에이치스팩34호",
@@ -196,21 +211,6 @@
       ],
       "latestReportDate": "2026-10-08",
       "latestReportReason": "제11회차 전환사채 일부 상환에 따른 지분변동"
-    },
-    {
-      "corpCode": "01802928",
-      "corpName": "코스모로보틱스",
-      "stockCode": "439960",
-      "market": "코스닥",
-      "pefNetBuyShares": -515903,
-      "pefNetBuyRatioPercent": -1.59,
-      "pefNetBuyValueKrw": -5907089350,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "엔비에이치캐피탈"
-      ],
-      "latestReportDate": "2026-09-14",
-      "latestReportReason": "장내 매도로 인한 변동"
     },
     {
       "corpCode": "00327396",
