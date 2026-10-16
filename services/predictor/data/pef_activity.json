@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-15T15:01:12.101481+00:00",
+  "generatedAt": "2026-10-16T15:01:10.627426+00:00",
   "lookbackDays": 30,
   "rows": [
     {
@@ -168,21 +168,6 @@
       "latestReportReason": "보고자의 보유주식등에 관한 계약 변경"
     },
     {
-      "corpCode": "00131896",
-      "corpName": "선광",
-      "stockCode": "003100",
-      "market": "코스닥",
-      "pefNetBuyShares": 0,
-      "pefNetBuyRatioPercent": 0.0,
-      "pefNetBuyValueKrw": 0,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "화인파트너스"
-      ],
-      "latestReportDate": "2026-09-16",
-      "latestReportReason": "- 증여 및 수증에 따른 특별관계자 추가 및 보유주식수 변동"
-    },
-    {
       "corpCode": "00545114",
       "corpName": "랩지노믹스",
       "stockCode": "084650",
@@ -196,6 +181,21 @@
       ],
       "latestReportDate": "2026-09-30",
       "latestReportReason": "액면병합에 따른 주식 수 변경 및 특관자 변동"
+    },
+    {
+      "corpCode": "00109824",
+      "corpName": "대림통상",
+      "stockCode": "006570",
+      "market": "코스피",
+      "pefNetBuyShares": -45385,
+      "pefNetBuyRatioPercent": -0.3,
+      "pefNetBuyValueKrw": -81239150,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "디앤디파트너스"
+      ],
+      "latestReportDate": "2026-10-16",
+      "latestReportReason": "시간외매매"
     },
     {
       "corpCode": "01181807",
@@ -290,19 +290,19 @@
       "latestReportReason": "- 주식매매계약 해제"
     },
     {
-      "corpCode": "00139764",
-      "corpName": "에넥스",
-      "stockCode": "011090",
-      "market": "코스피",
-      "pefNetBuyShares": -3377388,
-      "pefNetBuyRatioPercent": -28.48,
-      "pefNetBuyValueKrw": -6163733100,
+      "corpCode": "01468061",
+      "corpName": "레뷰코퍼레이션",
+      "stockCode": "443250",
+      "market": "코스닥",
+      "pefNetBuyShares": -6335760,
+      "pefNetBuyRatioPercent": -58.55,
+      "pefNetBuyValueKrw": -31678800000,
       "pefNetBuyValueIsPartial": false,
       "pefReporters": [
-        "굿뉴스파트너스"
+        "글로벌커넥트플랫폼사모투자"
       ],
-      "latestReportDate": "2026-09-16",
-      "latestReportReason": "매수인 지위 양도ㆍ양수 변경계약 체결"
+      "latestReportDate": "2026-09-23",
+      "latestReportReason": "- 보고자 보유주식 전량의 현물출자에 따른 변동보고\n- 대표보고자 변경(변경 후 대표보고자: 글로벌커넥트플랫폼홀딩스 유한회사)\n- 보유주식 등에 관한 주요계약 변경(보고자 보유주식 전량의 현물출자에 따라 종전 주주간계약 종료)"
     }
   ]
 }
