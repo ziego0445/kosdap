@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-16T15:01:10.627426+00:00",
+  "generatedAt": "2026-10-17T15:01:07.280235+00:00",
   "lookbackDays": 30,
   "rows": [
     {
@@ -16,21 +16,6 @@
       ],
       "latestReportDate": "2026-10-14",
       "latestReportReason": "장외 주식매매계약 체결로 인한 신규보고"
-    },
-    {
-      "corpCode": "02030166",
-      "corpName": "엔에이치스팩34호",
-      "stockCode": "0197V0",
-      "market": "코스닥",
-      "pefNetBuyShares": 1000000,
-      "pefNetBuyRatioPercent": 9.98,
-      "pefNetBuyValueKrw": 1930000000,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "디에이밸류인베스트먼트"
-      ],
-      "latestReportDate": "2026-09-17",
-      "latestReportReason": "5% 이상 보유에 따른 공시의무 발생"
     },
     {
       "corpCode": "00756163",
@@ -189,7 +174,7 @@
       "market": "코스피",
       "pefNetBuyShares": -45385,
       "pefNetBuyRatioPercent": -0.3,
-      "pefNetBuyValueKrw": -81239150,
+      "pefNetBuyValueKrw": -83826095,
       "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "디앤디파트너스"
@@ -283,8 +268,7 @@
       "pefNetBuyValueKrw": -135224754800,
       "pefNetBuyValueIsPartial": false,
       "pefReporters": [
-        "디씨케이인베스트먼트",
-        "얼라인파트너스자산운용"
+        "디씨케이인베스트먼트"
       ],
       "latestReportDate": "2026-09-23",
       "latestReportReason": "- 주식매매계약 해제"
