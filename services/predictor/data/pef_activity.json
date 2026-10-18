@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-17T15:01:07.280235+00:00",
+  "generatedAt": "2026-10-18T15:01:10.336618+00:00",
   "lookbackDays": 30,
   "rows": [
     {
@@ -16,21 +16,6 @@
       ],
       "latestReportDate": "2026-10-14",
       "latestReportReason": "장외 주식매매계약 체결로 인한 신규보고"
-    },
-    {
-      "corpCode": "00756163",
-      "corpName": "볼빅",
-      "stockCode": "206950",
-      "market": "코넥스",
-      "pefNetBuyShares": 1560062,
-      "pefNetBuyRatioPercent": 8.52,
-      "pefNetBuyValueKrw": 0,
-      "pefNetBuyValueIsPartial": true,
-      "pefReporters": [
-        "우리벤처-에버베스트기업재무안정사모투자"
-      ],
-      "latestReportDate": "2026-09-18",
-      "latestReportReason": "주식 취득"
     },
     {
       "corpCode": "00186939",
