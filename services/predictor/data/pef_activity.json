@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-19T15:01:13.573003+00:00",
+  "generatedAt": "2026-10-20T15:01:29.505178+00:00",
   "lookbackDays": 30,
   "rows": [
     {
@@ -69,7 +69,7 @@
       "market": "코스닥",
       "pefNetBuyShares": 258739,
       "pefNetBuyRatioPercent": 1.58,
-      "pefNetBuyValueKrw": 600274480,
+      "pefNetBuyValueKrw": 608036650,
       "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "차파트너스자산운용"
