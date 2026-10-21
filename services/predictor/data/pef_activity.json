@@ -1,7 +1,23 @@
 {
-  "generatedAt": "2026-10-20T15:01:29.505178+00:00",
+  "generatedAt": "2026-10-21T15:01:13.814966+00:00",
   "lookbackDays": 30,
   "rows": [
+    {
+      "corpCode": "00145437",
+      "corpName": "아센디오",
+      "stockCode": "012170",
+      "market": "코스피",
+      "pefNetBuyShares": 3005627,
+      "pefNetBuyRatioPercent": 29.17,
+      "pefNetBuyValueKrw": 8776430840,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "에스투인베스트먼트01",
+        "트리랜드파트너스"
+      ],
+      "latestReportDate": "2026-10-21",
+      "latestReportReason": "제3자배정 유상증자 참여에 따른 신규 보고"
+    },
     {
       "corpCode": "01559637",
       "corpName": "블루엠텍",
