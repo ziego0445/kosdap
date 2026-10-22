@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-21T15:01:13.814966+00:00",
+  "generatedAt": "2026-10-22T15:01:15.030458+00:00",
   "lookbackDays": 30,
   "rows": [
     {
@@ -9,7 +9,7 @@
       "market": "코스피",
       "pefNetBuyShares": 3005627,
       "pefNetBuyRatioPercent": 29.17,
-      "pefNetBuyValueKrw": 8776430840,
+      "pefNetBuyValueKrw": 8716318300,
       "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "에스투인베스트먼트01",
@@ -79,6 +79,21 @@
       "latestReportReason": "코스닥 상장으로 인한 신규 보고 및 장내매도"
     },
     {
+      "corpCode": "00296324",
+      "corpName": "큐로홀딩스",
+      "stockCode": "051780",
+      "market": "코스닥",
+      "pefNetBuyShares": 203679,
+      "pefNetBuyRatioPercent": 2.69,
+      "pefNetBuyValueKrw": 477548550,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "케이파트너스"
+      ],
+      "latestReportDate": "2026-10-22",
+      "latestReportReason": "특수관계인의 주식 매입"
+    },
+    {
       "corpCode": "00360036",
       "corpName": "백금T&A",
       "stockCode": "046310",
@@ -92,21 +107,6 @@
       ],
       "latestReportDate": "2026-10-19",
       "latestReportReason": "장내매매에 따른 보유주식 수 변동"
-    },
-    {
-      "corpCode": "00296324",
-      "corpName": "큐로홀딩스",
-      "stockCode": "051780",
-      "market": "코스닥",
-      "pefNetBuyShares": 33072,
-      "pefNetBuyRatioPercent": 0.44,
-      "pefNetBuyValueKrw": 80034240,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "케이파트너스"
-      ],
-      "latestReportDate": "2026-10-12",
-      "latestReportReason": "특수관계인의 주식 매입 및 주식근질권설정변경계약 체결"
     },
     {
       "corpCode": "00288495",
