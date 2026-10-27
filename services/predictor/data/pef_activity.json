@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-26T15:02:27.812153+00:00",
+  "generatedAt": "2026-10-27T15:02:29.088590+00:00",
   "lookbackDays": 30,
   "rows": [
     {
@@ -32,6 +32,21 @@
       ],
       "latestReportDate": "2026-10-14",
       "latestReportReason": "장외 주식매매계약 체결로 인한 신규보고"
+    },
+    {
+      "corpCode": "01835944",
+      "corpName": "이스트엔드",
+      "stockCode": "0230E0",
+      "market": "코넥스",
+      "pefNetBuyShares": 435000,
+      "pefNetBuyRatioPercent": 9.05,
+      "pefNetBuyValueKrw": 0,
+      "pefNetBuyValueIsPartial": true,
+      "pefReporters": [
+        "비엔케이벤처투자"
+      ],
+      "latestReportDate": "2026-10-27",
+      "latestReportReason": "코넥스 상장주식 취득에 따른 신규보고"
     },
     {
       "corpCode": "00186939",
@@ -109,19 +124,49 @@
       "latestReportReason": "장내매매에 따른 보유주식 수 변동"
     },
     {
+      "corpCode": "00117498",
+      "corpName": "스틱인베스트먼트",
+      "stockCode": "026890",
+      "market": "코스피",
+      "pefNetBuyShares": 62474,
+      "pefNetBuyRatioPercent": 0.73,
+      "pefNetBuyValueKrw": 446689100,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "얼라인파트너스자산운용"
+      ],
+      "latestReportDate": "2026-10-27",
+      "latestReportReason": "특별관계 해소, 장내매수로 인한 변동, 시간외대량매매에 따른 보유주식 변동, 발행회사 주식에 대한 Align Partners Korea Fund LP의 주요계약 효력 상실"
+    },
+    {
       "corpCode": "01159233",
       "corpName": "솔루엠",
       "stockCode": "248070",
       "market": "코스피",
       "pefNetBuyShares": 120928,
       "pefNetBuyRatioPercent": 0.22,
-      "pefNetBuyValueKrw": 1760711680,
+      "pefNetBuyValueKrw": 1700247680,
       "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "얼라인파트너스자산운용"
       ],
       "latestReportDate": "2026-10-26",
       "latestReportReason": "보유주식에 관한 질권 담보 해제, 보유주식에 관한 계약의 변경"
+    },
+    {
+      "corpCode": "00526599",
+      "corpName": "덴티움",
+      "stockCode": "145720",
+      "market": "코스피",
+      "pefNetBuyShares": 0,
+      "pefNetBuyRatioPercent": 0.0,
+      "pefNetBuyValueKrw": 0,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "얼라인파트너스자산운용"
+      ],
+      "latestReportDate": "2026-10-27",
+      "latestReportReason": "보고자와 특별관계자 간 시간외대량매매에 따른 보유주식 변동, 주요계약대상 주식 수 변경"
     },
     {
       "corpCode": "00288495",
@@ -258,36 +303,6 @@
       ],
       "latestReportDate": "2026-10-08",
       "latestReportReason": "제4회차 전환사채 상환에 따른 지분변동"
-    },
-    {
-      "corpCode": "01228515",
-      "corpName": "앱튼",
-      "stockCode": "270520",
-      "market": "코스닥",
-      "pefNetBuyShares": -5020000,
-      "pefNetBuyRatioPercent": -12.54,
-      "pefNetBuyValueKrw": -4176640000,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "유토피아 파트너스"
-      ],
-      "latestReportDate": "2026-10-12",
-      "latestReportReason": "1. 특별관계자 일부 탈퇴 및 현물배분에 따른 특별관계해소\n2. 조합 해산 및 현물배분에 따른 지분율 변동 및 특별관계자와의 연명보고 관계 해소"
-    },
-    {
-      "corpCode": "00787057",
-      "corpName": "휴맥스",
-      "stockCode": "115160",
-      "market": "코스닥",
-      "pefNetBuyShares": -8271296,
-      "pefNetBuyRatioPercent": -15.83,
-      "pefNetBuyValueKrw": -45657553920,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "시너지아이비투자"
-      ],
-      "latestReportDate": "2026-10-08",
-      "latestReportReason": "제24회차 전환사채 상환에 따른 지분변동"
     }
   ]
 }
