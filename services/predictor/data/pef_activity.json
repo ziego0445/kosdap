@@ -1,7 +1,24 @@
 {
-  "generatedAt": "2026-10-29T15:02:38.822897+00:00",
+  "generatedAt": "2026-10-30T15:05:14.635715+00:00",
   "lookbackDays": 30,
   "rows": [
+    {
+      "corpCode": "01835944",
+      "corpName": "이스트엔드",
+      "stockCode": "0230E0",
+      "market": "코넥스",
+      "pefNetBuyShares": 1553300,
+      "pefNetBuyRatioPercent": 32.32,
+      "pefNetBuyValueKrw": 0,
+      "pefNetBuyValueIsPartial": true,
+      "pefReporters": [
+        "가이아벤처파트너스",
+        "비엔케이벤처투자",
+        "캡스톤파트너스"
+      ],
+      "latestReportDate": "2026-10-30",
+      "latestReportReason": "코넥스 상장에 따른 신규보고"
+    },
     {
       "corpCode": "00145437",
       "corpName": "아센디오",
@@ -17,22 +34,6 @@
       ],
       "latestReportDate": "2026-10-21",
       "latestReportReason": "제3자배정 유상증자 참여에 따른 신규 보고"
-    },
-    {
-      "corpCode": "01835944",
-      "corpName": "이스트엔드",
-      "stockCode": "0230E0",
-      "market": "코넥스",
-      "pefNetBuyShares": 1233800,
-      "pefNetBuyRatioPercent": 25.67,
-      "pefNetBuyValueKrw": 0,
-      "pefNetBuyValueIsPartial": true,
-      "pefReporters": [
-        "비엔케이벤처투자",
-        "캡스톤파트너스"
-      ],
-      "latestReportDate": "2026-10-29",
-      "latestReportReason": "코넥스시장 신규상장"
     },
     {
       "corpCode": "01559637",
@@ -54,15 +55,16 @@
       "corpName": "티앤이코리아",
       "stockCode": "0053F0",
       "market": "코스닥",
-      "pefNetBuyShares": 1172192,
-      "pefNetBuyRatioPercent": 10.32,
-      "pefNetBuyValueKrw": 25202128000,
+      "pefNetBuyShares": 1684049,
+      "pefNetBuyRatioPercent": 14.83,
+      "pefNetBuyValueKrw": 36207053500,
       "pefNetBuyValueIsPartial": false,
       "pefReporters": [
+        "SV인베스트먼트",
         "브이플랫폼인베스트먼트"
       ],
-      "latestReportDate": "2026-10-29",
-      "latestReportReason": "신규상장"
+      "latestReportDate": "2026-10-30",
+      "latestReportReason": "신규상장 및 매도"
     },
     {
       "corpCode": "00186939",
@@ -86,7 +88,7 @@
       "market": "코스닥",
       "pefNetBuyShares": 500000,
       "pefNetBuyRatioPercent": 6.98,
-      "pefNetBuyValueKrw": 939500000,
+      "pefNetBuyValueKrw": 937000000,
       "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "메이슨캐피탈"
@@ -116,13 +118,28 @@
       "market": "코스닥",
       "pefNetBuyShares": 1353689,
       "pefNetBuyRatioPercent": 4.98,
-      "pefNetBuyValueKrw": 14863505220,
+      "pefNetBuyValueKrw": 12277959230,
       "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "아이비케이키움중소중견점프업사모투자"
       ],
       "latestReportDate": "2026-10-29",
       "latestReportReason": "코스닥 신규상장으로 인한 신규보고 및 장내 매도"
+    },
+    {
+      "corpCode": "00233653",
+      "corpName": "한국토지신탁",
+      "stockCode": "034830",
+      "market": "코스피",
+      "pefNetBuyShares": 46392,
+      "pefNetBuyRatioPercent": 4.94,
+      "pefNetBuyValueKrw": 46113648,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "엠케이인베스트먼트"
+      ],
+      "latestReportDate": "2026-10-30",
+      "latestReportReason": "보고자 및 특별관계자의\n보유주식등에 관한 계약 변경"
     },
     {
       "corpCode": "01722066",
@@ -138,21 +155,6 @@
       ],
       "latestReportDate": "2026-10-06",
       "latestReportReason": "코스닥 상장으로 인한 신규 보고 및 장내매도"
-    },
-    {
-      "corpCode": "00296324",
-      "corpName": "큐로홀딩스",
-      "stockCode": "051780",
-      "market": "코스닥",
-      "pefNetBuyShares": 203679,
-      "pefNetBuyRatioPercent": 2.69,
-      "pefNetBuyValueKrw": 471577305,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "케이파트너스"
-      ],
-      "latestReportDate": "2026-10-22",
-      "latestReportReason": "특수관계인의 주식 매입"
     },
     {
       "corpCode": "00360036",
@@ -260,36 +262,6 @@
       "latestReportReason": "주식 담보대출 계약의 체결"
     },
     {
-      "corpCode": "00233653",
-      "corpName": "한국토지신탁",
-      "stockCode": "034830",
-      "market": "코스피",
-      "pefNetBuyShares": 0,
-      "pefNetBuyRatioPercent": 0.0,
-      "pefNetBuyValueKrw": 0,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "엠케이인베스트먼트"
-      ],
-      "latestReportDate": "2026-10-02",
-      "latestReportReason": "보고자의 보유주식등에 관한 계약 변경"
-    },
-    {
-      "corpCode": "00545114",
-      "corpName": "랩지노믹스",
-      "stockCode": "084650",
-      "market": "코스닥",
-      "pefNetBuyShares": -18318896,
-      "pefNetBuyRatioPercent": -0.1,
-      "pefNetBuyValueKrw": -47903913040,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "루하프라이빗에쿼티"
-      ],
-      "latestReportDate": "2026-09-30",
-      "latestReportReason": "액면병합에 따른 주식 수 변경 및 특관자 변동"
-    },
-    {
       "corpCode": "00109824",
       "corpName": "대림통상",
       "stockCode": "006570",
@@ -303,6 +275,36 @@
       ],
       "latestReportDate": "2026-10-16",
       "latestReportReason": "시간외매매"
+    },
+    {
+      "corpCode": "01181807",
+      "corpName": "형지글로벌",
+      "stockCode": "308100",
+      "market": "코스닥",
+      "pefNetBuyShares": -391181,
+      "pefNetBuyRatioPercent": -1.21,
+      "pefNetBuyValueKrw": -127525006,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "시너지아이비투자"
+      ],
+      "latestReportDate": "2026-10-08",
+      "latestReportReason": "제11회차 전환사채 일부 상환에 따른 지분변동"
+    },
+    {
+      "corpCode": "00327396",
+      "corpName": "옵트론텍",
+      "stockCode": "082210",
+      "market": "코스닥",
+      "pefNetBuyShares": -21547,
+      "pefNetBuyRatioPercent": -1.29,
+      "pefNetBuyValueKrw": -37879626,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "리인베스트먼트"
+      ],
+      "latestReportDate": "2026-10-01",
+      "latestReportReason": "발행회사의 콜옵션 행사에 따른 전환사채 일부 매도"
     }
   ]
 }
