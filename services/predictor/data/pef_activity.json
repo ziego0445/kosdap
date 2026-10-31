@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-30T15:05:14.635715+00:00",
+  "generatedAt": "2026-10-31T15:05:15.465540+00:00",
   "lookbackDays": 30,
   "rows": [
     {
@@ -57,8 +57,8 @@
       "market": "코스닥",
       "pefNetBuyShares": 1684049,
       "pefNetBuyRatioPercent": 14.83,
-      "pefNetBuyValueKrw": 36207053500,
-      "pefNetBuyValueIsPartial": false,
+      "pefNetBuyValueKrw": 8481470490,
+      "pefNetBuyValueIsPartial": true,
       "pefReporters": [
         "SV인베스트먼트",
         "브이플랫폼인베스트먼트"
@@ -97,21 +97,6 @@
       "latestReportReason": "신규상장"
     },
     {
-      "corpCode": "00169048",
-      "corpName": "HLB글로벌",
-      "stockCode": "003580",
-      "market": "코스피",
-      "pefNetBuyShares": 3043212,
-      "pefNetBuyRatioPercent": 5.67,
-      "pefNetBuyValueKrw": 5672547168,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "시너지아이비투자"
-      ],
-      "latestReportDate": "2026-10-01",
-      "latestReportReason": "제38회차 전환사채 인수에 따른 신규보고"
-    },
-    {
       "corpCode": "01749559",
       "corpName": "엠에스바이오",
       "stockCode": "0013Y0",
@@ -133,7 +118,7 @@
       "market": "코스피",
       "pefNetBuyShares": 46392,
       "pefNetBuyRatioPercent": 4.94,
-      "pefNetBuyValueKrw": 46113648,
+      "pefNetBuyValueKrw": 45696120,
       "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "엠케이인베스트먼트"
@@ -292,19 +277,34 @@
       "latestReportReason": "제11회차 전환사채 일부 상환에 따른 지분변동"
     },
     {
-      "corpCode": "00327396",
-      "corpName": "옵트론텍",
-      "stockCode": "082210",
+      "corpCode": "01397903",
+      "corpName": "엔젠바이오",
+      "stockCode": "354200",
       "market": "코스닥",
-      "pefNetBuyShares": -21547,
-      "pefNetBuyRatioPercent": -1.29,
-      "pefNetBuyValueKrw": -37879626,
+      "pefNetBuyShares": -1100412,
+      "pefNetBuyRatioPercent": -5.26,
+      "pefNetBuyValueKrw": -867124656,
       "pefNetBuyValueIsPartial": false,
       "pefReporters": [
-        "리인베스트먼트"
+        "시너지아이비투자"
       ],
-      "latestReportDate": "2026-10-01",
-      "latestReportReason": "발행회사의 콜옵션 행사에 따른 전환사채 일부 매도"
+      "latestReportDate": "2026-10-08",
+      "latestReportReason": "제4회차 전환사채 상환에 따른 지분변동"
+    },
+    {
+      "corpCode": "01310773",
+      "corpName": "엔시스",
+      "stockCode": "333620",
+      "market": "코스닥",
+      "pefNetBuyShares": -650932,
+      "pefNetBuyRatioPercent": -5.37,
+      "pefNetBuyValueKrw": -2707877120,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "와이지인베스트먼트"
+      ],
+      "latestReportDate": "2026-10-30",
+      "latestReportReason": "전환사채 상환"
     }
   ]
 }
