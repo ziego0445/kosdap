@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-31T15:05:15.465540+00:00",
+  "generatedAt": "2026-11-01T15:05:13.163793+00:00",
   "lookbackDays": 30,
   "rows": [
     {
@@ -232,21 +232,6 @@
       "latestReportReason": "담보 제공"
     },
     {
-      "corpCode": "00100601",
-      "corpName": "강원에너지",
-      "stockCode": "114190",
-      "market": "코스닥",
-      "pefNetBuyShares": 0,
-      "pefNetBuyRatioPercent": 0.0,
-      "pefNetBuyValueKrw": 0,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "평산파트너스"
-      ],
-      "latestReportDate": "2026-10-02",
-      "latestReportReason": "주식 담보대출 계약의 체결"
-    },
-    {
       "corpCode": "00109824",
       "corpName": "대림통상",
       "stockCode": "006570",
@@ -305,6 +290,21 @@
       ],
       "latestReportDate": "2026-10-30",
       "latestReportReason": "전환사채 상환"
+    },
+    {
+      "corpCode": "00522007",
+      "corpName": "크리스에프앤씨",
+      "stockCode": "110790",
+      "market": "코스닥",
+      "pefNetBuyShares": -1284039,
+      "pefNetBuyRatioPercent": -5.48,
+      "pefNetBuyValueKrw": -3678771735,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "제이앤제이인베스트먼트"
+      ],
+      "latestReportDate": "2026-10-28",
+      "latestReportReason": "장내, 장외 매매 및 특별관계자 변동에 따른 보고"
     }
   ]
 }
