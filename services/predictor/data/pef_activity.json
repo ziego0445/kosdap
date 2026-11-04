@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-03T15:05:23.048809+00:00",
+  "generatedAt": "2026-11-04T15:05:58.695511+00:00",
   "lookbackDays": 30,
   "rows": [
     {
@@ -42,7 +42,7 @@
       "market": "코스닥",
       "pefNetBuyShares": 2597234,
       "pefNetBuyRatioPercent": 22.87,
-      "pefNetBuyValueKrw": 24179120640,
+      "pefNetBuyValueKrw": 25850249190,
       "pefNetBuyValueIsPartial": true,
       "pefReporters": [
         "SV인베스트먼트",
