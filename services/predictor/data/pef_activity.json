@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-05T15:05:24.710695+00:00",
+  "generatedAt": "2026-11-06T15:05:22.675993+00:00",
   "lookbackDays": 30,
   "rows": [
     {
@@ -53,19 +53,19 @@
       "latestReportReason": "신규상장"
     },
     {
-      "corpCode": "01559637",
-      "corpName": "블루엠텍",
-      "stockCode": "439580",
-      "market": "코스닥",
-      "pefNetBuyShares": 7131777,
-      "pefNetBuyRatioPercent": 21.07,
-      "pefNetBuyValueKrw": 15511614975,
+      "corpCode": "00106313",
+      "corpName": "금호건설",
+      "stockCode": "002990",
+      "market": "코스피",
+      "pefNetBuyShares": 4223328,
+      "pefNetBuyRatioPercent": 10.18,
+      "pefNetBuyValueKrw": 34166723520,
       "pefNetBuyValueIsPartial": false,
       "pefReporters": [
-        "산은인베스트먼트"
+        "우리엔에이치동반성장1호사모투자"
       ],
-      "latestReportDate": "2026-10-14",
-      "latestReportReason": "장외 주식매매계약 체결로 인한 신규보고"
+      "latestReportDate": "2026-11-06",
+      "latestReportReason": "제304회 후순위 무기명식 무보증 사모 전환사채(신종자본증권) 인수(신규보고)"
     },
     {
       "corpCode": "00102140",
@@ -74,28 +74,13 @@
       "market": "코스피",
       "pefNetBuyShares": 800779,
       "pefNetBuyRatioPercent": 9.96,
-      "pefNetBuyValueKrw": 7799587460,
+      "pefNetBuyValueKrw": 7743532930,
       "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "케이일레븐파트너스"
       ],
       "latestReportDate": "2026-11-05",
       "latestReportReason": "무상증자에 따른 보유주식 변동 보고"
-    },
-    {
-      "corpCode": "00186939",
-      "corpName": "특수건설",
-      "stockCode": "026150",
-      "market": "코스닥",
-      "pefNetBuyShares": 1328823,
-      "pefNetBuyRatioPercent": 7.04,
-      "pefNetBuyValueKrw": 5215630275,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "에이피캐피탈"
-      ],
-      "latestReportDate": "2026-10-07",
-      "latestReportReason": "전환사채 6CB 인수에 따른 신규보고"
     },
     {
       "corpCode": "02032951",
@@ -119,7 +104,7 @@
       "market": "코스닥",
       "pefNetBuyShares": 896500,
       "pefNetBuyRatioPercent": 6.15,
-      "pefNetBuyValueKrw": 12972355000,
+      "pefNetBuyValueKrw": 9224985000,
       "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "LB인베스트먼트"
@@ -143,33 +128,18 @@
       "latestReportReason": "코스닥 신규상장으로 인한 신규보고 및 장내 매도"
     },
     {
-      "corpCode": "00233653",
-      "corpName": "한국토지신탁",
-      "stockCode": "034830",
-      "market": "코스피",
-      "pefNetBuyShares": 46392,
-      "pefNetBuyRatioPercent": 4.94,
-      "pefNetBuyValueKrw": 45696120,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "엠케이인베스트먼트"
-      ],
-      "latestReportDate": "2026-10-30",
-      "latestReportReason": "보고자 및 특별관계자의\n보유주식등에 관한 계약 변경"
-    },
-    {
       "corpCode": "00360036",
       "corpName": "백금T&A",
       "stockCode": "046310",
       "market": "코스닥",
-      "pefNetBuyShares": 258739,
-      "pefNetBuyRatioPercent": 1.58,
-      "pefNetBuyValueKrw": 608036650,
+      "pefNetBuyShares": 480285,
+      "pefNetBuyRatioPercent": 2.93,
+      "pefNetBuyValueKrw": 1167440300,
       "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "차파트너스자산운용"
       ],
-      "latestReportDate": "2026-10-19",
+      "latestReportDate": "2026-11-06",
       "latestReportReason": "장내매매에 따른 보유주식 수 변동"
     },
     {
@@ -201,6 +171,51 @@
       ],
       "latestReportDate": "2026-11-03",
       "latestReportReason": "특별관계 해소, 시간외대량매매에 따른 보유주식 변동, 발행회사 주식에 대한 Align Partners Korea Fund LP의 주요계약 효력 상실, 주식담보계약 주식 수 변경"
+    },
+    {
+      "corpCode": "00233653",
+      "corpName": "한국토지신탁",
+      "stockCode": "034830",
+      "market": "코스피",
+      "pefNetBuyShares": 46392,
+      "pefNetBuyRatioPercent": 0.02,
+      "pefNetBuyValueKrw": 45324984,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "엠케이인베스트먼트"
+      ],
+      "latestReportDate": "2026-11-06",
+      "latestReportReason": "보고자 및 특별관계자의\n보유주식등에 관한 계약 변경"
+    },
+    {
+      "corpCode": "01559637",
+      "corpName": "블루엠텍",
+      "stockCode": "439580",
+      "market": "코스닥",
+      "pefNetBuyShares": 0,
+      "pefNetBuyRatioPercent": 0.0,
+      "pefNetBuyValueKrw": 2025424668,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "산은인베스트먼트"
+      ],
+      "latestReportDate": "2026-11-06",
+      "latestReportReason": "- 계약상 지위 및 권리와 의무 이전에 따른 대표보고자 변동\n(폐지보고)"
+    },
+    {
+      "corpCode": "00100601",
+      "corpName": "강원에너지",
+      "stockCode": "114190",
+      "market": "코스닥",
+      "pefNetBuyShares": 0,
+      "pefNetBuyRatioPercent": 0.0,
+      "pefNetBuyValueKrw": 0,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "평산파트너스"
+      ],
+      "latestReportDate": "2026-11-06",
+      "latestReportReason": "주식 담보대출 계약의 변경"
     },
     {
       "corpCode": "00506294",
@@ -291,21 +306,6 @@
       ],
       "latestReportDate": "2026-10-08",
       "latestReportReason": "제11회차 전환사채 일부 상환에 따른 지분변동"
-    },
-    {
-      "corpCode": "01397903",
-      "corpName": "엔젠바이오",
-      "stockCode": "354200",
-      "market": "코스닥",
-      "pefNetBuyShares": -1100412,
-      "pefNetBuyRatioPercent": -5.26,
-      "pefNetBuyValueKrw": -867124656,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "시너지아이비투자"
-      ],
-      "latestReportDate": "2026-10-08",
-      "latestReportReason": "제4회차 전환사채 상환에 따른 지분변동"
     }
   ]
 }
