@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-06T15:05:22.675993+00:00",
+  "generatedAt": "2026-11-07T15:05:22.132564+00:00",
   "lookbackDays": 30,
   "rows": [
     {
@@ -59,7 +59,7 @@
       "market": "코스피",
       "pefNetBuyShares": 4223328,
       "pefNetBuyRatioPercent": 10.18,
-      "pefNetBuyValueKrw": 34166723520,
+      "pefNetBuyValueKrw": 33490991040,
       "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "우리엔에이치동반성장1호사모투자"
@@ -134,7 +134,7 @@
       "market": "코스닥",
       "pefNetBuyShares": 480285,
       "pefNetBuyRatioPercent": 2.93,
-      "pefNetBuyValueKrw": 1167440300,
+      "pefNetBuyValueKrw": 1191810360,
       "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "차파트너스자산운용"
@@ -179,7 +179,7 @@
       "market": "코스피",
       "pefNetBuyShares": 46392,
       "pefNetBuyRatioPercent": 0.02,
-      "pefNetBuyValueKrw": 45324984,
+      "pefNetBuyValueKrw": 44397144,
       "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "엠케이인베스트먼트"
@@ -194,7 +194,7 @@
       "market": "코스닥",
       "pefNetBuyShares": 0,
       "pefNetBuyRatioPercent": 0.0,
-      "pefNetBuyValueKrw": 2025424668,
+      "pefNetBuyValueKrw": 2474726619,
       "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "산은인베스트먼트"
@@ -293,19 +293,19 @@
       "latestReportReason": "주식담보계약 변경"
     },
     {
-      "corpCode": "01181807",
-      "corpName": "형지글로벌",
-      "stockCode": "308100",
+      "corpCode": "01310773",
+      "corpName": "엔시스",
+      "stockCode": "333620",
       "market": "코스닥",
-      "pefNetBuyShares": -391181,
-      "pefNetBuyRatioPercent": -1.21,
-      "pefNetBuyValueKrw": -127525006,
+      "pefNetBuyShares": -650932,
+      "pefNetBuyRatioPercent": -5.37,
+      "pefNetBuyValueKrw": -2707877120,
       "pefNetBuyValueIsPartial": false,
       "pefReporters": [
-        "시너지아이비투자"
+        "와이지인베스트먼트"
       ],
-      "latestReportDate": "2026-10-08",
-      "latestReportReason": "제11회차 전환사채 일부 상환에 따른 지분변동"
+      "latestReportDate": "2026-10-30",
+      "latestReportReason": "전환사채 상환"
     }
   ]
 }
