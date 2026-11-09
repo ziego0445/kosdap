@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-08T15:05:20.632989+00:00",
+  "generatedAt": "2026-11-09T15:05:26.207473+00:00",
   "lookbackDays": 30,
   "rows": [
     {
@@ -141,6 +141,21 @@
       ],
       "latestReportDate": "2026-11-06",
       "latestReportReason": "장내매매에 따른 보유주식 수 변동"
+    },
+    {
+      "corpCode": "00579342",
+      "corpName": "영광",
+      "stockCode": "359410",
+      "market": "코스닥",
+      "pefNetBuyShares": 158800,
+      "pefNetBuyRatioPercent": 1.76,
+      "pefNetBuyValueKrw": 1603880000,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "비케이인베스트먼트"
+      ],
+      "latestReportDate": "2026-11-09",
+      "latestReportReason": "발행회사의 코스닥 신규상장에 따른 신규보고"
     },
     {
       "corpCode": "00117498",
@@ -291,21 +306,6 @@
       ],
       "latestReportDate": "2026-11-03",
       "latestReportReason": "주식담보계약 변경"
-    },
-    {
-      "corpCode": "01310773",
-      "corpName": "엔시스",
-      "stockCode": "333620",
-      "market": "코스닥",
-      "pefNetBuyShares": -650932,
-      "pefNetBuyRatioPercent": -5.37,
-      "pefNetBuyValueKrw": -2707877120,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "와이지인베스트먼트"
-      ],
-      "latestReportDate": "2026-10-30",
-      "latestReportReason": "전환사채 상환"
     }
   ]
 }
