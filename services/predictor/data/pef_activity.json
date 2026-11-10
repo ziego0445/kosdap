@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-09T15:05:26.207473+00:00",
+  "generatedAt": "2026-11-10T15:05:27.361795+00:00",
   "lookbackDays": 30,
   "rows": [
     {
@@ -53,6 +53,22 @@
       "latestReportReason": "신규상장"
     },
     {
+      "corpCode": "01956751",
+      "corpName": "래블업",
+      "stockCode": "0147B0",
+      "market": "코스닥",
+      "pefNetBuyShares": 1535268,
+      "pefNetBuyRatioPercent": 10.53,
+      "pefNetBuyValueKrw": 16992403880,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "LB인베스트먼트",
+        "케이투인베스트먼트파트너스"
+      ],
+      "latestReportDate": "2026-11-10",
+      "latestReportReason": "코스닥시장 상장에 따른 신규 보고 및 장내매도에 따른 보유지분 변동"
+    },
+    {
       "corpCode": "00106313",
       "corpName": "금호건설",
       "stockCode": "002990",
@@ -98,21 +114,6 @@
       "latestReportReason": "신규상장"
     },
     {
-      "corpCode": "01956751",
-      "corpName": "래블업",
-      "stockCode": "0147B0",
-      "market": "코스닥",
-      "pefNetBuyShares": 896500,
-      "pefNetBuyRatioPercent": 6.15,
-      "pefNetBuyValueKrw": 9224985000,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "LB인베스트먼트"
-      ],
-      "latestReportDate": "2026-11-05",
-      "latestReportReason": "코스닥 상장에 따른 신규 보고 및 장내매도에 따른 보유지분 변동"
-    },
-    {
       "corpCode": "01749559",
       "corpName": "엠에스바이오",
       "stockCode": "0013Y0",
@@ -149,12 +150,12 @@
       "market": "코스닥",
       "pefNetBuyShares": 158800,
       "pefNetBuyRatioPercent": 1.76,
-      "pefNetBuyValueKrw": 1603880000,
+      "pefNetBuyValueKrw": 1575296000,
       "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "비케이인베스트먼트"
       ],
-      "latestReportDate": "2026-11-09",
+      "latestReportDate": "2026-11-10",
       "latestReportReason": "발행회사의 코스닥 신규상장에 따른 신규보고"
     },
     {
