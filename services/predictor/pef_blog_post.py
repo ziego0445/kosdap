@@ -73,9 +73,90 @@ def _ro(word: str) -> str:
     return "로"
 
 
+# --- 글 구성 원칙 (2026-11-12, 사용자 요청: 책 『스틱!』의 SUCCESs 원칙) ---
+# 초보자도 첫 화면에서 "무슨 얘기인지" 바로 알게 하는 게 목표다.
+# - Simple: 맨 위 "30초 요약"에서 종목당 한 줄로 핵심만.
+# - Unexpected: 제목/도입을 궁금증으로 연다("큰손 장바구니는 매일 공개된다").
+#   종목마다 "근데 주의할 점"을 둬서 뻔한 결론(=오른다)을 스스로 깬다.
+# - Concrete: 숫자를 체감 단위로 바꾼다(16거래일→약 3주, 비중 14.5%→
+#   오간 돈 100원 중 15원어치).
+# - Credible: 출처(KRX/DART)와 비교 기준(최근 1년 중 n번째)을 밝힌다.
+# - Emotional: "큰손 vs 나" 관점, 끝에 독자 질문.
+# - Stories: 종목마다 "한 줄 훅 → 숫자로 보면 → 왜 볼 만한가 → 주의할 점".
+# kosdap 원칙(계산된 사실은 보여주되 매수/매도 판단은 안 함)은 그대로다 —
+# 해석은 "그렇게 보는 시각이 많다" 수준까지만, 사라/팔라는 말은 쓰지 않는다.
+
+_CIRCLED = ["①", "②", "③", "④"]
+_TOP_RANK_HIGHLIGHT = 20  # "최근 1년 중 n번째로 큰 매수"는 이 순위 안일 때만 언급
+
+
+def _weeks_phrase(trading_days: int) -> str:
+    """거래일 수를 달력 감각으로: 16 → '약 3주', 3 → '3일'."""
+    if trading_days < 5:
+        return f"{trading_days}일"
+    weeks = round(trading_days / 5)
+    if weeks >= 8:
+        return f"약 {round(trading_days / 21)}개월"
+    return f"약 {weeks}주"
+
+
+def _won_of_100(percent: float) -> str:
+    return f"오간 돈 100원 중 약 {int(percent + 0.5)}원어치를 사모펀드가 샀어요"
+
+
+def _price_fact(pct: float | None) -> str | None:
+    if pct is None:
+        return None
+    sign = "+" if pct > 0 else ""
+    return f"매수가 이어진 동안 주가: {sign}{pct}%"
+
+
+def _volume_fact(ratio: float | None) -> str | None:
+    if ratio is None or ratio < 1.5:
+        return None
+    return f"오늘 거래량: 평소(최근 20일 평균)의 {ratio}배 — 유난히 북적인 날"
+
+
+def _caution(price_pct: float | None) -> str:
+    """'큰손이 샀다 = 오른다'는 뻔한 결론을 스스로 깨는 한 줄 (Unexpected)."""
+    if price_pct is not None and price_pct >= 15:
+        return (
+            f"주의할 점: 매수가 이어지는 동안 주가가 이미 {price_pct}% 올랐어요. "
+            "지금 들어가면 큰손보다 꽤 비싼 값에 사는 셈이라는 것도 같이 봐야 합니다."
+        )
+    if price_pct is not None and price_pct < 0:
+        return (
+            f"반전 포인트: 이렇게 사는데도 주가는 오히려 {price_pct}%예요. "
+            "큰손도 지금은 손실 구간일 수 있다는 뜻 — 큰손이라고 늘 맞는 건 아닙니다."
+        )
+    return "주의할 점: 연속 기록은 언젠가 끊겨요. 언제, 어떻게 끊기는지도 같이 지켜볼 포인트입니다."
+
+
+def _rank_phrase(rank: int | None, sample_days: int | None) -> str | None:
+    if not rank or rank > _TOP_RANK_HIGHLIGHT:
+        return None
+    if rank == 1:
+        return f"최근 1년({sample_days}거래일) 중 가장 큰 하루 매수"
+    return f"최근 1년({sample_days}거래일) 중 {rank}번째로 큰 하루 매수"
+
+
+def _flow_common_facts(r: dict) -> list[str]:
+    facts = []
+    if r.get("pefBuySharePercent"):
+        facts.append(f"오늘 사모 비중: {r['pefBuySharePercent']}% ({_won_of_100(r['pefBuySharePercent'])})")
+    for f in (_volume_fact(r.get("volumeRatio")), _price_fact(r.get("streakPriceChangePercent"))):
+        if f:
+            facts.append(f)
+    return facts
+
+
 def select_highlights() -> tuple[str | None, list[dict]]:
     """오늘자 PEF 데이터에서 블로그에 짚을 종목 최대 4개를 고른다.
-    (tradeDate, [{"kind":..., "ticker":..., "name":..., "headline":..., "body":...}, ...])
+
+    각 항목: name, ticker, headline(훅 한 줄), summary(30초 요약용),
+    facts(숫자 bullet), body(왜 볼 만한가), caution(주의할 점),
+    card_big/card_label(요약 카드용), card_stat(하위호환용 한 줄).
+    blog_post_draft.json을 읽는 쪽(쇼츠 내레이션)은 headline/body만 쓴다.
     """
     flow = _load_json(_DATA_DIR / "pef_flow_activity.json", {})
     combined = _load_json(_DATA_DIR / "pef_combined_signal.json", {})
@@ -89,72 +170,111 @@ def select_highlights() -> tuple[str | None, list[dict]]:
     highlights: list[dict] = []
     used_tickers: set[str] = set()
 
-    # 1) 사모펀드 단독 연속매수 최장 스트릭
+    # 1) 사모펀드 단독 연속매수 최장 스트릭 — "꾸준함" 이야기
     if flow_rows:
         top = max(flow_rows, key=lambda r: r.get("consecutiveBuyDays", 0))
         used_tickers.add(top["ticker"])
+        n = top["consecutiveBuyDays"]
+        total = top["streakTotalValueKrw"]
+        facts = [
+            f"연속 순매수: {n}거래일 (달력으로 {_weeks_phrase(n)})",
+            f"쌓인 금액: {_fmt_eok(total)} (하루 평균 약 {_fmt_eok(total / max(n, 1))})",
+        ]
+        rank_p = _rank_phrase(top.get("rank"), top.get("sampleDays"))
+        facts.append(f"오늘 순매수: {_fmt_eok(top['netBuyValueKrw'])}" + (f" — {rank_p}" if rank_p else ""))
+        facts += _flow_common_facts(top)
         highlights.append({
+            "kind": "streak",
             "name": top["corpName"],
             "ticker": top["ticker"],
-            "card_stat": f"사모펀드 연속매수 {top['consecutiveBuyDays']}일째",
-            "headline": f"{top['corpName']}({top['ticker']}) — 사모펀드 연속 매수 {top['consecutiveBuyDays']}일째",
+            "headline": f"{top['corpName']} — {_weeks_phrase(n)} 동안 하루도 안 쉬고 샀다",
+            "summary": f"사모펀드가 {n}거래일({_weeks_phrase(n)}) 내리 순매수",
+            "facts": facts,
             "body": (
-                f"오늘로 {top['consecutiveBuyDays']}거래일 연속 순매수가 이어졌습니다. "
-                f"오늘 하루 {_fmt_eok(top['netBuyValueKrw'])}, 누적으로는 {_fmt_eok(top['streakTotalValueKrw'])}이 "
-                f"들어왔어요. 쉬지 않고 매일 사들이고 있다는 게 핵심으로, 단기 트레이딩이 아니라 "
-                f"포지션을 꾸준히 쌓아가는 모습으로 읽힙니다."
+                "하루에 크게 한 번 사는 건 단발성 거래(블록딜 등)일 수도 있어요. 그런데 "
+                f"{_weeks_phrase(n)} 동안 매일 샀다는 건 이야기가 달라요. 한 번에 사면 가격이 "
+                "튀니까 조금씩 나눠서 모으는 모습으로 보는 시각이 많습니다."
             ),
+            "caution": _caution(top.get("streakPriceChangePercent")),
+            "card_big": f"{n}일 연속",
+            "card_label": "하루도 안 쉬고 매수",
+            "card_stat": f"사모펀드 연속매수 {n}일째",
         })
 
-    # 2) 오늘 하루 유입액이 가장 큰 종목 (1번과 겹치면 다음으로)
+    # 2) 오늘 하루 유입액이 가장 큰 종목 (1번과 겹치면 다음으로) — "규모" 이야기
     if flow_rows:
         by_today = sorted(flow_rows, key=lambda r: r.get("netBuyValueKrw", 0), reverse=True)
         for r in by_today:
-            if r["ticker"] not in used_tickers:
-                used_tickers.add(r["ticker"])
-                inst_days = 0
-                for c in combined_rows:
-                    if c.get("ticker") == r["ticker"]:
-                        inst_days = c.get("institutionConsecutiveBuyDays", 0)
-                        break
-                extra = (
-                    f" 기관투자자도 {inst_days}거래일 연속으로 같이 들어오고 있어, 서로 다른 큰손 두 곳이 "
-                    f"같은 방향을 보고 있다는 점이 눈에 띕니다."
-                    if inst_days > 0 else ""
+            if r["ticker"] in used_tickers:
+                continue
+            used_tickers.add(r["ticker"])
+            inst_days = 0
+            for c in combined_rows:
+                if c.get("ticker") == r["ticker"]:
+                    inst_days = c.get("institutionConsecutiveBuyDays", 0)
+                    break
+            amount = _fmt_eok(r["netBuyValueKrw"])
+            rank_p = _rank_phrase(r.get("rank"), r.get("sampleDays"))
+            facts = [f"오늘 순매수: {amount} — 오늘 사모펀드 매수 명단 1위"]
+            if rank_p:
+                facts.append(f"이 종목 기준으로 보면: {rank_p}")
+            facts.append(f"사모 연속 순매수: {r['consecutiveBuyDays']}거래일째")
+            if inst_days > 0:
+                facts.append(f"기관(사모 제외)도: {inst_days}거래일 연속 순매수 중")
+            facts += _flow_common_facts(r)
+            body = "오늘 사모펀드 돈이 가장 많이 들어간 종목이에요."
+            if inst_days > 0:
+                body += (
+                    " 게다가 기관도 같이 사고 있어요. 돈의 성격도, 판단하는 팀도 다른 두 큰손이 "
+                    "같은 방향을 보고 있다는 점이 눈에 띕니다."
                 )
-                highlights.append({
-                    "name": r["corpName"],
-                    "ticker": r["ticker"],
-                    "card_stat": f"오늘 하루 {_fmt_eok(r['netBuyValueKrw'])} 유입",
-                    "headline": f"{r['corpName']}({r['ticker']}) — 오늘 하루만 {_fmt_eok(r['netBuyValueKrw'])} 유입",
-                    "body": (
-                        f"오늘 명단 중 하루 유입액이 가장 큰 종목입니다. 사모펀드가 {r['consecutiveBuyDays']}거래일 "
-                        f"연속 순매수 중이에요.{extra}"
-                    ),
-                })
-                break
+            else:
+                body += " 하루 규모가 크다는 건 그만큼 확신을 갖고 움직였다는 뜻으로 읽히기도 합니다."
+            highlights.append({
+                "kind": "today",
+                "name": r["corpName"],
+                "ticker": r["ticker"],
+                "headline": f"{r['corpName']} — 오늘 하루에만 {amount}, 사모펀드 매수 1위",
+                "summary": f"오늘 하루 {amount}, 사모펀드가 가장 많이 산 종목",
+                "facts": facts,
+                "body": body,
+                "caution": _caution(r.get("streakPriceChangePercent")),
+                "card_big": amount,
+                "card_label": "오늘 하루 사모 매수 1위",
+                "card_stat": f"오늘 하루 {amount} 유입",
+            })
+            break
 
-    # 3) 사모+기관 동시 진입 중 가장 점수 높은 것 (겹치지 않는 종목)
+    # 3) 사모+기관 동시 진입 중 가장 점수 높은 것 (겹치지 않는 종목) — "연합" 이야기
     for c in combined_rows:
         if c["ticker"] in used_tickers:
             continue
-        if c.get("pefConsecutiveBuyDays", 0) > 0 and c.get("institutionConsecutiveBuyDays", 0) > 0:
+        pd_, idays = c.get("pefConsecutiveBuyDays", 0), c.get("institutionConsecutiveBuyDays", 0)
+        if pd_ > 0 and idays > 0:
             used_tickers.add(c["ticker"])
             total = c.get("pefStreakTotalValueKrw", 0) + c.get("institutionStreakTotalValueKrw", 0)
+            facts = [
+                f"사모펀드: {pd_}거래일 연속 순매수 (누적 {_fmt_eok(c.get('pefStreakTotalValueKrw', 0))})",
+                f"기관(사모 제외): {idays}거래일 연속 순매수 (누적 {_fmt_eok(c.get('institutionStreakTotalValueKrw', 0))})",
+                f"두 큰손 합계: 약 {_fmt_eok(total)}",
+            ]
+            facts += _flow_common_facts(c)
             highlights.append({
+                "kind": "combined",
                 "name": c["corpName"],
                 "ticker": c["ticker"],
-                "card_stat": "사모+기관 동시 진입",
-                "headline": (
-                    f"{c['corpName']}({c['ticker']}) — 사모 {c['pefConsecutiveBuyDays']}일 + "
-                    f"기관 {c['institutionConsecutiveBuyDays']}일, 두 세력이 동시에 진입"
-                ),
+                "headline": f"{c['corpName']} — 사모펀드와 기관, 두 큰손이 같이 산다",
+                "summary": f"사모 {pd_}일 + 기관 {idays}일, 두 큰손이 동시에 순매수",
+                "facts": facts,
                 "body": (
-                    f"사모펀드와 기관투자자가 같은 시기에 나란히 순매수를 이어가고 있는 케이스입니다. "
-                    f"두 세력의 누적 순매수를 합치면 약 {_fmt_eok(total)} 규모예요. 서로 다른 성격의 큰손 "
-                    f"두 곳이 동시에 같은 방향을 보고 있다는 건, 어느 한쪽만 사는 것보다 의미 있는 신호로 "
-                    f"볼 수 있습니다."
+                    "기관(연기금·보험·투신 등)과 사모펀드는 돈의 주인도, 판단하는 팀도 달라요. "
+                    "서로 다른 두 곳이 같은 종목을 같은 시기에 사고 있다는 건, 한쪽만 살 때보다 "
+                    "눈여겨볼 만한 장면입니다."
                 ),
+                "caution": _caution(c.get("streakPriceChangePercent")),
+                "card_big": "사모+기관",
+                "card_label": f"두 큰손 동시 매수 (사모 {pd_}일·기관 {idays}일)",
+                "card_stat": "사모+기관 동시 진입",
             })
             break
 
@@ -168,65 +288,114 @@ def select_highlights() -> tuple[str | None, list[dict]]:
         recent = sorted(increase_rows, key=lambda r: r.get("latestReportDate", ""), reverse=True)[0]
         reporters = ", ".join(recent.get("pefReporters", []))
         reason = recent.get("latestReportReason", "대량보유")
+        ratio = recent["pefNetBuyRatioPercent"]
         value_krw = recent.get("pefNetBuyValueKrw") or 0
         is_partial = recent.get("pefNetBuyValueIsPartial")
-        amount_clause = (
-            f"(약 {_fmt_eok(value_krw)} 규모) " if value_krw and not is_partial else ""
-        )
+        facts = [
+            f"신고한 곳: {reporters}",
+            f"신고일: {recent.get('latestReportDate', '')}",
+            f"지분: {ratio}%" + (f" (약 {_fmt_eok(value_krw)} 규모)" if value_krw and not is_partial else ""),
+            f"신고 사유: {reason}",
+        ]
         highlights.append({
+            "kind": "dart",
             "name": recent["corpName"],
             "ticker": recent["stockCode"],
-            "card_stat": f"{reason}{_ro(reason)} 지분 {recent['pefNetBuyRatioPercent']}% 확보",
-            "headline": (
-                f"{recent['corpName']}({recent['stockCode']}) — {reason}{_ro(reason)} "
-                f"지분 {recent['pefNetBuyRatioPercent']}% 신규 확보 공시"
-            ),
+            "headline": f"{recent['corpName']} — 투자사가 지분 {ratio}%를 '공식 신고'했다",
+            "summary": f"투자사가 지분 {ratio}% 보유를 금감원에 공식 신고",
+            "facts": facts,
             "body": (
-                f"이건 매일 조금씩 쌓이는 순매수와는 결이 다른 이벤트예요. {reporters}가 "
-                f"{recent.get('latestReportDate', '')}에 지분 {recent['pefNetBuyRatioPercent']}% "
-                f"{amount_clause}대량보유 공시를 냈습니다. 사유는 '{reason}'입니다."
+                "주식을 5% 넘게 가진 투자자는 5영업일 안에 금융감독원에 신고해야 해요(일명 '5%룰'). "
+                "매일 사고파는 수급과 달리, '우리가 이만큼 갖고 있다'고 공식 문서로 밝힌 거라 "
+                "무게가 다릅니다."
             ),
+            "caution": (
+                "주의할 점: 신고 사유를 꼭 같이 보세요. 상장·합병처럼 '원래 갖고 있던 지분'을 "
+                "형식상 신고한 경우도 있어서, 새로 사들였다는 뜻이 아닐 수 있어요."
+            ),
+            "card_big": f"지분 {ratio}%",
+            "card_label": "5%룰 대량보유 공식 신고",
+            "card_stat": f"지분 {ratio}% 보유 신고",
         })
 
     return trade_date, highlights[:4]
 
 
+def _title_hook(h: dict, date_md: str) -> str:
+    kind = h.get("kind")
+    if kind == "streak":
+        n = h["card_big"].replace("일 연속", "")
+        return f"사모펀드가 {n}일 동안 하루도 안 쉬고 산 종목, {h['name']} | {date_md} 큰손 수급"
+    if kind == "today":
+        return f"오늘 사모펀드가 가장 많이 산 종목은 {h['name']}({h['card_big']}) | {date_md} 큰손 수급"
+    if kind == "combined":
+        return f"사모펀드와 기관이 동시에 사는 종목, {h['name']} | {date_md} 큰손 수급"
+    return f"{h['headline']} | {date_md} 큰손 수급"
+
+
 def generate_post(trade_date: str, highlights: list[dict]) -> tuple[str, list[str], str, str]:
-    """(제목, 본문 줄 리스트('' = 빈 줄), 태그문자열, 한글날짜) 반환."""
+    """(제목, 본문 줄 리스트('' = 빈 줄), 태그문자열, 한글날짜) 반환.
+    '▶'/'■'로 시작하는 줄은 굵게 넣는다(_lines_to_html)."""
     date_kr = trade_date
+    date_md = trade_date
     try:
         d = dt.date.fromisoformat(trade_date)
         date_kr = f"{d.year}년 {d.month}월 {d.day}일"
+        date_md = f"{d.month}/{d.day}"
     except (ValueError, TypeError):
         pass
 
-    title = f"[사모펀드 수급 리포트] {date_kr} 거래일 — {highlights[0]['headline'].split(' — ',1)[1]}" if highlights else \
-        f"[사모펀드 수급 리포트] {date_kr} 거래일"
+    title = _title_hook(highlights[0], date_md) if highlights else f"{date_md} 사모펀드 큰손 수급"
 
     lines: list[str] = [
-        "매일 코스피·코스닥 전 종목의 사모펀드(PEF) 순매수 동향과 DART 5%룰 대량보유 공시를 자동으로 "
-        f"취합해서, 그중 흐름이 눈에 띄는 종목을 짚어보는 코너입니다. 오늘은 {date_kr} 거래일 기준 데이터예요.",
+        "주식시장엔 '큰손'이 있어요. 하루에 수십억, 수백억을 움직이는 사모펀드 같은 곳이죠.",
+        "그런데 이 큰손들의 장바구니가 매일 공개된다는 거, 알고 계셨나요?",
+        "한국거래소는 장이 끝나면 누가 어떤 종목을 얼마나 사고팔았는지 발표해요. "
+        f"오늘도 그 장바구니를 열어봤습니다. ({date_kr} 거래일 기준)",
+        "",
+        "■ 30초 요약",
+    ]
+    for i, h in enumerate(highlights):
+        lines.append(f"{_CIRCLED[i]} {h['name']} — {h['summary']}")
+    lines += [
+        "",
+        "■ 처음 오셨다면, 용어 3개만",
+        "· 사모펀드: 소수의 큰 투자자 돈을 모아 굴리는 펀드 (이 글의 '큰손')",
+        "· 순매수: 산 금액 − 판 금액. 플러스면 '판 것보다 더 많이 샀다'",
+        "· 연속 순매수: '더 많이 산 날'이 하루도 안 끊기고 며칠째 이어졌는지",
         "",
     ]
-    for h in highlights:
-        lines.append(f"▶ {h['headline']}")
+
+    for i, h in enumerate(highlights):
+        lines.append(f"▶ {_CIRCLED[i]} {h['headline']}")
+        lines.append("[숫자로 보면]")
+        lines += [f"· {f}" for f in h.get("facts", [])]
+        lines.append("[왜 볼 만한가]")
         lines.append(h["body"])
+        if h.get("caution"):
+            lines.append(h["caution"])
         lines.append("")
 
     lines += [
-        "오늘 짚은 종목들은 '사모펀드/기관이 순매수했다 = 주가가 오른다'는 뜻이 아니라, 공개된 수급 "
-        "데이터에서 흐름이 두드러졌다는 사실을 정리한 겁니다. 투자 판단은 각자의 몫이고, 이 글은 투자 "
-        "권유가 아닌 정보 공유 목적임을 밝힙니다.",
+        "■ 오늘의 한 줄",
+        "하루 크게 사는 것보다 '매일 꾸준히 사는 것'이 더 많은 걸 말해줄 때가 있어요. "
+        "다만 큰손도 틀릴 수 있다는 것, 그게 오늘의 두 번째 한 줄입니다.",
         "",
-        "이 데이터는 제가 직접 만든 사이트에서 매일 자동으로 수집·정리하고 있어요. 전체 랭킹과 상세 "
-        "수급 흐름은 아래 주소에서 직접 확인하실 수 있습니다.",
+        "■ 꼭 알아두세요",
+        "'큰손이 샀다 = 주가가 오른다'는 뜻이 아니에요. 이 글은 공개된 수급 데이터에서 흐름이 "
+        "두드러진 사실을 정리한 것이고, 투자 권유가 아닌 정보 공유 목적입니다. 투자 판단은 각자의 몫이에요.",
+        "출처: 한국거래소(KRX) 투자자별 매매동향, 금융감독원 DART 대량보유 공시",
+        "",
+        "전체 랭킹과 종목별 수급 흐름은 제가 직접 만든 사이트에서 매일 자동으로 업데이트돼요.",
         _SITE_URL,
         "",
-        "다음 거래일 데이터도 정리되는 대로 이어서 올릴게요.",
+        "여러분은 '3주 동안 매일 조금씩 사는 큰손'과 '하루에 크게 사는 큰손' 중 "
+        "어느 쪽이 더 믿음이 가세요? 댓글로 알려주세요. 다음 거래일 장바구니도 열어볼게요!",
     ]
 
     tickers = [h["ticker"] for h in highlights]
-    tags = ",".join(["사모펀드", "기관수급", "주식투자", "DART공시", *tickers[:4]])
+    names = [h["name"] for h in highlights]
+    tags = ",".join(["사모펀드", "큰손수급", "기관수급", "주식초보", "DART공시", *names[:4], *tickers[:4]])
     return title, lines, tags, date_kr
 
 
@@ -262,7 +431,7 @@ def _lines_to_html(lines: list[str]) -> str:
     for ln in lines:
         if ln == "":
             out.append("<p><br></p>")
-        elif ln.startswith("▶"):
+        elif ln.startswith(("▶", "■")):
             out.append(f"<p><b>{html.escape(ln)}</b></p>")
         else:
             out.append(f"<p>{html.escape(ln)}</p>")
@@ -454,7 +623,7 @@ def save_draft(title: str, lines: list[str], tags: str, card_path: Path | None, 
     content = (
         f"# {title}\n\n"
         f"(기준 거래일: {trade_date} / 카테고리: {_CATEGORY} / 태그: {tags})\n"
-        f"(맨 위 ▶ 로 시작하는 줄은 굵게 넣으면 좋습니다. 요약 카드 이미지는 "
+        f"(▶ / ■ 로 시작하는 줄은 굵게 넣으면 좋습니다. 요약 카드 이미지는 "
         f"맨 아래에 첨부: {card_path})\n\n"
         f"{body}\n"
     )

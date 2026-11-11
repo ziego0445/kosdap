@@ -103,7 +103,7 @@ def ensure_background() -> Path | None:
 
 
 def render_summary_card(trade_date_kr: str, highlights: list[dict], out_path: Path) -> Path | None:
-    """highlights: [{"name":, "ticker":, "card_stat":}, ...] (최대 4개).
+    """highlights: [{"name":, "ticker":, "card_big":, "card_label":}, ...] (최대 4개, card_label 없으면 card_stat).
     성공하면 out_path, 배경이 없으면(codex 실패) None."""
     try:
         from PIL import Image, ImageDraw, ImageFont
@@ -115,31 +115,43 @@ def render_summary_card(trade_date_kr: str, highlights: list[dict], out_path: Pa
     if bg_path is None:
         return None
 
-    font_title = ImageFont.truetype(str(_FONT_DIR / "malgunbd.ttf"), 62)
-    font_date = ImageFont.truetype(str(_FONT_DIR / "malgun.ttf"), 32)
+    # 2026-11-12 개편(『스틱!』 원칙 — 한눈에): 제목은 질문형 훅, 각 줄은
+    # "종목명 + 쉬운 설명(왼쪽) / 핵심 숫자 크게(오른쪽)" 2단 구성.
+    # 예전엔 공시 사유 원문을 그대로 써서 줄이 화면 끝까지 넘쳤다.
+    font_title = ImageFont.truetype(str(_FONT_DIR / "malgunbd.ttf"), 60)
+    font_date = ImageFont.truetype(str(_FONT_DIR / "malgun.ttf"), 30)
     font_name = ImageFont.truetype(str(_FONT_DIR / "malgunbd.ttf"), 40)
     font_stat = ImageFont.truetype(str(_FONT_DIR / "malgun.ttf"), 28)
+    font_big = ImageFont.truetype(str(_FONT_DIR / "malgunbd.ttf"), 52)
+    font_num = ImageFont.truetype(str(_FONT_DIR / "malgunbd.ttf"), 30)
 
     img = Image.open(bg_path).convert("RGB")
     W, H = img.size
     draw = ImageDraw.Draw(img, "RGBA")
 
-    draw.text((70, 50), "사모펀드 수급 리포트", font=font_title, fill=(255, 255, 255, 255))
-    draw.text((72, 128), f"{trade_date_kr} 거래일", font=font_date, fill=(150, 200, 220, 255))
-    draw.line([(70, 185), (W - 70, 185)], fill=(80, 140, 160, 180), width=2)
+    draw.text((70, 48), "오늘 큰손이 담은 종목은?", font=font_title, fill=(255, 255, 255, 255))
+    draw.text((72, 126), f"{trade_date_kr} · 사모펀드 장바구니 공개", font=font_date, fill=(150, 200, 220, 255))
+    draw.line([(70, 182), (W - 70, 182)], fill=(80, 140, 160, 180), width=2)
 
-    y = 220
-    row_h = 82
+    y = 206
+    row_h = 96
+    right_x = W - 70
     for i, h in enumerate(highlights[:4]):
         color = _ACCENT_COLORS[i % len(_ACCENT_COLORS)]
-        draw.rounded_rectangle([(70, y + 8), (76, y + row_h - 8)], radius=3, fill=color + (255,))
-        draw.text((96, y), h["name"], font=font_name, fill=(255, 255, 255, 255))
-        name_w = draw.textlength(h["name"], font=font_name)
-        draw.text((96 + name_w + 12, y + 6), f"({h['ticker']})", font=font_stat, fill=(160, 170, 185, 255))
-        draw.text((96, y + 44), h["card_stat"], font=font_stat, fill=color + (255,))
+        # 반투명 줄 배경 — 아래쪽 차트 그래픽과 겹쳐도 글자가 읽히게
+        draw.rounded_rectangle([(60, y), (W - 60, y + row_h - 10)], radius=14, fill=(8, 20, 40, 170))
+        draw.ellipse([(78, y + 22), (122, y + 66)], fill=color + (255,))
+        num = str(i + 1)
+        draw.text((100 - draw.textlength(num, font=font_num) / 2, y + 24), num, font=font_num, fill=(10, 25, 45, 255))
+        draw.text((142, y + 4), h["name"], font=font_name, fill=(255, 255, 255, 255))
+        label = h.get("card_label") or h.get("card_stat", "")
+        draw.text((142, y + 50), label, font=font_stat, fill=(190, 205, 220, 255))
+        big = h.get("card_big")
+        if big:
+            draw.text((right_x - 20 - draw.textlength(big, font=font_big), y + 12), big, font=font_big, fill=color + (255,))
         y += row_h
 
-    draw.text((70, H - 60), "kosdap · 매일 자동 수집", font=font_date, fill=(140, 150, 165, 220))
+    draw.text((70, H - 60), "kosdap · KRX·DART 공개 데이터 매일 자동 수집 · 투자 권유 아님", font=font_date, fill=(140, 150, 165, 220))
 
     out_path.parent.mkdir(parents=True, exist_ok=True)
     img.save(out_path)
