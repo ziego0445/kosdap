@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-10T15:05:27.361795+00:00",
+  "generatedAt": "2026-11-11T15:05:35.113173+00:00",
   "lookbackDays": 30,
   "rows": [
     {
@@ -59,7 +59,7 @@
       "market": "코스닥",
       "pefNetBuyShares": 1535268,
       "pefNetBuyRatioPercent": 10.53,
-      "pefNetBuyValueKrw": 16992403880,
+      "pefNetBuyValueKrw": 17311787880,
       "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "LB인베스트먼트",
@@ -150,7 +150,7 @@
       "market": "코스닥",
       "pefNetBuyShares": 158800,
       "pefNetBuyRatioPercent": 1.76,
-      "pefNetBuyValueKrw": 1575296000,
+      "pefNetBuyValueKrw": 1562592000,
       "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "비케이인베스트먼트"
