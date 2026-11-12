@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-11T15:05:35.113173+00:00",
+  "generatedAt": "2026-11-12T15:05:41.810613+00:00",
   "lookbackDays": 30,
   "rows": [
     {
@@ -189,6 +189,21 @@
       "latestReportReason": "특별관계 해소, 시간외대량매매에 따른 보유주식 변동, 발행회사 주식에 대한 Align Partners Korea Fund LP의 주요계약 효력 상실, 주식담보계약 주식 수 변경"
     },
     {
+      "corpCode": "00152437",
+      "corpName": "케이프",
+      "stockCode": "064820",
+      "market": "코스닥",
+      "pefNetBuyShares": 1749,
+      "pefNetBuyRatioPercent": 0.05,
+      "pefNetBuyValueKrw": 10528980,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "템퍼스인베스트먼트"
+      ],
+      "latestReportDate": "2026-11-12",
+      "latestReportReason": "특별관계자 최철은의 장내매수에 따른 변동보고"
+    },
+    {
       "corpCode": "00233653",
       "corpName": "한국토지신탁",
       "stockCode": "034830",
@@ -277,21 +292,6 @@
       ],
       "latestReportDate": "2026-10-15",
       "latestReportReason": "주식담보대출 상환"
-    },
-    {
-      "corpCode": "00409140",
-      "corpName": "이원컴포텍",
-      "stockCode": "088290",
-      "market": "코스닥",
-      "pefNetBuyShares": 0,
-      "pefNetBuyRatioPercent": 0.0,
-      "pefNetBuyValueKrw": 0,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "래인파트너스"
-      ],
-      "latestReportDate": "2026-10-13",
-      "latestReportReason": "담보 제공"
     },
     {
       "corpCode": "00109824",
