@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-13T15:05:36.713294+00:00",
+  "generatedAt": "2026-11-14T15:01:40.367415+00:00",
   "lookbackDays": 30,
   "rows": [
     {
@@ -264,21 +264,6 @@
       "latestReportReason": "보고자와 특별관계자 간 시간외대량매매에 따른 보유주식 변동, 주요계약대상 주식 수 변경"
     },
     {
-      "corpCode": "00288495",
-      "corpName": "HC홈센타",
-      "stockCode": "060560",
-      "market": "코스닥",
-      "pefNetBuyShares": 0,
-      "pefNetBuyRatioPercent": 0.0,
-      "pefNetBuyValueKrw": 0,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "에이치씨파트너스"
-      ],
-      "latestReportDate": "2026-10-15",
-      "latestReportReason": "주식담보대출 상환"
-    },
-    {
       "corpCode": "00109824",
       "corpName": "대림통상",
       "stockCode": "006570",
@@ -307,6 +292,21 @@
       ],
       "latestReportDate": "2026-11-10",
       "latestReportReason": "제11회차 전환사채 일부 상환에 따른 지분변동"
+    },
+    {
+      "corpCode": "01310773",
+      "corpName": "엔시스",
+      "stockCode": "333620",
+      "market": "코스닥",
+      "pefNetBuyShares": -650932,
+      "pefNetBuyRatioPercent": -5.37,
+      "pefNetBuyValueKrw": -2707877120,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "와이지인베스트먼트"
+      ],
+      "latestReportDate": "2026-10-30",
+      "latestReportReason": "전환사채 상환"
     }
   ]
 }
