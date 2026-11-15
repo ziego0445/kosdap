@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-14T15:01:40.367415+00:00",
+  "generatedAt": "2026-11-15T15:05:29.992493+00:00",
   "lookbackDays": 30,
   "rows": [
     {
@@ -234,6 +234,21 @@
       "latestReportReason": "주식 담보대출 계약의 변경"
     },
     {
+      "corpCode": "00109824",
+      "corpName": "대림통상",
+      "stockCode": "006570",
+      "market": "코스피",
+      "pefNetBuyShares": 0,
+      "pefNetBuyRatioPercent": 0.0,
+      "pefNetBuyValueKrw": 0,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "디앤디파트너스"
+      ],
+      "latestReportDate": "2026-11-03",
+      "latestReportReason": "주식담보계약 변경"
+    },
+    {
       "corpCode": "00506294",
       "corpName": "가비아",
       "stockCode": "079940",
@@ -262,21 +277,6 @@
       ],
       "latestReportDate": "2026-10-27",
       "latestReportReason": "보고자와 특별관계자 간 시간외대량매매에 따른 보유주식 변동, 주요계약대상 주식 수 변경"
-    },
-    {
-      "corpCode": "00109824",
-      "corpName": "대림통상",
-      "stockCode": "006570",
-      "market": "코스피",
-      "pefNetBuyShares": -45385,
-      "pefNetBuyRatioPercent": -0.3,
-      "pefNetBuyValueKrw": -83826095,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "디앤디파트너스"
-      ],
-      "latestReportDate": "2026-11-03",
-      "latestReportReason": "주식담보계약 변경"
     },
     {
       "corpCode": "01181807",
