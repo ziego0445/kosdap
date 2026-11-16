@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-15T15:05:29.992493+00:00",
+  "generatedAt": "2026-11-16T15:06:27.430283+00:00",
   "lookbackDays": 30,
   "rows": [
     {
@@ -294,19 +294,19 @@
       "latestReportReason": "제11회차 전환사채 일부 상환에 따른 지분변동"
     },
     {
-      "corpCode": "01310773",
-      "corpName": "엔시스",
-      "stockCode": "333620",
+      "corpCode": "01781999",
+      "corpName": "에임드바이오",
+      "stockCode": "0009K0",
       "market": "코스닥",
-      "pefNetBuyShares": -650932,
-      "pefNetBuyRatioPercent": -5.37,
-      "pefNetBuyValueKrw": -2707877120,
+      "pefNetBuyShares": -3008733,
+      "pefNetBuyRatioPercent": -4.85,
+      "pefNetBuyValueKrw": -55089901230,
       "pefNetBuyValueIsPartial": false,
       "pefReporters": [
-        "와이지인베스트먼트"
+        "에스엠비투자파트너스"
       ],
-      "latestReportDate": "2026-10-30",
-      "latestReportReason": "전환사채 상환"
+      "latestReportDate": "2026-11-16",
+      "latestReportReason": "조합 해산에 따른 현물배분 및 장내매도"
     }
   ]
 }
