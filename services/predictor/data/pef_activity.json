@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-17T15:05:45.300807+00:00",
+  "generatedAt": "2026-11-18T15:05:26.760114+00:00",
   "lookbackDays": 30,
   "rows": [
     {
@@ -51,6 +51,22 @@
       ],
       "latestReportDate": "2026-11-03",
       "latestReportReason": "신규상장"
+    },
+    {
+      "corpCode": "01835829",
+      "corpName": "바로팜",
+      "stockCode": "0153R0",
+      "market": "코스닥",
+      "pefNetBuyShares": 2230176,
+      "pefNetBuyRatioPercent": 18.54,
+      "pefNetBuyValueKrw": 14942179200,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "미래에셋벤처투자",
+        "케이비인베스트먼트"
+      ],
+      "latestReportDate": "2026-11-18",
+      "latestReportReason": "코스닥 상장으로 인한 신규 보고 및 장내매도"
     },
     {
       "corpCode": "01956751",
@@ -129,21 +145,6 @@
       "latestReportReason": "코스닥 신규상장으로 인한 신규보고 및 장내 매도"
     },
     {
-      "corpCode": "00360036",
-      "corpName": "백금T&A",
-      "stockCode": "046310",
-      "market": "코스닥",
-      "pefNetBuyShares": 480285,
-      "pefNetBuyRatioPercent": 2.93,
-      "pefNetBuyValueKrw": 1191810360,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "차파트너스자산운용"
-      ],
-      "latestReportDate": "2026-11-06",
-      "latestReportReason": "장내매매에 따른 보유주식 수 변동"
-    },
-    {
       "corpCode": "00579342",
       "corpName": "영광",
       "stockCode": "359410",
@@ -157,6 +158,21 @@
       ],
       "latestReportDate": "2026-11-10",
       "latestReportReason": "발행회사의 코스닥 신규상장에 따른 신규보고"
+    },
+    {
+      "corpCode": "00360036",
+      "corpName": "백금T&A",
+      "stockCode": "046310",
+      "market": "코스닥",
+      "pefNetBuyShares": 221546,
+      "pefNetBuyRatioPercent": 1.35,
+      "pefNetBuyValueKrw": 583773710,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "차파트너스자산운용"
+      ],
+      "latestReportDate": "2026-11-06",
+      "latestReportReason": "장내매매에 따른 보유주식 수 변동"
     },
     {
       "corpCode": "00117498",
@@ -292,21 +308,6 @@
       ],
       "latestReportDate": "2026-11-10",
       "latestReportReason": "제11회차 전환사채 일부 상환에 따른 지분변동"
-    },
-    {
-      "corpCode": "01781999",
-      "corpName": "에임드바이오",
-      "stockCode": "0009K0",
-      "market": "코스닥",
-      "pefNetBuyShares": -3008733,
-      "pefNetBuyRatioPercent": -4.85,
-      "pefNetBuyValueKrw": -49644094500,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "에스엠비투자파트너스"
-      ],
-      "latestReportDate": "2026-11-16",
-      "latestReportReason": "조합 해산에 따른 현물배분 및 장내매도"
     }
   ]
 }
