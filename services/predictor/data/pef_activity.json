@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-20T15:05:46.795505+00:00",
+  "generatedAt": "2026-11-21T15:05:53.794991+00:00",
   "lookbackDays": 30,
   "rows": [
     {
@@ -59,7 +59,7 @@
       "market": "코스닥",
       "pefNetBuyShares": 5671672,
       "pefNetBuyRatioPercent": 12.37,
-      "pefNetBuyValueKrw": 22998629960,
+      "pefNetBuyValueKrw": 22385563110,
       "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "DSC인베스트먼트",
@@ -212,7 +212,7 @@
       "market": "코스닥",
       "pefNetBuyShares": 268103,
       "pefNetBuyRatioPercent": 0.98,
-      "pefNetBuyValueKrw": 1887445120,
+      "pefNetBuyValueKrw": 1852591730,
       "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "프렌즈파트너스"
