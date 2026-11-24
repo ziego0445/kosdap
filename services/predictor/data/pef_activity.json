@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-22T15:06:01.700256+00:00",
+  "generatedAt": "2026-11-24T13:31:56.830013+00:00",
   "lookbackDays": 30,
   "rows": [
     {
@@ -221,6 +221,21 @@
       "latestReportReason": "장내매수로 인한 보유지분 변동보고"
     },
     {
+      "corpCode": "01042650",
+      "corpName": "큐리언트",
+      "stockCode": "115180",
+      "market": "코스닥",
+      "pefNetBuyShares": 449922,
+      "pefNetBuyRatioPercent": 0.91,
+      "pefNetBuyValueKrw": 5669017200,
+      "pefNetBuyValueIsPartial": false,
+      "pefReporters": [
+        "유암코키스톤구조혁신기업재무안정사모투자"
+      ],
+      "latestReportDate": "2026-11-23",
+      "latestReportReason": "1. 보고자 및 특별관계자의 신주인수권증서 장외매도 계약 체결      및 특별관계자의 담보 대출 일부 상환에 따른 변경 보고\n2. 특별관계자의 장내거래에 따른 변동 보고"
+    },
+    {
       "corpCode": "00117498",
       "corpName": "스틱인베스트먼트",
       "stockCode": "026890",
@@ -294,21 +309,6 @@
       ],
       "latestReportDate": "2026-11-20",
       "latestReportReason": "주식 담보대출 계약의 변경"
-    },
-    {
-      "corpCode": "00475985",
-      "corpName": "시너지이노베이션",
-      "stockCode": "048870",
-      "market": "코스닥",
-      "pefNetBuyShares": 0,
-      "pefNetBuyRatioPercent": 0.0,
-      "pefNetBuyValueKrw": 0,
-      "pefNetBuyValueIsPartial": false,
-      "pefReporters": [
-        "시너지파트너스"
-      ],
-      "latestReportDate": "2026-11-20",
-      "latestReportReason": "주식담보대출 연장"
     }
   ]
 }
