@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-24T13:32:35.271312+00:00",
+  "generatedAt": "2026-11-24T15:02:31.006010+00:00",
   "tradeDate": "2026-11-24",
   "historyTradingDaysApprox": 250,
   "rows": [
@@ -18,7 +18,7 @@
       "combinedScore": 33,
       "sampleDays": 62,
       "closePrice": 7820,
-      "volumeRatio": 0.24,
+      "volumeRatio": 0.25,
       "streakPriceChangePercent": null,
       "pefBuySharePercent": 17.9
     },
@@ -37,7 +37,7 @@
       "combinedScore": 21,
       "sampleDays": 255,
       "closePrice": 36900,
-      "volumeRatio": 0.94,
+      "volumeRatio": 0.93,
       "streakPriceChangePercent": 14.6,
       "pefBuySharePercent": 18.3
     },
@@ -75,7 +75,7 @@
       "combinedScore": 19,
       "sampleDays": 255,
       "closePrice": 9600,
-      "volumeRatio": 1.01,
+      "volumeRatio": 0.96,
       "streakPriceChangePercent": 1.2,
       "pefBuySharePercent": 0.2
     },
@@ -94,7 +94,7 @@
       "combinedScore": 17,
       "sampleDays": 255,
       "closePrice": 2545,
-      "volumeRatio": 0.95,
+      "volumeRatio": 1.0,
       "streakPriceChangePercent": null,
       "pefBuySharePercent": 22.9
     },
@@ -113,7 +113,7 @@
       "combinedScore": 16,
       "sampleDays": 255,
       "closePrice": 89000,
-      "volumeRatio": 1.26,
+      "volumeRatio": 1.22,
       "streakPriceChangePercent": null,
       "pefBuySharePercent": 4.2
     },
@@ -132,7 +132,7 @@
       "combinedScore": 16,
       "sampleDays": 255,
       "closePrice": 99800,
-      "volumeRatio": 0.68,
+      "volumeRatio": 0.71,
       "streakPriceChangePercent": 2.6,
       "pefBuySharePercent": 4.1
     },
@@ -151,7 +151,7 @@
       "combinedScore": 15,
       "sampleDays": 255,
       "closePrice": 90900,
-      "volumeRatio": 3.94,
+      "volumeRatio": 3.81,
       "streakPriceChangePercent": 38.4,
       "pefBuySharePercent": 8.1
     },
@@ -170,7 +170,7 @@
       "combinedScore": 15,
       "sampleDays": 255,
       "closePrice": 114500,
-      "volumeRatio": 1.11,
+      "volumeRatio": 1.04,
       "streakPriceChangePercent": 23.1,
       "pefBuySharePercent": 4.0
     },
@@ -189,7 +189,7 @@
       "combinedScore": 14,
       "sampleDays": 67,
       "closePrice": 26000,
-      "volumeRatio": 1.51,
+      "volumeRatio": 1.49,
       "streakPriceChangePercent": 29.4,
       "pefBuySharePercent": 3.6
     },
@@ -208,7 +208,7 @@
       "combinedScore": 13,
       "sampleDays": 255,
       "closePrice": 6550,
-      "volumeRatio": 2.4,
+      "volumeRatio": 2.24,
       "streakPriceChangePercent": 29.7,
       "pefBuySharePercent": 5.6
     },
@@ -227,7 +227,7 @@
       "combinedScore": 13,
       "sampleDays": 254,
       "closePrice": 19260,
-      "volumeRatio": 1.49,
+      "volumeRatio": 1.41,
       "streakPriceChangePercent": 20.4,
       "pefBuySharePercent": 4.7
     },
@@ -246,7 +246,7 @@
       "combinedScore": 12,
       "sampleDays": 255,
       "closePrice": 43150,
-      "volumeRatio": 1.31,
+      "volumeRatio": 1.43,
       "streakPriceChangePercent": null,
       "pefBuySharePercent": 5.6
     },
@@ -265,7 +265,7 @@
       "combinedScore": 12,
       "sampleDays": 255,
       "closePrice": 32050,
-      "volumeRatio": 1.38,
+      "volumeRatio": 1.32,
       "streakPriceChangePercent": null,
       "pefBuySharePercent": 21.6
     },
@@ -284,7 +284,7 @@
       "combinedScore": 12,
       "sampleDays": 255,
       "closePrice": 90000,
-      "volumeRatio": 1.0,
+      "volumeRatio": 0.97,
       "streakPriceChangePercent": 2.0,
       "pefBuySharePercent": 32.5
     },
@@ -303,7 +303,7 @@
       "combinedScore": 11,
       "sampleDays": 255,
       "closePrice": 127400,
-      "volumeRatio": 0.84,
+      "volumeRatio": 0.82,
       "streakPriceChangePercent": null,
       "pefBuySharePercent": 6.1
     },
@@ -322,7 +322,7 @@
       "combinedScore": 11,
       "sampleDays": 255,
       "closePrice": 21300,
-      "volumeRatio": 1.07,
+      "volumeRatio": 1.05,
       "streakPriceChangePercent": 5.2,
       "pefBuySharePercent": 0.5
     },
@@ -341,7 +341,7 @@
       "combinedScore": 11,
       "sampleDays": 255,
       "closePrice": 22100,
-      "volumeRatio": 40.26,
+      "volumeRatio": 39.66,
       "streakPriceChangePercent": 0.9,
       "pefBuySharePercent": 0.0
     },
@@ -360,7 +360,7 @@
       "combinedScore": 10,
       "sampleDays": 255,
       "closePrice": 143200,
-      "volumeRatio": 2.24,
+      "volumeRatio": 2.28,
       "streakPriceChangePercent": 5.6,
       "pefBuySharePercent": 1.8
     },

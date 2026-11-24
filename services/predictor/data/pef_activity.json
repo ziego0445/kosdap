@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-24T13:31:56.830013+00:00",
+  "generatedAt": "2026-11-24T15:01:52.051471+00:00",
   "lookbackDays": 30,
   "rows": [
     {
@@ -59,7 +59,7 @@
       "market": "코스닥",
       "pefNetBuyShares": 5671672,
       "pefNetBuyRatioPercent": 12.37,
-      "pefNetBuyValueKrw": 24586698120,
+      "pefNetBuyValueKrw": 22385563110,
       "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "DSC인베스트먼트",
@@ -151,8 +151,8 @@
       "market": "코스닥",
       "pefNetBuyShares": 685680,
       "pefNetBuyRatioPercent": 5.68,
-      "pefNetBuyValueKrw": 0,
-      "pefNetBuyValueIsPartial": true,
+      "pefNetBuyValueKrw": 7329919200,
+      "pefNetBuyValueIsPartial": false,
       "pefReporters": [
         "심본투자파트너스",
         "심본투자파트너스 1호 투자조합"

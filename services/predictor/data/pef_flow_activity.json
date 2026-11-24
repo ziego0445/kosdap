@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-24T13:32:13.686826+00:00",
+  "generatedAt": "2026-11-24T15:02:08.780893+00:00",
   "tradeDate": "2026-11-24",
   "historyTradingDaysApprox": 250,
   "rows": [
@@ -15,7 +15,7 @@
       "marketCapKrw": 1149380913950,
       "netBuyPercentOfCap": 0.101,
       "closePrice": 32050,
-      "volumeRatio": 1.38,
+      "volumeRatio": 1.32,
       "streakPriceChangePercent": null,
       "pefBuySharePercent": 21.6
     },
@@ -31,7 +31,7 @@
       "marketCapKrw": 2015922024000,
       "netBuyPercentOfCap": 0.327,
       "closePrice": 90900,
-      "volumeRatio": 3.94,
+      "volumeRatio": 3.81,
       "streakPriceChangePercent": 28.2,
       "pefBuySharePercent": 8.1
     },
@@ -47,7 +47,7 @@
       "marketCapKrw": 93067353312,
       "netBuyPercentOfCap": 0.234,
       "closePrice": 1888,
-      "volumeRatio": 1.96,
+      "volumeRatio": 1.64,
       "streakPriceChangePercent": 41.4,
       "pefBuySharePercent": 17.0
     },
@@ -63,7 +63,7 @@
       "marketCapKrw": 8177287708200,
       "netBuyPercentOfCap": 0.031,
       "closePrice": 139800,
-      "volumeRatio": 1.0,
+      "volumeRatio": 0.99,
       "streakPriceChangePercent": 10.8,
       "pefBuySharePercent": 12.3
     },
@@ -79,7 +79,7 @@
       "marketCapKrw": 1285559782000,
       "netBuyPercentOfCap": 0.022,
       "closePrice": 26000,
-      "volumeRatio": 1.51,
+      "volumeRatio": 1.49,
       "streakPriceChangePercent": 29.4,
       "pefBuySharePercent": 3.6
     },
@@ -95,7 +95,7 @@
       "marketCapKrw": 8827194820000,
       "netBuyPercentOfCap": 0.048,
       "closePrice": 620000,
-      "volumeRatio": 1.42,
+      "volumeRatio": 1.38,
       "streakPriceChangePercent": 1.6,
       "pefBuySharePercent": 5.7
     },
@@ -111,7 +111,7 @@
       "marketCapKrw": 23325080161600,
       "netBuyPercentOfCap": 0.014,
       "closePrice": 143200,
-      "volumeRatio": 2.24,
+      "volumeRatio": 2.28,
       "streakPriceChangePercent": 5.6,
       "pefBuySharePercent": 1.8
     },
@@ -127,7 +127,7 @@
       "marketCapKrw": 993433358900,
       "netBuyPercentOfCap": 0.236,
       "closePrice": 33050,
-      "volumeRatio": 5.25,
+      "volumeRatio": 3.43,
       "streakPriceChangePercent": 46.9,
       "pefBuySharePercent": 11.9
     },
@@ -143,7 +143,7 @@
       "marketCapKrw": 2583399126000,
       "netBuyPercentOfCap": 0.01,
       "closePrice": 37000,
-      "volumeRatio": 1.75,
+      "volumeRatio": 1.68,
       "streakPriceChangePercent": -9.0,
       "pefBuySharePercent": 7.6
     },
@@ -159,7 +159,7 @@
       "marketCapKrw": 474463438350,
       "netBuyPercentOfCap": 0.048,
       "closePrice": 23650,
-      "volumeRatio": 1.49,
+      "volumeRatio": 1.48,
       "streakPriceChangePercent": 2.8,
       "pefBuySharePercent": 4.4
     },
@@ -175,7 +175,7 @@
       "marketCapKrw": 992879232120,
       "netBuyPercentOfCap": 0.093,
       "closePrice": 19260,
-      "volumeRatio": 1.49,
+      "volumeRatio": 1.41,
       "streakPriceChangePercent": 31.5,
       "pefBuySharePercent": 4.7
     },
@@ -191,7 +191,7 @@
       "marketCapKrw": 605927430000,
       "netBuyPercentOfCap": 0.062,
       "closePrice": 90000,
-      "volumeRatio": 1.0,
+      "volumeRatio": 0.97,
       "streakPriceChangePercent": 1.7,
       "pefBuySharePercent": 32.5
     },
@@ -207,7 +207,7 @@
       "marketCapKrw": 685729537000,
       "netBuyPercentOfCap": 0.092,
       "closePrice": 95500,
-      "volumeRatio": 0.65,
+      "volumeRatio": 0.64,
       "streakPriceChangePercent": 22.6,
       "pefBuySharePercent": 5.5
     },
@@ -223,7 +223,7 @@
       "marketCapKrw": 692385252750,
       "netBuyPercentOfCap": 0.07,
       "closePrice": 41550,
-      "volumeRatio": 0.63,
+      "volumeRatio": 0.61,
       "streakPriceChangePercent": 29.4,
       "pefBuySharePercent": 4.7
     },
@@ -239,7 +239,7 @@
       "marketCapKrw": 32381815828000,
       "netBuyPercentOfCap": 0.001,
       "closePrice": 628000,
-      "volumeRatio": 0.63,
+      "volumeRatio": 0.64,
       "streakPriceChangePercent": 0.8,
       "pefBuySharePercent": 1.9
     },
@@ -255,7 +255,7 @@
       "marketCapKrw": 346021788700,
       "netBuyPercentOfCap": 0.323,
       "closePrice": 6550,
-      "volumeRatio": 2.4,
+      "volumeRatio": 2.24,
       "streakPriceChangePercent": null,
       "pefBuySharePercent": 5.6
     },
@@ -271,7 +271,7 @@
       "marketCapKrw": 789805934400,
       "netBuyPercentOfCap": 0.047,
       "closePrice": 2545,
-      "volumeRatio": 0.95,
+      "volumeRatio": 1.0,
       "streakPriceChangePercent": null,
       "pefBuySharePercent": 22.9
     },
@@ -287,7 +287,7 @@
       "marketCapKrw": 327600784420,
       "netBuyPercentOfCap": 0.363,
       "closePrice": 7210,
-      "volumeRatio": 2.76,
+      "volumeRatio": 2.75,
       "streakPriceChangePercent": null,
       "pefBuySharePercent": 9.4
     },
@@ -303,7 +303,7 @@
       "marketCapKrw": 482579724880,
       "netBuyPercentOfCap": 0.123,
       "closePrice": 7480,
-      "volumeRatio": 2.3,
+      "volumeRatio": 2.34,
       "streakPriceChangePercent": null,
       "pefBuySharePercent": 13.2
     },
@@ -319,7 +319,7 @@
       "marketCapKrw": 1468630505790,
       "netBuyPercentOfCap": 0.035,
       "closePrice": 8930,
-      "volumeRatio": 1.51,
+      "volumeRatio": 1.41,
       "streakPriceChangePercent": null,
       "pefBuySharePercent": 1.6
     }
